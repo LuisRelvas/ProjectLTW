@@ -16,7 +16,7 @@ DROP TABLE IF EXISTS ticketFaq;
 
 CREATE TABLE user(
 	user_id INTEGER,
-	role INTEGER,
+	role INTEGER NOT NULL,
 	username TEXT NOT NULL,
 	name TEXT NOT NULL,
 	email TEXT NOT NULL,

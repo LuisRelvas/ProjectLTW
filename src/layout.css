@@ -1,0 +1,66 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-columns: [start] 1fr [middle] 4fr [end];
+    grid-template-rows: [start] 1fr [p1] 1fr [p2] 1fr [p3] 2fr [end];
+  }
+  
+  body > header {
+    grid-column: start / end;
+    background-color: #8C2D19;
+    margin: 0;
+    padding: 50px;
+    text-align: center;
+    display: grid; 
+    grid-template-columns: 1fr auto;
+    grid-row-start: start;
+    grid-row-end: p1;
+  }
+  
+  body > #links {
+    background-color: grey;
+    grid-column-start: start; 
+    grid-column-end: middle;
+    grid-row-start: p1;
+    grid-row-end: end;
+  }
+  
+  body > #p1 {
+    grid-column-start: middle;
+    grid-column-end: end;
+    grid-row-start: p1;
+    grid-row-end: p2;
+  }
+  
+  body > #p2 {
+    grid-column-start: middle;
+    grid-column-end: end;
+    grid-row-start: p2;
+    grid-row-end: p2; 
+  }
+  
+  body > #p3 {
+    grid-column-start: middle;
+    grid-column-end: end;
+    grid-row-start: p3;
+    grid-row-end: end;
+  }
+
+  body > #links a {
+    color: black; 
+  }
+
+  body > #links a:hover {
+    color: #8C2D19; 
+  }
+
+ img { 
+    padding: 1.5em;
+    width: 300px;
+    height: auto;
+    grid-column-start: start;
+    grid-row-start: start;
+    grid-row-end: p1;
+ }
+  

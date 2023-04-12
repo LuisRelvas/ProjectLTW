@@ -70,7 +70,6 @@ CREATE TABLE ticketHashtag(
 );
 
 CREATE TABLE reply( 
-	reply_id INTEGER,
 	ticket_id INTEGER,
 	department_id INTEGER,
 	FOREIGN KEY (ticket_id) REFERENCES ticket(ticket_id), 

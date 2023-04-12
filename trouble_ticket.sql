@@ -17,9 +17,9 @@ DROP TABLE IF EXISTS ticketFaq;
 CREATE TABLE user(
 	user_id INTEGER,
 	role INTEGER NOT NULL,
-	username TEXT NOT NULL,
+	username TEXT NOT NULL UNIQUE,
 	name TEXT NOT NULL,
-	email TEXT NOT NULL,
+	email TEXT NOT NULL UNIQUE,
 	password TEXT NOT NULL,
 	CONSTRAINT user_pk PRIMARY KEY(user_id)
 );
@@ -29,7 +29,7 @@ CREATE TABLE ticket(
 	user_id INTEGER,
 	department_id INTEGER, 
 	status_id INTEGER,
-	tittle TEXT NOT NULL,
+	title TEXT NOT NULL,
 	description TEXT NOT NULL,
 	initial_date DATE NOT NULL,
 	FOREIGN KEY(user_id) REFERENCES user(user_id),

@@ -18,7 +18,7 @@ body {
     grid-row-end: p1;
   }
   
-  body > #links {
+  body > #menu {
     background-color: grey;
     grid-column-start: start; 
     grid-column-end: middle;
@@ -40,7 +40,8 @@ body {
     grid-row-end: p2; 
   }
   
-  body > #p3 {
+  body > #links  {
+    
     grid-column-start: middle;
     grid-column-end: end;
     grid-row-start: p3;
@@ -63,4 +64,50 @@ body {
     grid-row-start: start;
     grid-row-end: p1;
  }
+
+ #menu ul {
+  margin: 0;
+  padding: 0;
+}
+
+#menu li {
+  
+  text-align: center;
+
+  list-style-type: none;
+
+  padding: 1em 0;
+}
+
+#menu li a{
+  color: black;
+  text-decoration: none;
+}
+
+#menu li:hover {
+  background-color: grey;
+}
+
+#menu li:hover a{
+  color:rgb(173, 162, 43);
+  text-decoration: underline;
+}
+
+#hamburger, .hamburger {
+  display: none;
+}
+
+#menu li:nth-child(1) {
+  border-top: 5px solid #e1493e;
+}
+
+#menu li:nth-child(2) {
+  border-top: 5px solid #8aba56;
+}
+
+#menu li:nth-child(3) {
+  border-top: 5px solid #5b4282;
+}
+
+
   

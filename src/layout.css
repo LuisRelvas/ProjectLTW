@@ -19,6 +19,7 @@ body {
   }
   
   body > #menu {
+    border-radius: 1%;
     width: 250px;
     background-color: grey;
     grid-column-start: start; 
@@ -42,10 +43,10 @@ body {
   }
   
   body > #links  {
-    
-    grid-column-start: middle;
+    background-color: grey;
+    grid-column-start: end;
     grid-column-end: end;
-    grid-row-start: p3;
+    grid-row-start: p1;
     grid-row-end: end;
   }
 

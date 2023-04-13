@@ -19,6 +19,7 @@ body {
   }
   
   body > #menu {
+    width: 250px;
     background-color: grey;
     grid-column-start: start; 
     grid-column-end: middle;
@@ -109,5 +110,11 @@ body {
   border-top: 5px solid #5b4282;
 }
 
-
-  
+body > #but { 
+  padding : 3em;
+  background-color: #8C2D19;
+  grid-column-start: end;
+  grid-column-end: end;
+  grid-row-start: start; 
+  grid-row-end: start;
+}

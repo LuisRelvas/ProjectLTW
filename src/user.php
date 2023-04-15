@@ -1,7 +1,7 @@
 <?php function getID($username) {
     global $dbh;
     try {
-      $stmt = $dbh->prepare('SELECT ID FROM user WHERE username = ?');
+      $stmt = $dbh->prepare('SELECT user_id FROM user WHERE username = ?');
       $stmt->execute(array($username));
       if($row = $stmt->fetch()){
         return $row['ID'];
@@ -26,10 +26,9 @@
 
   function isLoginCorrect($username, $password) {
     global $dbh;
-    $passwordhashed = hash('sha256', $password);
     try {
       $stmt = $dbh->prepare('SELECT * FROM user WHERE username = ? AND password = ?');
-      $stmt->execute(array($username, $passwordhashed));
+      $stmt->execute(array($username,$password));
       if($stmt->fetch() !== false) {
         return getID($username);
       }

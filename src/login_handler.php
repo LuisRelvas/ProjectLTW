@@ -1,13 +1,14 @@
 <?php
 include_once('init.php');
 include_once('user.php');
-if(($userID = isLoginCorrect($_POST['username'], $_POST['password'])) != -1){
+if(($user_id = isLoginCorrect($_POST['username'], $_POST['password'])) != -1){
 
-    echo "Login Successful";
+    setCurrentUser($user_id, $_POST['username']);
+    header('Location: register.php');
 	
 
 } else {
-	echo "Login Failed";
+	echo "1234";
 }
 
 ?>

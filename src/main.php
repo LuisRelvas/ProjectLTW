@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html lang="en-US">
-
-<head>
+<?php
+  $db = new PDO('sqlite:trouble_ticket.db');
+  $stmt = $db->prepare('SELECT * FROM user');
+  $stmt->execute();
+  $articles = $stmt->fetchAll();
+?>
+  <head>
     <title>Trouble Ticket</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="aux.css">
 </head>
-
 <body>
     <header>
+      <img src="/home/luisvrelvas/Documentos/project-ltw01g07/img/img1.jpg" alt="Example Image">
         <h1>Trouble Ticket FEUP</h1>
+        <div id = "but">
+          <form>
+              <button formaction="login.php" formmethod="post" type="submit">
+                Login
+              </button>
+              <button formaction="register.php" formmethod="post" type="submit">
+                Register
+              </button>
+            </form>
+            </div>
     </header>
     <div id="p1">
         <h2>O que é um trouble ticket ?</h2>
@@ -35,29 +50,7 @@
             <li><a href="https://www.up.pt/portal/pt/">Página Inicial UP</a></li>
         </ul></nav>
     </div>
-    <div id = "but">
-    <form>
-        <button formaction="login.html" formmethod="post" type="submit">
-          Login
-        </button>
-        <button formaction="register.html" formmethod="post" type="submit">
-          Register
-        </button>
-      </form>
-      </div>
-
-    <nav id="menu"> 
-        
-        <input type="checkbox" id="hamburger"> 
-        <label class="hamburger" for="hamburger"></label>
-  
-        <ul>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="about.html">SOBRE NÓS</a></li>
-          <li><a href="servicos.html">SERVIÇOS</a></li>
-        </ul>
-      </nav>
-    <img src="/home/luisvrelvas/Documentos/project-ltw01g07/img/img1.jpg" alt="Example Image">
 </body>
-
 </html>
+
+

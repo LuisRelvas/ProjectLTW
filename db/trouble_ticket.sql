@@ -91,3 +91,23 @@ CREATE TABLE ticketFaq(
 	FOREIGN KEY (faq_id) REFERENCES faq(faq_id),
 	CONSTRAINT ticketFaq_pk PRIMARY KEY (ticket_id, faq_id)
 );
+
+INSERT INTO user(user_id, role, username, name, email, password) VALUES (0, 0, 'andyDC', 'Angy Pita', 'angy.da.cruz@hotmail.com', '1234');
+INSERT INTO user(user_id, role, username, name, email, password) VALUES (1, 0, 'dawnofdom', 'Domingos Santos', 'domingosjsmsantos@gmail.com', '1234');
+INSERT INTO user(user_id, role, username, name, email, password) VALUES (2, 0, 'luisrelvas', 'Luis Relvas', 'luisrelvas@hotmail.com', '1234');
+INSERT INTO department(department_id, name) VALUES (0, 'IT');
+INSERT INTO department(department_id, name) VALUES (1, 'HR');
+-- Add more department entries as needed
+
+INSERT INTO status(status_id, name, open, assigned, closed) VALUES (0, 'Open', 1, 0, 0);
+INSERT INTO status(status_id, name, open, assigned, closed) VALUES (1, 'Assigned', 0, 1, 0);
+INSERT INTO status(status_id, name, open, assigned, closed) VALUES (2, 'Closed', 0, 0, 1);
+-- Add more status entries as needed
+
+INSERT INTO hashtag(hashtag_id, tag) VALUES (0, 'urgent');
+INSERT INTO hashtag(hashtag_id, tag) VALUES (1, 'important');
+-- Add more hashtag entries as needed
+
+INSERT INTO faq(faq_id, question, answer) VALUES (0, 'What is the ticket submission process?', 'You can submit a ticket through the ticket submission form on the website.');
+INSERT INTO faq(faq_id, question, answer) VALUES (1, 'How do I reset my password?', 'You can reset your password by clicking on the "Forgot Password" link on the login page.');
+-- Add more faq entries as needed

@@ -1,0 +1,63 @@
+body {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin: 0; /* Consolidate margin shorthand */
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px;
+    background-color: #8C2D19;
+}
+
+header > img {
+    width: 10%;
+    height: 10%;
+    padding-left: 1em;
+    padding-top: 0.5em;
+}
+
+#but {
+    padding-top: 1.5em;
+}
+
+/* Button container styles */
+form {
+    display: inline-block;
+}
+
+button {
+    background-color: #0066cc;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin-right: 8px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #004c99;
+}
+
+/* Custom styles for the Login button */
+button[formaction="login.html"] {
+    background-color: #ff7f50;
+}
+
+button[formaction="login.html"]:hover {
+    background-color: #ff6347;
+}
+
+/* Custom styles for the Register button */
+button[formaction="register.html"] {
+    background-color: #7cbb00;
+}
+
+button[formaction="register.html"]:hover {
+    background-color: #62a603;
+}

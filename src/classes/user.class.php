@@ -23,7 +23,11 @@
       $stmt = $db->prepare('SELECT * FROM user WHERE email = ?');
       $stmt->execute(array(strtolower($email)));
       $user = $stmt->fetch();
-      if ($user !== false) {
+      echo var_dump($email);
+      echo var_dump($password);
+      echo var_dump($user['email']);
+      echo var_dump($user['password']);
+      if ($user !== false && $email == $user['email'] && $password == $user['password']) {
         return new User(
           intval($user['user_id']),
           $user['role'],

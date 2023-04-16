@@ -19,8 +19,7 @@
 
     unset($_SESSION['input']['email login']);
     unset($_SESSION['input']['password login']);
-    $session->addMessage('success', "Login efetuado com sucesso. Bem-vindo de volta, " . $user->getName() . "!");
-    header('Location: ../pages/main.php');
+    echo "login successful";
 
   } else {
     echo "Login failed.";

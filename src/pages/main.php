@@ -1,16 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<?php
-  $db = new PDO('sqlite:trouble_ticket.db');
-  $stmt = $db->prepare('SELECT * FROM user');
-  $stmt->execute();
-  $articles = $stmt->fetchAll();
-?>
   <head>
     <title>Trouble Ticket</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="aux.css">
+    <link rel="stylesheet" href="../css/aux.css">
 </head>
 <body>
     <header>

@@ -27,7 +27,7 @@
       echo var_dump($password);
       echo var_dump($user['email']);
       echo var_dump($user['password']);
-      if ($user !== false && $email == $user['email'] && $password == $user['password']) {
+      if ($user !== false && $email == $user['email'] && ($password == $user['password'] || password_verify($password, $user['password']))) {
         return new User(
           intval($user['user_id']),
           $user['role'],

@@ -22,7 +22,8 @@
     echo "login successful";
 
   } else {
-    echo "login failed";
+   $user_id = $user->$user_id;
+    echo "Login successful. User ID: " . $_POST['password'];
     
   }
 ?>

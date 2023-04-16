@@ -38,6 +38,24 @@
       $names = explode(" ", $this->name);
       return count($names) > 1 ? $names[0] . " " . $names[count($names)-1] : $names[0];
     }
+
+    static function getUser(PDO $db, int $user_id) : User {
+
+      $stmt = $db->prepare('SELECT user_id,role,username, name, email, password FROM user WHERE user_id = ?');
+      $stmt->execute(array($user_id));
+  
+      $user = $stmt->fetch();
+  
+      return new User(
+          intval($user['user_id']),
+          $user['role'],
+          $user['username'],
+          $user['name'],
+          $user['email'],
+          $user['password'],
+          
+      );
+    }  
 }
 
 ?>

@@ -11,7 +11,7 @@
   $db = getDatabaseConnection();
   $user = User::getUserWithPassword($db, $_POST['email'], $_POST['password']);
   
-  if ($user) {
+  if ($user !== null) {
 
     $_SESSION['user_id'] = $user->user_id;
     $_SESSION['name'] = $user->getName();
@@ -22,6 +22,7 @@
     echo "login successful";
 
   } else {
-    echo "Login failed.";
+    echo "login failed";
+    
   }
 ?>

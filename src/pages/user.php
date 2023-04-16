@@ -1,4 +1,5 @@
 <?php
+require_once(dirname(__DIR__).'/pages/main.php');
 require_once(dirname(__DIR__).'/pages/login.php');
 require_once(dirname(__DIR__).'/classes/session.class.php');
   declare(strict_types = 1);

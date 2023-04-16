@@ -12,29 +12,15 @@
         <h1>Register Page</h1>
     </header>
 <div id = "form">
-    <form action="action_page.php">
-        <div class="container">
-          <h1>Register</h1>
-          <p>Please fill in this form to create an account.</p>
-          
-          <div id = "e1">
-          <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" id="email" required></div>
-          <div id = "e2">
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" id="psw" required></div>
-          <div id = "e3">
-          <label for="psw-repeat"><b>Repeat Password</b></label>
-          <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required></div>
-          
-      
-          <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-          <button type="submit" class="registerbtn">Register</button>
-        </div>
-      
-        <div class="container signin">
-          <p>Already have an account? <a href="#">Sign in</a>.</p>
-        </div>
+    <form action="../actions/addUser.action.php" method ="post">
+          <label>id: <input type="text" name = "user_id" required="required" value="<?=htmlentities($_SESSION['input']['user_id newUser'])?>"></label>
+          <label>username: <input type="text" name="username" required="required" value="<?=htmlentities($_SESSION['input']['username newUser'])?>"></label>
+          <label>name: <input type="text" name="name" required="required" value="<?=$_SESSION['input']['name newUser']?>"></label>
+          <label>Email: <input type="email" name="email" required="required" value="<?=htmlentities($_SESSION['input']['email newUser'])?>"></label>
+          <label>Password: <input type="password" name="password1" required="required" value="<?=htmlentities($_SESSION['input']['password1 newUser'])?>"></label>
+          <label>Confirme password: <input type="password" name="password2" required="required" value="<?=htmlentities($_SESSION['input']['password2 newUser'])?>"></label>
+          <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+          <input id="button" type="submit" value="Concluir registo">
       </form>
 </div>
 </body>

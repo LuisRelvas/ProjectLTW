@@ -11,12 +11,10 @@
   $db = getDatabaseConnection();
   $user = User::getUserWithPassword($db, $_POST['email'], $_POST['password']);
   
-  if ($user !== null) {
+  if ($user) {
 
-    $_SESSION['user_id'] = $user->user_id;
-    $_SESSION['name'] = $user->getName();
     
-
+    $_SESSION['name'] = $user->getName();
     unset($_SESSION['input']['email login']);
     unset($_SESSION['input']['password login']);
     echo "login successful";

@@ -34,6 +34,10 @@
         );
       } else return null;
     }
+
+    public function getId() : int {
+      return $this->user_id;
+    }
     public function getName() : string {
       $names = explode(" ", $this->name);
       return count($names) > 1 ? $names[0] . " " . $names[count($names)-1] : $names[0];

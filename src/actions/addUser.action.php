@@ -22,6 +22,6 @@
     }
 
     unset($_SESSION['input']);
-
+    header('Location: ../pages/login.php');
     echo "User added successfully";
 ?>

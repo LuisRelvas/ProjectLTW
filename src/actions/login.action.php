@@ -8,9 +8,11 @@
   $_SESSION['input']['email login'] = htmlentities($_POST['email']);
   $_SESSION['input']['password login'] = htmlentities($_POST['password']);
 
-  $db = getDatabaseConnection();
-  $user = User::getUserWithPassword($db, $_POST['email'], $_POST['password']);
   
+
+  $db = getDatabaseConnection();
+ 
+  $user = User::getUserWithPassword($db, $_POST['email'], $_POST['password']);
   if ($user) {
 
     

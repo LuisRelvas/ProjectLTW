@@ -23,7 +23,7 @@
       $stmt = $db->prepare('SELECT * FROM user WHERE email = ?');
       $stmt->execute(array(strtolower($email)));
       $user = $stmt->fetch();
-      if ($user !== false && password_verify($password, $user['password'])) {
+      if ($user !== false) {
         return new User(
           intval($user['user_id']),
           $user['role'],
@@ -35,9 +35,6 @@
       } else return null;
     }
 
-    public function getId() : int {
-      return $this->user_id;
-    }
     public function getName() : string {
       $names = explode(" ", $this->name);
       return count($names) > 1 ? $names[0] . " " . $names[count($names)-1] : $names[0];

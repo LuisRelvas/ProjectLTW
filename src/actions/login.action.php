@@ -17,11 +17,10 @@
     $_SESSION['name'] = $user->getName();
     unset($_SESSION['input']['email login']);
     unset($_SESSION['input']['password login']);
-    echo "login successful";
-
+    echo "Bem vindo de volta " . $user->getName();
   } else {
   
-    echo "Login failed";
+    echo "Login inválido, por favor introduz as credencias corretas"; 
     
   }
 ?>

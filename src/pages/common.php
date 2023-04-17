@@ -1,5 +1,7 @@
 <?php 
     declare(strict_types = 1);
+    require_once(dirname(__DIR__).'/database/connection.db.php');
+    require_once(dirname(__DIR__).'/classes/user.class.php');
     function drawHeader() { ?>
         <!DOCTYPE html>
         <html lang="PT-pt">
@@ -68,12 +70,37 @@
                 <h2>Voltar para a <a href="../pages/register.php">página principal</a></h2>  
             </section> 
         <?php } 
+
+        function drawUser(int $user_id) { 
+        $db = getDatabaseConnection();
+        $user = User::getUser($db,$user_id);
+        ?><h2><?php echo $user->user_id ?></h2><?php
+        ?><h2><?php echo $user->name ?></h2><?php
+        ?><h2><?php echo $user->username ?></h2><?php
+        ?><h2><?php echo $user->email ?></h2><?php
+        if($user->role == 0) { 
+            ?><h2><?php echo 'Admin' ?></h2><?php
+        }
+        else if($user->role == 1) { 
+            ?><h2><?php echo 'Agent' ?></h2><?php
+        }
+        else {
+            ?><h2><?php echo 'User' ?></h2><?php
+        }
+        
+        ?>
+        <section id="more"><?php
+        
+        } 
+
+
 function drawMessages(Session $session) { ?>
-<section id="messages">
-    <?php foreach ($session->getMessages() as $message) { ?>
-        <article class="<?=$message['type']?>">
-        <i class='fas fa-exclamation-circle'></i>
-        <?=$message['text']?>
-        </article>
-    <?php } ?> </section> 
+    <section id="messages">
+        <?php foreach ($session->getMessages() as $message) { ?>
+            <article class="<?=$message['type']?>">
+                <i class='fas fa-exclamation-circle'></i>
+            <?=$message['text']?>
+            </article>
+        <?php } ?> 
+    </section> 
 <?php } ?>

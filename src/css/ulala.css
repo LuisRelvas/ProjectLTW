@@ -1,0 +1,9 @@
+#banner { 
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    height: 100vh;
+    flex-direction: column-reverse;
+    
+    }

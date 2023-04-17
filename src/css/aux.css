@@ -45,19 +45,19 @@ button:hover {
 }
 
 /* Custom styles for the Login button */
-button[formaction="login.html"] {
-    background-color: #ff7f50;
+button[formaction="login.php"] {
+    background-color: #ff7f50;/*Change from '.html' to '.php' to match the form files.*/
 }
 
-button[formaction="login.html"]:hover {
+button[formaction="login.php"]:hover {
     background-color: #ff6347;
 }
 
 /* Custom styles for the Register button */
-button[formaction="register.html"] {
+button[formaction="register.php"] {
     background-color: #7cbb00;
 }
 
-button[formaction="register.html"]:hover {
+button[formaction="register.php"]:hover {
     background-color: #62a603;
 }

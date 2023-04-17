@@ -17,7 +17,9 @@
     $_SESSION['name'] = $user->getName();
     unset($_SESSION['input']['email login']);
     unset($_SESSION['input']['password login']);
-    echo "Bem vindo de volta " . $user->getName();
+    $session->addMessage('success', "Login efetuado com sucesso. Bem-vindo de volta, " . $user->getName() . "!");
+    header('Location: ../pages/index.php');
+    
   } else {
   
     echo "Login inválido, por favor introduz as credencias corretas"; 

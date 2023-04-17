@@ -60,6 +60,16 @@ input[type="text"], input[type="password"] {
     margin-bottom: 10px;
 }
 
+/*Text and password input style when focused*/
+input[type="text"]:focus, input[type="paswsword"]:focus{
+    outline: none;
+    border-color: #8C2D19;
+    box-shadow: 0 0 5px #8C2D19;
+}
+/*Text and password input style when hovered over*/
+input[type="text"]:focus, input[type="password"]:hover {
+    border-color: #8C2D19;
+}
 
 .registerbtn {
     background-color: #8C2D19;
@@ -73,7 +83,10 @@ input[type="text"], input[type="password"] {
     border-radius: 5px;
     font-size: 16px;
 }
-
+/* Style for register button when hovered over */
+.registerbtn:hover {
+    background-color: #a8482c;
+}
 
 .signin {
     text-align: center;

@@ -15,24 +15,23 @@ DROP TABLE IF EXISTS ticketFaq;
 
 
 CREATE TABLE user(
-	user_id INTEGER,
+	id INTEGER,
 	role INTEGER DEFAULT 2,
 	username TEXT NOT NULL,
 	name TEXT NOT NULL,
 	email TEXT NOT NULL,
 	password TEXT NOT NULL,
-	CONSTRAINT user_pk PRIMARY KEY(user_id)
-);
+	CONSTRAINT user_pk PRIMARY KEY(id));
 
 CREATE TABLE ticket(
 	ticket_id INTEGER,
-	user_id INTEGER,
+	id INTEGER,
 	department_id INTEGER, 
 	status_id INTEGER,
 	tittle TEXT NOT NULL,
 	description TEXT NOT NULL,
 	initial_date DATE NOT NULL,
-	FOREIGN KEY(user_id) REFERENCES user(user_id),
+	FOREIGN KEY(id) REFERENCES user(id),
 	FOREIGN KEY(department_id) REFERENCES department(department_id),
 	FOREIGN KEY(status_id) REFERENCES status(status_id),
 	CONSTRAINT ticket_pk PRIMARY KEY(ticket_id)
@@ -92,29 +91,23 @@ CREATE TABLE ticketFaq(
 	CONSTRAINT ticketFaq_pk PRIMARY KEY (ticket_id, faq_id)
 );
 
-INSERT INTO user(user_id, role, username, name, email, password) VALUES (0, 0, 'andyDC', 'Angy Pita', 'angy.da.cruz@hotmail.com', '1234');
-INSERT INTO user(user_id, role, username, name, email, password) VALUES (1, 0, 'dawnofdom', 'Domingos Santos', 'domingosjsmsantos@gmail.com', '1234');
-INSERT INTO user(user_id, role, username, name, email, password) VALUES (2, 0, 'luisrelvas', 'Luis Relvas', 'luisrelvas@hotmail.com', '1234');
+INSERT INTO user(id, role, username, name, email, password) VALUES (0, 0, 'andyDC', 'Angy Pita', 'angy.da.cruz@hotmail.com', '1234');
+INSERT INTO user(id, role, username, name, email, password) VALUES (1, 0, 'dawnofdom', 'Domingos Santos', 'domingosjsmsantos@gmail.com', '1234');
+INSERT INTO user(id, role, username, name, email, password) VALUES (2, 0, 'luisrelvas', 'Luis Relvas', 'luisrelvas@hotmail.com', '1234');
 
-INSERT INTO user(user_id, role, username, name, email, password) VALUES (3, 1, 'lucianas', 'Luciana Silva', 'lucianasilva@gmail.com', '1234');
-INSERT INTO user(user_id, role, username, name, email, password) VALUES (4, 1, 'josemiguel', 'José Miguel', 'josemiguel@gmail.com', '1234');
-INSERT INTO user(user_id, role, username, name, email, password) VALUES (5, 1, 'andreasousa', 'Andréa Sousa', 'andreasousa@gmail.com', '1234');
-INSERT INTO user(user_id, role, username, name, email, password) VALUES (6, 1, 'carolinap', 'Carolina Pinto', 'carolinapinto@gmail.com', '1234');
-INSERT INTO user(user_id, role, username, name, email, password) VALUES (7, 1, 'pedroalves', 'Pedro Alves', 'pedroalves@gmail.com', '1234');
+INSERT INTO user(id, role, username, name, email, password) VALUES (3, 1, 'lucianas', 'Luciana Silva', 'lucianasilva@gmail.com', '1234');
+INSERT INTO user(id, role, username, name, email, password) VALUES (4, 1, 'josemiguel', 'José Miguel', 'josemiguel@gmail.com', '1234');
+INSERT INTO user(id, role, username, name, email, password) VALUES (5, 1, 'andreasousa', 'Andréa Sousa', 'andreasousa@gmail.com', '1234');
+INSERT INTO user(id, role, username, name, email, password) VALUES (6, 1, 'carolinap', 'Carolina Pinto', 'carolinapinto@gmail.com', '1234');
+INSERT INTO user(id, role, username, name, email, password) VALUES (7, 1, 'pedroalves', 'Pedro Alves', 'pedroalves@gmail.com', '1234');
 
-INSERT INTO user(user_id, role, username, name, email, password) VALUES (8, 2, 'josecunha', 'José Cunha', 'josecunha@gmail.com', '1234');
-INSERT INTO user(user_id, role, username, name, email, password) VALUES (9, 2, 'mariajose', 'Maria José', 'mariajose@gmail.com', '1234');
-INSERT INTO user(user_id, role, username, name, email, password) VALUES (10, 2, 'luisgomes', 'Luís Gomes', 'luisgomes@gmail.com', '1234');
-INSERT INTO user(user_id, role, username, name, email, password) VALUES (11, 2, 'andreoliveira', 'André Oliveira', 'andreoliveira@gmail.com', '1234');
-INSERT INTO user(user_id, role, username, name, email, password) VALUES (12, 2, 'margaridasantos', 'Margarida Santos', 'margaridasantos@gmail.com', '1234');
+INSERT INTO user(id, role, username, name, email, password) VALUES (8, 2, 'josecunha', 'José Cunha', 'josecunha@gmail.com', '1234');
+INSERT INTO user(id, role, username, name, email, password) VALUES (9, 2, 'mariajose', 'Maria José', 'mariajose@gmail.com', '1234');
+INSERT INTO user(id, role, username, name, email, password) VALUES (10, 2, 'luisgomes', 'Luís Gomes', 'luisgomes@gmail.com', '1234');
+INSERT INTO user(id, role, username, name, email, password) VALUES (11, 2, 'andreoliveira', 'André Oliveira', 'andreoliveira@gmail.com', '1234');
+INSERT INTO user(id, role, username, name, email, password) VALUES (12, 2, 'margaridasantos', 'Margarida Santos', 'margaridasantos@gmail.com', '1234');
 -- Add more user entries as needed
 
-INSERT INTO ticket (ticket_id, user_id, department_id, status_id, tittle, description, initial_date) VALUES (1, 3, 1, 1, 'aa', 'aaa', '2023-04-15');
-INSERT INTO ticket (ticket_id, user_id, department_id, status_id, tittle, description, initial_date) VALUES(2, 6, 2, 2, 'bb', 'bbb', '2023-04-16');
-INSERT INTO ticket (ticket_id, user_id, department_id, status_id, tittle, description, initial_date) VALUES(3, 5, 1, 3, 'Email not working', 'Can not send or receive emails', '2023-04-16');
-INSERT INTO ticket (ticket_id, user_id, department_id, status_id, tittle, description, initial_date) VALUES(4, 8, 1, 1, 'Can not login', 'Unable to log in to account', '2023-04-17');
-INSERT INTO ticket (ticket_id, user_id, department_id, status_id, tittle, description, initial_date) VALUES(5, 12, 2, 2, 'cc', 'ccc', '2023-04-17');
--- Add ticket user entries as needed
 
 INSERT INTO department(department_id, name) VALUES (0, 'IT');
 INSERT INTO department(department_id, name) VALUES (1, 'HR');

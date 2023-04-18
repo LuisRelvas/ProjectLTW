@@ -1,7 +1,5 @@
 <?php 
     declare(strict_types = 1);
-    require_once(dirname(__DIR__).'/database/connection.db.php');
-    require_once(dirname(__DIR__).'/classes/user.class.php');
     function drawHeader() { ?>
         <!DOCTYPE html>
         <html lang="PT-pt">
@@ -12,17 +10,15 @@
                     encoding = "utf-8"
                     author = "Relvas, Domingues, Angy"
                 >
-                <link rel="stylesheet" href="../css/main.css">
-                <link rel="stylesheet" href="../css/login.css">
-                <link rel="stylesheet" href="../css/register.css">
-                <link rel="stylesheet" href="../css/ulala.css">
+                <link rel="stylesheet" href="../css/teste.css">
+               
             </head>
             <body>
                 <header>
                     <nav id="topbar" >
-                        <a class="item" href="../pages/index.php"><h3>Trouble Ticket</h3></a>
-                        <?php 
-                            if (isset($_SESSION['user_id'])) drawLoginUser($_SESSION['user_id'], $_SESSION['name']);
+                        <a class="item" href="../pages/main.php"><h3>Trouble Ticket</h3></a>
+                        <?php
+                            if (isset($_SESSION['id'])) drawLoginUser($_SESSION['id'], $_SESSION['name']);
                             else drawDefaultUser(); 
                         ?>
                     </nav>
@@ -30,10 +26,12 @@
             <main> <?php 
         }
 
-        function drawLoginUser(int $user_id, string $name) { ?>
+        function drawLoginUser(int $id, string $name) { ?>
             <section id="login">
                 <h3 class="loginItem"><a href="../actions/logout.action.php">Logout</a></h3>
                 <h3 class="loginItem"><?=$name?></h3>
+                <h3 class="loginItem"><?=$id?></h3>
+                <h3 class="loginItem"><a href="../pages/profile.php?id=<?=$id?>" >TESTE</a></h3> 
             </section>
         <?php 
         }
@@ -60,7 +58,6 @@
         function drawBanner() { ?>
             <section id="banner">
                 <header><h1>Trouble Ticket</h1>
-                <a href="../pages/profile.php">Profile</a>
             </header>
             </section> <?php 
         }
@@ -71,27 +68,7 @@
             </section> 
         <?php } 
 
-        function drawUser(int $user_id) { 
-        $db = getDatabaseConnection();
-        $user = User::getUser($db,$user_id);
-        ?><h2><?php echo $user->user_id ?></h2><?php
-        ?><h2><?php echo $user->name ?></h2><?php
-        ?><h2><?php echo $user->username ?></h2><?php
-        ?><h2><?php echo $user->email ?></h2><?php
-        if($user->role == 0) { 
-            ?><h2><?php echo 'Admin' ?></h2><?php
-        }
-        else if($user->role == 1) { 
-            ?><h2><?php echo 'Agent' ?></h2><?php
-        }
-        else {
-            ?><h2><?php echo 'User' ?></h2><?php
-        }
         
-        ?>
-        <section id="more"><?php
-        
-        } 
 
 
 function drawMessages(Session $session) { ?>

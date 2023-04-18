@@ -13,7 +13,7 @@
     </header>
 <div id = "form">
     <form action="../actions/addUser.action.php" method ="post">
-          <label>id: <input type="text" name = "user_id" required="required" value="<?=htmlentities($_SESSION['input']['user_id newUser'])?>"></label>
+          <label>id: <input type="text" name = "id" required="required" value="<?=htmlentities($_SESSION['input']['id newUser'])?>"></label>
           <label>username: <input type="text" name="username" required="required" value="<?=htmlentities($_SESSION['input']['username newUser'])?>"></label>
           <label>name: <input type="text" name="name" required="required" value="<?=$_SESSION['input']['name newUser']?>"></label>
           <label>Email: <input type="email" name="email" required="required" value="<?=htmlentities($_SESSION['input']['email newUser'])?>"></label>

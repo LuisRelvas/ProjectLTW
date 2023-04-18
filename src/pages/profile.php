@@ -7,7 +7,7 @@ require_once(dirname(__DIR__).'/classes/session.class.php');
 require_once(dirname(__DIR__).'/classes/user.class.php');
 
 $session = new Session();
-echo var_dump($_SESSION['id']);
+
 if(!$session->isLoggedIn() || $SESSION['id'] != $_GET['id']) {
     $session->addMessage('error','You are not allowed to access this page');
 }

@@ -6,8 +6,8 @@
   $session = new Session();
 
   $db = getDatabaseConnection();
-  if (count($session->getMessages())) drawMessages($session);
   drawHeader();
+  if (count($session->getMessages())) drawMessages($session);
   drawBanner();
   
 ?>

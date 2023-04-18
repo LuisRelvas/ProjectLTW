@@ -16,7 +16,7 @@
             <body>
                 <header>
                     <nav id="topbar" >
-                        <a class="item" href="../pages/main.php"><h3>Trouble Ticket</h3></a>
+                        <a class="item" href="../pages/index.php"><h3>Trouble Ticket</h3></a>
                         <?php
                             if (isset($_SESSION['id'])) drawLoginUser($_SESSION['id'], $_SESSION['name']);
                             else drawDefaultUser(); 

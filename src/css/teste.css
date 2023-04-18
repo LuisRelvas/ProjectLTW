@@ -1,4 +1,16 @@
-#login > h4 { 
-    background-color: red;
-    width: 100px;
+
+
+#topbar { 
+    display: flex;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    margin: 0;
+    background-color: #8C2D19;
 }
+
+#login {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 2em;
+}
+

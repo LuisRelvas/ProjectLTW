@@ -55,7 +55,11 @@
           
       );
       
-    }  
+    } 
+    function save($db) {
+      $stmt = $db->prepare('UPDATE user SET username = ?, name = ?, email = ? WHERE id = ?');
+      $stmt->execute(array($this->username, $this->name, $this->email,$this->id));
+  } 
 }
 
 ?>

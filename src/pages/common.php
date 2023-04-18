@@ -31,7 +31,7 @@
                 <h3 class="loginItem"><a href="../actions/logout.action.php">Logout</a></h3>
                 <h3 class="loginItem"><?=$name?></h3>
                 <h3 class="loginItem"><?=$id?></h3>
-                <h3 class="loginItem"><a href="../pages/profile.php?id=<?=$id?>" >TESTE</a></h3> 
+                <h3 class="loginItem"><a href="../pages/profile.php?id=<?=$id?>" >PERFIL</a></h3> 
             </section>
         <?php 
         }

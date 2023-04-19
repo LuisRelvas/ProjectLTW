@@ -55,4 +55,6 @@ function drawUser(int $id) {
             </form>
         </section> <?php 
       }
-    ?>
+
+      ?>
+      

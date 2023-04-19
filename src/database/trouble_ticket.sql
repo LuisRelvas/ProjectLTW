@@ -20,7 +20,7 @@ CREATE TABLE user(
 	username TEXT NOT NULL,
 	name TEXT NOT NULL,
 	email TEXT NOT NULL,
-	password TEXT NOT NULL,
+	password NVARCHAR(60) NOT NULL,
 	CONSTRAINT user_pk PRIMARY KEY(id));
 
 CREATE TABLE ticket(
@@ -91,21 +91,21 @@ CREATE TABLE ticketFaq(
 	CONSTRAINT ticketFaq_pk PRIMARY KEY (ticket_id, faq_id)
 );
 
-INSERT INTO user(id, role, username, name, email, password) VALUES (0, 0, 'andyDC', 'Angy Pita', 'angy.da.cruz@hotmail.com', '1234');
-INSERT INTO user(id, role, username, name, email, password) VALUES (1, 0, 'dawnofdom', 'Domingos Santos', 'domingosjsmsantos@gmail.com', '1234');
-INSERT INTO user(id, role, username, name, email, password) VALUES (2, 0, 'luisrelvas', 'Luis Relvas', 'luisrelvas@hotmail.com', '1234');
+INSERT INTO user(id, role, username, name, email, password) VALUES (0, 0, 'andyDC', 'Angy Pita', 'angy.da.cruz@hotmail.com', '$2y$10$pq95wdIQVm0i1.LP098tHeka5KsyGA9wiw6yX2lcpeyEgJboFQMOi');
+INSERT INTO user(id, role, username, name, email, password) VALUES (1, 0, 'dawnofdom', 'Domingos Santos', 'domingosjsmsantos@gmail.com', '$2y$10$pq95wdIQVm0i1.LP098tHeka5KsyGA9wiw6yX2lcpeyEgJboFQMOi');
+INSERT INTO user(id, role, username, name, email, password) VALUES (2, 0, 'luisrelvas', 'Luis Relvas', 'luisrelvas@hotmail.com', '$2y$10$pq95wdIQVm0i1.LP098tHeka5KsyGA9wiw6yX2lcpeyEgJboFQMOi');
 
-INSERT INTO user(id, role, username, name, email, password) VALUES (3, 1, 'lucianas', 'Luciana Silva', 'lucianasilva@gmail.com', '1234');
-INSERT INTO user(id, role, username, name, email, password) VALUES (4, 1, 'josemiguel', 'José Miguel', 'josemiguel@gmail.com', '1234');
-INSERT INTO user(id, role, username, name, email, password) VALUES (5, 1, 'andreasousa', 'Andréa Sousa', 'andreasousa@gmail.com', '1234');
-INSERT INTO user(id, role, username, name, email, password) VALUES (6, 1, 'carolinap', 'Carolina Pinto', 'carolinapinto@gmail.com', '1234');
-INSERT INTO user(id, role, username, name, email, password) VALUES (7, 1, 'pedroalves', 'Pedro Alves', 'pedroalves@gmail.com', '1234');
+INSERT INTO user(id, role, username, name, email, password) VALUES (3, 1, 'lucianas', 'Luciana Silva', 'lucianasilva@gmail.com', '$2y$10$pq95wdIQVm0i1.LP098tHeka5KsyGA9wiw6yX2lcpeyEgJboFQMOi');
+INSERT INTO user(id, role, username, name, email, password) VALUES (4, 1, 'josemiguel', 'José Miguel', 'josemiguel@gmail.com', '$2y$10$pq95wdIQVm0i1.LP098tHeka5KsyGA9wiw6yX2lcpeyEgJboFQMOi');
+INSERT INTO user(id, role, username, name, email, password) VALUES (5, 1, 'andreasousa', 'Andréa Sousa', 'andreasousa@gmail.com', '$2y$10$pq95wdIQVm0i1.LP098tHeka5KsyGA9wiw6yX2lcpeyEgJboFQMOi');
+INSERT INTO user(id, role, username, name, email, password) VALUES (6, 1, 'carolinap', 'Carolina Pinto', 'carolinapinto@gmail.com', '$2y$10$pq95wdIQVm0i1.LP098tHeka5KsyGA9wiw6yX2lcpeyEgJboFQMOi');
+INSERT INTO user(id, role, username, name, email, password) VALUES (7, 1, 'pedroalves', 'Pedro Alves', 'pedroalves@gmail.com', '$2y$10$pq95wdIQVm0i1.LP098tHeka5KsyGA9wiw6yX2lcpeyEgJboFQMOi');
 
-INSERT INTO user(id, role, username, name, email, password) VALUES (8, 2, 'josecunha', 'José Cunha', 'josecunha@gmail.com', '1234');
-INSERT INTO user(id, role, username, name, email, password) VALUES (9, 2, 'mariajose', 'Maria José', 'mariajose@gmail.com', '1234');
-INSERT INTO user(id, role, username, name, email, password) VALUES (10, 2, 'luisgomes', 'Luís Gomes', 'luisgomes@gmail.com', '1234');
-INSERT INTO user(id, role, username, name, email, password) VALUES (11, 2, 'andreoliveira', 'André Oliveira', 'andreoliveira@gmail.com', '1234');
-INSERT INTO user(id, role, username, name, email, password) VALUES (12, 2, 'margaridasantos', 'Margarida Santos', 'margaridasantos@gmail.com', '1234');
+INSERT INTO user(id, role, username, name, email, password) VALUES (8, 2, 'josecunha', 'José Cunha', 'josecunha@gmail.com', '$2y$10$pq95wdIQVm0i1.LP098tHeka5KsyGA9wiw6yX2lcpeyEgJboFQMOi');
+INSERT INTO user(id, role, username, name, email, password) VALUES (9, 2, 'mariajose', 'Maria José', 'mariajose@gmail.com', '$2y$10$pq95wdIQVm0i1.LP098tHeka5KsyGA9wiw6yX2lcpeyEgJboFQMOi');
+INSERT INTO user(id, role, username, name, email, password) VALUES (10, 2, 'luisgomes', 'Luís Gomes', 'luisgomes@gmail.com', '$2y$10$pq95wdIQVm0i1.LP098tHeka5KsyGA9wiw6yX2lcpeyEgJboFQMOi');
+INSERT INTO user(id, role, username, name, email, password) VALUES (11, 2, 'andreoliveira', 'André Oliveira', 'andreoliveira@gmail.com', '$2y$10$pq95wdIQVm0i1.LP098tHeka5KsyGA9wiw6yX2lcpeyEgJboFQMOi');
+INSERT INTO user(id, role, username, name, email, password) VALUES (12, 2, 'margaridasantos', 'Margarida Santos', 'margaridasantos@gmail.com', '$2y$10$pq95wdIQVm0i1.LP098tHeka5KsyGA9wiw6yX2lcpeyEgJboFQMOi');
 -- Add more user entries as needed
 
 

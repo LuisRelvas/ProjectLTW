@@ -15,7 +15,7 @@
   $_SESSION['input']['password2 newUser'] = $_SESSION['input']['password2 newUser'] ?? "";
 
 
-  drawHeader();
+  drawHeader($session);
   if (count($session->getMessages())) drawMessages($session);
   drawRegisterUser();
 

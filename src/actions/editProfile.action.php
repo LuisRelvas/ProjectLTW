@@ -23,6 +23,7 @@
 
   $db = getDatabaseConnection();
   $user = User::getUser($db, $_SESSION['id']);
+  $pass = User::getPass($db, $_SESSION['id']);
 
   if ($user) {
 
@@ -30,15 +31,16 @@
     $user->name = $_POST['name'];
     $user->email = $_POST['email'];
 
-    if ($_POST['password1'] != "" && ($_POST['password1'] == $user->password)) {
+    if ($_POST['password1'] != "" && (password_verify($_POST['password1'], $pass))){
 
       if (!valid_password($_POST['password2'])) {
         die(header('Location: ../edit/profile.edit.php'));
       } else {
-        $user->password = password_hash($_POST['password2'], PASSWORD_DEFAULT);
+        $pass2 = $_POST['password2'];
+        User::savePass($db, $_SESSION['id'], $pass2);
       }
 
-    } else if ($_POST['password1'] != "" && hash('sha256', $_POST['password1']) != $user->password) {
+    } else if ($_POST['password1'] != "" && $pass != $_POST['password1']) {
       $session->addMessage('warning', "Para mudar a palavra passe necessita primeiro de colocar correctamente a antiga");
       die(header('Location: ../edit/profile.edit.php'));
     } 

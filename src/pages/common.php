@@ -1,6 +1,6 @@
 <?php 
     declare(strict_types = 1);
-    function drawHeader() { ?>
+    function drawHeader(Session $session) { ?>
         <!DOCTYPE html>
         <html lang="PT-pt">
             <head>
@@ -18,8 +18,8 @@
                     <nav id="topbar" >
                         <a class="item" href="../pages/index.php"><h3>Trouble Ticket</h3></a>
                         <?php
-                            if (isset($_SESSION['id'])) drawLoginUser($_SESSION['id'], $_SESSION['name']);
-                            else drawDefaultUser(); 
+                            if ($session->isLoggedIn()) drawLoginUser($session->getId(), $session->getName());
+                            else drawLogin();
                         ?>
                     </nav>
                 </header>
@@ -40,16 +40,17 @@
             <section id="login">
                 <h3 class="loginItem"><a href="../pages/login.php">Login</a></h3>
                 <h3 class="loginItem"><a href="../pages/register.php">Register</a></h3>
+                <h3 class ="loginItem"><a href="teste">FAQ</a></h3>
             </section>
         <?php 
         }
 
-        function drawLogin(Session $session) { ?>
+        function drawLogin() { ?>
             <section id="loginpage">
                 <h1>Login</h1>
                 <form action = "../actions/login.action.php" method = "post">
-                    <label>Email: <input type="email" name="email" value="<?=htmlentities($_SESSION['input']['email login'])?>"></label>
-                    <label>Password:<input type="password" name="password" value="<?=htmlentities($_SESSION['input']['password login'])?>"></label>
+                    <label>Email: <input type="email" name="email" placeholder="email"></label>
+                    <label>Password:<input type="password" name="password" placeholder="password"></label>
                     <input id="button" type="submit" value="Entrar">
                 </form>
             </section> <?php 
@@ -59,6 +60,7 @@
             <section id="banner">
                 <header><h1>Trouble Ticket</h1>
             </header>
+            <h1 class = "loginItem"><a href="../pages/ticket.php">TICKET</a></h1>
             </section> <?php 
         }
 
@@ -67,6 +69,23 @@
                 <h2>Voltar para a <a href="../pages/register.php">página principal</a></h2>  
             </section> 
         <?php } 
+        
+        function drawTicket(int $id) { ?>
+            <section id ="ticket">
+                <h2>Ticket Management</h2>
+                <form action = "../pages/ticketadd.php" method = "post">
+                    <label>ADD TICKET</label>
+                    <input id="button" type="submit" value="Entrar">
+                </form>
+                <form action = "../pages/ticketsee.php" method = "post">
+                    <label>SEE TICKET</label>
+                    <input id="button" type="submit" value="Entrar">
+                </form>
+                <form action = "../pages/ticketmanage.php" method = "post">
+                    <label>MANAGE TICKET</label>
+                    <input id="button" type="submit" value="Entrar">
+                </form>
+         <?php }
 
         
 

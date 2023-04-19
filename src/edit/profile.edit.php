@@ -21,7 +21,7 @@
   $_SESSION['input']['password1 oldUser'] = $_SESSION['input']['password1 oldUser'] ?? "";
   $_SESSION['input']['password2 oldUser'] = $_SESSION['input']['password2 oldUser'] ?? "";
 
-  drawHeader();
+  drawHeader($session);
   if (count($session->getMessages())) drawMessages($session);
   drawEditUserForm(); 
 ?>

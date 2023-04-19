@@ -125,3 +125,6 @@ INSERT INTO hashtag(hashtag_id, tag) VALUES (1, 'important');
 INSERT INTO faq(faq_id, question, answer) VALUES (0, 'What is the ticket submission process?', 'You can submit a ticket through the ticket submission form on the website.');
 INSERT INTO faq(faq_id, question, answer) VALUES (1, 'How do I reset my password?', 'You can reset your password by clicking on the "Forgot Password" link on the login page.');
 -- Add more faq entries as needed
+
+INSERT INTO ticket(ticket_id, id, department_id, status_id, tittle, description, initial_date)
+VALUES (1, 0, 1, 1, 'Unable to login', 'I am unable to login to my account. It says my password is incorrect even though I am sure I am entering the correct password.', '2023-04-19');

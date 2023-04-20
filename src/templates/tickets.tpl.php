@@ -18,8 +18,20 @@ function drawmyTickets(int $id){
     $db = getDatabaseConnection();
     $tickets = Ticket::getmyTickets($db,$id);
     foreach($tickets as $ticket){
-        var_dump($ticket);
+        ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3> <?php
+        ?> <h2><?= $ticket->description?></h2> <?php
     }
+}
+
+function drawgetTicketid() { ?>
+    <section id="ticketpage">
+    <h1>Ticket</h1>
+    <form action = "../actions/seeticket.action.php" method = "post">
+        <label>Ticket id: <input type="number" name="ticket_id" placeholder="ticket_id"></label>
+        <input id="button" type="submit" value="Entrar">
+    </form>
+</section>
+<?php
 }
 
 function drawinfoTicket(int $ticket_id){ 

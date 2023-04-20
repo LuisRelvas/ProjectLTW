@@ -52,15 +52,17 @@ function drawinfoTicket(int $ticket_id){
 
 function drawaddTicket(){ ?>
     <div id = "form">
-    <form action="../actions/addTicket.action.php" method ="post">
-          <label>ticket_id: <input type="text" name = "id" required="required" value="<?=htmlentities($_SESSION['input']['id newUser'])?>"></label>
-          <label>username: <input type="text" name="username" required="required" value="<?=htmlentities($_SESSION['input']['username newUser'])?>"></label>
-          <label>Tittle: <input type="text" name="name" required="required" value="<?=$_SESSION['input']['name newUser']?>"></label>
-          <label>Description: <input type="email" name="email" required="required" value="<?=htmlentities($_SESSION['input']['email newUser'])?>"></label>
-          <label>Password: <input type="password" name="password1" required="required" value="<?=htmlentities($_SESSION['input']['password1 newUser'])?>"></label>
-          <label>Confirme password: <input type="password" name="password2" required="required" value="<?=htmlentities($_SESSION['input']['password2 newUser'])?>"></label>
+    <form action="../actions/addticket.action.php" method ="post">
+          <label>Tittle: <input type="text" name="tittle" required="required" value="<?=$_SESSION['input']['tittle newUser']?>"></label>
+          <select name = "Department">
+            <optgroup label = "Choose only one">
+                <option value = "IT">IT <?php $_SESSION['input']['department_id newUser'] = 0 ?></option>
+                <option value = "IT2">IT2<?php $_SESSION['input']['department_id newUser'] = 1 ?></option>
+                <option value = "IT3">IT3<?php $_SESSION['input']['department_id newUser'] = 2 ?></option>
+            </optgroup> 
+          <label>Description: <input type="text" name="description" required="required" value="<?=($_SESSION['input']['description newUser'])?>"></label>
           <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
-          <input id="button" type="submit" value="Concluir registo">
+          <input id="button" type="submit" value="Validar Ticket">
       </form>
 </div>
 

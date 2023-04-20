@@ -7,7 +7,6 @@
   $session = new Session();
 
 
-  $_SESSION['input']['id newUser'] = $_SESSION['input']['id newUser'] ?? "";
   $_SESSION['input']['username newUser'] = $_SESSION['input']['username newUser'] ?? "";
   $_SESSION['input']['name newUser'] = $_SESSION['input']['name newUser'] ?? "";
   $_SESSION['input']['email newUser'] = $_SESSION['input']['email newUser'] ?? "";

@@ -4,7 +4,6 @@
     require_once(dirname(__DIR__).'/classes/session.class.php');
     $session = new Session();
 
-    $_SESSION['input']['id newUser'] = htmlentities($_POST['id']);
     $_SESSION['input']['username newUser'] = htmlentities($_POST['username']);
     $_SESSION['input']['name newUser'] = htmlentities($_POST['name']);
     $_SESSION['input']['email newUser'] = htmlentities($_POST['email']);
@@ -14,8 +13,8 @@
     $db = getDatabaseConnection();
     if ($_POST['password1'] === $_POST['password2']) {
 
-        $stmt = $db->prepare('INSERT INTO user(id,username, name, email, password) VALUES (?, ?, ?, ?, ?)');
-        $stmt->execute(array($_POST['id'], $_POST['username'], $_POST['name'], $_POST['email'],password_hash($_POST['password1'], PASSWORD_DEFAULT)));
+        $stmt = $db->prepare('INSERT INTO user(username, name, email, password) VALUES (?, ?, ?, ?)');
+        $stmt->execute(array($_POST['username'], $_POST['name'], $_POST['email'],password_hash($_POST['password1'], PASSWORD_DEFAULT)));
 
     } else {
         echo "Passwords do not match";

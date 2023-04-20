@@ -32,6 +32,7 @@ CREATE TABLE ticket(
 	tittle TEXT NOT NULL,
 	description TEXT NOT NULL,
 	initial_date DATE NOT NULL,
+	agent_id INTEGER DEFAULT -1,
 	FOREIGN KEY(id) REFERENCES user(id),
 	FOREIGN KEY(department_id) REFERENCES department(department_id),
 	FOREIGN KEY(status_id) REFERENCES status(status_id)

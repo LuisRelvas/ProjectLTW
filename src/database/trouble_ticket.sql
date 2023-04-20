@@ -127,6 +127,7 @@ INSERT INTO faq(faq_id, question, answer) VALUES (1, 'How do I reset my password
 -- Add more faq entries as needed
 
 INSERT INTO ticket(ticket_id, id, department_id, status_id, tittle, description, initial_date) VALUES (0, 0, 1, 1, 'Test', 'Teste', '2023-04-19');
+INSERT INTO ticket(ticket_id, id, department_id, status_id, tittle, description, initial_date) VALUES (12, 0, 1, 1, 'Test', 'Teste', '2023-04-19');
 INSERT INTO ticket(ticket_id, id, department_id, status_id, tittle, description, initial_date) VALUES (1, 1, 1, 1, 'Test', 'Teste', '2023-04-19');
 INSERT INTO ticket(ticket_id, id, department_id, status_id, tittle, description, initial_date) VALUES (2, 2, 1, 1, 'Test', 'Teste', '2023-04-19');
 INSERT INTO ticket(ticket_id, id, department_id, status_id, tittle, description, initial_date) VALUES (3, 3, 1, 1, 'Test', 'Teste', '2023-04-19');

@@ -43,6 +43,21 @@
       return $tickets;
     }
 
+    static function getmyTickets(PDO $db, int $id) : array{ 
+      $stmt = $db->prepare('SELECT * FROM ticket where id = ?');
+      $stmt->execute(array($id));
+      while($ticket = $stmt->fetch()){
+        $tickets[] = new Ticket(
+          $ticket['ticket_id'],
+          $ticket['department_id'],
+          $ticket['status_id'],
+          $ticket['tittle'],
+          $ticket['description'],
+          $ticket['initial_date']
+        );
+      }
+      return $tickets;
+    }
 
   }
   ?>

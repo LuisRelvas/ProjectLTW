@@ -25,7 +25,7 @@
         $this->initial_date = $initial_date;
       }
 
-    static function getallTickets(PDO $db,int $id) : array { 
+    static function getallTickets(PDO $db) : array { 
       
         $stmt = $db->prepare('SELECT * FROM ticket');
         $stmt->execute();

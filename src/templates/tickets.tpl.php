@@ -5,13 +5,10 @@ require_once(dirname(__DIR__).'/classes/ticket.class.php');
 
 function drawmyTickets(int $id) { 
     $db = getDatabaseConnection();
-    $tickets = Ticket::getallTickets($db, $id);
+    $tickets = Ticket::getallTickets($db);
     foreach($tickets as $ticket){
         var_dump($ticket);
     }
-    
-    
-    
     
 }
 

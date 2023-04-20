@@ -1,6 +1,8 @@
 <?php
   declare(strict_types = 1);
 
+  require_once('user.class.php');
+
   class Ticket { 
     public int $ticket_id;
 
@@ -23,19 +25,24 @@
         $this->initial_date = $initial_date;
       }
 
-    static function getTicket(PDO $db,int $ticket_id) : Ticket { 
-        $stmt = $db->prepare('SELECT ticket_id,department_id,status_id,tittle,description,initial_date FROM ticket WHERE ticket_id = ?');
-        $stmt->execute(array(intval($ticket_id)));
+    static function getallTickets(PDO $db,int $id) : array { 
+      
+        $stmt = $db->prepare('SELECT * FROM ticket');
+        $stmt->execute();
         $ticket = $stmt->fetch();
-        return new Ticket(
-            $ticket['ticket_id'],
-            $ticket['department_id'],
-            $ticket['status_id'],
-            $ticket['tittle'],
-            $ticket['description'],
-            $ticket['initial_date']
-        );
+        while ($ticket = $stmt->fetch()) {
+          $tickets[] = new Ticket(
+              $ticket['ticket_id'],
+              $ticket['department_id'],
+              $ticket['status_id'],
+              $ticket['tittle'],
+              $ticket['description'],
+              $ticket['initial_date']
+          );
+      }
+      return $tickets;
     }
 
 
   }
+  ?>

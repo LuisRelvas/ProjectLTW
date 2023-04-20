@@ -43,7 +43,7 @@
       
       $stmt = $db->prepare('SELECT id,role,username,name,email,password FROM user WHERE id = ?');
       $stmt->execute(array(intval($id)));
-      $user = $stmt->fetch();     
+      $user = $stmt->fetch();
       return new User(
           $user['id'],
           $user['role'],
@@ -52,7 +52,6 @@
           $user['email']
           
       );
-      
     } 
 
     static function getPass(PDO $db, int $id) : string {

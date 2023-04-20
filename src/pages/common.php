@@ -77,10 +77,7 @@
                     <label>ADD TICKET</label>
                     <input id="button" type="submit" value="Entrar">
                 </form>
-                <form action = "../pages/ticketsee.php" method = "post">
-                    <label>SEE TICKET</label>
-                    <input id="button" type="submit" value="Entrar">
-                </form>
+                <h1 class = "ticketitem"><a href="../pages/ticketsee.php">SEE TICKET</a></h1>
                 <form action = "../pages/ticketmanage.php" method = "post">
                     <label>MANAGE TICKET</label>
                     <input id="button" type="submit" value="Entrar">

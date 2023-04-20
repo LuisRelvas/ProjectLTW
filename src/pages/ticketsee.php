@@ -14,7 +14,7 @@ drawHeader($session);
 if(!$session->isLoggedIn() || $SESSION['id'] != $_GET['id']) {
     $session->addMessage('error','You are not allowed to access this page');
 }
-drawmyTickets(intval($_SESSION['id']));
+drawinfoTicket(2);
 
 
 

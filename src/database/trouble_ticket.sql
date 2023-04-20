@@ -15,16 +15,15 @@ DROP TABLE IF EXISTS ticketFaq;
 
 
 CREATE TABLE user(
-	id INTEGER,
+	id INTEGER PRIMARY KEY,
 	role INTEGER DEFAULT 2,
 	username TEXT NOT NULL,
 	name TEXT NOT NULL,
 	email TEXT NOT NULL,
-	password NVARCHAR(60) NOT NULL,
-	CONSTRAINT user_pk PRIMARY KEY(id));
+	password NVARCHAR(60) NOT NULL);
 
 CREATE TABLE ticket(
-	ticket_id INTEGER,
+	ticket_id INTEGER PRIMARY KEY,
 	id INTEGER,
 	department_id INTEGER, 
 	status_id INTEGER,
@@ -34,8 +33,7 @@ CREATE TABLE ticket(
 	agent_id INTEGER DEFAULT -1, 
 	FOREIGN KEY(id) REFERENCES user(id),
 	FOREIGN KEY(department_id) REFERENCES department(department_id),
-	FOREIGN KEY(status_id) REFERENCES status(status_id),
-	CONSTRAINT ticket_pk PRIMARY KEY(ticket_id)
+	FOREIGN KEY(status_id) REFERENCES status(status_id)
 );
 
 CREATE TABLE status(
@@ -127,12 +125,12 @@ INSERT INTO faq(faq_id, question, answer) VALUES (0, 'What is the ticket submiss
 INSERT INTO faq(faq_id, question, answer) VALUES (1, 'How do I reset my password?', 'You can reset your password by clicking on the "Forgot Password" link on the login page.');
 -- Add more faq entries as needed
 
-INSERT INTO ticket(ticket_id, id, department_id, status_id, tittle, description, initial_date) VALUES (0, 0, 1, 1, 'Test', 'Teste', '2023-04-19');
-INSERT INTO ticket(ticket_id, id, department_id, status_id, tittle, description, initial_date) VALUES (12, 0, 1, 1, 'Test', 'Teste', '2023-04-19');
-INSERT INTO ticket(ticket_id, id, department_id, status_id, tittle, description, initial_date) VALUES (1, 1, 1, 1, 'Test', 'Teste', '2023-04-19');
-INSERT INTO ticket(ticket_id, id, department_id, status_id, tittle, description, initial_date) VALUES (2, 2, 1, 1, 'Test', 'Teste', '2023-04-19');
-INSERT INTO ticket(ticket_id, id, department_id, status_id, tittle, description, initial_date) VALUES (3, 3, 1, 1, 'Test', 'Teste', '2023-04-19');
-INSERT INTO ticket(ticket_id, id, department_id, status_id, tittle, description, initial_date) VALUES (4, 4, 1, 1, 'Test', 'Teste', '2023-04-19');
-INSERT INTO ticket(ticket_id, id, department_id, status_id, tittle, description, initial_date) VALUES (5, 5, 1, 1, 'Test', 'Teste', '2023-04-19');
-INSERT INTO ticket(ticket_id, id, department_id, status_id, tittle, description, initial_date) VALUES (6, 6, 1, 1, 'Test', 'Teste', '2023-04-19');
-INSERT INTO ticket(ticket_id, id, department_id, status_id, tittle, description, initial_date) VALUES (7, 7, 1, 1, 'Test', 'Teste', '2023-04-19');
+INSERT INTO ticket(id, department_id, status_id, tittle, description, initial_date) VALUES (0, 1, 1, 'Test', 'Teste', '2023-04-19');
+INSERT INTO ticket(id, department_id, status_id, tittle, description, initial_date) VALUES (0, 1, 1, 'Test', 'Teste', '2023-04-19');
+INSERT INTO ticket(id, department_id, status_id, tittle, description, initial_date) VALUES (1, 1, 1, 'Test', 'Teste', '2023-04-19');
+INSERT INTO ticket(id, department_id, status_id, tittle, description, initial_date) VALUES (2, 1, 1, 'Test', 'Teste', '2023-04-19');
+INSERT INTO ticket(id, department_id, status_id, tittle, description, initial_date) VALUES (3, 1, 1, 'Test', 'Teste', '2023-04-19');
+INSERT INTO ticket(id, department_id, status_id, tittle, description, initial_date) VALUES (4, 1, 1, 'Test', 'Teste', '2023-04-19');
+INSERT INTO ticket(id, department_id, status_id, tittle, description, initial_date) VALUES (5, 1, 1, 'Test', 'Teste', '2023-04-19');
+INSERT INTO ticket(id, department_id, status_id, tittle, description, initial_date) VALUES (6, 1, 1, 'Test', 'Teste', '2023-04-19');
+INSERT INTO ticket(id, department_id, status_id, tittle, description, initial_date) VALUES (7, 1, 1, 'Test', 'Teste', '2023-04-19');

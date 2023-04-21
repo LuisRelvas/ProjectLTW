@@ -3,14 +3,17 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     margin: 0; /* Consolidate margin shorthand */
+    background-color: #e6e6e6;
 }
 
 header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 8px;
+    padding: 50px;
     background-color: #8C2D19;
+    border-bottom: 10px solid black; 
+    color: #fff;
 }
 
 header > img {
@@ -60,4 +63,25 @@ button[formaction="register.php"] {
 
 button[formaction="register.php"]:hover {
     background-color: #62a603;
+}
+#p1, #p2, #p3 {
+    text-align: justify;
+    margin: auto;
+    max-width: 800px;
+}
+
+#p1 h2, #p2 h2, #p3 h2 {
+    text-align: center;
+}
+#p1 p, #p2 p, #p3 p {
+    text-indent: 10px;
+}
+
+#links li {
+    list-style: none;
+    text-align: center;
+    justify-content: center
+}
+#links li:nth-of-type(2) {
+    border-top: 20px solid #e6e6e6;
 }

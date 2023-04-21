@@ -3,6 +3,7 @@ declare(strict_types = 1);
 require_once(dirname(__DIR__).'/database/connection.db.php');
 require_once(dirname(__DIR__).'/classes/ticket.class.php');
 require_once(dirname(__DIR__).'/classes/user.class.php');
+require_once(dirname(__DIR__).'/classes/session.class.php');
 
 
 
@@ -41,12 +42,14 @@ function drawgetTicketid() { ?>
 function drawinfoTicket(int $ticket_id){ 
     $db = getDatabaseConnection();
     $ticket = Ticket::getinfoTicket($db,$ticket_id);
+    $_SESSION['ticket_id'] = $ticket->ticket_id;
     ?><h2><?=htmlentities(strval($ticket->ticket_id))?></h2><?php
     ?><h2><?=htmlentities($ticket->initial_date)?></h2><?php
     ?><h2><?=htmlentities($ticket->description)?></h2><?php
     ?><h2><?=htmlentities($ticket->tittle)?></h2><?php
     ?><h2><?=htmlentities(strval($ticket->status_id))?></h2><?php
     ?><h2><?=htmlentities(strval($ticket->agent_id))?></h2><?php
+    ?><h2><a href="../edit/ticket.edit.php"><h2>Editar ticket</h2></a><?php
 
         
 }
@@ -84,6 +87,18 @@ function drawTicketSearch() { ?>
       </section>
   </section> <?php 
 }
+
+function drawEditTicketForm() { ?>
+    <section id="editTicket">
+        <h1>Editar Ticket</h1>
+        <form action="../actions/editTicket.action.php" method="post">
+            <label>Tittle: <input type="text" name="tittle" required="required" value="<?=htmlentities($_SESSION['input']['tittle oldUser'])?>"></label>
+            <label>Description: <input type="text" name="description" required="required" value="<?=htmlentities($_SESSION['input']['description oldUser'])?>"></label>
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+            <input id="button" type="submit" value="Concluir edição" >
+        </form>
+
+    </section> <?php }
 
 
 ?>

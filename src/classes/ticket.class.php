@@ -2,6 +2,7 @@
   declare(strict_types = 1);
 
   require_once('user.class.php');
+  require_once('session.class.php');
 
   class Ticket { 
     public int $ticket_id;
@@ -130,5 +131,10 @@
       }
       return $result;
     }
+
+    function save($db) {
+      $stmt = $db->prepare('UPDATE ticket SET tittle = ?, description = ? WHERE ticket_id = ?');
+      $stmt->execute(array($this->tittle, $this->description,$this->ticket_id));
   }
+}
   ?>

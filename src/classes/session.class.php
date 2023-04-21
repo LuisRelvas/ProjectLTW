@@ -37,6 +37,10 @@
       return isset($_SESSION['id']) ? $_SESSION['id'] : null;    
     }
 
+    public function getticket_id(int $ticket_id) {
+      return isset($_SESSION['ticket_id']) ? $_SESSION['ticket_id'] : null; 
+    }
+
     public function getName() : ?string {
       return isset($_SESSION['name']) ? $_SESSION['name'] : null;
     }
@@ -45,8 +49,9 @@
       $_SESSION['id'] = $id;
     }
 
-    public function setName(string $name) {
-      $_SESSION['name'] = $name;
+    public function setticket_id(int $ticket_id) {
+      $_SESSION['ticket_id'] = $ticket_id;
     }
+
   }
 ?>

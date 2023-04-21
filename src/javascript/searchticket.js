@@ -21,8 +21,9 @@ if (searchTickets) {
         for (const ticket of tickets) {
             const article = document.createElement('article')
             const link = document.createElement('a')
+            const tittle = document.createElement('h3')
             link.href = 'ticketseeonly.php?ticket_id=' + ticket.ticket_id
-            link.textContent = ticket.ticket_id
+            link.textContent = ticket.ticket_id + ' --> ' + ticket.tittle
             article.appendChild(link)
             section.appendChild(article)
       }

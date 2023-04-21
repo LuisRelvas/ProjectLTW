@@ -45,6 +45,7 @@ function drawinfoTicket(int $ticket_id){
     ?><h2><?=htmlentities($ticket->initial_date)?></h2><?php
     ?><h2><?=htmlentities($ticket->description)?></h2><?php
     ?><h2><?=htmlentities($ticket->tittle)?></h2><?php
+    ?><h2><?=htmlentities(strval($ticket->status_id))?></h2><?php
     ?><h2><?=htmlentities(strval($ticket->agent_id))?></h2><?php
 
         
@@ -69,6 +70,16 @@ function drawaddTicket(){ ?>
 <?php
 }
 
+function drawTicketSearch() { ?>
+    <section id = "searching">
+      <select id = "critério" > 
+        <option value = "nameT">Ticket Id</option>
+      </select>
+      <input id="searchticket" type="number" placeholder="pesquisa">
+      <section id="searchtickets">
+      </section>
+  </section> <?php 
+}
 
 
 ?>

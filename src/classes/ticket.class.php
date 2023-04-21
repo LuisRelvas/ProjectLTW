@@ -87,5 +87,36 @@
         $ticket['agent_id'],
     );
     }
+
+    static function search(PDO $db, string $search, string $type) : array {
+
+      $querie = '';
+      $result = array();
+
+      switch ($type) {
+        case "nameT":
+            $querie = 'SELECT * FROM ticket WHERE ticket_id LIKE ?';
+            break;
+        default:  
+            return $result;
+      }
+
+      $stmt = $db->prepare($querie);
+      $stmt->execute(array('%'.$search.'%'));
+
+      while ($ticket = $stmt->fetch()) {
+        $result[] = new Ticket(
+          $ticket['ticket_id'],
+        $ticket['id'],
+        $ticket['department_id'],
+        $ticket['status_id'],
+        $ticket['tittle'],
+        $ticket['description'],
+        $ticket['initial_date'],
+        $ticket['agent_id'],
+        );
+      }
+      return $result;
+    }
   }
   ?>

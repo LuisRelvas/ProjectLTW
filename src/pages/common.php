@@ -11,6 +11,7 @@
                     author = "Relvas, Domingues, Angy"
                 >
                 <link rel="stylesheet" href="../css/teste.css">
+                <script src="../javascript/searchticket.js" defer></script>
                
             </head>
             <body>

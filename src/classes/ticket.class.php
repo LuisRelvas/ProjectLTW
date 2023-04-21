@@ -97,6 +97,18 @@
         case "nameT":
             $querie = 'SELECT * FROM ticket WHERE ticket_id LIKE ?';
             break;
+        case "nameU":
+            $querie = 'SELECT * FROM ticket WHERE id LIKE ?';
+            break;
+        case "nameS": 
+            $querie = 'SELECT * FROM ticket,user WHERE ticket.id = user.id and username LIKE ?';
+            break;
+        case "nameD":
+            $querie = 'SELECT * FROM ticket WHERE department_id LIKE ?';
+            break;
+        case "nameSt":
+            $querie = 'SELECT * FROM ticket WHERE status_id LIKE ?';
+            break;
         default:  
             return $result;
       }

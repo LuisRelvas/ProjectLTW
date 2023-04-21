@@ -74,8 +74,12 @@ function drawTicketSearch() { ?>
     <section id = "searching">
       <select id = "critério" > 
         <option value = "nameT">Ticket Id</option>
+        <option value = "nameU">User Id</option>
+        <option value = "nameS">Username </option>
+        <option value = "nameD">Department</option>
+        <option value = "nameSt">Status</option>
       </select>
-      <input id="searchticket" type="number" placeholder="pesquisa">
+      <input id="searchticket" type="text" placeholder="pesquisa">
       <section id="searchtickets">
       </section>
   </section> <?php 

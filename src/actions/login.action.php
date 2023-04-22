@@ -15,8 +15,10 @@
     header('Location: ../pages/index.php');
     
   } else {
+    $session->addMessage('error', "Login errado, tente novamente com outras credenciais !");
+    header('Location: ../pages/login.php');
   
-    echo "Login inválido, por favor introduz as credencias corretas"; 
+
     
   }
 

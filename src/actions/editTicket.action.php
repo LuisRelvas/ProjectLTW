@@ -8,7 +8,7 @@
 
   if (!$session->isLoggedIn()) {
     $session->addMessage('error', "Ação não disponível");
-    die(header('Location: ../pages/denied.php'));
+    die(header('Location: ../pages/index.php'));
   } 
 
   $_SESSION['input']['tittle oldUser'] = htmlentities($_POST['tittle']);

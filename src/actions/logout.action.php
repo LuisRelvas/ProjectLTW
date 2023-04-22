@@ -6,5 +6,5 @@
   unset($_SESSION['input']['email login']);
   unset($_SESSION['input']['password login']);
   if ($session->isLoggedIn()) $session->logout();
-  header('Location: ../pages/main.php');
+  header('Location: ../pages/index.php');
 ?>

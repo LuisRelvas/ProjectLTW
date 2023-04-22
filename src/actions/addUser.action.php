@@ -18,6 +18,7 @@
 
     } else {
         echo "Passwords do not match";
+        header('Location: ../pages/profile.edit.php');
     }
 
     unset($_SESSION['input']);

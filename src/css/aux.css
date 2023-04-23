@@ -10,6 +10,8 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    /* align vertically and horizontally in center */
+    align-items: center;
     padding: 50px;
     background-color: #8C2D19;
     border-bottom: 10px solid black; 
@@ -20,7 +22,11 @@ header > img {
     width: 20%;
     height: 20%;
     padding-left: 1em;
-    padding-top: 0.5em;
+}
+
+header > h1 {
+    font-size: 3em;
+    margin: 0;
 }
 
 #but {
@@ -84,4 +90,19 @@ button[formaction="register.php"]:hover {
 }
 #links li:nth-of-type(2) {
     border-top: 20px solid #e6e6e6;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #8C2D19;
+    margin: 20px;
+    padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
 }

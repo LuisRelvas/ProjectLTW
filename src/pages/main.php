@@ -21,19 +21,22 @@
             </form>
             </div>
     </header>
-    <div id="p1">
-        <h2>O que é um trouble ticket ?</h2>
-        <p>Um trouble ticket é um sistema que permite responder a dúvidas que o Cliente possa ter.</p>
-        <p>Assim que o Cliente escolher o tópico da dúvida e a descrever, será atribuído um agente especializado nessa área que irá responder o mais brevemente possível.</p>
-        <p>O Cliente terá acesso em tempo real ao estado do seu pedido.</p>
-        <p>No final, poderá avaliar a qualidade do serviço.</p>
+    <div class="grid-container">
+        <div class="grid-item">
+            <h2>O que é um trouble ticket ?</h2>
+            <p>Um trouble ticket é um sistema que permite responder a dúvidas que o Cliente possa ter.</p>
+            <p>Assim que o Cliente escolher o tópico da dúvida e a descrever, será atribuído um agente especializado nessa área que irá responder o mais brevemente possível.</p>
+            <p>O Cliente terá acesso em tempo real ao estado do seu pedido.</p>
+            <p>No final, poderá avaliar a qualidade do serviço.</p>
+        </div>
+        <div class="grid-item">
+            <h2>Qual é o nosso principal objetivo?</h2>
+            <p>O nosso principal objetivo é ajudar a faculdade a filtrar e resolver os problemas de forma eficiente.</p>
+        </div>
     </div>
-    <div id="p2">
-        <h2>Qual é o nosso principal objetivo?</h2>
-        <p>O nosso principal objetivo é ajudar a faculdade a filtrar e resolver os problemas de forma eficiente.</p>
-    </div>
-    <div id="p3">
-        <h2>FAQ</h2>
+
+    <div>
+      <h2>FAQ</h2>
     </div>
 
     <div id="links">

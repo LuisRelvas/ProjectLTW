@@ -1,0 +1,30 @@
+body {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin: 0; /* Consolidate margin shorthand */
+    background-color: #e6e6e6;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* align vertically and horizontally in center */
+    align-items: center;
+    padding: 50px;
+    background-color: #8C2D19;
+    border-bottom: 10px solid black; 
+    color: #fff;
+}
+
+header > img {
+    width: 20%;
+    height: 20%;
+    padding-left: 1em;
+}
+
+header > h1 {
+    font-size: 3em;
+    margin: 0;
+}   

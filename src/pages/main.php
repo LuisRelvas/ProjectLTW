@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-      <img src="/home/luisvrelvas/Documentos/project-ltw01g07/img/img1.jpg" alt="Example Image">
+      <img src="https://dec.fe.up.pt/wp-content/uploads/2021/03/logo-feup-white.png" alt="Logo of site">
         <h1>Trouble Ticket FEUP</h1>
         <div id = "but">
           <form>

@@ -4,7 +4,9 @@ require_once(dirname(__DIR__).'/database/connection.db.php');
 require_once(dirname(__DIR__).'/classes/ticket.class.php');
 require_once(dirname(__DIR__).'/classes/user.class.php');
 require_once(dirname(__DIR__).'/classes/session.class.php');
-
+require_once(dirname(__DIR__).'/classes/ticket.class.php');
+require_once(dirname(__DIR__).'/templates/tickets.tpl.php');
+require_once(dirname(__DIR__).'/templates/departments.tpl.php');
 
 
 function drawallTickets(array $tickets) { 
@@ -52,6 +54,7 @@ function drawinfoTicket(int $ticket_id){
     $user = User::getUser($db,$_SESSION['id']);
     if(($ticket->agent_id == -1 ) && ($user->role == 0 || $user->role == 1)) { 
         drawAssignTicket();
+        drawaddDepartment();
     } else { 
         ?><h2><?=htmlentities(strval($ticket->agent_id))?></h2><?php
     }

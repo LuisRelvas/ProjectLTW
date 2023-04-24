@@ -12,7 +12,7 @@
   $stmt = $db->prepare('INSERT INTO ticket(id,department_id,status_id,tittle,description,initial_date) VALUES (?,?,?,?,?, ?)');
   $stmt->execute(array($_SESSION['id'],$_SESSION['input']['department_id newUser'], $_SESSION['input']['status_id'],$_POST['tittle'], $_POST['description'], $_SESSION['input']['initial_date newUser']));
   
-  
+  unset($_SESSION['input']);  
   $session->addMessage('success', "Ticket adicionado com sucesso!");
   header('Location: ../pages/ticket.php');
   

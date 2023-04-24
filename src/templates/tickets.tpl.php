@@ -54,6 +54,9 @@ function drawinfoTicket(int $ticket_id){
     } else { 
         ?><h2><?=htmlentities(strval($ticket->agent_id))?></h2><?php
     }
+    if($user->role == 0 || $user->role == 1 || $ticket->id == $_SESSION['id'])  { 
+        ?><h2><a href="../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Delete ticket</h2></a><?php
+    }
 
     ?><h2><a href="../edit/ticket.edit.php"><h2>Editar ticket</h2></a><?php
 

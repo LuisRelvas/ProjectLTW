@@ -138,9 +138,14 @@
   }
 
   static function assignTicket(PDO $db,int $ticket_id){
-    $stmt = $db->prepare('UPDATE ticket SET agent_id = ? WHERE ticket_id = ?');
+    $stmt = $db->prepare('UPDATE ticket SET status_id = 1,agent_id = ?WHERE ticket_id = ?');
     $stmt->execute(array($_SESSION['id'],$ticket_id));
 
+  }
+
+  static function removeTicket($db, $ticket_id){
+    $stmt = $db->prepare('DELETE FROM ticket WHERE ticket_id = ?');
+    $stmt->execute(array($ticket_id));
   }
 }
   ?>

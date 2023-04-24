@@ -7,6 +7,7 @@ require_once(dirname(__DIR__).'/classes/session.class.php');
 require_once(dirname(__DIR__).'/classes/ticket.class.php');
 require_once(dirname(__DIR__).'/templates/tickets.tpl.php');
 require_once(dirname(__DIR__).'/templates/departments.tpl.php');
+require_once(dirname(__DIR__).'/classes/department.class.php');
 
 
 function drawallTickets(array $tickets) { 
@@ -44,19 +45,28 @@ function drawgetTicketid() { ?>
 function drawinfoTicket(int $ticket_id){ 
     $db = getDatabaseConnection();
     $ticket = Ticket::getinfoTicket($db,$ticket_id);
+    $department_name = Department::getDepartmentName($db,$ticket->department_id);
     $_SESSION['ticket_id'] = $ticket->ticket_id;
+    if(($ticket->status_id)==0){
+        $status = "Pendente";
+    } else if(($ticket->status_id)==1){
+        $status= "Em progresso";
+    } else if(($ticket->status_id)==2){
+        $status = "Concluído";
+    }
     ?><h2><?=htmlentities(strval($ticket->ticket_id))?></h2><?php
-    ?><h2><?=htmlentities(strval($ticket->department_id))?></h2><?php
+    ?><h2><?=htmlentities($department_name)?></h2><?php
     ?><h2><?=htmlentities($ticket->initial_date)?></h2><?php
     ?><h2><?=htmlentities($ticket->description)?></h2><?php
     ?><h2><?=htmlentities($ticket->tittle)?></h2><?php
-    ?><h2><?=htmlentities(strval($ticket->status_id))?></h2><?php
+    ?><h2><?=htmlentities($status)?></h2><?php
     $user = User::getUser($db,$_SESSION['id']);
+    $agent_name = User::getUser($db,$ticket->agent_id);
     if(($ticket->agent_id == -1 ) && ($user->role == 0 || $user->role == 1)) { 
         drawAssignTicket();
         drawaddDepartment();
-    } else { 
-        ?><h2><?=htmlentities(strval($ticket->agent_id))?></h2><?php
+    } else {
+        ?><h2><?=htmlentities(strval($agent_name->name))?></h2><?php
     }
     if($user->role == 0 || $user->role == 1 || $ticket->id == $_SESSION['id'])  { 
         ?><h2><a href="../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Delete ticket</h2></a><?php
@@ -114,10 +124,18 @@ function drawTicketSearch() { ?>
 function drawEditTicketForm() { ?>
     <section id="editTicket">
         <h1>Editar Ticket</h1>
-        <form action="../actions/editTicket.action.php" method="post">
+            <form action="../actions/editTicket.action.php" method="post">
+                <?php 
+                $db = getDatabaseConnection();
+                $user = User::getUser($db,$_SESSION['id']);
+                if($user->role == 1 || $user->role == 0){ ?>
+            
+            <label>Department: <input type="number" name="department_id" required="required" value="<?=intval($_SESSION['input']['department_id oldUser'])?>"></label><?php } ?>
+
+
             <label>Tittle: <input type="text" name="tittle" required="required" value="<?=htmlentities($_SESSION['input']['tittle oldUser'])?>"></label>
             <label>Description: <input type="text" name="description" required="required" value="<?=htmlentities($_SESSION['input']['description oldUser'])?>"></label>
-            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>" >
             <input id="button" type="submit" value="Concluir edição" >
         </form>
 

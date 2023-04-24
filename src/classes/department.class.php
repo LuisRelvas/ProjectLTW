@@ -26,5 +26,18 @@
 
     }
 
+    static public function getDepartmentName(PDO $db, int $department_id): string {
+        $stmt = $db->prepare('SELECT name FROM department where department_id = ?');
+        $stmt->execute(array($department_id));
+        $name = $stmt->fetch();
+        $name = ($name['name']);
+        if($name){
+        return $name;}
+        else{
+            return "null";
+        }
+
+    }
+
 }
 

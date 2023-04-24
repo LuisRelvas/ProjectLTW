@@ -4,7 +4,7 @@
   require_once(dirname(__DIR__).'/classes/ticket.class.php');
   require_once(dirname(__DIR__).'/classes/session.class.php');
   require_once(dirname(__DIR__).'/classes/department.class.php');
-  $session = new Session(); 
+  $session = new Session();
   $_SESSION['input']['description newUser'] = htmlentities($_POST['description']);
   $_SESSION['input']['tittle newUser'] = htmlentities($_POST['tittle']);
   $_SESSION['input']['initial_date newUser'] = date("Y-m-d");

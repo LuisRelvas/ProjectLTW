@@ -5,6 +5,7 @@
   require_once(dirname(__DIR__).'/pages/common.php');
   require_once(dirname(__DIR__).'/templates/tickets.tpl.php');
   require_once(dirname(__DIR__).'/classes/session.class.php');
+  require_once(dirname(__DIR__).'/classes/department.class.php');
   $session = new Session();
   
   if (!$session->isLoggedIn()) {
@@ -14,10 +15,9 @@
   $db = getDatabaseConnection();
   $ticket = Ticket::getinfoTicket($db, $_SESSION['ticket_id']);
 
-
+  $_SESSION['input']['department_id oldUser'] = intval($_SESSION['input']['department_id oldUser']) ?? $ticket->department_id;
   $_SESSION['input']['tittle oldUser'] = $_SESSION['input']['tittle oldUser'] ?? $ticket->tittle;
   $_SESSION['input']['description oldUser'] = $_SESSION['input']['description oldUser'] ?? $ticket->description;
-
   drawHeader($session);
   if (count($session->getMessages())) drawMessages($session);
   drawEditTicketForm(); 

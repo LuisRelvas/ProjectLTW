@@ -3,6 +3,7 @@
   require_once(dirname(__DIR__).'/database/connection.db.php');
   require_once(dirname(__DIR__).'/classes/ticket.class.php');
   require_once(dirname(__DIR__).'/classes/session.class.php');
+  require_once(dirname(__DIR__).'/classes/department.class.php');
   require_once(dirname(__DIR__).'/utils/validator.php');
   $session = new Session();
 
@@ -10,15 +11,21 @@
     $session->addMessage('error', "Ação não disponível");
     die(header('Location: ../pages/index.php'));
   } 
-
+  $_SESSION['input']['department_id oldUser'] = intval($_POST['department_id']);
   $_SESSION['input']['tittle oldUser'] = htmlentities($_POST['tittle']);
   $_SESSION['input']['description oldUser'] = htmlentities($_POST['description']);
 
+
   $db = getDatabaseConnection();
   $ticket = Ticket::getinfoTicket($db, $_SESSION['ticket_id']);
-
-  if ($ticket) {
-
+  $department = Department::getDepartmentName($db, intval($_POST['department_id']));
+  if($department == "null"){
+    $session->addMessage('error', "Departamento não existe");
+    header('Location: ../edit/ticket.edit.php');
+    die();
+  }
+  else if ($ticket && $department != "null") {
+    $ticket->department_id = intval($_POST['department_id']);
     $ticket->tittle = $_POST['tittle'];
     $ticket->description = $_POST['description'];
 

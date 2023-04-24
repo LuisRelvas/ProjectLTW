@@ -48,7 +48,13 @@ function drawinfoTicket(int $ticket_id){
     ?><h2><?=htmlentities($ticket->description)?></h2><?php
     ?><h2><?=htmlentities($ticket->tittle)?></h2><?php
     ?><h2><?=htmlentities(strval($ticket->status_id))?></h2><?php
-    ?><h2><?=htmlentities(strval($ticket->agent_id))?></h2><?php
+    $user = User::getUser($db,$_SESSION['id']);
+    if(($ticket->agent_id == -1 ) && ($user->role == 0 || $user->role == 1)) { 
+        ?><h2><a href="../actions/assignticket.action.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Assign ticket</h2></a><?php
+    } else { 
+        ?><h2><?=htmlentities(strval($ticket->agent_id))?></h2><?php
+    }
+
     ?><h2><a href="../edit/ticket.edit.php"><h2>Editar ticket</h2></a><?php
 
         

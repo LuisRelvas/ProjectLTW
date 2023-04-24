@@ -13,7 +13,7 @@ if (searchProfiles) {
 
         if (!Object.keys(profiles).length) {
             const error = document.createElement('h3')
-            error.textContent = "Não existem tickets com essas características"
+            error.textContent = "Não existem profiles com essas características"
             error.className = "error"
             section.appendChild(error)
         }

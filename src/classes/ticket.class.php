@@ -136,5 +136,11 @@
       $stmt = $db->prepare('UPDATE ticket SET tittle = ?, description = ? WHERE ticket_id = ?');
       $stmt->execute(array($this->tittle, $this->description,$this->ticket_id));
   }
+
+  static function assignTicket(PDO $db,int $ticket_id){
+    $stmt = $db->prepare('UPDATE ticket SET agent_id = ? WHERE ticket_id = ?');
+    $stmt->execute(array($_SESSION['id'],$ticket_id));
+
+  }
 }
   ?>

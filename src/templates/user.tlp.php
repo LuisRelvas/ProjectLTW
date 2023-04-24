@@ -14,9 +14,11 @@ function drawUser(int $id) {
     ?><h2><?=htmlentities($user->email)?></h2><?php
     if($user->role == 0) { 
         ?><h2><?php echo 'Admin' ?></h2><?php
+        drawProfilesearch();
     }
     else if($user->role == 1) { 
         ?><h2><?php echo 'Agent' ?></h2><?php
+        drawProfilesearch();
     }
     else {
         ?><h2><?php echo 'User' ?></h2><?php

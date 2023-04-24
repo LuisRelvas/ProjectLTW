@@ -10,6 +10,8 @@
     $session->addMessage('error', "Ação não disponível");
     die(header('Location: ../pages/denied.php'));
   } 
+
+  $_SESSION['input']['role oldUser'] = intval(htmlentities($_POST['role']));
   $_SESSION['input']['username oldUser'] = htmlentities($_POST['username']);
   $_SESSION['input']['name oldUser'] = htmlentities($_POST['name']);
   $_SESSION['input']['email oldUser'] = htmlentities($_POST['email']);
@@ -24,7 +26,7 @@
   $user = User::getUser($db, intval($_GET['id']));
   $pass = User::getPass($db, intval($_GET['id']));
   if ($user) {
-
+    $user->role = intval($_POST['role']);
     $user->username = $_POST['username'];
     $user->name = $_POST['name'];
     $user->email = $_POST['email'];

@@ -13,17 +13,22 @@ function drawUser(int $id) {
     ?><h2><?=htmlentities($user->name)?></h2><?php
     ?><h2><?=htmlentities($user->username)?></h2><?php
     ?><h2><?=htmlentities($user->email)?></h2><?php
-    if($admin->role == 0) { 
+    if($user->role == 0) { 
         ?><h2><?php echo 'Admin' ?></h2><?php
-        drawProfilesearch();
     }
-    else if($admin->role == 1) { 
+    else if ($user->role == 1){
         ?><h2><?php echo 'Agent' ?></h2><?php
-        drawProfilesearch();
     }
     else {
         ?><h2><?php echo 'User' ?></h2><?php
-    }?> 
+    }
+    if($admin->role == 0) { 
+        drawProfilesearch();
+    }
+    else if($admin->role == 1) { 
+        drawProfilesearch();
+    }
+    ?> 
     <?php if(($admin->id == $_GET['id']) || ($admin->role == 0)){ ?>
     <a href="../edit/profile.edit.php?id=<?=$id?>"><h2>Editar perfil</h2></a> <?php } ?><?php
     
@@ -34,6 +39,14 @@ function drawUser(int $id) {
         <section id="editProfile">
             <h1>Editar perfil</h1>
             <form action="../actions/editProfile.action.php?id=<?=$_GET['id']?>" method="post">
+            <?php 
+            $db = getDatabaseConnection();
+            $user = User::getUser($db, $_SESSION['id']); 
+            if($user->role == 0) { ?>
+        
+                <label>Role: <input type="number" name="role" required="required" value="<?=htmlentities(strval($_SESSION['input']['role oldUser']))?>"></label>
+
+            <?php } ?>
                 <label>Nome: <input type="text" name="name" required="required" value="<?=htmlentities($_SESSION['input']['nome oldUser'])?>"></label>
                 <label>Username: <input type="text" name="username" required="required" value="<?=htmlentities($_SESSION['input']['username oldUser'])?>"></label>
                 <label>Email: <input type="email" name="email" required="required" value="<?=htmlentities($_SESSION['input']['email oldUser'])?>"></label>

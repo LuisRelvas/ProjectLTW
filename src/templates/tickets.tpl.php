@@ -50,7 +50,7 @@ function drawinfoTicket(int $ticket_id){
     ?><h2><?=htmlentities(strval($ticket->status_id))?></h2><?php
     $user = User::getUser($db,$_SESSION['id']);
     if(($ticket->agent_id == -1 ) && ($user->role == 0 || $user->role == 1)) { 
-        ?><h2><a href="../actions/assignticket.action.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Assign ticket</h2></a><?php
+        drawAssignTicket();
     } else { 
         ?><h2><?=htmlentities(strval($ticket->agent_id))?></h2><?php
     }
@@ -108,6 +108,18 @@ function drawEditTicketForm() { ?>
         </form>
 
     </section> <?php }
+
+
+function drawAssignTicket() { ?>
+    <section id="assignTicket">
+        <h1>Assign Ticket</h1>
+        <form action="../actions/assignticket.action.php" method="post">
+            <label>Agent id: <input type="number" name="agent_id" required="required" value="<?=htmlentities(strval($_SESSION['input']['agent_id oldUser']))?>"></label>
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+            <input id="button" type="submit" value="Concluir" >
+        </form>
+    </section> <?php
+}
 
 
 ?>

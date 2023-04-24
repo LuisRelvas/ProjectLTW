@@ -137,9 +137,9 @@
       $stmt->execute(array($this->tittle, $this->description,$this->ticket_id));
   }
 
-  static function assignTicket(PDO $db,int $ticket_id){
-    $stmt = $db->prepare('UPDATE ticket SET status_id = 1,agent_id = ?WHERE ticket_id = ?');
-    $stmt->execute(array($_SESSION['id'],$ticket_id));
+  static function assignTicket(PDO $db,int $ticket_id,int $agent_id){
+    $stmt = $db->prepare('UPDATE ticket SET status_id = 1,agent_id = ? WHERE ticket_id = ?');
+    $stmt->execute(array($agent_id,$ticket_id));
 
   }
 

@@ -1,5 +1,5 @@
-/* login_style.css */
-/*Colors*/
+
+
 :root {
     --mainHeaderColor: #8C2D19;
     --boxShadow: 0px 0px 5px 0px #8C2D19;
@@ -20,7 +20,7 @@ header img {
 }
   
   
-#loginpage {
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,42 +30,42 @@ header img {
     color: var(--bodyColor);
 }
   
-#loginpage h1 {
+h1 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
 }
   
-#loginpage form {
+form {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    background-color: #fff;
+    background-color: var(--titleColor);
     border-radius: 5px;
-    box-shadow: 0px 0px 5px 0px #000;
+    box-shadow: var(--boxShadow);
 }
   
-#loginpage input[type="email"], #loginpage input[type="password"] {
+input[type="email"], input[type="password"] {
     padding: 0.5rem;
     border-radius: 5px;
     border: none;
     outline: none;
-    box-shadow: 0px 0px 5px 0px #000;
+    box-shadow: var(--boxShadow);
 }
-  
-#loginpage #button {
+
+#button {
     padding: 0.5rem 1rem;
     border-radius: 5px;
     border: none;
     outline: none;
     background-color: var(--mainHeaderColor);
-    color: #fff;
+    color: var(--titleColor);
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
   
-#loginpage #button:hover {
+#button:hover {
     background-color: var(--hoverButtonColor);
 }
   

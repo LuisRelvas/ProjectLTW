@@ -39,11 +39,12 @@
       return count($names) > 1 ? $names[0] . " " . $names[count($names)-1] : $names[0];
     }
 
-    static function getUser(PDO $db, int $id) : User {
+    static function getUser(PDO $db, int $id) : ?User {
       
       $stmt = $db->prepare('SELECT id,role,username,name,email,password FROM user WHERE id = ?');
       $stmt->execute(array(intval($id)));
       $user = $stmt->fetch();
+      if($user){
       return new User(
           $user['id'],
           $user['role'],
@@ -51,7 +52,8 @@
           $user['name'],
           $user['email']
           
-      );
+      );}
+      else return null;
     } 
 
     static function getPass(PDO $db, int $id) : string {

@@ -56,5 +56,16 @@ function drawUser(int $id) {
         </section> <?php 
       }
 
+      function drawProfilesearch() { ?>
+        <section id = "searching1">
+          <select id = "critério1" > 
+            <option value = "nameT1">User Id</option>
+          </select>
+          <input id="searchprofile" type="text" placeholder="pesquisa">
+          <section id="searchprofiles">
+          </section>
+      </section> <?php 
+    }
+
       ?>
       

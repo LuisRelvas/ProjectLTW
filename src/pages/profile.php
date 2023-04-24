@@ -15,6 +15,7 @@ if(!$session->isLoggedIn() || $SESSION['id'] != $_GET['id']) {
 drawHeader($session);
 if(count($session->getMessages())) drawMessages($session);
 drawUser(intval($_GET['id']));
+drawProfilesearch();
 ?>
 
 

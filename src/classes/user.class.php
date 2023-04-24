@@ -71,6 +71,33 @@
     function save($db) {
       $stmt = $db->prepare('UPDATE user SET username = ?, name = ?, email = ? WHERE id = ?');
       $stmt->execute(array($this->username, $this->name, $this->email,$this->id));
+  }
+  static function search(PDO $db, string $search, string $type) : array {
+
+    $querie = '';
+    $result = array();
+
+    switch ($type) {
+      case "nameT1":
+          $querie = 'SELECT * FROM user WHERE id LIKE ?';
+          break;
+      default:  
+          return $result;
+    }
+
+    $stmt = $db->prepare($querie);
+    $stmt->execute(array('%'.$search.'%'));
+
+    while ($user = $stmt->fetch()) {
+      $result[] = new User(
+        $user['id'],
+        $user['role'],
+        $user['username'],
+        $user['name'],
+        $user['email'],
+      );
+    }
+    return $result;
   } 
 }
 

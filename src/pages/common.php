@@ -12,6 +12,7 @@
                 >
                 <link rel="stylesheet" href="../css/teste.css">
                 <script src="../javascript/searchticket.js" defer></script>
+                <script src="../javascript/searchprofile.js" defer></script>
                
             </head>
             <body>

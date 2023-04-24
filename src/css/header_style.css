@@ -1,21 +1,29 @@
+:root {
+    --mainHeaderColor: #8C2D19;
+    --boxShadow: 0px 0px 5px 0px #8C2D19;
+    --backgroundColor: #e6e6e6;
+    --titleColor: #FFF;
+    --bodyColor: #000;
+    --borderBottomColor: 10px solid #000;
+}  
+
 body {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    margin: 0; /* Consolidate margin shorthand */
-    background-color: #e6e6e6;
+    margin: 0; 
+    background-color: var(--mainHeaderColor);
 }
 
 header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* align vertically and horizontally in center */
     align-items: center;
     padding: 50px;
-    background-color: #8C2D19;
-    border-bottom: 10px solid black; 
-    color: #fff;
+    background-color: var(--backgroundColor);
+    border-bottom: var(--borderBottomColor); 
+    color: var(--titleColor);
 }
 
 header > img {

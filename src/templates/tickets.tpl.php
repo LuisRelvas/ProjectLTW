@@ -64,7 +64,7 @@ function drawinfoTicket(int $ticket_id){
     $agent_name = User::getUser($db,$ticket->agent_id);
     if(($ticket->agent_id == -1 ) && ($user->role == 0 || $user->role == 1)) { 
         drawAssignTicket();
-        drawaddDepartment();
+
     } else {
         ?><h2><?=htmlentities(strval($agent_name->name))?></h2><?php
     }

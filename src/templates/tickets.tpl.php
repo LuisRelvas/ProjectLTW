@@ -44,6 +44,7 @@ function drawinfoTicket(int $ticket_id){
     $ticket = Ticket::getinfoTicket($db,$ticket_id);
     $_SESSION['ticket_id'] = $ticket->ticket_id;
     ?><h2><?=htmlentities(strval($ticket->ticket_id))?></h2><?php
+    ?><h2><?=htmlentities(strval($ticket->department_id))?></h2><?php
     ?><h2><?=htmlentities($ticket->initial_date)?></h2><?php
     ?><h2><?=htmlentities($ticket->description)?></h2><?php
     ?><h2><?=htmlentities($ticket->tittle)?></h2><?php
@@ -64,15 +65,25 @@ function drawinfoTicket(int $ticket_id){
 }
 
 function drawaddTicket(){ ?>
+    <?php 
+    $db = getDatabaseConnection();
+    $stmt = $db->prepare('SELECT name FROM department');
+    $stmt->execute();
+    $departments = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+   
+
+    ?>
     <div id = "form">
     <form action="../actions/addticket.action.php" method ="post">
           <label>Tittle: <input type="text" name="tittle" required="required" value="<?=$_SESSION['input']['tittle newUser']?>"></label>
-          <select name = "Department">
-            <optgroup label = "Choose only one">
-                <option value = "IT">IT <?php $_SESSION['input']['department_id newUser'] = 0 ?></option>
-                <option value = "IT2">IT2<?php $_SESSION['input']['department_id newUser'] = 1 ?></option>
-                <option value = "IT3">IT3<?php $_SESSION['input']['department_id newUser'] = 2 ?></option>
-            </optgroup> 
+          <select name="department">
+            <optgroup label="Choose only one">
+                <?php foreach ($departments as $department) { ?>
+                    <option value="<?= $department ?>"><?= $department ?></option>
+                <?php }  ?>
+            </optgroup>
+        </select>
           <label>Description: <input type="text" name="description" required="required" value="<?=($_SESSION['input']['description newUser'])?>"></label>
           <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
           <input id="button" type="submit" value="Validar Ticket">

@@ -10,21 +10,19 @@
     $session->addMessage('error', "Ação não disponível");
     die(header('Location: ../pages/denied.php'));
   } 
-
   $_SESSION['input']['username oldUser'] = htmlentities($_POST['username']);
   $_SESSION['input']['name oldUser'] = htmlentities($_POST['name']);
   $_SESSION['input']['email oldUser'] = htmlentities($_POST['email']);
   $_SESSION['input']['password1 oldUser'] = htmlentities($_POST['password1']);
   $_SESSION['input']['password2 oldUser'] = htmlentities($_POST['password2']);
-
   if (!(valid_name($_POST['name'])) && valid_email($_POST['email']) && valid_CSRF($_POST['csrf'])) {
       die(header('Location: ../edit/profile.edit.php'));
   }
 
   $db = getDatabaseConnection();
-  $user = User::getUser($db, $_SESSION['id']);
-  $pass = User::getPass($db, $_SESSION['id']);
 
+  $user = User::getUser($db, intval($_GET['id']));
+  $pass = User::getPass($db, intval($_GET['id']));
   if ($user) {
 
     $user->username = $_POST['username'];
@@ -37,7 +35,7 @@
         die(header('Location: ../edit/profile.edit.php'));
       } else {
         $pass2 = $_POST['password2'];
-        User::savePass($db, $_SESSION['id'], $pass2);
+        User::savePass($db, $user->id, $pass2);
       }
 
     } else if ($_POST['password1'] != "" && $pass != $_POST['password1']) {
@@ -47,7 +45,8 @@
 
     $user->save($db);
 
-    $_SESSION['name'] = $user->getName();
+    if($_SESSION['id'] == $user->id){
+    $_SESSION['name'] = $user->getName();}
   }
 
   unset($_SESSION['input']);

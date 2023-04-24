@@ -13,7 +13,9 @@
   } 
 
   $db = getDatabaseConnection();
-  $user = User::getUser($db, $_SESSION['id']);
+
+  $user = User::getUser($db, intval($_GET['id']));
+  
 
   $_SESSION['input']['nome oldUser'] = $_SESSION['input']['nome oldUser'] ?? $user->name;
   $_SESSION['input']['username oldUser'] = $_SESSION['input']['username oldUser'] ?? $user->username;
@@ -24,4 +26,6 @@
   drawHeader($session);
   if (count($session->getMessages())) drawMessages($session);
   drawEditUserForm(); 
+  unset($_SESSION['input']);
+
 ?>

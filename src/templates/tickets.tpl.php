@@ -32,7 +32,7 @@ function drawmyTickets(int $id){
 }
 
 function drawTicketsperHashtag(string $name){ 
-    
+
     $db = getDatabaseConnection();
     $tickets = Ticket::gethashtagTickets($db,$name);
     foreach($tickets as $ticket){
@@ -98,9 +98,6 @@ function drawaddTicket(){ ?>
     $stmt = $db->prepare('SELECT name FROM department');
     $stmt->execute();
     $departments = $stmt->fetchAll(PDO::FETCH_COLUMN);
-
-   
-
     ?>
     <div id = "form">
     <form action="../actions/addticket.action.php" method ="post">
@@ -121,6 +118,38 @@ function drawaddTicket(){ ?>
 <?php
 }
 
+function drawEditTicketForm() { ?>
+    <?php 
+    $db = getDatabaseConnection();
+    $stmt = $db ->prepare('SELECT name from department');
+    $stmt->execute();
+    $departments = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    ?>
+    <section id="editTicket">
+        <h1>Editar Ticket</h1> 
+            <form action="../actions/editTicket.action.php" method="post">
+                <?php 
+                $db = getDatabaseConnection();
+                $user = User::getUser($db,$_SESSION['id']);
+                $ticket = Ticket::getinfoTicket($db, intval($_GET['ticket_id']));
+                if($user->role == 1 || $user->role == 0){ ?>
+            
+        <select name="department">
+            <optgroup label="Choose only one">
+                <?php foreach ($departments as $department) { ?>
+                    <option value="<?= $department ?>"><?= $department ?></option>
+                <?php }  ?>
+            </optgroup>
+        </select>
+        <?php } ?>
+            <label>Tittle: <input type="text" name="tittle" required="required" value="<?=htmlentities($ticket->tittle)?>"></label>
+            <label>Description: <input type="text" name="description" required="required" value="<?=htmlentities($ticket->description)?>"></label>
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>" >
+            <input id="button" type="submit" value="Concluir edição" >
+        </form>
+
+    </section> <?php }
+
 function drawTicketSearch() { ?>
     <section id = "searching">
       <select id = "critério" > 
@@ -136,26 +165,7 @@ function drawTicketSearch() { ?>
   </section> <?php 
 }
 
-function drawEditTicketForm() { ?>
-    <section id="editTicket">
-        <h1>Editar Ticket</h1> 
-            <form action="../actions/editTicket.action.php" method="post">
-                <?php 
-                $db = getDatabaseConnection();
-                $user = User::getUser($db,$_SESSION['id']);
-                $ticket = Ticket::getinfoTicket($db, intval($_GET['ticket_id']));
-                if($user->role == 1 || $user->role == 0){ ?>
-            
-            <label>Department: <input type="number" name="department_id" required="required" value="<?=$ticket->department_id?>"></label><?php } ?>
 
-
-            <label>Tittle: <input type="text" name="tittle" required="required" value="<?=htmlentities($ticket->tittle)?>"></label>
-            <label>Description: <input type="text" name="description" required="required" value="<?=htmlentities($ticket->description)?>"></label>
-            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>" >
-            <input id="button" type="submit" value="Concluir edição" >
-        </form>
-
-    </section> <?php }
 
 
 function drawAssignTicket() { ?>

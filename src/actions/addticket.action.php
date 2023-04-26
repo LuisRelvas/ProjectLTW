@@ -10,6 +10,7 @@
   $_SESSION['input']['initial_date newUser'] = date("Y-m-d");
   $_SESSION['input']['status_id'] = 0;
   $_SESSION['input']['department_name newUser'] = $_POST['department'];
+
   
 
   $department_id = Department::getDepartmentId($_SESSION['input']['department_name newUser']);

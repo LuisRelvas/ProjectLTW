@@ -11,21 +11,21 @@
     $session->addMessage('error', "Ação não disponível");
     die(header('Location: ../pages/index.php'));
   } 
-  $_SESSION['input']['department_id oldUser'] = intval($_POST['department_id']);
+  $_SESSION['input']['department_name oldUser'] = ($_POST['department']);
   $_SESSION['input']['tittle oldUser'] = htmlentities($_POST['tittle']);
   $_SESSION['input']['description oldUser'] = htmlentities($_POST['description']);
 
 
   $db = getDatabaseConnection();
   $ticket = Ticket::getinfoTicket($db, $_SESSION['ticket_id']);
-  $department = Department::getDepartmentName($db, intval($_POST['department_id']));
+  $department = Department::getDepartmentId($_POST['department']);
   if($department == "null"){
     $session->addMessage('error', "Departamento não existe");
     header('Location: ../edit/ticket.edit.php');
     die();
   }
   else if ($ticket && $department != "null") {
-    $ticket->department_id = intval($_POST['department_id']);
+    $ticket->department_id = $department;
     $ticket->tittle = $_POST['tittle'];
     $ticket->description = $_POST['description'];
 

@@ -8,7 +8,7 @@ require_once(dirname(__DIR__).'/classes/ticket.class.php');
 require_once(dirname(__DIR__).'/templates/tickets.tpl.php');
 require_once(dirname(__DIR__).'/templates/departments.tpl.php');
 require_once(dirname(__DIR__).'/classes/department.class.php');
-
+require_once(dirname(__DIR__).'/classes/hashtag.class.php');
 
 function drawallTickets(array $tickets) { 
     $db = getDatabaseConnection();
@@ -31,6 +31,16 @@ function drawmyTickets(int $id){
     }
 }
 
+function drawTicketsperHashtag(string $name){ 
+    
+    $db = getDatabaseConnection();
+    $tickets = Ticket::gethashtagTickets($db,$name);
+    foreach($tickets as $ticket){
+        ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3> <?php
+        ?> <h2><?= $ticket->description?></h2> <?php
+    }
+}
+
 function drawgetTicketid() { ?>
     <section id="ticketpage">
     <h1>Ticket</h1>
@@ -43,8 +53,12 @@ function drawgetTicketid() { ?>
 }
 
 function drawinfoTicket(int $ticket_id){ 
+    
     $db = getDatabaseConnection();
+    
     $ticket = Ticket::getinfoTicket($db,$ticket_id);
+    $tag = Hashtag::getHashtag($ticket->hashtag_id);
+
     $department_name = Department::getDepartmentName($db,$ticket->department_id);
     $_SESSION['ticket_id'] = $ticket->ticket_id;
     if(($ticket->status_id)==0){
@@ -54,12 +68,15 @@ function drawinfoTicket(int $ticket_id){
     } else if(($ticket->status_id)==2){
         $status = "Concluído";
     }
+
+    if(($ticket->hashtag_id))
     ?><h2><?=htmlentities(strval($ticket->ticket_id))?></h2><?php
     ?><h2><?=htmlentities($department_name)?></h2><?php
     ?><h2><?=htmlentities($ticket->initial_date)?></h2><?php
     ?><h2><?=htmlentities($ticket->description)?></h2><?php
     ?><h2><?=htmlentities($ticket->tittle)?></h2><?php
     ?><h2><?=htmlentities($status)?></h2><?php
+    ?><h2><a href="../pages/tickethashtag.php?hashtag_name=<?=$tag?>"><h2><?=htmlentities(strval($tag))?></h2></a><?php
     $user = User::getUser($db,$_SESSION['id']);
     $agent_name = User::getUser($db,$ticket->agent_id);
     if(($ticket->agent_id == -1 ) && ($user->role == 0 || $user->role == 1)) { 
@@ -73,8 +90,6 @@ function drawinfoTicket(int $ticket_id){
     }
 
     ?><h2><a href="../edit/ticket.edit.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Editar ticket</h2></a><?php
-
-        
 }
 
 function drawaddTicket(){ ?>

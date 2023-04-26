@@ -8,20 +8,21 @@
                 <meta
                     name = "LTW Project"
                     encoding = "utf-8"
-                    author = "Relvas, Domingues, Angy"
+                    author = "Relvas, Domingos, Angy"
                 >
-                <link rel="stylesheet" href="../css/teste.css">
+                <link rel="stylesheet" href="../css/header_style.css">
                 <script src="../javascript/searchticket.js" defer></script>
                 <script src="../javascript/searchprofile.js" defer></script>
                
             </head>
             <body>
                 <header>
+                    
                     <nav id="topbar" >
-                        <a class="item" href="../pages/index.php"><h3>Trouble Ticket</h3></a>
+                        <a href="../pages/index.php"><img src="https://dec.fe.up.pt/wp-content/uploads/2021/03/logo-feup-white.png" alt="Logo of site"></a>
                         <?php
                             if ($session->isLoggedIn()) drawLoginUser($session->getId(), $session->getName());
-                            else drawLogin();
+                            else drawDefaultUser();
                         ?>
                     </nav>
                 </header>
@@ -60,7 +61,7 @@
 
         function drawBanner() { ?>
             <section id="banner">
-                <header><h1>Trouble Ticket</h1>
+                <!-- <header><h1>Trouble Ticket</h1> -->
             </header>
             <h1 class = "loginItem"><a href="../pages/ticket.php">TICKET</a></h1>
             </section> <?php 

@@ -13,3 +13,4 @@ $session = new Session();
 drawHeader($session);
 drawTicketSearch();
 drawaddDepartment();
+drawaddHashtags();

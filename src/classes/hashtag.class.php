@@ -29,8 +29,38 @@
 
     }
 
+    static public function getHashtagID(string $tag) : int {
+        
+        $db = getDatabaseConnection(); 
+        $stmt = $db->prepare('SELECT hashtag_id FROM hashtag WHERE tag = ?');
+        $stmt->execute(array($tag));
+        $tag = $stmt->fetch();
+        return $tag['hashtag_id'];
+    }
 
+    
+    static function search(PDO $db, string $search, string $type) : array {
+      $querie = '';
+      $result = array();
+  
+      switch ($type) {
+        case "nameH1":
+            $querie = 'SELECT * FROM hashtag WHERE tag LIKE ?';
+            break;
+        default:  
+            return $result;
+      }
+    $stmt = $db->prepare($querie);
+    $stmt->execute(array('%'.$search.'%'));
+      while ($hashtag = $stmt->fetch()) {
+        $result[] = new Hashtag(
+          $hashtag['hashtag_id'],
+          $hashtag['tag']
+        );
+      }
+      return $result;
 
+  }
 }
 
 

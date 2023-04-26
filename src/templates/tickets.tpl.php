@@ -4,6 +4,7 @@ require_once(dirname(__DIR__).'/database/connection.db.php');
 require_once(dirname(__DIR__).'/classes/ticket.class.php');
 require_once(dirname(__DIR__).'/classes/user.class.php');
 require_once(dirname(__DIR__).'/classes/session.class.php');
+require_once(dirname(__DIR__).'/classes/hashtag.class.php');
 require_once(dirname(__DIR__).'/classes/ticket.class.php');
 require_once(dirname(__DIR__).'/templates/tickets.tpl.php');
 require_once(dirname(__DIR__).'/templates/departments.tpl.php');
@@ -52,9 +53,11 @@ function drawgetTicketid() { ?>
 <?php
 }
 
-function drawinfoTicket(int $ticket_id){ 
-    
+function drawinfoTicket(int $ticket_id) { 
     $db = getDatabaseConnection();
+    $stmt = $db->prepare('select ticketHashtag.hashtag_id from ticket,ticketHashtag where ticket.ticket_id = ? and ticket.ticket_id = ticketHashtag.ticket_id');
+    $stmt->execute(array($ticket_id));
+    $hashtag_id = $stmt->fetchAll(PDO::FETCH_COLUMN);
     
     $ticket = Ticket::getinfoTicket($db,$ticket_id);
     $tag = Hashtag::getHashtag($ticket->hashtag_id);
@@ -69,14 +72,16 @@ function drawinfoTicket(int $ticket_id){
         $status = "Concluído";
     }
 
-    if(($ticket->hashtag_id))
     ?><h2><?=htmlentities(strval($ticket->ticket_id))?></h2><?php
     ?><h2><?=htmlentities($department_name)?></h2><?php
     ?><h2><?=htmlentities($ticket->initial_date)?></h2><?php
     ?><h2><?=htmlentities($ticket->description)?></h2><?php
     ?><h2><?=htmlentities($ticket->tittle)?></h2><?php
     ?><h2><?=htmlentities($status)?></h2><?php
-    ?><h2><a href="../pages/tickethashtag.php?hashtag_name=<?=$tag?>"><h2><?=htmlentities(strval($tag))?></h2></a><?php
+    foreach($hashtag_id as $hashtags_id){
+        ?><h2><?=Hashtag::getHashtag($hashtags_id)?></h3><?php
+    }
+    
     $user = User::getUser($db,$_SESSION['id']);
     $agent_name = User::getUser($db,$ticket->agent_id);
     if(($ticket->agent_id == -1 ) && ($user->role == 0 || $user->role == 1)) { 
@@ -86,6 +91,7 @@ function drawinfoTicket(int $ticket_id){
         ?><h2><?=htmlentities(strval($agent_name->name))?></h2><?php
     }
     if($user->role == 0 || $user->role == 1 || $ticket->id == $_SESSION['id'])  { 
+        drawTagsSearch();
         ?><h2><a href="../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Delete ticket</h2></a><?php
     }
 
@@ -96,7 +102,7 @@ function drawinfoTicket(int $ticket_id){
 
 function drawaddHashtags() {  ?>
     <div id = "form">
-    <form action="../actions/addhashtag.action.php" method ="post">
+    <form action="../actions/addHashtag.action.php" method ="post">
           <label>Hashtag: <input type="text" name="hashtag" required="required" value="<?=$_SESSION['input']['hashtag newUser']?>"></label>
           <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
           <input id="button" type="submit" value="Validar Hashtag">
@@ -106,6 +112,30 @@ function drawaddHashtags() {  ?>
 
 
 }
+
+function drawTagsSearch() { ?>
+    <section id = "searching2">
+      <select id = "critério2" > 
+        <option value = "nameH1">Hashtag</option>
+      </select>
+      <input id="searchtag" type="text" placeholder="pesquisa">
+      <section id="searchtags">
+      </section>
+  </section> <?php 
+}
+
+function drawaddHashtag(){ ?>
+        <div id = "form">
+        <form action="../actions/addHashtag.action.php" method ="post">
+              <label>Name: <input type="text" name="tag" required="required" value="<?=$_SESSION['input']['hashtag newUser']?>"></label>
+              <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+              <input id="button" type="submit" value="Adicionar Hashtag">
+          </form>
+    </div>
+    <?php
+
+} 
+
 
 function drawaddTicket(){ ?>
     <?php 

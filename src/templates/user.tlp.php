@@ -41,13 +41,14 @@ function drawUser(int $id) {
             <form action="../actions/editProfile.action.php?id=<?=$_GET['id']?>" method="post">
             <?php 
             $db = getDatabaseConnection();
-            $user = User::getUser($db, $_SESSION['id']); 
-            if($user->role == 0) { ?>
+            $admin = User::getUser($db, $_SESSION['id']);
+            $user = User::getUser($db, intval($_GET['id'])); 
+            if($admin->role == 0) { ?>
         
                 <label>Role: <input type="number" name="role" required="required" value="<?=htmlentities(strval($_SESSION['input']['role oldUser']))?>"></label>
 
             <?php } ?>
-                <label>Nome: <input type="text" name="name" required="required" value="<?=htmlentities($_SESSION['input']['nome oldUser'])?>"></label>
+                <label>Nome: <input type="text" name="name" required="required" value="<?=htmlentities($user->name)?>"></label>
                 <label>Username: <input type="text" name="username" required="required" value="<?=htmlentities($_SESSION['input']['username oldUser'])?>"></label>
                 <label>Email: <input type="email" name="email" required="required" value="<?=htmlentities($_SESSION['input']['email oldUser'])?>"></label>
                 <label>Antiga password: <input type="password" name="password1"></label>

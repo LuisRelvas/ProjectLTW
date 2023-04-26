@@ -72,7 +72,7 @@ function drawinfoTicket(int $ticket_id){
         ?><h2><a href="../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Delete ticket</h2></a><?php
     }
 
-    ?><h2><a href="../edit/ticket.edit.php"><h2>Editar ticket</h2></a><?php
+    ?><h2><a href="../edit/ticket.edit.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Editar ticket</h2></a><?php
 
         
 }
@@ -123,18 +123,19 @@ function drawTicketSearch() { ?>
 
 function drawEditTicketForm() { ?>
     <section id="editTicket">
-        <h1>Editar Ticket</h1>
+        <h1>Editar Ticket</h1> 
             <form action="../actions/editTicket.action.php" method="post">
                 <?php 
                 $db = getDatabaseConnection();
                 $user = User::getUser($db,$_SESSION['id']);
+                $ticket = Ticket::getinfoTicket($db, intval($_GET['ticket_id']));
                 if($user->role == 1 || $user->role == 0){ ?>
             
-            <label>Department: <input type="number" name="department_id" required="required" value="<?=intval($_SESSION['input']['department_id oldUser'])?>"></label><?php } ?>
+            <label>Department: <input type="number" name="department_id" required="required" value="<?=$ticket->department_id?>"></label><?php } ?>
 
 
-            <label>Tittle: <input type="text" name="tittle" required="required" value="<?=htmlentities($_SESSION['input']['tittle oldUser'])?>"></label>
-            <label>Description: <input type="text" name="description" required="required" value="<?=htmlentities($_SESSION['input']['description oldUser'])?>"></label>
+            <label>Tittle: <input type="text" name="tittle" required="required" value="<?=htmlentities($ticket->tittle)?>"></label>
+            <label>Description: <input type="text" name="description" required="required" value="<?=htmlentities($ticket->description)?>"></label>
             <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>" >
             <input id="button" type="submit" value="Concluir edição" >
         </form>

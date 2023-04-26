@@ -32,6 +32,7 @@ CREATE TABLE ticket(
 	tittle TEXT NOT NULL,
 	description TEXT NOT NULL,
 	initial_date DATE NOT NULL,
+	hashtag_id INTEGER DEFAULT 1,
 	agent_id INTEGER DEFAULT -1,
 	FOREIGN KEY(id) REFERENCES user(id),
 	FOREIGN KEY(department_id) REFERENCES department(department_id),
@@ -71,11 +72,12 @@ CREATE TABLE ticketHashtag(
 );
 
 CREATE TABLE reply( 
+	reply_id INTEGER PRIMARY KEY,
 	ticket_id INTEGER NOT NULL,
-	department_id INTEGER NOT NULL,
-	FOREIGN KEY (ticket_id) REFERENCES ticket(ticket_id), 
-	FOREIGN KEY (department_id) REFERENCES department(department_id),
-	PRIMARY KEY(ticket_id,department_id)
+	id INTEGER NOT NULL,
+	text TEXT NOT NULL,
+	FOREIGN KEY (id) REFERENCES user(id),
+	FOREIGN KEY (ticket_id) REFERENCES ticket(ticket_id)
 );
 
 CREATE TABLE faq(
@@ -120,8 +122,12 @@ INSERT INTO status(name, open, assigned, closed) VALUES ('Assigned', 0, 1, 0);
 INSERT INTO status(name, open, assigned, closed) VALUES ('Closed', 0, 0, 1);
 -- Add more status entries as needed
 
+INSERT INTO hashtag(tag) VALUES ('new');
 INSERT INTO hashtag(tag) VALUES ('urgent');
 INSERT INTO hashtag(tag) VALUES ('important');
+INSERT INTO hashtag(tag) VALUES ('most wanted');
+INSERT INTO hashtag(tag) VALUES ('completed');
+
 -- Add more hashtag entries as needed
 
 INSERT INTO faq(question, answer) VALUES ('What is the ticket submission process?', 'You can submit a ticket through the ticket submission form on the website.');

@@ -17,4 +17,5 @@ if(!$session->isLoggedIn() || $SESSION['id'] != $_GET['id']) {
 
 drawinfoTicket(intval($_GET['ticket_id']));
 
+
 ?>

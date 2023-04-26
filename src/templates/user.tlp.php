@@ -41,11 +41,20 @@ function drawUser(int $id) {
             <form action="../actions/editProfile.action.php?id=<?=$_GET['id']?>" method="post">
             <?php 
             $db = getDatabaseConnection();
+            $stmt = $db->prepare('SELECT distinct(role) FROM user');
+            $stmt->execute();
+            $roles = $stmt->fetchAll(PDO::FETCH_COLUMN);
             $admin = User::getUser($db, $_SESSION['id']);
             $user = User::getUser($db, intval($_GET['id'])); 
             if($admin->role == 0) { ?>
         
-                <label>Role: <input type="number" name="role" required="required" value="<?=htmlentities(strval($_SESSION['input']['role oldUser']))?>"></label>
+        <select name="role">
+            <optgroup label="Choose only one">
+                <?php foreach ($roles as $role) { ?>
+                    <option value="<?= $role ?>"><?= $role ?></option>
+                <?php }  ?>
+            </optgroup>
+        </select>
 
             <?php } ?>
                 <label>Nome: <input type="text" name="name" required="required" value="<?=htmlentities($user->name)?>"></label>

@@ -89,7 +89,22 @@ function drawinfoTicket(int $ticket_id){
         ?><h2><a href="../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Delete ticket</h2></a><?php
     }
 
-    ?><h2><a href="../edit/ticket.edit.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Editar ticket</h2></a><?php
+    ?><h2><a href="../edit/ticket.edit.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Editar ticket</h2></a>
+    <?php
+}
+
+
+function drawaddHashtags() {  ?>
+    <div id = "form">
+    <form action="../actions/addhashtag.action.php" method ="post">
+          <label>Hashtag: <input type="text" name="hashtag" required="required" value="<?=$_SESSION['input']['hashtag newUser']?>"></label>
+          <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+          <input id="button" type="submit" value="Validar Hashtag">
+      </form>
+<?php
+
+
+
 }
 
 function drawaddTicket(){ ?>

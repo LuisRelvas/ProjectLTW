@@ -182,5 +182,6 @@
     $stmt = $db->prepare('DELETE FROM ticket WHERE ticket_id = ?');
     $stmt->execute(array($ticket_id));
   }
+
 }
   ?>

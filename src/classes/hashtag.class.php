@@ -23,9 +23,13 @@
         $stmt = $db->prepare('SELECT tag FROM hashtag WHERE hashtag_id = ?');
         $stmt->execute(array($hashtag_id));
         $tag = $stmt->fetch();
-        return $tag['tag'];
+        if($tag){
+          return $tag['tag'];
+        }
+        else  {
+          return "null";
+                }
         
-
 
     }
 
@@ -60,6 +64,11 @@
       }
       return $result;
 
+  }
+
+  static function removeHashtag(PDO $db, int $hashtag_id) {
+    $stmt = $db->prepare('DELETE FROM ticketHashtag WHERE hashtag_id = ?');
+    $stmt->execute(array($hashtag_id));
   }
 }
 

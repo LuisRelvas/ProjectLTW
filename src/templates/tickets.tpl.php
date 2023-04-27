@@ -58,9 +58,7 @@ function drawinfoTicket(int $ticket_id) {
     $stmt = $db->prepare('select ticketHashtag.hashtag_id from ticket,ticketHashtag where ticket.ticket_id = ? and ticket.ticket_id = ticketHashtag.ticket_id');
     $stmt->execute(array($ticket_id));
     $hashtag_id = $stmt->fetchAll(PDO::FETCH_COLUMN);
-    
     $ticket = Ticket::getinfoTicket($db,$ticket_id);
-    $tag = Hashtag::getHashtag($ticket->hashtag_id);
 
     $department_name = Department::getDepartmentName($db,$ticket->department_id);
     $_SESSION['ticket_id'] = $ticket->ticket_id;
@@ -79,7 +77,12 @@ function drawinfoTicket(int $ticket_id) {
     ?><h2><?=htmlentities($ticket->tittle)?></h2><?php
     ?><h2><?=htmlentities($status)?></h2><?php
     foreach($hashtag_id as $hashtags_id){
-        ?><h2><?=Hashtag::getHashtag($hashtags_id)?></h3><?php
+        ?><?php $hashtag = Hashtag::getHashtag($hashtags_id)?><?php
+        if($hashtag == "null"){
+            continue;
+        }
+        ?><h2><a href="../actions/removeHashtag.action.php?hashtag_id=<?=$hashtags_id?>"><h2><?=$hashtag?></h2></a><?php
+
     }
     
     $user = User::getUser($db,$_SESSION['id']);
@@ -94,6 +97,7 @@ function drawinfoTicket(int $ticket_id) {
         drawTagsSearch();
         ?><h2><a href="../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Delete ticket</h2></a><?php
     }
+    
 
     ?><h2><a href="../edit/ticket.edit.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Editar ticket</h2></a>
     <?php

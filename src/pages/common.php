@@ -17,16 +17,18 @@
             </head>
             <body>
                 <header>
-                    
-                    <nav id="topbar" >
-                        <a href="../pages/index.php"><img src="https://dec.fe.up.pt/wp-content/uploads/2021/03/logo-feup-white.png" alt="Logo of site"></a>
+                        <a href="../pages/index.php">
+                            <img src="https://dec.fe.up.pt/wp-content/uploads/2021/03/logo-feup-white.png" alt="Logo of site">
+                        </a>
                         <?php
-                            if ($session->isLoggedIn()) drawLoginUser($session->getId(), $session->getName());
+                            if ($session->isLoggedIn()) 
+                            drawLoginUser($session->getId(), $session->getName());
                             else drawDefaultUser();
                         ?>
-                    </nav>
+            
                 </header>
-            <main> <?php 
+            </body>
+            <?php 
         }
 
         function drawLoginUser(int $id, string $name) { ?>
@@ -40,11 +42,11 @@
         }
 
         function drawDefaultUser() { ?>
-            <section id="login">
+            <div id="login">
                 <h3 class="loginItem"><a href="../pages/login.php">Login</a></h3>
                 <h3 class="loginItem"><a href="../pages/register.php">Register</a></h3>
                 <h3 class ="loginItem"><a href="teste">FAQ</a></h3>
-            </section>
+            </div>
         <?php 
         }
 

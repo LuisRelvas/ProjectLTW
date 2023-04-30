@@ -109,12 +109,15 @@ function drawinfoTicket(int $ticket_id) {
 
     ?><h2><a href="../edit/ticket.edit.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Editar ticket</h2></a>
 
+
+<?php if($user->role == 0 ||$user->id == $ticket->id  || $agent_name -> id == $_SESSION['id']){     ?>
 <form action="../actions/submitAnswer.action.php?ticket_id=<?=$ticket->ticket_id?>" method="POST">
     <label for="answer">Answer:</label>
     <textarea name="answer" id="answer" rows="5" cols="50"></textarea>
     <input type="hidden" name="ticket_id" value="<?= $ticket_id ?>">
     <input type="submit" value="Submit Answer">
 </form>
+    <?php } ?>
     <?php
 }
 

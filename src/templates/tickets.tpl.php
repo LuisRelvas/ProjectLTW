@@ -10,6 +10,7 @@ require_once(dirname(__DIR__).'/templates/tickets.tpl.php');
 require_once(dirname(__DIR__).'/templates/departments.tpl.php');
 require_once(dirname(__DIR__).'/classes/department.class.php');
 require_once(dirname(__DIR__).'/classes/hashtag.class.php');
+require_once(dirname(__DIR__).'/classes/reply.class.php');
 
 function drawallTickets(array $tickets) { 
     $db = getDatabaseConnection();
@@ -59,6 +60,13 @@ function drawinfoTicket(int $ticket_id) {
     $stmt->execute(array($ticket_id));
     $hashtag_id = $stmt->fetchAll(PDO::FETCH_COLUMN);
     $ticket = Ticket::getinfoTicket($db,$ticket_id);
+    $text = Reply::getReplies($ticket_id);
+    foreach($text as $reply){
+        ?><h2><?=($reply['text'])?></h2><?php
+        ?><h2><?= '_' ?></h2><?php
+    }
+    
+
 
     $department_name = Department::getDepartmentName($db,$ticket->department_id);
     $_SESSION['ticket_id'] = $ticket->ticket_id;
@@ -100,6 +108,13 @@ function drawinfoTicket(int $ticket_id) {
     
 
     ?><h2><a href="../edit/ticket.edit.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Editar ticket</h2></a>
+
+<form action="../actions/submitAnswer.action.php?ticket_id=<?=$ticket->ticket_id?>" method="POST">
+    <label for="answer">Answer:</label>
+    <textarea name="answer" id="answer" rows="5" cols="50"></textarea>
+    <input type="hidden" name="ticket_id" value="<?= $ticket_id ?>">
+    <input type="submit" value="Submit Answer">
+</form>
     <?php
 }
 

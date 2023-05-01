@@ -43,9 +43,18 @@
 
         function drawDefaultUser() { ?>
             <div id="login">
-                <h3 class="loginItem"><a href="../pages/login.php">Login</a></h3>
-                <h3 class="loginItem"><a href="../pages/register.php">Register</a></h3>
-                <h3 class ="loginItem"><a href="teste">FAQ</a></h3>
+                <button>
+                    <a href="../pages/login.php">Login</a>
+                </button>
+
+                <button>
+                    <a href="../pages/register.php">Registar</a>
+                </button>
+
+                <button>
+                    <a href="teste">FAQ</a>
+                </button>
+            
             </div>
         <?php 
         }

@@ -10,9 +10,9 @@
                     encoding = "utf-8"
                     author = "Relvas, Domingos, Angy"
                 >
-                <link rel="stylesheet" href="../css/teste.css">
                 <link rel="stylesheet" href="../css/header_style.css">
-                <link rel="stylesheet" href="../css/login_style.css">
+                <link rel="stylesheet" href="../css/banner.css">
+
                 <script src="../javascript/searchticket.js" defer></script>
                 <script src="../javascript/searchprofile.js" defer></script>
                
@@ -34,21 +34,14 @@
         }
 
         function drawLoginUser(int $id, string $name) { ?>
-            <section id="login">
-                
-               
-                
-                
-            </section>
+
             <div id="login">
                 <button>
                     <a href="../actions/logout.action.php">Logout</a>
                 </button>
 
-           
-
                 <button>
-                    <a href="../pages/profile.php?id=<?=$id?>" ><?=$name?></a>
+                    <a href="../pages/profile.php?id=<?=$id?>"><?=$name?></a>
                 </button>
             
             </div>
@@ -85,6 +78,7 @@
         }
 
         function drawBanner() { ?>
+    
             <section id="banner">
                 <!-- <header><h1>Trouble Ticket</h1> -->
             </header>
@@ -118,10 +112,15 @@
 function drawMessages(Session $session) { ?>
     <section id="messages">
         <?php foreach ($session->getMessages() as $message) { ?>
-            <article class="<?=$message['type']?>">
-                <i class='fas fa-exclamation-circle'></i>
-            <?=$message['text']?>
-            </article>
+            <div id="welcome-card">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/signs-and-symbols/welcome-icon.png" alt="Welcome image">
+
+                <article class="<?=$message['type']?>">
+                    <i class='fas fa-exclamation-circle'></i>
+                    <?=$message['text']?>
+                </article>
+            </div>
+ 
         <?php } ?> 
     </section> 
 <?php } ?>

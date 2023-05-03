@@ -10,7 +10,10 @@
                     encoding = "utf-8"
                     author = "Relvas, Domingos, Angy"
                 >
+                <link rel="stylesheet" href="../css/teste.css">
                 <link rel="stylesheet" href="../css/header_style.css">
+                <link rel="stylesheet" href="../css/login_style.css">
+                <link rel="stylesheet" href="../css/ticket_style.css">
                 <link rel="stylesheet" href="../css/banner.css">
 
                 <script src="../javascript/searchticket.js" defer></script>

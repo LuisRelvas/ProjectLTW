@@ -11,6 +11,7 @@ require_once(dirname(__DIR__).'/templates/departments.tpl.php');
 require_once(dirname(__DIR__).'/classes/department.class.php');
 require_once(dirname(__DIR__).'/classes/hashtag.class.php');
 require_once(dirname(__DIR__).'/classes/reply.class.php');
+require_once(dirname(__DIR__).'/templates/user.tlp.php');
 
 function drawallTickets(array $tickets) { 
     $db = getDatabaseConnection();
@@ -100,6 +101,7 @@ function drawinfoTicket(int $ticket_id) {
     
     if(($ticket->agent_id == -1 ) && ($user->role == 0 || $user->role == 1)) { 
         drawAssignTicket();
+        drawProfilesearch();
 
     } else {
         ?><h2><?=htmlentities(strval($agent_name->name))?></h2><?php

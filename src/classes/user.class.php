@@ -81,7 +81,35 @@
 
     switch ($type) {
       case "nameT1":
-          $querie = 'SELECT * FROM user WHERE id LIKE ?';
+          $querie = 'SELECT * FROM user WHERE username LIKE ?';
+          break;
+      default:  
+          return $result;
+    }
+
+    $stmt = $db->prepare($querie);
+    $stmt->execute(array('%'.$search.'%'));
+
+    while ($user = $stmt->fetch()) {
+      $result[] = new User(
+        $user['id'],
+        $user['role'],
+        $user['username'],
+        $user['name'],
+        $user['email'],
+      );
+    }
+    return $result;
+  }
+  
+  static function search2(PDO $db, string $search, string $type) : array {
+
+    $querie = '';
+    $result = array();
+
+    switch ($type) {
+      case "nameA1":
+          $querie = 'SELECT * FROM user WHERE username LIKE ?';
           break;
       default:  
           return $result;
@@ -102,5 +130,7 @@
     return $result;
   } 
 }
+
+
 
 ?>

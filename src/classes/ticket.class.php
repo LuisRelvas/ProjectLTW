@@ -167,6 +167,8 @@
       return $result;
     }
 
+    
+
     function save($db) {
       $stmt = $db->prepare('UPDATE ticket SET department_id = ?, tittle = ?, description = ? WHERE ticket_id = ?');
       $stmt->execute(array($this->department_id,$this->tittle, $this->description,$this->ticket_id));

@@ -9,13 +9,11 @@
   require_once(dirname(__DIR__).'/templates/tickets.tpl.php');
 
     $db = getDatabaseConnection();
-    $ticket_id = $_SESSION['ticket_id'];
-
-    $_SESSION['input']['agent_id oldUser'] = htmlentities($_POST['agent_id']);
-    $agent_id = intval($_SESSION['input']['agent_id oldUser']);
-    $user = User::getUser($db,$agent_id);
+    $ticket_id = intval($_GET['ticket_id']);
+    $id = intval($_GET['id']);
+    $user = User::getUser($db,$id);
     if($user && ($user->role == 0 || $user->role == 1)){
-        Ticket::assignTicket($db, $ticket_id,$agent_id);
+        Ticket::assignTicket($db, $ticket_id,$id);
         header('Location: ../pages/ticketseeonly.php?ticket_id='.$ticket_id.'');
     }
     else {

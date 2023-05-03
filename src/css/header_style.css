@@ -60,6 +60,8 @@ header > h1 {
 
 #login > button {
     background-color: white;
+    white-space: nowrap;
+    display: inline-block;
     border-radius: 8px;
     border-style: none;
     box-sizing: border-box;

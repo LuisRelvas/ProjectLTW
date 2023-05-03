@@ -65,9 +65,6 @@ function drawinfoTicket(int $ticket_id) {
         ?><h2><?=($reply['text'])?></h2><?php
         ?><h2><?= '_' ?></h2><?php
     }
-    
-
-
     $department_name = Department::getDepartmentName($db,$ticket->department_id);
     $_SESSION['ticket_id'] = $ticket->ticket_id;
     if(($ticket->status_id)==0){
@@ -84,24 +81,30 @@ function drawinfoTicket(int $ticket_id) {
     ?><h2><?=htmlentities($ticket->description)?></h2><?php
     ?><h2><?=htmlentities($ticket->tittle)?></h2><?php
     ?><h2><?=htmlentities($status)?></h2><?php
+    $user = User::getUser($db,$_SESSION['id']);
+    $agent_name = User::getUser($db,$ticket->agent_id);
     foreach($hashtag_id as $hashtags_id){
         ?><?php $hashtag = Hashtag::getHashtag($hashtags_id)?><?php
         if($hashtag == "null"){
             continue;
         }
+        if($user->role != 2) { 
         ?><h2><a href="../actions/removeHashtag.action.php?hashtag_id=<?=$hashtags_id?>"><h2><?=$hashtag?></h2></a><?php
+    }
+    else {
+        ?><h2><?=$hashtag?></h2><?php
+    }
 
     }
     
-    $user = User::getUser($db,$_SESSION['id']);
-    $agent_name = User::getUser($db,$ticket->agent_id);
+    
     if(($ticket->agent_id == -1 ) && ($user->role == 0 || $user->role == 1)) { 
         drawAssignTicket();
 
     } else {
         ?><h2><?=htmlentities(strval($agent_name->name))?></h2><?php
     }
-    if($user->role == 0 || $user->role == 1 || $ticket->id == $_SESSION['id'])  { 
+    if($user->role == 0 || $user->role == 1)  { 
         drawTagsSearch();
         ?><h2><a href="../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Delete ticket</h2></a><?php
     }

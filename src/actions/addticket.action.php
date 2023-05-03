@@ -24,7 +24,7 @@
   $stmt1 -> execute(array(intval($ticket_id)));
   unset($_SESSION['input']);  
   $session->addMessage('success', "Ticket adicionado com sucesso!");
-  header('Location: ../pages/ticket.php');
+  header('Location: ../pages/ticketseeonly.php?ticket_id='.$ticket_id.'');
   
   
   ?>

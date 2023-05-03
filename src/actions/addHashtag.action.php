@@ -10,8 +10,13 @@
   $_SESSION['input']['hashtag newUser'] = $_GET['tag'];
   $hashtag_id = Hashtag::getHashtagID(strval($_GET['tag']));
   $db = getDatabaseConnection();
+  $db1 = getDatabaseConnection(); 
+  $stmt1 = $db->prepare('SELECT * FROM ticketHashtag WHERE ticket_id = ? AND hashtag_id = ?');
+  $stmt1->execute(array($_SESSION['ticket_id'],$hashtag_id));
+  $check = $stmt1->fetch();
+  if($check == NULL){
   $stmt = $db->prepare('INSERT into ticketHashtag(ticket_id,hashtag_id) values (?,?)');
-  $stmt->execute(array($_SESSION['ticket_id'],$hashtag_id));
+  $stmt->execute(array($_SESSION['ticket_id'],$hashtag_id));}
   unset($_SESSION['input']);
   $session->addMessage('success', "Ticket adicionado com sucesso!");
   header('Location: ../pages/ticketseeonly.php?ticket_id='.$_SESSION['ticket_id'].'');

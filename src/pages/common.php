@@ -12,6 +12,7 @@
                 >
                 <link rel="stylesheet" href="../css/header_style.css">
                 <link rel="stylesheet" href="../css/banner.css">
+
                 <script src="../javascript/searchticket.js" defer></script>
                 <script src="../javascript/searchprofile.js" defer></script>
                

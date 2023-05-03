@@ -13,7 +13,6 @@ function drawaddDepartment() { ?>
           <input id="button" type="submit" value="Adicionar Departamento">
       </form>
 </div>
-
 <?php
 }
 

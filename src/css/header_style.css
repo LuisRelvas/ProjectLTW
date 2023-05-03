@@ -1,38 +1,275 @@
-:root {
-    --mainHeaderColor: #8C2D19;
-    --boxShadow: 0px 0px 5px 0px #8C2D19;
-    --backgroundColor: #e6e6e6;
-    --titleColor: #FFF;
-    --bodyColor: #000;
-    --borderBottomColor: 10px solid #000;
-}  
-
 body {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    margin: 0; 
-    background-color: var(--mainHeaderColor);
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+
+    
 }
 
 header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px;
-    background-color: var(--backgroundColor);
-    border-bottom: var(--borderBottomColor); 
-    color: var(--titleColor);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #8C2D19;
+  border-bottom: 10px solid black;
+  color: #fff;
+
 }
 
-header > img {
-    width: 20%;
-    height: 20%;
-    padding-left: 1em;
+header > a > img {
+  width: 35%;
+  height: 35%;
+  margin-right: 50%;
 }
 
 header > h1 {
     font-size: 3em;
     margin: 0;
-}   
+}
+
+
+#login {
+    /* display grid in row with space even */
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    color: #fff;
+    /*remove link style */
+    text-decoration: none;
+    /* change color of link */
+    color: #fff;
+    /* change color of link when hover */
+    transition: color 0.3s ease;
+    margin-right: 10%;
+    
+}
+
+#login > button > a {
+    /*remove link style */
+    text-decoration: none;
+    /* change color of link */
+    color: black;
+    /* change color of link when hover */
+    transition: color 0.3s ease;
+}
+
+#login > button {
+    background-color: white;
+    white-space: nowrap;
+    display: inline-block;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+#login > button:hover,
+#login > button:focus {
+  background-color: black;
+  
+}
+
+#login > button:hover > a {
+  color: #8C2D19;
+}
+
+#loginpage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 91vh;
+    background-color: #f7f7f7;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #333;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #f7f7f7;
+  }
+  
+  #button {
+    display: block;
+    width: 50%;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  #button:hover {
+    background-color: #444;
+  }
+  
+  #form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #f7f7f7;
+  }
+  
+  input[type="hidden"] {
+    display: none;
+  }
+  
+  #button {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  #button:hover {
+    background-color: #444;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+}
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    /* ... */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  #button {
+    /* ... */
+    background-color: #555;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #button:hover {
+    background-color: #444;
+  }
+  
+  #registerUser > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+
+  main {
+    display: flex;
+    justify-content: space-around;
+  
+  }

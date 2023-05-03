@@ -33,11 +33,23 @@
 
         function drawLoginUser(int $id, string $name) { ?>
             <section id="login">
-                <h3 class="loginItem"><a href="../actions/logout.action.php">Logout</a></h3>
-                <h3 class="loginItem"><?=$name?></h3>
-                <h3 class="loginItem"><?=$id?></h3>
-                <h3 class="loginItem"><a href="../pages/profile.php?id=<?=$id?>" >PERFIL</a></h3> 
+                
+               
+                
+                
             </section>
+            <div id="login">
+                <button>
+                    <a href="../actions/logout.action.php">Logout</a>
+                </button>
+
+           
+
+                <button>
+                    <a href="../pages/profile.php?id=<?=$id?>" ><?=$name?></a>
+                </button>
+            
+            </div>
         <?php 
         }
 
@@ -74,7 +86,7 @@
             <section id="banner">
                 <!-- <header><h1>Trouble Ticket</h1> -->
             </header>
-            <h1 class = "loginItem"><a href="../pages/ticket.php">TICKET</a></h1>
+                <h1 class = "loginItem"><a href="../pages/ticket.php">TICKET</a></h1>
             </section> <?php 
         }
 

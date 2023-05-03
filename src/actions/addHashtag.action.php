@@ -14,7 +14,7 @@
   $stmt->execute(array($_SESSION['ticket_id'],$hashtag_id));
   unset($_SESSION['input']);
   $session->addMessage('success', "Ticket adicionado com sucesso!");
-  header('Location: ../pages/ticket.php');
+  header('Location: ../pages/ticketseeonly.php?ticket_id='.$_SESSION['ticket_id'].'');
     
 
 

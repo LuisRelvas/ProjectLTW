@@ -65,7 +65,7 @@ CREATE TABLE hashtag(
 
 CREATE TABLE ticketHashtag(
 	ticket_id INTEGER NOT NULL,
-    hashtag_id INTEGER NOT NULL,
+    hashtag_id INTEGER NOT NULL DEFAULT 1,
     FOREIGN KEY (ticket_id) REFERENCES ticket(ticket_id),
     FOREIGN KEY (hashtag_id) REFERENCES hashtag(hashtag_id),
     PRIMARY KEY (ticket_id, hashtag_id)

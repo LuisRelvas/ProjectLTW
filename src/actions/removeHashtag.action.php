@@ -10,7 +10,7 @@
     $db = getDatabaseConnection();
     $hashtag_id = intval($_GET['hashtag_id']);
     Hashtag::removeHashtag($db, $hashtag_id);
-    header('Location: ../pages/ticketsee.php');
+    header('Location: ../pages/ticketseeonly.php?ticket_id='.$_SESSION['ticket_id'].'');
 
 
   ?>

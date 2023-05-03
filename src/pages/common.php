@@ -15,7 +15,7 @@
 
                 <script src="../javascript/searchticket.js" defer></script>
                 <script src="../javascript/searchprofile.js" defer></script>
-               
+                <script src="../javascript/searchtags.js" defer></script>
             </head>
             <body>
                 <header>

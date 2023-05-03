@@ -100,7 +100,6 @@ function drawinfoTicket(int $ticket_id) {
     
     
     if(($ticket->agent_id == -1 ) && ($user->role == 0 || $user->role == 1)) { 
-        drawAssignTicket();
         drawProfilesearch();
 
     } else {

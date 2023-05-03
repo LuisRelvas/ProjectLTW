@@ -74,6 +74,10 @@
         <?php } 
         
         function drawTicket(int $id) { ?>
+        <?php 
+        $db = getDatabaseConnection();
+        $user = User::getUser($db,$id);
+        ?>
             <section id ="ticket">
                 <h2>Ticket Management</h2>
                 <form action = "../pages/ticketadd.php" method = "post">
@@ -81,11 +85,13 @@
                     <input id="button" type="submit" value="Entrar">
                 </form>
                 <h1 class = "ticketitem"><a href="../pages/ticketsee.php">SEE TICKET</a></h1>
+                <?php if($user->role != 2){ ?>
                 <form action = "../pages/ticketmanage.php" method = "post">
                     <label>MANAGE TICKET</label>
                     <input id="button" type="submit" value="Entrar">
                 </form>
-         <?php }
+                <?php } ?>
+        <?php }
 
         
 

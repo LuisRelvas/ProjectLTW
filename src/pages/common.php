@@ -12,6 +12,7 @@
                 >
                 <link rel="stylesheet" href="../css/header_style.css">
                 <link rel="stylesheet" href="../css/banner.css">
+                <link rel="stylesheet" href="../css/faqAccordion.css">
 
                 <script src="../javascript/searchticket.js" defer></script>
                 <script src="../javascript/searchprofile.js" defer></script>
@@ -75,6 +76,42 @@
                     <input id="button" type="submit" value="Entrar">
                 </form>
             </section> <?php 
+        }
+
+        function drawFAQSDefault() { 
+            //$faqs = getFAQS();  // using database
+            ?>
+            <button class="accordion">Como chegar até a FEUP?</button>
+            <div class="panel">
+                <p>A FEUP (Faculdade de Engenharia da Universidade do Porto) está localizada na Rua Dr. Roberto Frias, s/n, no Porto, Portugal. Existem várias maneiras de chegar à FEUP, dependendo do seu ponto de partida e preferências de transporte.</p>
+            </div>
+
+            <button class="accordion">Qual é a ementa da cantina da FEUP?</button>
+            <div class="panel">
+                <p>As ementas das cantinas universitárias são atualizadas diariamente e disponibilizadas online ou num quadro de avisos na própria cantina. Pode consultar a ementa da cantina da FEUP <a href="https://sigarra.up.pt/up/pt/web_base.gera_pagina?p_pagina=ementa_cantinas">aqui</a>.</p>
+
+</p>            
+            </div>
+
+            <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                panel.style.display = "none";
+                } else {
+                panel.style.display = "block";
+                }
+            });
+            }
+            </script>
+
+            <?php 
+
         }
 
         function drawBanner() { ?>

@@ -1,71 +1,91 @@
-
-
+*--Colors--*/
 :root {
     --mainHeaderColor: #8C2D19;
-    --boxShadow: 0px 0px 5px 0px #8C2D19;
+    --boxShadow: 0px 0px 5px 0px rgba(140, 45, 25, 0.5);
     --backgroundColor: #e6e6e6;
-    --titleColor: #FFF;
-    --bodyColor: #000;
+    --whiteColor: #FFF;
+    --blackColor: #000;
+    --focusBorderColor: #8C2D19;
 }
-  
-  
-header {
-    background-color: var(--mainHeaderColor);
-    color: var(--titleColor);
-    box-shadow: var(--boxShadow);
-}
-  
-header img {
-    max-width: 100%;
-}
-  
-  
-body {
+    
+/*Style for the Login section*/
+#loginpage {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: var(--backgroundColor);
-    color: var(--bodyColor);
+    margin: 50px auto;
+    width: 100%;
 }
+
+#loginpage h1 {
+    margin-bottom: 30px;
+    font-size: 3rem;
+  }
   
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-}
-  
-form {
+#loginpage form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    background-color: var(--titleColor);
-    border-radius: 5px;
-    box-shadow: var(--boxShadow);
+    width: 100%;
+    max-width: 400px;
 }
   
-input[type="email"], input[type="password"] {
-    padding: 0.5rem;
-    border-radius: 5px;
+#loginpage label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#loginpage input[type="email"],
+#loginpage input[type="password"] {
+    padding: 10px;
+    margin-bottom: 20px;
     border: none;
-    outline: none;
+    border-radius: 5px;
     box-shadow: var(--boxShadow);
 }
 
-#button {
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    border: none;
-    outline: none;
+#loginpage input[type="email"]:focus,
+#loginpage input[type="password"]:focus { 
+  outline: none;
+  box-shadow: 0px 0px 5px 0px var(--focusBorderColor);
+}
+
+#loginpage input[type="submit"] {
     background-color: var(--mainHeaderColor);
-    color: var(--titleColor);
+    color: var(--whiteColor);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: var(--boxShadow);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease-in-out;
 }
-  
-#button:hover {
-    background-color: var(--hoverButtonColor);
+
+#loginpage input[type="submit"]:hover {
+  background-color: darken(var(--mainHeaderColor), 10%);
+  color: var(--blackColor)
 }
-  
+
+/* Style of the section for the page when the user is logged in*/
+#login {
+  display: flex;
+  align-items: center;
+}
+
+#login a {
+  color: var(--whiteColor);
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border-radius: 5px;
+  box-shadow: var(--boxShadow);
+  transition: background-color 0.2s ease-in-out;
+}
+
+#login a:hover {
+  background-color: darken(var(--mainHeaderColor), 10%);
+}
+
+#login h3 {
+    margin-right: 10px;
+}

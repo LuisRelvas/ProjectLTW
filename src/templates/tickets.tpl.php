@@ -13,6 +13,7 @@ require_once(dirname(__DIR__).'/classes/hashtag.class.php');
 require_once(dirname(__DIR__).'/classes/reply.class.php');
 require_once(dirname(__DIR__).'/templates/user.tlp.php');
 
+
 function drawallTickets(array $tickets) { 
     $db = getDatabaseConnection();
     $tickets = Ticket::getallTickets($db);
@@ -197,7 +198,6 @@ function drawllTickets_id(){ ?>
     $tickets_id = $stmt->fetchAll(PDO::FETCH_COLUMN);
     ?>
     <div id = "form">
-    <form action="../" method ="post">
           <label>Ticket_id:</label>
           <select name="ticket_id">
             <optgroup label="List:">
@@ -206,7 +206,6 @@ function drawllTickets_id(){ ?>
                 <?php }  ?>
             </optgroup>
         </select>
-      </form>
 </div>
 
 <?php
@@ -235,28 +234,34 @@ function drawallStatus(){ ?>
 <?php
 }
 
-function drawallDepartments(){ ?>
+function drawallDepartments() { ?>
+    
     <?php 
     $db = getDatabaseConnection();
     $stmt = $db->prepare('SELECT name FROM department');
     $stmt->execute();
     $departments = $stmt->fetchAll(PDO::FETCH_COLUMN);
     ?>
+    
     <div id = "form">
-    <form action="../" method ="post">
+    <form action="#" method ="post">
           <label>Department:</label>
-          <select name="status">
+          <select onchange = "showCustomer(this.value)" id="department-select" name="department">
             <optgroup label="List:">
                 <?php foreach ($departments as $department) { ?>
                     <option value="<?= $department ?>"><?= $department ?></option>
                 <?php }  ?>
+                
             </optgroup>
         </select>
+        <button type="submit">Submit</button>
       </form>
-</div>
+      <div id="txtHint">Customer information will be displayed here</div>
 
 <?php
 }
+
+
 
 
 function drawllHashtags(){ ?>

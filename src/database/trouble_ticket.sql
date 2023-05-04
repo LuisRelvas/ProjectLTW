@@ -27,7 +27,7 @@ CREATE TABLE user(
 
 CREATE TABLE agent(
 	id INTEGER,
-	department_id INTEGER,
+	department_id INTEGER DEFAULT 1,
 	FOREIGN KEY(id) REFERENCES user(id),
 	FOREIGN KEY(department_id) REFERENCES department(department_id),
 	PRIMARY KEY(id, department_id)
@@ -119,8 +119,15 @@ INSERT INTO user(role, username, name, email, password) VALUES (2, 'margaridasan
 -- Add more user entries as needed
 
 
+INSERT INTO department(name) VALUES ('GR');
 INSERT INTO department(name) VALUES ('IT');
 INSERT INTO department(name) VALUES ('HR');
+
+INSERT INTO agent(id) VALUES (4);
+INSERT INTO agent(id) VALUES (5);
+INSERT INTO agent(id) VALUES (6);
+INSERT INTO agent(id) VALUES (7);
+INSERT INTO agent(id) VALUES (8);
 -- Add more department entries as needed
 
 INSERT INTO status(name) VALUES ('Open');

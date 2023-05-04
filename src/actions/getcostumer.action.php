@@ -12,23 +12,45 @@
   $stmt->execute(array($_GET['q']));
   $department_id = $stmt->fetchAll();
 
-  echo("Tickets from department: ".$_GET['q']."<br>");
-  foreach($department_id as $departments_id){
-    echo("Agent id: ".$departments_id['agent_id']." ");
-    echo("Costumer name: ".$departments_id['username']." ");
-    echo("Status: ".$departments_id['name']." ");
-    echo("Department id: ".$departments_id['department_id']." ");   
-    echo("Ticket id: ".$departments_id['ticket_id']."<br>");
-  }
+  echo("Tickets from department: ".$_GET['q']."<br>"); ?>
+  <table>
+  <tr>
+    <th>Agent id</th>
+    <th>Customer name</th>
+    <th>Status</th>
+    <th>Department id</th>
+    <th>Ticket id</th>
+  </tr>
+  <?php foreach($department_id as $departments_id): ?>
+    <tr>
+      <td><?php echo $departments_id['agent_id']; ?></td>
+      <td><?php echo $departments_id['username']; ?></td>
+      <td><?php echo $departments_id['name']; ?></td>
+      <td><?php echo $departments_id['department_id']; ?></td>
+      <td><?php echo $departments_id['ticket_id']; ?></td>
+    </tr>
+  <?php endforeach; ?>
+</table>
+    <?php
   unset($db); 
 
     $db = getDatabaseConnection();
-  $stmt1 = $db->prepare( 'SELECT user.username from user,department,agent where user.id = agent.id and agent.department_id = department.department_id and department.name = ?');
+  $stmt1 = $db->prepare( 'SELECT user.id,user.username from user,department,agent where user.id = agent.id and agent.department_id = department.department_id and department.name = ?');
   $stmt1->execute(array($_GET['q']));
   $department_agents = $stmt1->fetchAll();
+  echo("<br>");
   echo("All the agents that belong to this department"."<br>");
-  foreach($department_agents as $departments_agents){
-    echo("Agent name: ".$departments_agents['username']."<br>");
-  } 
+  ?>
+  <table>
+  <tr>
+    <th>Agent id</th>
+    <th>Agent name</th>
+  </tr>
+  <?php foreach($department_agents as $departments_agents): ?>
+    <tr>
+      <td><?php echo $departments_agents['id']; ?></td>
+      <td><?php echo $departments_agents['username']; ?></td>
+    </tr>
+  <?php endforeach; ?>
+</table>
 
-?>

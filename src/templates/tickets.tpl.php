@@ -246,7 +246,7 @@ function drawallDepartments() { ?>
     <div id = "form">
     <form action="#" method ="post">
           <label>Department:</label>
-          <select onchange = "showCustomer(this.value)" id="department-select" name="department">
+          <select onchange = "showDepartment(this.value)" id="department-select" name="department">
             <optgroup label="List:">
                 <?php foreach ($departments as $department) { ?>
                     <option value="<?= $department ?>"><?= $department ?></option>
@@ -254,7 +254,6 @@ function drawallDepartments() { ?>
                 
             </optgroup>
         </select>
-        <button type="submit">Submit</button>
       </form>
       <div id="txtHint">Customer information will be displayed here</div>
 
@@ -274,7 +273,7 @@ function drawllHashtags(){ ?>
     <div id = "form">
     <form action="../" method ="post">
           <label>Hashtag:</label>
-          <select name="hashtag_all">
+          <select onchange = "showHashtag(this.value)" id="hashtag-select" name="hashtag">
             <optgroup label="List:">
                 <?php foreach ($hashtags as $hashtag) { ?>
                     <option value="<?= $hashtag ?>"><?= $hashtag ?></option>

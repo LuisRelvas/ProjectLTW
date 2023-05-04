@@ -14,7 +14,6 @@ drawHeader($session);
 drawTicketSearch();
 drawaddDepartment();
 drawaddHashtags();
-drawllTickets_id();
 drawallStatus();
 drawallDepartments();
 drawllUsernames();

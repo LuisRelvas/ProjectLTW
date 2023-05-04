@@ -20,8 +20,23 @@
                 <script src="../javascript/searchprofile.js" defer></script>
                 <script src="../javascript/searchtags.js" defer></script>
                 <script>
-    function showCustomer(str) {
-      if (str == "") {
+                         function showDepartment(str) 
+                         {
+                            if (str == "") {
+                                document.getElementById("txtHint").innerHTML = "";
+                                return;
+                            }
+                            const xhttp = new XMLHttpRequest();
+                            xhttp.onload = function() {
+                            document.getElementById("txtHint").innerHTML = this.responseText;
+                            }         
+                            xhttp.open("GET", "../actions/getcostumer.action.php?q="+str);
+                            xhttp.send();
+                        }
+  </script>
+            <script>
+                function showHashtag(str) {
+                    if (str == "") {
         document.getElementById("txtHint").innerHTML = "";
         return;
       }
@@ -29,12 +44,13 @@
       xhttp.onload = function() {
         document.getElementById("txtHint").innerHTML = this.responseText;
       }
-      xhttp.open("GET", "../actions/getcostumer.action.php?q="+str);
+      xhttp.open("GET", "../actions/getHashtag.action.php?q="+str);
       xhttp.send();
-    }
-  </script>
-                
-            
+
+                }
+
+
+            </script>    
             </head>
             <body>
                 <header>

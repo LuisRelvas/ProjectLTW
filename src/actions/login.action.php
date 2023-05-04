@@ -17,9 +17,7 @@
   } else {
     $session->addMessage('error', "Login errado, tente novamente com outras credenciais !");
     header('Location: ../pages/login.php');
-  
-
-    
   }
+  
 
 ?>

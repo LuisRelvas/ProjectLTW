@@ -42,10 +42,7 @@ CREATE TABLE ticket(
 
 CREATE TABLE status(
 	status_id INTEGER PRIMARY KEY,
-	name TEXT NOT NULL,
-	open INTEGER NOT NULL DEFAULT 0,
-	assigned INTEGER NOT NULL DEFAULT 0,
-	closed INTEGER NOT NULL DEFAULT 0
+	name TEXT NOT NULL
 	--- CONSTRAINT status_pk PRIMARY KEY(status_id)
 );
 
@@ -117,9 +114,9 @@ INSERT INTO department(name) VALUES ('IT');
 INSERT INTO department(name) VALUES ('HR');
 -- Add more department entries as needed
 
-INSERT INTO status(name, open, assigned, closed) VALUES ('Open', 1, 0, 0);
-INSERT INTO status(name, open, assigned, closed) VALUES ('Assigned', 0, 1, 0);
-INSERT INTO status(name, open, assigned, closed) VALUES ('Closed', 0, 0, 1);
+INSERT INTO status(name) VALUES ('Open');
+INSERT INTO status(name) VALUES ('Assigned');
+INSERT INTO status(name) VALUES ('Closed');
 -- Add more status entries as needed
 
 INSERT INTO hashtag(tag) VALUES ('new');

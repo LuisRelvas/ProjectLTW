@@ -68,12 +68,12 @@ function drawinfoTicket(int $ticket_id) {
     }
     $department_name = Department::getDepartmentName($db,$ticket->department_id);
     $_SESSION['ticket_id'] = $ticket->ticket_id;
-    if(($ticket->status_id)==0){
-        $status = "Pendente";
-    } else if(($ticket->status_id)==1){
-        $status= "Em progresso";
+    if(($ticket->status_id)==1){
+        $status = "Open";
     } else if(($ticket->status_id)==2){
-        $status = "Concluído";
+        $status= "Assigned";
+    } else if(($ticket->status_id)==3){
+        $status = "Closed";
     }
 
     ?><h2><?=htmlentities(strval($ticket->ticket_id))?></h2><?php
@@ -128,7 +128,7 @@ function drawinfoTicket(int $ticket_id) {
 
 function drawaddHashtags() {  ?>
     <div id = "form">
-    <form action="../actions/addHashtag.action.php" method ="post">
+    <form action="../actions/addHashtagDB.action.php" method ="post">
           <label>Hashtag: <input type="text" name="hashtag" required="required" value="<?=$_SESSION['input']['hashtag newUser']?>"></label>
           <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
           <input id="button" type="submit" value="Validar Hashtag">

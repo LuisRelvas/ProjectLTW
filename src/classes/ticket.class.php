@@ -138,10 +138,10 @@
             $querie = 'SELECT * FROM ticket,user WHERE ticket.id = user.id and username LIKE ?';
             break;
         case "nameD":
-            $querie = 'SELECT * FROM ticket WHERE department_id LIKE ?';
+            $querie = 'SELECT * FROM ticket,department WHERE ticket.department_id = department.department_id and department.name LIKE ?';
             break;
         case "nameSt":
-            $querie = 'SELECT * FROM ticket WHERE status_id LIKE ?';
+            $querie = 'SELECT * FROM ticket,status WHERE status.status_id = ticket.status_id and status.name LIKE ?';
             break;
         default:  
             return $result;

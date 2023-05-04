@@ -24,6 +24,15 @@ CREATE TABLE user(
 	--- CONSTRAINT user_pk PRIMARY KEY(id)
 );
 
+
+CREATE TABLE agent(
+	id INTEGER,
+	department_id INTEGER,
+	FOREIGN KEY(id) REFERENCES user(id),
+	FOREIGN KEY(department_id) REFERENCES department(department_id),
+	PRIMARY KEY(id, department_id)
+);
+
 CREATE TABLE ticket(
 	ticket_id INTEGER PRIMARY KEY,
 	id INTEGER,

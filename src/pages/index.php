@@ -7,7 +7,7 @@
 
   $db = getDatabaseConnection();
   drawHeader($session);
-  if (count($session->getMessages())) drawMessages($session);
+  //if (count($session->getMessages())) //drawMessages($session);
   drawBanner();
   drawFAQSDefault();
   

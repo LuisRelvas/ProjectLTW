@@ -82,7 +82,7 @@
   transition: background-color 0.2s ease-in-out;
 }
 
-#login a:hover {
+#login  a:hover {
   background-color: darken(var(--mainHeaderColor), 10%);
 }
 

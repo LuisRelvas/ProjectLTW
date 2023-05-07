@@ -13,6 +13,7 @@
                 <link rel="stylesheet" href="../css/header_style.css">
                 <link rel="stylesheet" href="../css/banner.css">
                 <link rel="stylesheet" href="../css/faqAccordion.css">
+                <link rel="stylesheet" href="../css/tickets_index.css">
 
                 <script src="../javascript/searchticket.js" defer></script>
                 <script src="../javascript/searchprofile.js" defer></script>
@@ -115,19 +116,49 @@
         }
 
         function drawBanner() { ?>
-    
+            
+
+
             <section id="banner">
                 <!-- <header><h1>Trouble Ticket</h1> -->
-            </header>
-                <h1 class = "loginItem"><a href="../pages/ticket.php">TICKET</a></h1>
+                
+                </div>
+                <div id="index-card">
+
+                <div id="myticketsmenu">
+
+                    <button>
+                      <a href="../pages/ticket.php">MyTickets</a>
+                    </button>
+
+                    <button>
+                      <a href="../pages/ticket.php">Add Ticket</a>
+                    </button>
+
+                    <button>
+                      <a href="../pages/ticket.php">Remove Ticket</a>
+                    </button>
+            
+                    
+
+                </div>
             </section> <?php 
         }
 
         function drawAcessDenied() { ?>
             <section id="accessDenied">
-                <h2>Voltar para a <a href="../pages/register.php">página principal</a></h2>  
+                <img id= "deniedImage" src="https://cdn-icons-png.flaticon.com/512/175/175613.png" alt="Access Denied">
+                <h2>Access Denied</h2>
+                <h3>Sorry, you do not have permission to access this page.</h3>
+                <p>You're being redirected...</p>
             </section> 
-        <?php } 
+            <script>
+            setTimeout(function(){
+                // go to index.php
+                    window.location.href = "../pages/index.php";
+                }, 3000); // 5000ms = 5 seconds
+            </script>
+        <?php }  
         
         function drawTicket(int $id) { ?>
             <section id ="ticket">

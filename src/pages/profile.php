@@ -13,8 +13,15 @@ if(!$session->isLoggedIn() || $SESSION['id'] != $_GET['id']) {
 }
 
 drawHeader($session);
-if(count($session->getMessages())) drawMessages($session);
-drawUser(intval($_GET['id']));
+if(count($session->getMessages())){
+    //drawMessages($session);
+    //printf('hello');
+}
+if($session->isLoggedIn())
+    drawUser(intval($_GET['id']));
+
+drawAcessDenied();
+
 
     
 

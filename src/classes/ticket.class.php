@@ -180,8 +180,12 @@
   }
 
   static function removeTicket($db, $ticket_id){
+    $db1 = getDatabaseConnection();
     $stmt = $db->prepare('DELETE FROM ticket WHERE ticket_id = ?');
     $stmt->execute(array($ticket_id));
+    $stmt1 = $db1->prepare('DELETE FROM ticketHashtag WHERE ticket_id = ?');
+    $stmt1->execute(array($ticket_id));
+
   }
 
 }

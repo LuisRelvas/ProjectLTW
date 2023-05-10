@@ -43,11 +43,24 @@ else {
 
 function drawDepartmentTickets(int $id) {
     $db = getDatabaseConnection(); 
-    $tickets = Department::getTicketsDepartment($db,$id);
-    ?><h2>Tickets do departamento</h2><?php
-    foreach($tickets as $ticket) {
-        ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?=$ticket->ticket_id ?></a><?= "Tittle : ".$ticket->description . "   Department : ".$ticket->department_id?></h3> <?php
+    
+    ?> 
+    <form action="../actions/orderTickets.action.php" method="POST">
+    <select name ="order" id="order">
+        <option value="0">Date</option>
+        <option value="1">Ticket Id Crescente</option>
+        <option value="2">Ticket Id Decrescente</option>
+    </select>
+    <input id="button" type="submit" value="Entrar">   
+    </form>
+    <?php 
+    $tickets = Department::getTicketsDepartment($db,$id,$_SESSION['order']);
+    if($tickets) {
+    foreach($tickets as $ticket){
+        ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3> <?php
+        ?> <h2><?= $ticket->description?></h2> <?php
     }
+}
 }
 
 function drawTicketsperHashtag(string $name){ 

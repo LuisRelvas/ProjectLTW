@@ -752,3 +752,50 @@
   height: 300px;
   overflow-y: auto;
 }
+
+/*Draw all username*/
+#all-usernames {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 60px;
+  padding: 30px;
+  border: var(--border);
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 106%;
+  margin-left: -3%;
+  background-color: var(--backgroundColor);
+  box-shadow: var(--boxShadow);
+  height: 280px;
+}
+
+#all-usernames form {
+  display: flex;
+  flex-direction: column;
+}
+
+#all-usernames label {
+  margin-bottom: 10px;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+#all-usernames select {
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: var(--border);
+  margin-bottom: 10px;
+  width: 400px;
+}
+
+#all-usernames option {
+  font-size: 20px;
+  padding: 10px;
+}
+
+#all-usernames select:focus {
+  outline: none;
+  border-color: var(--mainHeaderColor);
+}

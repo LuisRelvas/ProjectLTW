@@ -350,7 +350,7 @@ function drawallStatus(){ ?>
     $stmt->execute();
     $status = $stmt->fetchAll(PDO::FETCH_COLUMN);
     ?>
-    <div id = "form">
+    <div id = "all-status">
     <form action="../" method ="post">
           <label>Status:</label>
           <select name="status">

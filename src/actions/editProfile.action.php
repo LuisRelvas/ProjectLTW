@@ -65,3 +65,4 @@
   $session->addMessage('success', "Alterações gravadas com sucesso");
   header('Location: ../pages/profile.php?id='. $user->id);
 ?>
+

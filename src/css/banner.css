@@ -1,3 +1,5 @@
+
+
 #welcome-card {
     background-color: #f1f1f1;
     border-radius: 8px;
@@ -22,3 +24,10 @@
     font-size: 18px;
     margin-bottom: 0;
 }
+#deniedImage {
+    width: 35%;
+    height: 35%;
+    margin: 0;
+    padding: 0;
+}
+

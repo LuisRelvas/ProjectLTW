@@ -296,7 +296,7 @@ $stmt1 = $db1->prepare('SELECT DISTINCT department.name FROM department');
 $stmt1->execute();
 $departments = $stmt1->fetchAll(PDO::FETCH_COLUMN);
 ?>
-<div id = "form">
+<div id = "add-agent-department">
     <form action ="../actions/addAgentDepartment.action.php" method="POST">
       <label>Agent:</label>
       <select name="agent">
@@ -314,7 +314,7 @@ $departments = $stmt1->fetchAll(PDO::FETCH_COLUMN);
             <?php }  ?>
         </optgroup>
     </select>
-    <input id="button" type="submit" value="Adicionar">
+    <input id="button" type="submit" value="Adicionar Agente">
     </form>
 <?php }
 

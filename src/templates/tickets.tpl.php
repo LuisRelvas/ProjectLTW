@@ -402,7 +402,7 @@ function drawllHashtags(){ ?>
     $stmt->execute();
     $hashtags = $stmt->fetchAll(PDO::FETCH_COLUMN);
     ?>
-    <div id = "form">
+    <div id = "all-hashtag">
     <form action="../" method ="post">
           <label>Hashtag:</label>
           <select onchange = "showHashtag(this.value)" id="hashtag-select" name="hashtag">

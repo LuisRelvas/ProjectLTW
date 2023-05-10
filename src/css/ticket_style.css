@@ -553,3 +553,63 @@
   background-color: var(--submitHoverColor);
 }
 
+/*Draw add Hashtags*/
+#add-hashtags {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 30px;
+  padding: 30px;
+  border: var(--border);
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 80%;
+  margin-left: 10%;
+  background-color: var(--backgroundColor);
+  box-shadow: var(--boxShadow);
+  height: 280px;
+}
+
+#add-hashtags form {
+  display: flex;
+  flex-direction: column;
+}
+
+#add-hashtags label {
+  margin-bottom: 5px;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-left: 10px;
+
+}
+
+#add-hashtags input[type="text"] {
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: var(--border);
+  margin-bottom: 10px;
+  width: 400px; 
+}
+
+#add-hashtags .button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#add-hashtags input[type="submit"] {
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--mainHeaderColor);
+  color: var(--whiteColor);
+  cursor: pointer;
+  width: 300px;
+  align-self: left;
+}
+
+#add-hashtags input[type="submit"]:hover {
+  background-color: var(--submitHoverColor);
+}

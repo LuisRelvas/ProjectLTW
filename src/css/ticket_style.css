@@ -1,6 +1,6 @@
 :root {
   --mainHeaderColor: #8C2D19;
-  --boxShadow: 0px 0px 5px 0px var(--mainHeaderColor);
+  /*--boxShadow: 0px 0px 5px 0px var(--mainHeaderColor);*/
   --backgroundColor: #e6e6e6;
   --whiteColor: #FFF;
   --blackColor: #000;

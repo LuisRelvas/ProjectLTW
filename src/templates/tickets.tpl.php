@@ -303,7 +303,12 @@ function drawTicket(int $id) { ?>
             <label>ADD TICKET</label>
             <input id="button" type="submit" value="Entrar">
         </form>
-        <h1 class = "ticketitem"><a href="../pages/ticketsee.php">SEE TICKET</a></h1>
+        <h1 class="ticketitem">
+                    <form action="../pages/ticketsee.php" method="get">
+                        <label>SEE TICKETS</label>
+                        <input id="see-ticket-button" type="submit" value="Entrar">
+                    </form>
+                </h1>
         <?php 
         $db = getDatabaseConnection();
         $user = User::getUser($db,$id); 

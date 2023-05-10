@@ -10,8 +10,11 @@
     $session->addMessage('error', "Ação não disponível");
     die(header('Location: ../pages/denied.php'));
   } 
+  if($_POST['role'] == null) { 
+    $_POST['role'] = 3;
+  }
 
-  $_SESSION['input']['role oldUser'] = intval(htmlentities($_POST['role']));
+  $_SESSION['input']['role oldUser'] = intval(($_POST['role']));
   $_SESSION['input']['username oldUser'] = htmlentities($_POST['username']);
   $_SESSION['input']['name oldUser'] = htmlentities($_POST['name']);
   $_SESSION['input']['email oldUser'] = htmlentities($_POST['email']);
@@ -20,13 +23,18 @@
   if (!(valid_name($_POST['name'])) && valid_email($_POST['email']) && valid_CSRF($_POST['csrf'])) {
       die(header('Location: ../edit/profile.edit.php'));
   }
-
+  
   $db = getDatabaseConnection();
 
   $user = User::getUser($db, intval($_GET['id']));
   $pass = User::getPass($db, intval($_GET['id']));
+  
   if ($user) {
-    $user->role = intval($_POST['role']);
+    if($_POST['role'] == 3) { 
+     $_POST['role'] = $user->role;
+    }
+    else if($_POST['role'] == 0){
+    $user->role = intval($_POST['role']);}
     $user->username = $_POST['username'];
     $user->name = $_POST['name'];
     $user->email = $_POST['email'];

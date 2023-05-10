@@ -6,6 +6,7 @@
     --whiteColor: #FFF;
     --blackColor: #000;
     --focusBorderColor: #8C2D19;
+    --submitHoverColor: #D24016;
 }
     
 /*Style for the Login section*/
@@ -62,8 +63,8 @@
 }
 
 #loginpage input[type="submit"]:hover {
-  background-color: darken(var(--mainHeaderColor), 10%);
-  color: var(--blackColor)
+  background-color: var(--submitHoverColor);
+  color: var(--whiteColor)
 }
 
 /* Style of the section for the page when the user is logged in*/

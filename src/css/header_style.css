@@ -89,12 +89,13 @@ header > h1 {
   
 #login > button:hover,
 #login > button:focus {
-  background-color: black;
+  background-color:#E6B0AA;
+  ;
   
 }
 
 #login > button:hover > a {
-  color: #8C2D19;
+  color: #000;
 }
 
 #loginpage {

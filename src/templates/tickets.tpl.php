@@ -211,6 +211,59 @@ function drawllTickets_id(){ ?>
 <?php
 }
 
+function addAgentDepartment() { ?>
+<?php 
+$db = getDatabaseConnection();
+$stmt = $db->prepare('SELECT DISTINCT user.username FROM agent,user where user.id = agent.id');
+$stmt->execute();
+$agents_names = $stmt->fetchAll(PDO::FETCH_COLUMN);
+$db1 = getDatabaseConnection();
+$stmt1 = $db1->prepare('SELECT DISTINCT department.name FROM department');
+$stmt1->execute();
+$departments = $stmt1->fetchAll(PDO::FETCH_COLUMN);
+?>
+<div id = "form">
+    <form action ="../actions/addAgentDepartment.action.php" method="POST">
+      <label>Agent:</label>
+      <select name="agent">
+        <optgroup label="List:">
+            <?php foreach ($agents_names as $agent_name) { ?>
+                <option value="<?= $agent_name ?>"><?= $agent_name ?></option>
+            <?php }  ?>
+        </optgroup>
+    </select>
+    <label>Department:</label>
+      <select name="department">
+        <optgroup label="List:">
+            <?php foreach ($departments as $department) { ?>
+                <option value="<?= $department ?>"><?= $department ?></option>
+            <?php }  ?>
+        </optgroup>
+    </select>
+    <input id="button" type="submit" value="Adicionar">
+    </form>
+<?php }
+
+function drawTicket(int $id) { ?>
+    <section id ="ticket">
+        <h2>Ticket Management</h2>
+        <form action = "../pages/ticketadd.php" method = "post">
+            <label>ADD TICKET</label>
+            <input id="button" type="submit" value="Entrar">
+        </form>
+        <h1 class = "ticketitem"><a href="../pages/ticketsee.php">SEE TICKET</a></h1>
+        <?php 
+        $db = getDatabaseConnection();
+        $user = User::getUser($db,$id); 
+        if($user->role == 0){
+        ?>
+        <form action = "../pages/ticketmanage.php" method = "post">
+            <label>MANAGE TICKET</label>
+            <input id="button" type="submit" value="Entrar">
+        </form>
+        <?php } ?>
+ <?php }
+
 function drawallStatus(){ ?>
     <?php 
     $db = getDatabaseConnection();

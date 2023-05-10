@@ -21,7 +21,6 @@
       $stmt = $db->prepare('SELECT id,role,username,name,email,password FROM user WHERE email = ?');
       $stmt->execute(array(strtolower($email)));
       $user = $stmt->fetch();
-      var_dump($user);
       if(password_verify($password,$user['password']) && $user['email'] == $email){
         return new User(
           intval($user['id']),
@@ -37,6 +36,23 @@
     public function getName() : string {
       $names = explode(" ", $this->name);
       return count($names) > 1 ? $names[0] . " " . $names[count($names)-1] : $names[0];
+    }
+
+    static function getUserId(PDO $db,string $username) : ?User { 
+      $stmt = $db -> prepare('SELECT id,role,username,name,email from user where username = ?');
+      $stmt->execute(array($username));
+      $user = $stmt->fetch();
+      if($user){
+      return new User(
+        intval($user['id']),
+        $user['role'],
+        $user['username'],
+        $user['name'],
+        $user['email'],
+      );
+    }
+    else return null;
+      
     }
 
     static function getUser(PDO $db, int $id) : ?User {

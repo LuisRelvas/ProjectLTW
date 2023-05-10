@@ -11,6 +11,7 @@ require_once(dirname(__DIR__).'/templates/departments.tpl.php');
 $session = new Session();
 
 drawHeader($session);
+
 drawTicketSearch();
 drawaddDepartment();
 drawaddHashtags();
@@ -18,3 +19,4 @@ drawallStatus();
 drawallDepartments();
 drawllUsernames();
 drawllHashtags();
+addAgentDepartment();

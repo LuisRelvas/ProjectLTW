@@ -127,24 +127,6 @@
             </section> 
         <?php } 
         
-        function drawTicket(int $id) { ?>
-            <section id ="ticket">
-                <h2>Ticket Management</h2>
-                <form action = "../pages/ticketadd.php" method = "post">
-                    <label>ADD TICKET</label>
-                    <input id="button" type="submit" value="Entrar">
-                </form>
-                <h1 class = "ticketitem"><a href="../pages/ticketsee.php">SEE TICKET</a></h1>
-                <?php ?>
-                <form action = "../pages/ticketmanage.php" method = "post">
-                    <label>MANAGE TICKET</label>
-                    <input id="button" type="submit" value="Entrar">
-                </form>
-         <?php }
-
-        
-
-
 function drawMessages(Session $session) { ?>
     <section id="messages">
         <?php foreach ($session->getMessages() as $message) { ?>

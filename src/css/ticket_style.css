@@ -677,3 +677,78 @@
 #all-status input[type="submit"]:hover {
   background-color: var(--submitHoverColor);
 }
+
+/*Draw all departments*/
+#all-departments {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 35px;
+  padding: 30px;
+  border: var(--border);
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 106%;
+  margin-left: -3%;
+  background-color: var(--backgroundColor);
+  box-shadow: var(--boxShadow);
+  height: 280px;
+
+}
+#all-departments form {
+  display: flex;
+  flex-direction: column;
+}
+
+#all-departments label {
+  margin-bottom: 10px;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+#all-departments select {
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: var(--border);
+  margin-bottom: 10px;
+  width: 400px;
+}
+
+#all-departments option {
+  font-size: 20px;
+  padding: 10px;
+}
+
+#all-departments select:focus {
+  outline: none;
+  border-color: var(--mainHeaderColor);
+}
+
+#all-departments input[type="submit"] {
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--mainHeaderColor);
+  color: var(--whiteColor);
+  cursor: pointer;
+  width: 300px;
+  align-self: center;
+}
+
+#all-departments input[type="submit"]:hover {
+  background-color: var(--submitHoverColor);
+}
+
+#txtHint {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 20px;
+  border-radius: 5px;
+  border: var(--border);
+  width: 100%;
+  box-sizing: border-box;
+  height: 300px;
+  overflow-y: auto;
+}

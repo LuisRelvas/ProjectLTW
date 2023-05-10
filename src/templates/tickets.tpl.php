@@ -30,7 +30,7 @@ function drawmyTickets(int $id){
     $db = getDatabaseConnection();
     $tickets = Ticket::getmyTickets($db,$id);
     if($tickets) {
-        ?>
+    ?> 
         <div id="myTickets">
         <?php foreach($tickets as $ticket){ ?>
             <div class="ticketContainer">
@@ -97,7 +97,10 @@ function drawinfoTicket(int $ticket_id) {
     $hashtag_id = $stmt->fetchAll(PDO::FETCH_COLUMN);
     $ticket = Ticket::getinfoTicket($db,$ticket_id);
     $text = Reply::getReplies($ticket_id);
-    foreach($text as $reply){
+    ?>
+    <div id="ticket-info">
+        <h1>Informação do Ticket</h1>
+    <?php foreach($text as $reply){
         ?><h2><?=($reply['text'])?></h2><?php
         ?><h2><?= '_' ?></h2><?php
     }
@@ -111,12 +114,12 @@ function drawinfoTicket(int $ticket_id) {
         $status = "Closed";
     }
 
-    ?><h2><?=htmlentities(strval($ticket->ticket_id))?></h2><?php
-    ?><h2><?=htmlentities($department_name)?></h2><?php
-    ?><h2><?=htmlentities($ticket->initial_date)?></h2><?php
-    ?><h2><?=htmlentities($ticket->description)?></h2><?php
-    ?><h2><?=htmlentities($ticket->tittle)?></h2><?php
-    ?><h2><?=htmlentities($status)?></h2><?php
+    ?><h2 class="left-align" data-label="ID"><?=htmlentities(strval($ticket->ticket_id))?></h2><?php
+    ?><h2 class="left-align" data-label="Departamento Atribuído"><?=htmlentities($department_name)?></h2><?php
+    ?><h2 class="left-align" data-label="Data de Emissão"><?=htmlentities($ticket->initial_date)?></h2><?php
+    ?><h2 class="left-align" data-label="Descrição do Ticket"><?=htmlentities($ticket->description)?></h2><?php
+    ?><h2 class="left-align" data-label="Título do Ticket"><?=htmlentities($ticket->tittle)?></h2><?php
+    ?><h2 class="left-align" data-label="Estado do Ticket"><?=htmlentities($status)?></h2><?php
     $user = User::getUser($db,$_SESSION['id']);
     $agent_name = User::getUser($db,$ticket->agent_id);
     foreach($hashtag_id as $hashtags_id){
@@ -142,22 +145,34 @@ function drawinfoTicket(int $ticket_id) {
     }
     if($user->role == 0 || $user->role == 1)  { 
         drawTagsSearch();
-        ?><h2><a href="../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Delete ticket</h2></a><?php
+        ?><h1 class="delete-ticket">
+        <form action = "../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>" method="post">
+        <input id="delete-ticket-button" type="submit" value="Apagar Ticket">
+          </form>
+    </h1><?php
         drawAnswerFaq(); 
     }
     
 
-    ?><h2><a href="../edit/ticket.edit.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Editar ticket</h2></a>
+    ?><h1 class="edit-ticket">
+        <form action="../edit/ticket.edit.php?ticket_id=<?=$ticket->ticket_id?>" method="post">
+        <input id="edit-ticket-button" type="submit" value="Editar Ticket">
+        </form>
+</h1><?php 
+?>
 
 
 <?php if($user->role == 0 ||$user->id == $ticket->id  || $agent_name -> id == $_SESSION['id']){     ?>
-<form action="../actions/submitAnswer.action.php?ticket_id=<?=$ticket->ticket_id?>" method="POST">
+    <h1 class="answer">
+    <form action="../actions/submitAnswer.action.php?ticket_id=<?=$ticket->ticket_id?>" method="POST">
     <label for="answer">Answer:</label>
     <textarea name="answer" id="answer" rows="5" cols="50"></textarea>
     <input type="hidden" name="ticket_id" value="<?= $ticket_id ?>">
     <input type="submit" value="Submit Answer">
 </form>
+</h1>
     <?php } ?>
+</div>
     <?php
 }
 

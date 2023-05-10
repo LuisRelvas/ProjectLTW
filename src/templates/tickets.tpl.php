@@ -375,7 +375,7 @@ function drawallDepartments() { ?>
     $departments = $stmt->fetchAll(PDO::FETCH_COLUMN);
     ?>
     
-    <div id = "form">
+    <div id = "all-departments">
     <form action="#" method ="post">
           <label>Department:</label>
           <select onchange = "showDepartment(this.value)" id="department-select" name="department">

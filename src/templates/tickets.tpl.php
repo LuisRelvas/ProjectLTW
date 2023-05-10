@@ -178,7 +178,7 @@ function drawinfoTicket(int $ticket_id) {
 
 
 function drawaddHashtags() {  ?>
-    <div id = "form">
+    <div id = "add-hashtags">
     <form action="../actions/addHashtagDB.action.php" method ="post">
           <label>Hashtag: <input type="text" name="hashtag" required="required" value="<?=$_SESSION['input']['hashtag newUser']?>"></label>
           <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">

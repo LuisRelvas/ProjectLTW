@@ -153,3 +153,208 @@
   margin-bottom: 10px;
   
 }
+
+/*Draw info ticket*/
+#ticket-info {
+  background-color: var(--backgroundColor);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--boxShadow);
+  text-align: left;
+  margin: 0 auto;
+  max-width: 900px;
+  }
+  
+  #ticket-info h1 {
+  font-size: 35px;
+  margin: 0 0 50px;
+  padding: 0;
+  }
+  
+  #ticket-info h2 {
+  font-size: 16px;
+  margin: 5px;
+  padding: 5px;
+  
+  }
+  
+  #ticket-info .left-align:before {
+    content: attr(data-label) ":";
+    font-weight: bold;
+    color: var(--mainHeaderColor);
+    text-decoration: underline;
+}
+
+
+ /* #ticket-info h2 a {
+  text-decoration: none;
+  color: #1e90ff;
+  }
+  
+  #ticket-info h2 a:hover {
+  text-decoration: underline;
+  color: #003366;
+  }*/
+/*
+  #ticket-info .open {
+    color: green;
+  }
+  #ticket-info .assigned {
+  color: orange;
+  }
+  #ticket-info .closed {
+  color: red;
+  }*/
+
+  #ticket-info .delete-ticket ticket-add {
+    margin-top: 80px;
+    box-shadow: var(--boxShadow);
+    border-radius: 50px;
+  }
+  
+  #ticket-info .delete-ticket input[type=submit] {
+    background-color: var(--mainHeaderColor);
+    color: var(--whiteColor);
+    font-size: 24px;
+    padding: 10px 150px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  #ticket-info .delete-ticket input[type=submit]:hover {
+    background-color: var(--submitHoverColor);
+  }
+  
+  #ticket-info .edit-ticket input[type=submit] {
+    background-color: var(--mainHeaderColor);
+    color: var(--whiteColor);
+    font-size: 24px;
+    padding: 10px 157px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  #ticket-info .edit-ticket input[type=submit]:hover {
+    background-color: var(--submitHoverColor);
+  }
+  
+  #ticket-info .answer label{
+    display: block;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: var(--blackColor);
+    font-weight: normal;
+    
+  }
+  
+  #ticket-info .answer textarea {
+  width: 100%;
+  height: 100px;
+  margin: 20px;
+  padding: 20px;
+  }
+  
+  #ticket-info .answer input[type="submit"] {
+    background-color: var(--mainHeaderColor);
+    color: var(--whiteColor);
+    font-size: 24px;
+    padding: 10px 130px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  #ticket-info .answer input[type="submit"]:hover {
+  background-color: var(--submitHoverColor);
+  }
+  
+  #ticket-info #hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+  
+  }
+  
+  #ticket-info .hashtag {
+  font-size: 14px;
+  margin: 5px;
+  padding: 5px;
+  background-color: lightgray;
+  border-radius: 100px;
+  }
+
+  /*Editar Ticket*/
+  #editTicket {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin: 0px auto;
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--backgroundColor);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--boxShadow);
+  }
+  
+  #editTicket h1 {
+    text-align: center !important;
+    font-size: 40px !important;
+    margin-bottom: 30px !important;
+    position: relative !important;
+  }
+  
+  #editTicket h1::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    bottom: -10px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100px !important;
+    height: 5px !important;
+  }
+  
+  
+  #editTicket ticket-add {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #editTicket label {
+    margin-bottom: 10px;
+  }
+  
+  #editTicket input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: var(--border);
+  }
+  
+  #editTicket select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: var(--border);
+  }
+  
+  #editTicket input[type="submit"] {
+    background-color: var(--mainHeaderColor);
+    color: var(--whiteColor);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  #editTicket input[type="submit"]:hover {
+    background-color: var(--submitHoverColor);
+  }

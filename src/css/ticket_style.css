@@ -12,6 +12,7 @@
   --submitHoverColor: #D24016;
   --seeTicketShadow: 0 2px 4px rgba(87, 1, 1, 0.507);
   --border: 1px solid #ccc;
+  --grayColor: lightgray;
 
 }
 
@@ -282,7 +283,7 @@
   font-size: 14px;
   margin: 5px;
   padding: 5px;
-  background-color: lightgray;
+  background-color: var(--grayColor);
   border-radius: 100px;
   }
 
@@ -356,5 +357,79 @@
   }
   
   #editTicket input[type="submit"]:hover {
+    background-color: var(--submitHoverColor);
+  }
+
+  /*Adicionar ticket*/
+  #ticket-add {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin: 0px auto;
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--backgroundColor);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--boxShadow);
+  }
+  
+  #ticket-add h1 {
+    text-align: center !important;
+    font-size: 40px !important;
+    margin-bottom: 30px !important;
+    position: relative !important;
+  }
+  
+  #ticket-add h1::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    bottom: -10px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100px !important;
+    height: 5px !important;
+  }
+  
+  #ticket-add form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--boxShadow);
+    border-radius: 10px;
+  }
+  
+  #ticket-add label {
+    margin-bottom: 10px;
+  }
+  
+  #ticket-add input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: var(--border);
+  }
+  
+  #ticket-add select {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: var(--border);
+  }
+  
+  #ticket-add input[type="submit"] {
+    background-color: var(--mainHeaderColor);
+    color: var(--whiteColor);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  #ticket-add input[type="submit"]:hover {
     background-color: var(--submitHoverColor);
   }

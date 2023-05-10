@@ -29,9 +29,24 @@ function drawallTickets(array $tickets) {
 function drawmyTickets(int $id){ 
     $db = getDatabaseConnection();
     $tickets = Ticket::getmyTickets($db,$id);
+    if($tickets) {
     foreach($tickets as $ticket){
         ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3> <?php
         ?> <h2><?= $ticket->description?></h2> <?php
+    }
+}
+else { 
+    ?> <h2>Não tens tickets</h2> <?php
+}
+}
+
+
+function drawDepartmentTickets(int $id) {
+    $db = getDatabaseConnection(); 
+    $tickets = Department::getTicketsDepartment($db,$id);
+    ?><h2>Tickets do departamento</h2><?php
+    foreach($tickets as $ticket) {
+        ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?=$ticket->ticket_id ?></a><?= "Tittle : ".$ticket->description . "   Department : ".$ticket->department_id?></h3> <?php
     }
 }
 

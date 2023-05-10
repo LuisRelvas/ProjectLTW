@@ -83,7 +83,7 @@
       return $tickets;
     }
 
-    static function getmyTickets(PDO $db, int $id) : array{ 
+    static function getmyTickets(PDO $db, int $id) : ?array{ 
       $stmt = $db->prepare('SELECT ticket_id,id,department_id,status_id,tittle,description,initial_date,hashtag_id,agent_id FROM ticket where id = ?');
       $stmt->execute(array($id));
       while($ticket = $stmt->fetch()){
@@ -100,7 +100,11 @@
           
         );
       }
-      return $tickets;
+      if($tickets == null) { 
+        return null;
+      }
+      else { 
+      return $tickets;}
     }
 
     static function getinfoTicket(PDO $db, int $ticket_id) : ?Ticket { 

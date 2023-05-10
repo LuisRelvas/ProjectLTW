@@ -52,6 +52,9 @@
     public function setName(string $name) {
       $_SESSION['name'] = $name;
     }
+    public function setRole(int $role) { 
+      $_SESSION['role'] = $role;
+    }
 
     public function setticket_id(int $ticket_id) {
       $_SESSION['ticket_id'] = $ticket_id;

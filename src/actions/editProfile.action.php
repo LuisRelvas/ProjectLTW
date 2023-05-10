@@ -14,6 +14,7 @@
     $_POST['role'] = 3;
   }
 
+
   $_SESSION['input']['role oldUser'] = intval(($_POST['role']));
   $_SESSION['input']['username oldUser'] = htmlentities($_POST['username']);
   $_SESSION['input']['name oldUser'] = htmlentities($_POST['name']);
@@ -33,7 +34,7 @@
     if($_POST['role'] == 3) { 
      $_POST['role'] = $user->role;
     }
-    else if($_POST['role'] == 0){
+    else if($_SESSION['role'] == 0 || $_SESSION['role'] == 1){
     $user->role = intval($_POST['role']);}
     $user->username = $_POST['username'];
     $user->name = $_POST['name'];

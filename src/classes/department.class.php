@@ -39,5 +39,25 @@
 
     }
 
-}
+    static public function getTicketsDepartment(PDO $db , int $id) : array{ 
+      
+      $stmt = $db ->prepare('SELECT DISTINCT ticket.ticket_id,ticket.id,ticket.department_id,ticket.status_id,ticket.tittle,ticket.description,ticket.initial_date,ticket.hashtag_id,ticket.agent_id FROM agent,department,ticket where ticket.department_id = department.department_id and agent.department_id = department.department_id and agent.id = ?');
+      $stmt->execute(array($id));
+        while($ticket = $stmt->fetch()){
+          $tickets[] = new Ticket(
+            $ticket['ticket_id'],
+            $ticket['id'],
+            $ticket['department_id'],
+            $ticket['status_id'],
+            $ticket['tittle'],
+            $ticket['description'],
+            $ticket['initial_date'],
+            $ticket['hashtag_id'],
+            $ticket['agent_id']
+            
+          );
+        }
+        return $tickets;
+    }
 
+}

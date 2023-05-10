@@ -47,7 +47,6 @@ function drawUser(int $id) {
             $admin = User::getUser($db, $_SESSION['id']);
             $user = User::getUser($db, intval($_GET['id'])); 
             if($admin->role == 0) { ?>
-        
         <select name="role">
             <optgroup label="Choose only one">
                 <?php foreach ($roles as $role) { ?>

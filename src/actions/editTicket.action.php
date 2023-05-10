@@ -10,15 +10,20 @@
   if (!$session->isLoggedIn()) {
     $session->addMessage('error', "Ação não disponível");
     die(header('Location: ../pages/index.php'));
-  } 
+  }
+
   $_SESSION['input']['department_name oldUser'] = ($_POST['department']);
   $_SESSION['input']['tittle oldUser'] = htmlentities($_POST['tittle']);
   $_SESSION['input']['description oldUser'] = htmlentities($_POST['description']);
-
-
   $db = getDatabaseConnection();
   $ticket = Ticket::getinfoTicket($db, $_SESSION['ticket_id']);
-  $department = Department::getDepartmentId($_POST['department']);
+  if($_POST['department'] == null){
+    $_POST['department'] = $ticket->department_id;
+    $name = Department::getDepartmentName($db, $_POST['department']);
+    $department = Department::getDepartmentId($name);
+  }
+  else {
+  $department = Department::getDepartmentId($_POST['department']);}
   if($department == "null"){
     $session->addMessage('error', "Departamento não existe");
     header('Location: ../edit/ticket.edit.php');

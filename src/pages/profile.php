@@ -14,7 +14,9 @@ if(!$session->isLoggedIn() || $SESSION['id'] != intval($_GET['id'])) {
 
 drawHeader($session);
 if(count($session->getMessages())) drawMessages($session);
-drawUser(intval($_GET['id']));
+
+if(intval($_GET['id']) == $_SESSION['id']){
+drawUser(intval($_GET['id']));}
 
     
 

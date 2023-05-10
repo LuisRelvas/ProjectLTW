@@ -846,3 +846,48 @@
   outline: none;
   border-color: var(--mainHeaderColor);
 }
+
+/*add agent department*/
+#add-agent-department {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 30px;
+  padding: 30px;
+  border: var(--border);
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 106%;
+  margin-left: -3%;
+  background-color: var(--backgroundColor);
+  box-shadow: var(--boxShadow);
+  height: 500px;
+}
+
+#add-agent-department label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#add-agent-department select {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--borderColor);
+  margin-bottom: 20px;
+}
+
+#add-agent-department input[type="submit"] {
+  background-color: var(--mainHeaderColor);
+  color: var(--whiteColor);
+  font-size: 24px;
+  padding: 10px 50px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#add-agent-department input[type="submit"]:hover {
+  background-color: var(--submitHoverColor);
+}

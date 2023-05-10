@@ -137,6 +137,7 @@ function drawinfoTicket(int $ticket_id) {
     if($user->role == 0 || $user->role == 1)  { 
         drawTagsSearch();
         ?><h2><a href="../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Delete ticket</h2></a><?php
+        drawAnswerFaq(); 
     }
     
 
@@ -178,6 +179,29 @@ function drawTagsSearch() { ?>
       </section>
   </section> <?php 
 }
+
+function drawAnswerFaq() { 
+    $db = getDatabaseConnection(); 
+    $stmt = $db->prepare('SELECT answer FROM faq');
+    $stmt->execute();
+    $answers = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    ?>
+    <form action ="../actions/addAnswersFaq.action.php?ticket_id=<?=$_GET['ticket_id']?>"method = "post" id = "form">
+          <label>Answer:</label>
+          <select name="answer">
+            <optgroup label="List:">
+                <?php foreach ($answers as $answer) { ?>
+                    <option value="<?= $answer ?>"><?= $answer ?></option>
+                <?php }  ?>
+            </optgroup>
+        </select>
+        <input id="button" type="submit" value="Validar Hashtag">
+    </form>
+
+
+
+
+ <?php   }
 
 function drawaddHashtag(){ ?>
         <div id = "form">

@@ -135,6 +135,7 @@
                     <input id="button" type="submit" value="Entrar">
                 </form>
                 <h1 class = "ticketitem"><a href="../pages/ticketsee.php">SEE TICKET</a></h1>
+                <?php ?>
                 <form action = "../pages/ticketmanage.php" method = "post">
                     <label>MANAGE TICKET</label>
                     <input id="button" type="submit" value="Entrar">

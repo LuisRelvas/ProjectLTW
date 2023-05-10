@@ -30,10 +30,16 @@ function drawmyTickets(int $id){
     $db = getDatabaseConnection();
     $tickets = Ticket::getmyTickets($db,$id);
     if($tickets) {
-    foreach($tickets as $ticket){
-        ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3> <?php
-        ?> <h2><?= $ticket->description?></h2> <?php
-    }
+        ?>
+        <div id="myTickets">
+        <?php foreach($tickets as $ticket){ ?>
+            <div class="ticketContainer">
+                <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3>
+                <h2><?= $ticket->description?></h2>
+            </div>
+        <?php } ?>
+        </div>
+        <?php
 }
 else { 
     ?> <h2>Não tens tickets</h2> <?php

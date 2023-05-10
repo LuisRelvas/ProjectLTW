@@ -799,3 +799,50 @@
   outline: none;
   border-color: var(--mainHeaderColor);
 }
+
+/*Draw all hashtags*/
+#all-hashtag {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 30px;
+  padding: 30px;
+  border: var(--border);
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 106%;
+  margin-left: -3%;
+  background-color: var(--backgroundColor);
+  box-shadow: var(--boxShadow);
+  height: 280px;
+}
+
+#all-hashtag form {
+  display: flex;
+  flex-direction: column;
+}
+
+#all-hashtag label {
+  margin-bottom: 10px;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+#all-hashtag select {
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: var(--border);
+  margin-bottom: 10px;
+  width: 400px;
+}
+
+#all-hashtag option {
+  font-size: 20px;
+  padding: 10px;
+}
+
+#all-hashtag select:focus {
+  outline: none;
+  border-color: var(--mainHeaderColor);
+}

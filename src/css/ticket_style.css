@@ -1,0 +1,82 @@
+:root {
+  --mainHeaderColor: #8C2D19;
+  --boxShadow: 0px 0px 5px 0px var(--mainHeaderColor);
+  --backgroundColor: #e6e6e6;
+  --whiteColor: #FFF;
+  --blackColor: #000;
+  --focusBorderColor: rgba(140, 45, 25, 0.5);
+  --linkColor: blue;
+  --linkHoverColor: darkblue;
+  --inputBorderColor: #CCC;
+  --submitHoverColor: #D24016;
+}
+
+#ticket {
+  margin: 0 auto;
+  width: 60%;
+  max-width: 800px;
+  background-color: var(--backgroundColor);
+  padding: 40px;
+  box-shadow: var(--boxShadow);
+}
+
+#ticket h2 {
+  font-size: 32px;
+  color: var(--mainHeaderColor);
+  margin-bottom: 20px;
+}
+
+#ticket label {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--blackColor);
+}
+
+#ticket input[type=submit] {
+  background-color: var(--mainHeaderColor);
+  color: var(--whiteColor);
+  font-size: 24px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#ticket input[type=submit]:hover {
+  background-color: var(--submitHoverColor);
+}
+
+#ticket .ticketitem {
+  margin-top: 40px;
+  font-size: 24px;
+}
+
+#ticket a {
+  color: var(--linkColor);
+  text-decoration: none;
+}
+
+#ticket a:hover {
+  color: var(--linkHoverColor);
+}
+
+#ticket form {
+  margin-top: 20px;
+}
+
+#ticket input[type=text],
+#ticket input[type=password],
+#ticket textarea {
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid var(--inputBorderColor);
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#ticket input[type=text]:focus,
+#ticket input[type=password]:focus,
+#ticket textarea:focus {
+  outline: none;
+  border-color: var(--focusBorderColor);
+}

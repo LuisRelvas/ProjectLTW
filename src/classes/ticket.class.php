@@ -83,7 +83,7 @@
       return $tickets;
     }
 
-    static function getmyTickets(PDO $db, int $id) : array{ 
+    static function getmyTickets(PDO $db, int $id) : ?array{ 
       $stmt = $db->prepare('SELECT ticket_id,id,department_id,status_id,tittle,description,initial_date,hashtag_id,agent_id FROM ticket where id = ?');
       $stmt->execute(array($id));
       while($ticket = $stmt->fetch()){
@@ -100,7 +100,11 @@
           
         );
       }
-      return $tickets;
+      if($tickets == null) { 
+        return null;
+      }
+      else { 
+      return $tickets;}
     }
 
     static function getinfoTicket(PDO $db, int $ticket_id) : ?Ticket { 
@@ -138,10 +142,10 @@
             $querie = 'SELECT * FROM ticket,user WHERE ticket.id = user.id and username LIKE ?';
             break;
         case "nameD":
-            $querie = 'SELECT * FROM ticket WHERE department_id LIKE ?';
+            $querie = 'SELECT * FROM ticket,department WHERE ticket.department_id = department.department_id and department.name LIKE ?';
             break;
         case "nameSt":
-            $querie = 'SELECT * FROM ticket WHERE status_id LIKE ?';
+            $querie = 'SELECT * FROM ticket,status WHERE status.status_id = ticket.status_id and status.name LIKE ?';
             break;
         default:  
             return $result;
@@ -166,6 +170,7 @@
       }
       return $result;
     }
+    
 
     function save($db) {
       $stmt = $db->prepare('UPDATE ticket SET department_id = ?, tittle = ?, description = ? WHERE ticket_id = ?');
@@ -179,8 +184,12 @@
   }
 
   static function removeTicket($db, $ticket_id){
+    $db1 = getDatabaseConnection();
     $stmt = $db->prepare('DELETE FROM ticket WHERE ticket_id = ?');
     $stmt->execute(array($ticket_id));
+    $stmt1 = $db1->prepare('DELETE FROM ticketHashtag WHERE ticket_id = ?');
+    $stmt1->execute(array($ticket_id));
+
   }
 
 }

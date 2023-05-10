@@ -11,15 +11,14 @@
   if ($user) {
     $session->setId($user->id);
     $session->setName($user->name);
+    $session->setRole($user->role);
     $session->addMessage('success', "Login efetuado com sucesso. Bem-vindo de volta, " . $session->getName() . "!");
     header('Location: ../pages/index.php');
     
   } else {
     $session->addMessage('error', "Login errado, tente novamente com outras credenciais !");
     header('Location: ../pages/login.php');
-  
-
-    
   }
+  
 
 ?>

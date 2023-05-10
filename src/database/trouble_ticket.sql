@@ -24,6 +24,15 @@ CREATE TABLE user(
 	--- CONSTRAINT user_pk PRIMARY KEY(id)
 );
 
+
+CREATE TABLE agent(
+	id INTEGER,
+	department_id INTEGER DEFAULT 1,
+	FOREIGN KEY(id) REFERENCES user(id),
+	FOREIGN KEY(department_id) REFERENCES department(department_id),
+	PRIMARY KEY(id, department_id)
+);
+
 CREATE TABLE ticket(
 	ticket_id INTEGER PRIMARY KEY,
 	id INTEGER,
@@ -42,10 +51,7 @@ CREATE TABLE ticket(
 
 CREATE TABLE status(
 	status_id INTEGER PRIMARY KEY,
-	name TEXT NOT NULL,
-	open INTEGER NOT NULL DEFAULT 0,
-	assigned INTEGER NOT NULL DEFAULT 0,
-	closed INTEGER NOT NULL DEFAULT 0
+	name TEXT NOT NULL
 	--- CONSTRAINT status_pk PRIMARY KEY(status_id)
 );
 
@@ -113,13 +119,20 @@ INSERT INTO user(role, username, name, email, password) VALUES (2, 'margaridasan
 -- Add more user entries as needed
 
 
+INSERT INTO department(name) VALUES ('GR');
 INSERT INTO department(name) VALUES ('IT');
 INSERT INTO department(name) VALUES ('HR');
+
+INSERT INTO agent(id) VALUES (4);
+INSERT INTO agent(id) VALUES (5);
+INSERT INTO agent(id) VALUES (6);
+INSERT INTO agent(id) VALUES (7);
+INSERT INTO agent(id) VALUES (8);
 -- Add more department entries as needed
 
-INSERT INTO status(name, open, assigned, closed) VALUES ('Open', 1, 0, 0);
-INSERT INTO status(name, open, assigned, closed) VALUES ('Assigned', 0, 1, 0);
-INSERT INTO status(name, open, assigned, closed) VALUES ('Closed', 0, 0, 1);
+INSERT INTO status(name) VALUES ('Open');
+INSERT INTO status(name) VALUES ('Assigned');
+INSERT INTO status(name) VALUES ('Closed');
 -- Add more status entries as needed
 
 INSERT INTO hashtag(tag) VALUES ('new');

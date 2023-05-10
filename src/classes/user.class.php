@@ -21,7 +21,6 @@
       $stmt = $db->prepare('SELECT id,role,username,name,email,password FROM user WHERE email = ?');
       $stmt->execute(array(strtolower($email)));
       $user = $stmt->fetch();
-      var_dump($user);
       if(password_verify($password,$user['password']) && $user['email'] == $email){
         return new User(
           intval($user['id']),
@@ -37,6 +36,23 @@
     public function getName() : string {
       $names = explode(" ", $this->name);
       return count($names) > 1 ? $names[0] . " " . $names[count($names)-1] : $names[0];
+    }
+
+    static function getUserId(PDO $db,string $username) : ?User { 
+      $stmt = $db -> prepare('SELECT id,role,username,name,email from user where username = ?');
+      $stmt->execute(array($username));
+      $user = $stmt->fetch();
+      if($user){
+      return new User(
+        intval($user['id']),
+        $user['role'],
+        $user['username'],
+        $user['name'],
+        $user['email'],
+      );
+    }
+    else return null;
+      
     }
 
     static function getUser(PDO $db, int $id) : ?User {
@@ -81,7 +97,35 @@
 
     switch ($type) {
       case "nameT1":
-          $querie = 'SELECT * FROM user WHERE id LIKE ?';
+          $querie = 'SELECT * FROM user WHERE username LIKE ?';
+          break;
+      default:  
+          return $result;
+    }
+
+    $stmt = $db->prepare($querie);
+    $stmt->execute(array('%'.$search.'%'));
+
+    while ($user = $stmt->fetch()) {
+      $result[] = new User(
+        $user['id'],
+        $user['role'],
+        $user['username'],
+        $user['name'],
+        $user['email'],
+      );
+    }
+    return $result;
+  }
+  
+  static function search2(PDO $db, string $search, string $type) : array {
+
+    $querie = '';
+    $result = array();
+
+    switch ($type) {
+      case "nameA1":
+          $querie = 'SELECT * FROM user WHERE username LIKE ?';
           break;
       default:  
           return $result;
@@ -102,5 +146,7 @@
     return $result;
   } 
 }
+
+
 
 ?>

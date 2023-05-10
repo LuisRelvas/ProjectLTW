@@ -18,7 +18,7 @@
   $db = getDatabaseConnection();
  
   $stmt = $db->prepare('INSERT INTO ticket(id,department_id,status_id,tittle,description,initial_date) VALUES (?,?,?,?,?,?)');
-  $stmt->execute(array($_SESSION['id'],$_SESSION['input']['department_id newUser'], $_SESSION['input']['status_id'],$_POST['tittle'], $_POST['description'], $_SESSION['input']['initial_date newUser']));
+  $stmt->execute(array($_SESSION['id'],$_SESSION['input']['department_id newUser'], 1 ,$_POST['tittle'], $_POST['description'], $_SESSION['input']['initial_date newUser']));
   $ticket_id = $db->lastInsertId();
   $stmt1 = $db->prepare('INSERT INTO ticketHashtag(ticket_id) values (?)');
   $stmt1 -> execute(array(intval($ticket_id)));

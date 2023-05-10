@@ -35,6 +35,12 @@
         
 
     }
+    static public function addReply(int $ticket_id, string $answer) : void{ 
+      $db = getDatabaseConnection();
+      $stmt = $db->prepare('INSERT INTO reply (ticket_id,id,text) VALUES (?, ?, ?)');
+      $stmt->execute(array($ticket_id, $_SESSION['id'], $answer));
+      header('Location: ../pages/ticketseeonly.php?ticket_id='.$ticket_id);
+    }
 }
 
 ?>

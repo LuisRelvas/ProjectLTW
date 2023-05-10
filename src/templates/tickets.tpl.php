@@ -11,6 +11,8 @@ require_once(dirname(__DIR__).'/templates/departments.tpl.php');
 require_once(dirname(__DIR__).'/classes/department.class.php');
 require_once(dirname(__DIR__).'/classes/hashtag.class.php');
 require_once(dirname(__DIR__).'/classes/reply.class.php');
+require_once(dirname(__DIR__).'/templates/user.tlp.php');
+
 
 function drawallTickets(array $tickets) { 
     $db = getDatabaseConnection();
@@ -27,10 +29,38 @@ function drawallTickets(array $tickets) {
 function drawmyTickets(int $id){ 
     $db = getDatabaseConnection();
     $tickets = Ticket::getmyTickets($db,$id);
+    if($tickets) {
     foreach($tickets as $ticket){
         ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3> <?php
         ?> <h2><?= $ticket->description?></h2> <?php
     }
+}
+else { 
+    ?> <h2>Não tens tickets</h2> <?php
+}
+}
+
+
+function drawDepartmentTickets(int $id) {
+    $db = getDatabaseConnection(); 
+    
+    ?> 
+    <form action="../actions/orderTickets.action.php" method="POST">
+    <select name ="order" id="order">
+        <option value="0">Date</option>
+        <option value="1">Ticket Id Crescente</option>
+        <option value="2">Ticket Id Decrescente</option>
+    </select>
+    <input id="button" type="submit" value="Entrar">   
+    </form>
+    <?php 
+    $tickets = Department::getTicketsDepartment($db,$id,$_SESSION['order']);
+    if($tickets) {
+    foreach($tickets as $ticket){
+        ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3> <?php
+        ?> <h2><?= $ticket->description?></h2> <?php
+    }
+}
 }
 
 function drawTicketsperHashtag(string $name){ 
@@ -67,12 +97,12 @@ function drawinfoTicket(int $ticket_id) {
     }
     $department_name = Department::getDepartmentName($db,$ticket->department_id);
     $_SESSION['ticket_id'] = $ticket->ticket_id;
-    if(($ticket->status_id)==0){
-        $status = "Pendente";
-    } else if(($ticket->status_id)==1){
-        $status= "Em progresso";
+    if(($ticket->status_id)==1){
+        $status = "Open";
     } else if(($ticket->status_id)==2){
-        $status = "Concluído";
+        $status= "Assigned";
+    } else if(($ticket->status_id)==3){
+        $status = "Closed";
     }
 
     ?><h2><?=htmlentities(strval($ticket->ticket_id))?></h2><?php
@@ -99,7 +129,7 @@ function drawinfoTicket(int $ticket_id) {
     
     
     if(($ticket->agent_id == -1 ) && ($user->role == 0 || $user->role == 1)) { 
-        drawAssignTicket();
+        drawProfilesearch();
 
     } else {
         ?><h2><?=htmlentities(strval($agent_name->name))?></h2><?php
@@ -107,6 +137,7 @@ function drawinfoTicket(int $ticket_id) {
     if($user->role == 0 || $user->role == 1)  { 
         drawTagsSearch();
         ?><h2><a href="../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Delete ticket</h2></a><?php
+        drawAnswerFaq(); 
     }
     
 
@@ -127,7 +158,7 @@ function drawinfoTicket(int $ticket_id) {
 
 function drawaddHashtags() {  ?>
     <div id = "form">
-    <form action="../actions/addHashtag.action.php" method ="post">
+    <form action="../actions/addHashtagDB.action.php" method ="post">
           <label>Hashtag: <input type="text" name="hashtag" required="required" value="<?=$_SESSION['input']['hashtag newUser']?>"></label>
           <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
           <input id="button" type="submit" value="Validar Hashtag">
@@ -148,6 +179,29 @@ function drawTagsSearch() { ?>
       </section>
   </section> <?php 
 }
+
+function drawAnswerFaq() { 
+    $db = getDatabaseConnection(); 
+    $stmt = $db->prepare('SELECT answer FROM faq');
+    $stmt->execute();
+    $answers = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    ?>
+    <form action ="../actions/addAnswersFaq.action.php?ticket_id=<?=$_GET['ticket_id']?>"method = "post" id = "form">
+          <label>Answer:</label>
+          <select name="answer">
+            <optgroup label="List:">
+                <?php foreach ($answers as $answer) { ?>
+                    <option value="<?= $answer ?>"><?= $answer ?></option>
+                <?php }  ?>
+            </optgroup>
+        </select>
+        <input id="button" type="submit" value="Validar Hashtag">
+    </form>
+
+
+
+
+ <?php   }
 
 function drawaddHashtag(){ ?>
         <div id = "form">
@@ -187,6 +241,179 @@ function drawaddTicket(){ ?>
 
 <?php
 }
+
+function drawllTickets_id(){ ?>
+    <?php 
+    $db = getDatabaseConnection();
+    $stmt = $db->prepare('SELECT ticket_id FROM ticket');
+    $stmt->execute();
+    $tickets_id = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    ?>
+    <div id = "form">
+          <label>Ticket_id:</label>
+          <select name="ticket_id">
+            <optgroup label="List:">
+                <?php foreach ($tickets_id as $ticket_id) { ?>
+                    <option value="<?= $ticket_id ?>"><?= $ticket_id ?></option>
+                <?php }  ?>
+            </optgroup>
+        </select>
+</div>
+
+<?php
+}
+
+function addAgentDepartment() { ?>
+<?php 
+$db = getDatabaseConnection();
+$stmt = $db->prepare('SELECT DISTINCT user.username FROM agent,user where user.id = agent.id');
+$stmt->execute();
+$agents_names = $stmt->fetchAll(PDO::FETCH_COLUMN);
+$db1 = getDatabaseConnection();
+$stmt1 = $db1->prepare('SELECT DISTINCT department.name FROM department');
+$stmt1->execute();
+$departments = $stmt1->fetchAll(PDO::FETCH_COLUMN);
+?>
+<div id = "form">
+    <form action ="../actions/addAgentDepartment.action.php" method="POST">
+      <label>Agent:</label>
+      <select name="agent">
+        <optgroup label="List:">
+            <?php foreach ($agents_names as $agent_name) { ?>
+                <option value="<?= $agent_name ?>"><?= $agent_name ?></option>
+            <?php }  ?>
+        </optgroup>
+    </select>
+    <label>Department:</label>
+      <select name="department">
+        <optgroup label="List:">
+            <?php foreach ($departments as $department) { ?>
+                <option value="<?= $department ?>"><?= $department ?></option>
+            <?php }  ?>
+        </optgroup>
+    </select>
+    <input id="button" type="submit" value="Adicionar">
+    </form>
+<?php }
+
+function drawTicket(int $id) { ?>
+    <section id ="ticket">
+        <h2>Ticket Management</h2>
+        <form action = "../pages/ticketadd.php" method = "post">
+            <label>ADD TICKET</label>
+            <input id="button" type="submit" value="Entrar">
+        </form>
+        <h1 class = "ticketitem"><a href="../pages/ticketsee.php">SEE TICKET</a></h1>
+        <?php 
+        $db = getDatabaseConnection();
+        $user = User::getUser($db,$id); 
+        if($user->role == 0){
+        ?>
+        <form action = "../pages/ticketmanage.php" method = "post">
+            <label>MANAGE TICKET</label>
+            <input id="button" type="submit" value="Entrar">
+        </form>
+        <?php } ?>
+ <?php }
+
+function drawallStatus(){ ?>
+    <?php 
+    $db = getDatabaseConnection();
+    $stmt = $db->prepare('SELECT name FROM status');
+    $stmt->execute();
+    $status = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    ?>
+    <div id = "form">
+    <form action="../" method ="post">
+          <label>Status:</label>
+          <select name="status">
+            <optgroup label="List:">
+                <?php foreach ($status as $statu) { ?>
+                    <option value="<?= $statu ?>"><?= $statu ?></option>
+                <?php }  ?>
+            </optgroup>
+        </select>
+      </form>
+</div>
+
+<?php
+}
+
+function drawallDepartments() { ?>
+    
+    <?php 
+    $db = getDatabaseConnection();
+    $stmt = $db->prepare('SELECT name FROM department');
+    $stmt->execute();
+    $departments = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    ?>
+    
+    <div id = "form">
+    <form action="#" method ="post">
+          <label>Department:</label>
+          <select onchange = "showDepartment(this.value)" id="department-select" name="department">
+            <optgroup label="List:">
+                <?php foreach ($departments as $department) { ?>
+                    <option value="<?= $department ?>"><?= $department ?></option>
+                <?php }  ?>
+                
+            </optgroup>
+        </select>
+      </form>
+      <div id="txtHint">Customer information will be displayed here</div>
+
+<?php
+}
+
+
+
+
+function drawllHashtags(){ ?>
+    <?php 
+    $db = getDatabaseConnection();
+    $stmt = $db->prepare('SELECT tag FROM hashtag');
+    $stmt->execute();
+    $hashtags = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    ?>
+    <div id = "form">
+    <form action="../" method ="post">
+          <label>Hashtag:</label>
+          <select onchange = "showHashtag(this.value)" id="hashtag-select" name="hashtag">
+            <optgroup label="List:">
+                <?php foreach ($hashtags as $hashtag) { ?>
+                    <option value="<?= $hashtag ?>"><?= $hashtag ?></option>
+                <?php }  ?>
+            </optgroup>
+        </select>
+      </form>
+</div>
+
+<?php
+}
+
+
+function drawFaq(){ ?>
+    <?php 
+    $db = getDatabaseConnection();
+    $stmt = $db->prepare('SELECT question,answer FROM faq limit 3');
+    $stmt->execute();
+    $hashtags = $stmt->fetchAll();
+    ?>
+    <div id = "faq"> 
+            <h1>FAQ</h1>
+            <?php foreach($hashtags as $hashtag){ ?>
+                <h2><?= $hashtag['question'] ?></h2>
+                <p><?= $hashtag['answer'] ?></p>
+           <?php } ?>
+
+
+    </div>
+
+<?php
+}
+
+
+
 
 function drawEditTicketForm() { ?>
     <?php 

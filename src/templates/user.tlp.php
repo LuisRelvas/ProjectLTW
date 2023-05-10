@@ -47,7 +47,6 @@ function drawUser(int $id) {
             $admin = User::getUser($db, $_SESSION['id']);
             $user = User::getUser($db, intval($_GET['id'])); 
             if($admin->role == 0) { ?>
-        
         <select name="role">
             <optgroup label="Choose only one">
                 <?php foreach ($roles as $role) { ?>
@@ -83,16 +82,41 @@ function drawUser(int $id) {
         </section> <?php 
       }
 
+      function drawllUsernames(){ ?>
+        <?php 
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT username FROM user');
+        $stmt->execute();
+        $usernames = $stmt->fetchAll(PDO::FETCH_COLUMN);
+        ?>
+        <div id = "form">
+        <form action="../" method ="post">
+              <label>Username:</label>
+              <select name="status">
+                <optgroup label="List:">
+                    <?php foreach ($usernames as $username) { ?>
+                        <option value="<?= $username ?>"><?= $username ?></option>
+                    <?php }  ?>
+                </optgroup>
+            </select>
+          </form>
+    </div>
+    
+    <?php
+    }
+
       function drawProfilesearch() { ?>
         <section id = "searching1">
           <select id = "critério1" > 
-            <option value = "nameT1">User Id</option>
+            <option value = "nameT1">Username</option>
           </select>
           <input id="searchprofile" type="text" placeholder="pesquisa">
           <section id="searchprofiles">
           </section>
       </section> <?php 
     }
+
+    
 
       ?>
       

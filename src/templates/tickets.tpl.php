@@ -244,9 +244,10 @@ function drawaddTicket(){ ?>
     $stmt->execute();
     $departments = $stmt->fetchAll(PDO::FETCH_COLUMN);
     ?>
-    <div id = "form">
+    <div id = "ticket-add">
+    <h1>Adicionar Ticket</h1>
     <form action="../actions/addticket.action.php" method ="post">
-          <label>Tittle: <input type="text" name="tittle" required="required" value="<?=$_SESSION['input']['tittle newUser']?>"></label>
+          <label>Title: <input type="text" name="tittle" required="required" value="<?=$_SESSION['input']['tittle newUser']?>"></label>
           <select name="department">
             <optgroup label="Choose only one">
                 <?php foreach ($departments as $department) { ?>

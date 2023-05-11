@@ -51,6 +51,7 @@ function drawDepartmentTickets(int $id) {
     $db = getDatabaseConnection(); 
     
     ?> 
+    <div class="department-tickets">
     <form action="../actions/orderTickets.action.php" method="POST">
     <select name ="order" id="order">
         <option value="0">Date</option>
@@ -62,12 +63,15 @@ function drawDepartmentTickets(int $id) {
     <?php 
     $tickets = Department::getTicketsDepartment($db,$id,$_SESSION['order']);
     if($tickets) {
-    foreach($tickets as $ticket){
-        ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3> <?php
-        ?> <h2><?= $ticket->description?></h2> <?php
+        foreach($tickets as $ticket){
+            ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3> <?php
+            ?> <h2><?= $ticket->description?></h2> <?php
+        }
+        
     }
+    ?></div><?php
 }
-}
+
 
 function drawTicketsperHashtag(string $name){ 
 
@@ -314,7 +318,7 @@ $departments = $stmt1->fetchAll(PDO::FETCH_COLUMN);
             <?php }  ?>
         </optgroup>
     </select>
-    <input id="button" type="submit" value="Adicionar Agente">
+    <input id="button" type="submit" value="Adicionar Departamento">
     </form>
 <?php }
 

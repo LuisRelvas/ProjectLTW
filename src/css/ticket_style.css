@@ -155,6 +155,30 @@
   
 }
 
+/*draw department ticket*/
+.department-tickets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
+.department-tickets #button {
+  background-color: var(--mainHeaderColor);
+  color: var(--whiteColor);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+
+.department-tickets #button:hover {
+  background-color: var(--submitHoverColor);
+}
+
+
 /*Draw info ticket*/
 #ticket-info {
   background-color: var(--backgroundColor);

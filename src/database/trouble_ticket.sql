@@ -123,6 +123,10 @@ INSERT INTO department(name) VALUES ('GR');
 INSERT INTO department(name) VALUES ('IT');
 INSERT INTO department(name) VALUES ('HR');
 
+
+INSERT INTO agent(id) VALUES (1);
+INSERT INTO agent(id) VALUES (2);
+INSERT INTO agent(id) VALUES (3);
 INSERT INTO agent(id) VALUES (4);
 INSERT INTO agent(id) VALUES (5);
 INSERT INTO agent(id) VALUES (6);

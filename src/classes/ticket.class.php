@@ -83,6 +83,31 @@
       return $tickets;
     }
 
+    static function showStatus(PDO $db, string $value) : array {
+
+      $querie = '';
+      $result = array();
+
+      $querie = 'SELECT * FROM ticket,status WHERE ticket.status_id = status.status_id and status.name LIKE ?';
+      $stmt = $db->prepare($querie);
+      $stmt->execute(array($_GET['value']));
+      
+      while ($ticket = $stmt->fetch()) {
+        $result[] = new Ticket(
+          $ticket['ticket_id'],
+          $ticket['id'],
+          $ticket['department_id'],
+          $ticket['status_id'],
+          $ticket['tittle'],
+          $ticket['description'],
+          $ticket['initial_date'],
+          $ticket['hashtag_id'],
+          $ticket['agent_id']
+        );
+      }
+      return $result;
+    }
+
     static function getmyTickets(PDO $db, int $id) : ?array{ 
       $stmt = $db->prepare('SELECT ticket_id,id,department_id,status_id,tittle,description,initial_date,hashtag_id,agent_id FROM ticket where id = ?');
       $stmt->execute(array($id));

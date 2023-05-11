@@ -38,8 +38,32 @@
         }
 
     }
+    static function showDepartment(PDO $db, string $value) : array {
 
-    static public function getTicketsDepartment(PDO $db , int $id, int $integer) : array{ 
+      $querie = '';
+      $result = array();
+
+      $querie = 'SELECT * FROM ticket,department WHERE ticket.department_id = department.department_id and department.name LIKE ?';
+      $stmt = $db->prepare($querie);
+      $stmt->execute(array($_GET['value']));
+      
+      while ($ticket = $stmt->fetch()) {
+        $result[] = new Ticket(
+          $ticket['ticket_id'],
+          $ticket['id'],
+          $ticket['department_id'],
+          $ticket['status_id'],
+          $ticket['tittle'],
+          $ticket['description'],
+          $ticket['initial_date'],
+          $ticket['hashtag_id'],
+          $ticket['agent_id']
+        );
+      }
+      return $result;
+    }
+
+    static public function getTicketsDepartment(PDO $db , int $id, int $integer) : ?array{ 
       
       if($integer == 0){
       $stmt = $db ->prepare('SELECT DISTINCT ticket.ticket_id,ticket.id,ticket.department_id,ticket.status_id,ticket.tittle,ticket.description,ticket.initial_date,ticket.hashtag_id,ticket.agent_id FROM agent,department,ticket where ticket.department_id = department.department_id and agent.department_id = department.department_id and agent.id = ? ORDER BY ticket.initial_date');}
@@ -67,5 +91,5 @@
         }
         return $tickets;
     }
-
-}
+    
+  }

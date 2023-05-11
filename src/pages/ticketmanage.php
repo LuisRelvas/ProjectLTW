@@ -6,17 +6,16 @@ require_once(dirname(__DIR__).'/database/connection.db.php');
 require_once(dirname(__DIR__).'/classes/session.class.php');
 require_once(dirname(__DIR__).'/classes/user.class.php'); 
 require_once(dirname(__DIR__).'/templates/departments.tpl.php');
-
+require_once(dirname(__DIR__).'/classes/hashtag.class.php'); 
 
 $session = new Session();
 
 drawHeader($session);
-
+drawllHashtags();
+drawallDepartments();
+drawallStatus();
 drawTicketSearch();
 drawaddDepartment();
 drawaddHashtags();
-drawallStatus();
-drawallDepartments();
-drawllUsernames();
-drawllHashtags();
 addAgentDepartment();
+

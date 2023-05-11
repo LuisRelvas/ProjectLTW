@@ -56,11 +56,16 @@ function drawDepartmentTickets(int $id) {
     <?php 
     $tickets = Department::getTicketsDepartment($db,$id,$_SESSION['order']);
     if($tickets) {
+        ?> <h2>Seleciona um metodo de ordenação dos tickets do teu departamento</h2> <?php
     foreach($tickets as $ticket){
         ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3> <?php
         ?> <h2><?= $ticket->description?></h2> <?php
     }
 }
+    else {
+        ?> <h2>Não estás associado a nenhum departamento por favor contacta um admistrador</h2> <?php
+    }
+
 }
 
 function drawTicketsperHashtag(string $name){ 
@@ -316,80 +321,7 @@ function drawTicket(int $id) { ?>
         <?php } ?>
  <?php }
 
-function drawallStatus(){ ?>
-    <?php 
-    $db = getDatabaseConnection();
-    $stmt = $db->prepare('SELECT name FROM status');
-    $stmt->execute();
-    $status = $stmt->fetchAll(PDO::FETCH_COLUMN);
-    ?>
-    <div id = "form">
-    <form action="../" method ="post">
-          <label>Status:</label>
-          <select name="status">
-            <optgroup label="List:">
-                <?php foreach ($status as $statu) { ?>
-                    <option value="<?= $statu ?>"><?= $statu ?></option>
-                <?php }  ?>
-            </optgroup>
-        </select>
-      </form>
-</div>
 
-<?php
-}
-
-function drawallDepartments() { ?>
-    
-    <?php 
-    $db = getDatabaseConnection();
-    $stmt = $db->prepare('SELECT name FROM department');
-    $stmt->execute();
-    $departments = $stmt->fetchAll(PDO::FETCH_COLUMN);
-    ?>
-    
-    <div id = "form">
-    <form action="#" method ="post">
-          <label>Department:</label>
-          <select onchange = "showDepartment(this.value)" id="department-select" name="department">
-            <optgroup label="List:">
-                <?php foreach ($departments as $department) { ?>
-                    <option value="<?= $department ?>"><?= $department ?></option>
-                <?php }  ?>
-                
-            </optgroup>
-        </select>
-      </form>
-      <div id="txtHint">Customer information will be displayed here</div>
-
-<?php
-}
-
-
-
-
-function drawllHashtags(){ ?>
-    <?php 
-    $db = getDatabaseConnection();
-    $stmt = $db->prepare('SELECT tag FROM hashtag');
-    $stmt->execute();
-    $hashtags = $stmt->fetchAll(PDO::FETCH_COLUMN);
-    ?>
-    <div id = "form">
-    <form action="../" method ="post">
-          <label>Hashtag:</label>
-          <select onchange = "showHashtag(this.value)" id="hashtag-select" name="hashtag">
-            <optgroup label="List:">
-                <?php foreach ($hashtags as $hashtag) { ?>
-                    <option value="<?= $hashtag ?>"><?= $hashtag ?></option>
-                <?php }  ?>
-            </optgroup>
-        </select>
-      </form>
-</div>
-
-<?php
-}
 
 
 function drawFaq(){ ?>
@@ -461,6 +393,105 @@ function drawTicketSearch() { ?>
       </section>
   </section> <?php 
 }
+
+function drawllHashtags(){ ?>
+    <?php 
+    $db = getDatabaseConnection();
+    $stmt = $db->prepare('SELECT tag FROM hashtag');
+    $stmt->execute();
+    $hashtags = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    ?>
+<head>
+    <title>Show All Hashtags</title>
+</head>
+<body>
+    <div id="form">
+        <form action="../" method="post">
+            <label>Hashtag:</label>
+            <select id="hashtag-select" name="hashtag">
+                <optgroup label="List:">
+                    <?php foreach ($hashtags as $hashtag) { ?>
+                        <option value="<?= $hashtag ?>"><?= $hashtag ?></option>
+                    <?php }  ?>
+                    
+                </optgroup>
+            </select>
+            <section id="allhashtag">
+            </section>
+        </form>
+    </div>
+</body>
+
+
+<?php
+}
+
+
+function drawallDepartments(){ ?>
+    <?php 
+    $db = getDatabaseConnection();
+    $stmt = $db->prepare('SELECT name FROM department');
+    $stmt->execute();
+    $departments = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    ?>
+<head>
+    <title>Show All Hashtags</title>
+</head>
+<body>
+    <div id="form">
+        <form action="../" method="post">
+            <label>Department:</label>
+            <select id="department-select" name="department">
+                <optgroup label="List:">
+                    <?php foreach ($departments as $department) { ?>
+                        <option value="<?= $department ?>"><?= $department ?></option>
+                    <?php }  ?>
+                    
+                </optgroup>
+            </select>
+            <section id="alldepartment">
+            </section>
+        </form>
+    </div>
+</body>
+
+
+<?php
+}
+
+
+function drawallStatus(){ ?>
+    <?php 
+    $db = getDatabaseConnection();
+    $stmt = $db->prepare('SELECT name FROM status');
+    $stmt->execute();
+    $status = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    ?>
+<head>
+    <title>Show All Hashtags</title>
+</head>
+<body>
+    <div id="form">
+        <form action="../" method="post">
+            <label>Status:</label>
+            <select id="status-select" name="status">
+                <optgroup label="List:">
+                    <?php foreach ($status as $statu) { ?>
+                        <option value="<?= $statu ?>"><?= $statu ?></option>
+                    <?php }  ?>
+                </optgroup>
+            </select>
+            <section id="allstatus">
+            </section>
+        </form>
+    </div>
+</body>
+
+
+<?php
+}
+
+
 
 
 

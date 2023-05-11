@@ -3,6 +3,7 @@
 
   require_once('user.class.php');
   require_once('session.class.php');
+  require_once('ticket.class.php');
 
   class Hashtag{
 
@@ -40,6 +41,31 @@
         $stmt->execute(array($tag));
         $tag = $stmt->fetch();
         return $tag['hashtag_id'];
+    }
+
+    static function showHashtag(PDO $db, string $value) : array {
+
+      $querie = '';
+      $result = array();
+
+      $querie = 'SELECT * FROM ticket,hashtag WHERE ticket.hashtag_id = hashtag.hashtag_id and hashtag.tag LIKE ?';
+      $stmt = $db->prepare($querie);
+      $stmt->execute(array($_GET['value']));
+      
+      while ($ticket = $stmt->fetch()) {
+        $result[] = new Ticket(
+          $ticket['ticket_id'],
+          $ticket['id'],
+          $ticket['department_id'],
+          $ticket['status_id'],
+          $ticket['tittle'],
+          $ticket['description'],
+          $ticket['initial_date'],
+          $ticket['hashtag_id'],
+          $ticket['agent_id']
+        );
+      }
+      return $result;
     }
 
     

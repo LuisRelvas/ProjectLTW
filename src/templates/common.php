@@ -19,6 +19,10 @@
                 <script src="../javascript/searchticket.js" defer></script>
                 <script src="../javascript/searchprofile.js" defer></script>
                 <script src="../javascript/searchtags.js" defer></script>
+                <script src="../javascript/showallhashtags.js" defer></script>
+                <script src="../javascript/showalldepartments.js" defer></script>
+                <script src="../javascript/showallstatus.js" defer></script>
+
                 <script>
                          function showDepartment(str) 
                          {

@@ -10,12 +10,18 @@ require_once(dirname(__DIR__).'/classes/hashtag.class.php');
 
 $session = new Session();
 
+
+
 drawHeader($session);
+if($_SESSION['role'] != 0 ) { 
+    drawAcessDenied();
+}
+else { 
 drawllHashtags();
 drawallDepartments();
 drawallStatus();
 drawTicketSearch();
 drawaddDepartment();
 drawaddHashtags();
-addAgentDepartment();
+addAgentDepartment();}
 

@@ -40,6 +40,7 @@ function drawUser(int $id) {
             <h1>Editar perfil</h1>
             <form action="../actions/editProfile.action.php?id=<?=$_GET['id']?>" method="post">
             <?php 
+            if($_SESSION['id'] == $_GET['id'] || $_SESSION['role'] == 0){
             $db = getDatabaseConnection();
             $stmt = $db->prepare('SELECT distinct(role) FROM user');
             $stmt->execute();
@@ -65,8 +66,11 @@ function drawUser(int $id) {
                 <input id="button" type="submit" value="Concluir edição" >
             </form>
 
-        </section> <?php 
-    } 
+        </section> <?php }  
+    else{ 
+        drawAcessDenied();
+    }   
+} 
     function drawRegisterUser() { ?>
         <section id="registerUser">
             <h1>Register</h1>

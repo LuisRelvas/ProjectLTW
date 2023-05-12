@@ -35,8 +35,7 @@ function drawUser(int $id) {
     ?>
     <section id="more"><?php
     
-    } 
-    function drawEditUserForm() { ?>
+    } function drawEditUserForm() { ?>
         <section id="editProfile">
             <h1>Editar perfil</h1>
             <form action="../actions/editProfile.action.php?id=<?=$_GET['id']?>" method="post">

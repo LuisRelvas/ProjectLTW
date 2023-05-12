@@ -77,10 +77,14 @@ function drawTicketsperHashtag(string $name){
 
     $db = getDatabaseConnection();
     $tickets = Ticket::gethashtagTickets($db,$name);
-    foreach($tickets as $ticket){
-        ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3> <?php
-        ?> <h2><?= $ticket->description?></h2> <?php
-    }
+    ?>
+    <div id="ticket-list">
+    <?php foreach($tickets as $ticket){ ?>
+        <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3>
+        <h2><?= $ticket->description?></h2>
+    <?php } ?>
+    </div>
+    <?php
 }
 
 function drawgetTicketid() { ?>

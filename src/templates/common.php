@@ -123,17 +123,8 @@
         function drawFAQSDefault() { 
             //$faqs = getFAQS();  // using database
             ?>
-            <button class="accordion">Como chegar até a FEUP?</button>
-            <div class="panel">
-                <p>A FEUP (Faculdade de Engenharia da Universidade do Porto) está localizada na Rua Dr. Roberto Frias, s/n, no Porto, Portugal. Existem várias maneiras de chegar à FEUP, dependendo do seu ponto de partida e preferências de transporte.</p>
-            </div>
-
-            <button class="accordion">Qual é a ementa da cantina da FEUP?</button>
-            <div class="panel">
-                <p>As ementas das cantinas universitárias são atualizadas diariamente e disponibilizadas online ou num quadro de avisos na própria cantina. Pode consultar a ementa da cantina da FEUP <a href="https://sigarra.up.pt/up/pt/web_base.gera_pagina?p_pagina=ementa_cantinas">aqui</a>.</p>
-
-</p>            
-            </div>
+           
+    
 
             <script>
             var acc = document.getElementsByClassName("accordion");

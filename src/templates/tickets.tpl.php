@@ -363,11 +363,17 @@ function drawFaq(){ ?>
     $stmt->execute();
     $hashtags = $stmt->fetchAll();
     ?>
+
     <div id = "faq"> 
             <h1>FAQ</h1>
+            
+
             <?php foreach($hashtags as $hashtag){ ?>
-                <h2><?= $hashtag['question'] ?></h2>
-                <p><?= $hashtag['answer'] ?></p>
+                <button class="accordion"><?= $hashtag['question'] ?></button>
+                <div class="panel">
+                    <p><?= $hashtag['answer'] ?></p>
+                </div>
+
            <?php } ?>
 
 

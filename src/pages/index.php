@@ -11,8 +11,10 @@
   drawHeader($session);
 
   if (count($session->getMessages())) drawMessages($session);
+
+  if(isset($_SESSION['id'])){
   
-  drawBanner();
+  drawBanner();}
 
   drawFaq();
 

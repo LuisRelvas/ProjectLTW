@@ -15,7 +15,13 @@ drawHeader($session);
 if(!$session->isLoggedIn() || $SESSION['id'] != $_GET['id']) {
     $session->addMessage('error','You are not allowed to access this page');
 }
-drawinfoTicket(intval($_GET['ticket_id']));
+$db = getDatabaseConnection();
+$ticket = Ticket::getinfoTicket($db, intval($_GET['ticket_id']));
+if($ticket->id != $_SESSION['id'] && $_SESSION['role'] != 0 && $_SESSION['role'] != 1) {
+    drawAcessDenied();
+}
+else{
+drawinfoTicket(intval($_GET['ticket_id']));}
 
 
 ?>

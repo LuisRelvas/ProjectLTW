@@ -89,7 +89,7 @@ function drawUser(int $id) {
         $stmt->execute();
         $usernames = $stmt->fetchAll(PDO::FETCH_COLUMN);
         ?>
-        <div id = "form">
+        <div id = "all-usernames">
         <form action="../" method ="post">
               <label>Username:</label>
               <select name="status">

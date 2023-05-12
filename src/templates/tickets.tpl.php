@@ -30,10 +30,16 @@ function drawmyTickets(int $id){
     $db = getDatabaseConnection();
     $tickets = Ticket::getmyTickets($db,$id);
     if($tickets) {
-    foreach($tickets as $ticket){
-        ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3> <?php
-        ?> <h2><?= $ticket->description?></h2> <?php
-    }
+    ?> 
+        <div id="myTickets">
+        <?php foreach($tickets as $ticket){ ?>
+            <div class="ticketContainer">
+                <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3>
+                <h2><?= $ticket->description?></h2>
+            </div>
+        <?php } ?>
+        </div>
+        <?php
 }
 else { 
     ?> <h2>Não tens tickets</h2> <?php
@@ -45,6 +51,7 @@ function drawDepartmentTickets(int $id) {
     $db = getDatabaseConnection(); 
     
     ?> 
+    <div class="department-tickets">
     <form action="../actions/orderTickets.action.php" method="POST">
     <select name ="order" id="order">
         <option value="0">Date</option>
@@ -61,6 +68,7 @@ function drawDepartmentTickets(int $id) {
         ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3> <?php
         ?> <h2><?= $ticket->description?></h2> <?php
     }
+    ?></div><?php
 }
     else {
         ?> <h2>Não estás associado a nenhum departamento por favor contacta um admistrador</h2> <?php
@@ -72,10 +80,14 @@ function drawTicketsperHashtag(string $name){
 
     $db = getDatabaseConnection();
     $tickets = Ticket::gethashtagTickets($db,$name);
-    foreach($tickets as $ticket){
-        ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3> <?php
-        ?> <h2><?= $ticket->description?></h2> <?php
-    }
+    ?>
+    <div id="ticket-list">
+    <?php foreach($tickets as $ticket){ ?>
+        <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3>
+        <h2><?= $ticket->description?></h2>
+    <?php } ?>
+    </div>
+    <?php
 }
 
 function drawgetTicketid() { ?>
@@ -96,7 +108,10 @@ function drawinfoTicket(int $ticket_id) {
     $hashtag_id = $stmt->fetchAll(PDO::FETCH_COLUMN);
     $ticket = Ticket::getinfoTicket($db,$ticket_id);
     $text = Reply::getReplies($ticket_id);
-    foreach($text as $reply){
+    ?>
+    <div id="ticket-info">
+        <h1>Informação do Ticket</h1>
+    <?php foreach($text as $reply){
         ?><h2><?=($reply['text'])?></h2><?php
         ?><h2><?= '_' ?></h2><?php
     }
@@ -110,12 +125,12 @@ function drawinfoTicket(int $ticket_id) {
         $status = "Closed";
     }
 
-    ?><h2><?=htmlentities(strval($ticket->ticket_id))?></h2><?php
-    ?><h2><?=htmlentities($department_name)?></h2><?php
-    ?><h2><?=htmlentities($ticket->initial_date)?></h2><?php
-    ?><h2><?=htmlentities($ticket->description)?></h2><?php
-    ?><h2><?=htmlentities($ticket->tittle)?></h2><?php
-    ?><h2><?=htmlentities($status)?></h2><?php
+    ?><h2 class="left-align" data-label="ID"><?=htmlentities(strval($ticket->ticket_id))?></h2><?php
+    ?><h2 class="left-align" data-label="Departamento Atribuído"><?=htmlentities($department_name)?></h2><?php
+    ?><h2 class="left-align" data-label="Data de Emissão"><?=htmlentities($ticket->initial_date)?></h2><?php
+    ?><h2 class="left-align" data-label="Descrição do Ticket"><?=htmlentities($ticket->description)?></h2><?php
+    ?><h2 class="left-align" data-label="Título do Ticket"><?=htmlentities($ticket->tittle)?></h2><?php
+    ?><h2 class="left-align" data-label="Estado do Ticket"><?=htmlentities($status)?></h2><?php
     $user = User::getUser($db,$_SESSION['id']);
     $agent_name = User::getUser($db,$ticket->agent_id);
     foreach($hashtag_id as $hashtags_id){
@@ -141,28 +156,40 @@ function drawinfoTicket(int $ticket_id) {
     }
     if($user->role == 0 || $user->role == 1)  { 
         drawTagsSearch();
-        ?><h2><a href="../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Delete ticket</h2></a><?php
+        ?><h1 class="delete-ticket">
+        <form action = "../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>" method="post">
+        <input id="delete-ticket-button" type="submit" value="Apagar Ticket">
+          </form>
+    </h1><?php
         drawAnswerFaq(); 
     }
     
 
-    ?><h2><a href="../edit/ticket.edit.php?ticket_id=<?=$ticket->ticket_id?>"><h2>Editar ticket</h2></a>
+    ?><h1 class="edit-ticket">
+        <form action="../edit/ticket.edit.php?ticket_id=<?=$ticket->ticket_id?>" method="post">
+        <input id="edit-ticket-button" type="submit" value="Editar Ticket">
+        </form>
+</h1><?php 
+?>
 
 
 <?php if($user->role == 0 ||$user->id == $ticket->id  || $agent_name -> id == $_SESSION['id']){     ?>
-<form action="../actions/submitAnswer.action.php?ticket_id=<?=$ticket->ticket_id?>" method="POST">
+    <h1 class="answer">
+    <form action="../actions/submitAnswer.action.php?ticket_id=<?=$ticket->ticket_id?>" method="POST">
     <label for="answer">Answer:</label>
     <textarea name="answer" id="answer" rows="5" cols="50"></textarea>
     <input type="hidden" name="ticket_id" value="<?= $ticket_id ?>">
     <input type="submit" value="Submit Answer">
 </form>
+</h1>
     <?php } ?>
+</div>
     <?php
 }
 
 
 function drawaddHashtags() {  ?>
-    <div id = "form">
+    <div id = "add-hashtags">
     <form action="../actions/addHashtagDB.action.php" method ="post">
           <label>Hashtag: <input type="text" name="hashtag" required="required" value="<?=$_SESSION['input']['hashtag newUser']?>"></label>
           <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
@@ -228,9 +255,10 @@ function drawaddTicket(){ ?>
     $stmt->execute();
     $departments = $stmt->fetchAll(PDO::FETCH_COLUMN);
     ?>
-    <div id = "form">
+    <div id = "ticket-add">
+    <h1>Adicionar Ticket</h1>
     <form action="../actions/addticket.action.php" method ="post">
-          <label>Tittle: <input type="text" name="tittle" required="required" value="<?=$_SESSION['input']['tittle newUser']?>"></label>
+          <label>Title: <input type="text" name="tittle" required="required" value="<?=$_SESSION['input']['tittle newUser']?>"></label>
           <select name="department">
             <optgroup label="Choose only one">
                 <?php foreach ($departments as $department) { ?>
@@ -279,7 +307,7 @@ $stmt1 = $db1->prepare('SELECT DISTINCT department.name FROM department');
 $stmt1->execute();
 $departments = $stmt1->fetchAll(PDO::FETCH_COLUMN);
 ?>
-<div id = "form">
+<div id = "add-agent-department">
     <form action ="../actions/addAgentDepartment.action.php" method="POST">
       <label>Agent:</label>
       <select name="agent">
@@ -297,7 +325,7 @@ $departments = $stmt1->fetchAll(PDO::FETCH_COLUMN);
             <?php }  ?>
         </optgroup>
     </select>
-    <input id="button" type="submit" value="Adicionar">
+    <input id="button" type="submit" value="Adicionar Departamento">
     </form>
 <?php }
 
@@ -308,7 +336,12 @@ function drawTicket(int $id) { ?>
             <label>ADD TICKET</label>
             <input id="button" type="submit" value="Entrar">
         </form>
-        <h1 class = "ticketitem"><a href="../pages/ticketsee.php">SEE TICKET</a></h1>
+        <h1 class="ticketitem">
+                    <form action="../pages/ticketsee.php" method="get">
+                        <label>SEE TICKETS</label>
+                        <input id="see-ticket-button" type="submit" value="Entrar">
+                    </form>
+                </h1>
         <?php 
         $db = getDatabaseConnection();
         $user = User::getUser($db,$id); 
@@ -320,7 +353,6 @@ function drawTicket(int $id) { ?>
         </form>
         <?php } ?>
  <?php }
-
 
 
 

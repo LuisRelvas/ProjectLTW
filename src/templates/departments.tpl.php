@@ -6,7 +6,7 @@ require_once(dirname(__DIR__).'/classes/user.class.php');
 require_once(dirname(__DIR__).'/classes/session.class.php'); 
 
 function drawaddDepartment() { ?>
-    <div id = "form">
+    <div id = "add-department">
     <form action="../actions/adddepartment.action.php" method ="post">
           <label>Name: <input type="text" name="department_name" required="required" value="<?=$_SESSION['input']['department_name newUser']?>"></label>
           <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
@@ -15,7 +15,4 @@ function drawaddDepartment() { ?>
 </div>
 <?php
 }
-
-
-
 ?>

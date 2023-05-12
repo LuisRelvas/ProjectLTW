@@ -1,7 +1,7 @@
 /*Colors*/
 :root {
   --mainHeaderColor: #8C2D19;
-  /*--boxShadow: 0px 0px 5px 0px var(--mainHeaderColor);*/
+  --boxShadow: 0px 0px 5px 0px var(--mainHeaderColor);
   --backgroundColor: #e6e6e6;
   --whiteColor: #FFF;
   --blackColor: #000;
@@ -914,4 +914,37 @@
 
 #add-agent-department input[type="submit"]:hover {
   background-color: var(--submitHoverColor);
+}
+
+#ticket-list {
+  margin: 0 auto;
+  max-width: 800px;
+  text-align: center;
+  background-color: var(--backgroundColor);
+  padding: 40px;
+  box-shadow: var(--boxShadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#ticket-list .loginItem {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+#ticket-list .loginItem a {
+  text-decoration: none;
+  color: var(--mainHeaderColor);
+}
+
+#ticket-list .loginItem a:hover {
+  color: var(--submitHoverColor);
+}
+
+#ticket-list h2 {
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
 }

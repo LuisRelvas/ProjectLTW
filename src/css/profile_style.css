@@ -1,7 +1,7 @@
 /* Colors */
 :root {
     --principalColor: #8c2d19;
-    --boxShadow: 0px 0px 5px 0px var(--principalColor);
+    /*--boxShadow: 0px 0px 5px 0px var(--principalColor);*/
     --backgroundColor: #e6e6e6;
     --whiteColor: #fff;
     --submitHoverColor: #d24016;

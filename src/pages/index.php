@@ -11,9 +11,11 @@
   drawHeader($session);
 
   if (count($session->getMessages())) drawMessages($session);
+  
+  drawBanner();
+
   drawFaq();
 
-  drawBanner();
   drawFAQSDefault();
   
 ?>

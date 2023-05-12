@@ -11,29 +11,34 @@
     $session->addMessage('error', "Ação não disponível");
     die(header('Location: ../pages/index.php'));
   }
-
+  $_SESSION['input']['status_name oldUser'] = ($_POST['status']);
   $_SESSION['input']['department_name oldUser'] = ($_POST['department']);
   $_SESSION['input']['tittle oldUser'] = htmlentities($_POST['tittle']);
   $_SESSION['input']['description oldUser'] = htmlentities($_POST['description']);
   $db = getDatabaseConnection();
   $ticket = Ticket::getinfoTicket($db, $_SESSION['ticket_id']);
-  if($_POST['department'] == null){
+  if($_POST['department'] == null || $_POST['status'] == null){
     $_POST['department'] = $ticket->department_id;
+    $_POST['status'] = $ticket->status_id;
     $name = Department::getDepartmentName($db, $_POST['department']);
     $department = Department::getDepartmentId($name);
+    
   }
   else {
-  $department = Department::getDepartmentId($_POST['department']);}
-  if($department == "null"){
+  $status = Ticket::getStatusId($db, $_POST['status']);
+  $_POST['status'] = $status;
+  $department = Department::getDepartmentId($_POST['department']);
+}
+  if($department == "null" || $status == "null"){
     $session->addMessage('error', "Departamento não existe");
     header('Location: ../edit/ticket.edit.php');
     die();
   }
-  else if ($ticket && $department != "null") {
+  else if ($ticket && $department != "null" && $status != "null") {
     $ticket->department_id = $department;
     $ticket->tittle = $_POST['tittle'];
     $ticket->description = $_POST['description'];
-
+    $ticket->status_id = $_POST['status'];
     $ticket->save($db);
   }
 

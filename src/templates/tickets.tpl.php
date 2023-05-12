@@ -397,6 +397,10 @@ function drawEditTicketForm() { ?>
     $stmt = $db ->prepare('SELECT name from department');
     $stmt->execute();
     $departments = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    $db1 = getDatabaseConnection();
+    $stmt1 = $db1 ->prepare('SELECT name from status');
+    $stmt1->execute();
+    $status = $stmt1->fetchAll(PDO::FETCH_COLUMN);
     ?>
     <section id="editTicket">
         <h1>Editar Ticket</h1> 
@@ -411,6 +415,13 @@ function drawEditTicketForm() { ?>
             <optgroup label="Choose only one">
                 <?php foreach ($departments as $department) { ?>
                     <option value="<?= $department ?>"><?= $department ?></option>
+                <?php }  ?>
+            </optgroup>
+        </select>
+        <select name="status">
+            <optgroup label="Choose only one">
+                <?php foreach ($status as $statu) { ?>
+                    <option value="<?= $statu ?>"><?= $statu ?></option>
                 <?php }  ?>
             </optgroup>
         </select>

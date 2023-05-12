@@ -198,12 +198,13 @@
     
 
     function save($db) {
-      $stmt = $db->prepare('UPDATE ticket SET department_id = ?, tittle = ?, description = ? WHERE ticket_id = ?');
-      $stmt->execute(array($this->department_id,$this->tittle, $this->description,$this->ticket_id));
+      $stmt = $db->prepare('UPDATE ticket SET department_id = ?,status_id = ? ,tittle = ?,description = ? WHERE ticket_id = ?');
+      $stmt->execute(array($this->department_id,$this->status_id,$this->tittle, $this->description,$this->ticket_id,));
+    
   }
 
   static function assignTicket(PDO $db,int $ticket_id,int $agent_id){
-    $stmt = $db->prepare('UPDATE ticket SET status_id = 1,agent_id = ? WHERE ticket_id = ?');
+    $stmt = $db->prepare('UPDATE ticket SET status_id = 2,agent_id = ? WHERE ticket_id = ?');
     $stmt->execute(array($agent_id,$ticket_id));
 
   }
@@ -215,6 +216,13 @@
     $stmt1 = $db1->prepare('DELETE FROM ticketHashtag WHERE ticket_id = ?');
     $stmt1->execute(array($ticket_id));
 
+  }
+
+  static function getStatusId(PDO $db, string $status_name) : int{
+    $stmt = $db->prepare('SELECT status_id FROM status WHERE name = ?');
+    $stmt->execute(array($status_name));
+    $status_id = $stmt->fetch();
+    return $status_id['status_id'];
   }
 
 }

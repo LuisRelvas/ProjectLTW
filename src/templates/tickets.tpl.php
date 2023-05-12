@@ -49,6 +49,8 @@ else {
 
 function drawDepartmentTickets(int $id) {
     $db = getDatabaseConnection(); 
+    $user = User::getUser($db,$_SESSION['id']);
+    if($user->role != 2) { 
     
     ?> 
     <div class="department-tickets">
@@ -60,6 +62,10 @@ function drawDepartmentTickets(int $id) {
     </select>
     <input id="button" type="submit" value="Entrar">   
     </form>
+    </div>
+    <?php
+    } ?>
+
     <?php 
     $tickets = Department::getTicketsDepartment($db,$id,$_SESSION['order']);
     if($tickets) {

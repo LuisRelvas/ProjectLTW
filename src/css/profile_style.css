@@ -1,0 +1,116 @@
+/* Colors */
+:root {
+    --principalColor: #8c2d19;
+    --boxShadow: 0px 0px 5px 0px var(--principalColor);
+    --backgroundColor: #e6e6e6;
+    --whiteColor: #fff;
+    --submitHoverColor: #d24016;
+    --seeUserShadow: 0 2px 4px rgba(87, 1, 1, 0.507);
+    --border: 1px solid #ccc;
+  }
+
+  #editProfile {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: var(--backgroundColor);
+    padding: 5px;
+    margin: 0px auto;
+    max-width: 900px;
+    max-height: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 var(--principalColor);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #editProfile h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  #editProfile label {
+    display: block;
+    margin-bottom: 15px;
+  }
+  
+  #editProfile input[type=text],
+  #editProfile input[type=email],
+  #editProfile input[type=password],
+  #editProfile select {
+    font-size: 1em;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: var(--boxShadow);
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  #editProfile input[type=submit] {
+    background-color: var(--principalColor);
+    color: var(--whiteColor);
+    font-size: 1em;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #editProfile input[type=submit]:hover {
+    background-color: var(--submitHoverColor);
+  }
+  
+  #searching1 {
+    display: flex;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  #critério1 {
+    font-size: 1em;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: var(--seeUserShadow);
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 20%;
+    height: 20%;
+    box-sizing: border-box;
+  }
+  
+  #searchprofile {
+    font-size: 1em;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: var(--boxShadow);
+    width: 80%;
+    
+  }
+  
+  #searchprofiles {
+    margin-top: 10px;
+    border: 1px solid var(--whiteColor);
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 5px;
+    width: 0%;
+  }
+  
+  #searchprofiles p {
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  #searchprofiles p:hover {
+    background-color: var(--principalColor);
+    
+  }

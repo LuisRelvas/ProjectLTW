@@ -17,6 +17,8 @@
   if($check == NULL){
   $stmt = $db->prepare('INSERT into ticketHashtag(ticket_id,hashtag_id) values (?,?)');
   $stmt->execute(array($_SESSION['ticket_id'],$hashtag_id));}
+  $stmt2 = $db->prepare('INSERT INTO changes(ticket_id,id,text) VALUES (?,?,?)');
+  $stmt2->execute(array($_SESSION['ticket_id'],$_SESSION['id'],'Adicionou a hashtag '.$_GET['tag'].' ao ticket'));
   unset($_SESSION['input']);
   $session->addMessage('success', "Ticket adicionado com sucesso!");
   header('Location: ../pages/ticketseeonly.php?ticket_id='.$_SESSION['ticket_id'].'');

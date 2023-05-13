@@ -56,6 +56,10 @@
       $_SESSION['role'] = $role;
     }
 
+    public function setOrder(int $order) {
+      $_SESSION['order'] = $order;
+    }
+
     public function setticket_id(int $ticket_id) {
       $_SESSION['ticket_id'] = $ticket_id;
     }

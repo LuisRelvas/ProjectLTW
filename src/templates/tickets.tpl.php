@@ -107,6 +107,13 @@ function drawgetTicketid() { ?>
 <?php
 }
 
+
+function drawChangesTicket(int $ticket_id) { ?>
+    <section id="ticketpage">
+    <a href= "../pages/ticketseechanges.php?ticket_id=<?=$ticket_id?>" method = "post">See changes</a>
+<?php
+}
+
 function drawinfoTicket(int $ticket_id) { 
     $db = getDatabaseConnection();
     $stmt = $db->prepare('select ticketHashtag.hashtag_id from ticket,ticketHashtag where ticket.ticket_id = ? and ticket.ticket_id = ticketHashtag.ticket_id');
@@ -205,6 +212,18 @@ function drawaddHashtags() {  ?>
 
 
 
+}
+
+
+function drawaddFaq() {  ?>
+    <div id = "add-faq">
+    <form action="../actions/addFaq.action.php" method ="post">
+          <label>Question: <input type="text" name="question" required="required" value="<?=$_SESSION['input']['question newUser']?>"></label>
+          <label>Answer: <input type="text" name="answer" required="required" value="<?=$_SESSION['input']['answer newUser']?>"></label>
+          <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+          <input id="button" type="submit" value="Validar Hashtag">
+      </form>
+<?php
 }
 
 function drawTagsSearch() { ?>
@@ -372,18 +391,39 @@ function drawFaq(){ ?>
 
     <div id = "faq"> 
             <h1>FAQ</h1>
-            
-
             <?php foreach($hashtags as $hashtag){ ?>
                 <button class="accordion"><?= $hashtag['question'] ?></button>
                 <div class="panel">
+                    
                     <p><?= $hashtag['answer'] ?></p>
+                    <?php if($_SESSION['role'] != 2){?>
+                    <p><a href="../pages/editFaq.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>">Editar Faq</a></p>
+                    <p><a href="../actions/deleteFaq.action.php?question=<?=$hashtag['question']?>&answer=<?=$hashtag['answer']?>">Apagar Faq</a></p>
+                    <?php } ?>
                 </div>
 
            <?php } ?>
 
 
     </div>
+
+<?php
+}
+
+function drawEditFaqForm() { ?>
+    <?php 
+    $db = getDatabaseConnection();
+    $faq_id = Ticket::getFaqId($db,$_GET['question'],$_GET['answer']);
+    ?>
+    <form action="../actions/editFaq.action.php?faq_id=<?=$faq_id?>" method="post">
+    <label>Question: <input type="text" name="question" required="required" value="<?=$_GET['question']?>"></label>
+    <label>Answer: <input type="text" name="answer" required="required" value="<?=$_GET['answer']?>"></label>
+    <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+    <input id="button" type="submit" value="Concluir edição" >
+    </form>
+
+
+
 
 <?php
 }

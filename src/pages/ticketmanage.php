@@ -23,5 +23,6 @@ drawallStatus();
 drawTicketSearch();
 drawaddDepartment();
 drawaddHashtags();
+drawaddFaq();
 addAgentDepartment();}
 

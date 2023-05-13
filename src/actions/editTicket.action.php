@@ -39,7 +39,7 @@
     $ticket->tittle = $_POST['tittle'];
     $ticket->description = $_POST['description'];
     $ticket->status_id = $_POST['status'];
-    $ticket->save($db);
+    $ticket->save($db,$ticket->ticket_id);
   }
 
   unset($_SESSION['input']);

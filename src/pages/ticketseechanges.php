@@ -16,16 +16,12 @@ if(!$session->isLoggedIn() || $SESSION['id'] != $_GET['id']) {
     $session->addMessage('error','You are not allowed to access this page');
 }
 $db = getDatabaseConnection();
-$ticket = Ticket::getinfoTicket($db, intval($_GET['ticket_id']));
-if($ticket->id != $_SESSION['id'] && $_SESSION['role'] != 0 && $_SESSION['role'] != 1) {
-    drawAcessDenied();
+$stmt = $db->prepare('SELECT * FROM changes WHERE ticket_id = ? and id = ?');
+$stmt->execute(array(intval($_GET['ticket_id']), $_SESSION['id']));
+$var = $stmt->fetchAll();
+foreach($var as $va) { 
+    var_dump($va['id']);
+    var_dump($va['ticket_id']);
+    var_dump($va['text']);
+
 }
-else{
-drawinfoTicket(intval($_GET['ticket_id']));}
-
-if($_SESSION['role'] == 0 || $_SESSION['role'] == 1){
-    drawChangesTicket(intval($_GET['ticket_id']));
-}
-
-
-?>

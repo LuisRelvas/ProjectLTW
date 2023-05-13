@@ -89,6 +89,7 @@
     function save($db) {
       $stmt = $db->prepare('UPDATE user SET role = ? ,username = ?, name = ?, email = ? WHERE id = ?');
       $stmt->execute(array($this->role, $this->username, $this->name, $this->email,$this->id));
+      
   }
   static function search(PDO $db, string $search, string $type) : array {
 

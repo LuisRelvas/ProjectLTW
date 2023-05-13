@@ -197,16 +197,18 @@
     }
     
 
-    function save($db) {
+    function save(PDO $db,int $ticket_id) {
       $stmt = $db->prepare('UPDATE ticket SET department_id = ?,status_id = ? ,tittle = ?,description = ? WHERE ticket_id = ?');
       $stmt->execute(array($this->department_id,$this->status_id,$this->tittle, $this->description,$this->ticket_id,));
-    
+      $stmt1 = $db->prepare('INSERT INTO changes(ticket_id,id,text) VALUES (?,?,?)');
+      $stmt1->execute(array($ticket_id,$_SESSION['id'],'The ticket description or tittle has been changed by '.$_SESSION['id']));
   }
 
   static function assignTicket(PDO $db,int $ticket_id,int $agent_id){
     $stmt = $db->prepare('UPDATE ticket SET status_id = 2,agent_id = ? WHERE ticket_id = ?');
     $stmt->execute(array($agent_id,$ticket_id));
-
+    $stmt1 = $db->prepare('INSERT INTO changes (ticket_id,id,text) VALUES (?,?,?)');
+    $stmt1->execute(array($ticket_id,$_SESSION['id'],'Ticket assigned to agent '.$agent_id . ' by '.$_SESSION['id'] . 'and the status changes from Open to Assigned'));
   }
 
   static function removeTicket($db, $ticket_id){
@@ -223,6 +225,18 @@
     $stmt->execute(array($status_name));
     $status_id = $stmt->fetch();
     return $status_id['status_id'];
+  }
+
+  static function getFaqId(PDO $db,string $question,string $answer) : int{
+    $stmt = $db->prepare('SELECT faq_id FROM faq WHERE question = ? and answer = ?');
+    $stmt->execute(([$question,$answer]));
+    $faq_id = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($faq_id !== false) {
+      $faq_id = (int) $faq_id['faq_id'];
+      return $faq_id;
+  } else {
+      return 0; 
+  }
   }
 
 }

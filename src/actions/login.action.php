@@ -12,6 +12,7 @@
     $session->setId($user->id);
     $session->setName($user->name);
     $session->setRole($user->role);
+    $session->setOrder(0);
     $session->addMessage('success', "Login efetuado com sucesso. Bem-vindo de volta, " . $session->getName() . "!");
     header('Location: ../pages/index.php');
     

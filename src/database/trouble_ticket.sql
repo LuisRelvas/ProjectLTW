@@ -33,6 +33,17 @@ CREATE TABLE agent(
 	PRIMARY KEY(id, department_id)
 );
 
+CREATE TABLE changes(
+	changes_id INTEGER PRIMARY KEY,
+	ticket_id INTEGER NOT NULL,
+	id INTEGER NOT NULL,
+	text TEXT NOT NULL,
+	FOREIGN KEY(ticket_id) REFERENCES ticket(ticket_id),
+	FOREIGN KEY(id) REFERENCES user(id)
+);
+
+
+
 CREATE TABLE ticket(
 	ticket_id INTEGER PRIMARY KEY,
 	id INTEGER,
@@ -148,5 +159,5 @@ INSERT INTO hashtag(tag) VALUES ('completed');
 -- Add more hashtag entries as needed
 
 INSERT INTO faq(question, answer) VALUES ('What is the ticket submission process?', 'You can submit a ticket through the ticket submission form on the website.');
-INSERT INTO faq(question, answer) VALUES ('How do I reset my password?', 'You can reset your password by clicking on the "Forgot Password" link on the login page.');
+INSERT INTO faq(question, answer) VALUES ('How do I reset my password?', 'You can reset your password by clicking on the Forgot Password link on the login page.');
 -- Add more faq entries as needed

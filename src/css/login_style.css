@@ -1,4 +1,4 @@
-*--Colors--*/
+/*--Colors--*/
 :root {
     --mainHeaderColor: #8C2D19;
     --boxShadow: 0px 0px 5px 0px rgba(140, 45, 25, 0.5);
@@ -8,41 +8,46 @@
     --focusBorderColor: #8C2D19;
     --submitHoverColor: #D24016;
 }
-    
-/*Style for the Login section*/
+
 #loginpage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 50px auto;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 #loginpage h1 {
-    margin-bottom: 30px;
-    font-size: 3rem;
-  }
-  
-#loginpage form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 400px;
+  font-size: 50px;
+  margin-bottom: 50px;
+  margin-top: 0px;
 }
-  
+
+#loginpage form {
+  display: flex;
+  flex-direction: column;
+  width: 150%;
+  max-width: 400px; 
+  margin-left: -10px;
+  padding: 20px;
+  box-shadow: var(--boxShadow);
+}
+
 #loginpage label {
-    display: block;
-    margin-bottom: 10px;
+  display: block;
+  margin-bottom: 0.5rem;
+  padding: 20px;
+  
 }
 
 #loginpage input[type="email"],
 #loginpage input[type="password"] {
-    padding: 10px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 5px;
-    box-shadow: var(--boxShadow);
+  padding: 10px 30px;
+  margin-left: -30px;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
 #loginpage input[type="email"]:focus,
@@ -52,41 +57,17 @@
 }
 
 #loginpage input[type="submit"] {
-    background-color: var(--mainHeaderColor);
-    color: var(--whiteColor);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    box-shadow: var(--boxShadow);
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
+  background-color: var(--mainHeaderColor);
+  color: var(--whiteColor);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
 
 #loginpage input[type="submit"]:hover {
   background-color: var(--submitHoverColor);
-  color: var(--whiteColor)
-}
-
-/* Style of the section for the page when the user is logged in*/
-#login {
-  display: flex;
-  align-items: center;
-}
-
-#login a {
   color: var(--whiteColor);
-  text-decoration: none;
-  padding: 10px 20px;
-  margin-right: 10px;
-  border-radius: 5px;
-  box-shadow: var(--boxShadow);
-  transition: background-color 0.2s ease-in-out;
-}
-
-#login  a:hover {
-  background-color: darken(var(--mainHeaderColor), 10%);
-}
-
-#login h3 {
-    margin-right: 10px;
 }

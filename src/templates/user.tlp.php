@@ -10,18 +10,34 @@ function drawUser(int $id) {
     $db = getDatabaseConnection();
     $user = User::getUser($db, $id);
     $admin = User::getUser($db, $_SESSION['id']);
-    ?><h2><?=htmlentities($user->name)?></h2><?php
-    ?><h2><?=htmlentities($user->username)?></h2><?php
-    ?><h2><?=htmlentities($user->email)?></h2><?php
-    if($user->role == 0) { 
-        ?><h2><?php echo 'Admin' ?></h2><?php
-    }
-    else if ($user->role == 1){
-        ?><h2><?php echo 'Agent' ?></h2><?php
-    }
-    else {
-        ?><h2><?php echo 'User' ?></h2><?php
-    }
+    ?><div class="user-data">
+        <label for="name">Nome:</label>
+        <span><?=htmlentities($user->name)?></span>
+    </div><?php
+
+    ?><div class="user-data">
+        <label for="username">Username:</label>
+        <span><?=htmlentities($user->username)?></span>
+    </div><?php
+
+    ?><div class="user-data">
+        <label for="email">E-mail:</label>
+        <span><?=htmlentities($user->email)?></span>
+    </div><?php
+
+    ?><div class="user-data">
+    <label for="role">Role:</label>
+    <?php 
+        if ($user->role == 0) {
+            $role = 'Admin';
+        } else if ($user->role == 1) {
+            $role = 'Agente';
+        } else {
+            $role = 'Usuario';
+        }
+    ?>
+    <span><?=htmlentities($role)?></span>
+    </div><?php
     if($admin->role == 0) { 
         drawProfilesearch();
     }
@@ -30,7 +46,12 @@ function drawUser(int $id) {
     }
     ?> 
     <?php if(($admin->id == $_GET['id']) || ($admin->role == 0)){ ?>
-    <a href="../edit/profile.edit.php?id=<?=$id?>"><h2>Editar perfil</h2></a> <?php } ?><?php
+    
+    <form action="../edit/profile.edit.php?id=<?=$id?>" method="post">
+    <input id="edit-profile-button" type="submit" value="Editar Perfil">
+    </form>
+</h1><?php
+    }
     
     ?>
     <section id="more"><?php

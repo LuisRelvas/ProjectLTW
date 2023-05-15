@@ -420,23 +420,28 @@ function drawFaq(){ ?>
     $hashtags = $stmt->fetchAll();
     ?>
 
-    <div id = "faq"> 
-            <h1>FAQ</h1>
-            <?php foreach($hashtags as $hashtag){ ?>
-                <button class="accordion"><?= $hashtag['question'] ?></button>
-                <div class="panel">
-                    
-                    <p><?= $hashtag['answer'] ?></p>
-                    <?php if($_SESSION['role'] != 2){?>
-                    <p><a href="../pages/editFaq.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>">Editar Faq</a></p>
-                    <p><a href="../actions/deleteFaq.action.php?question=<?=$hashtag['question']?>&answer=<?=$hashtag['answer']?>">Apagar Faq</a></p>
-                    <?php } ?>
-                </div>
-
-           <?php } ?>
-
-
+<div id="faq">
+  <h1>FAQ</h1>
+  <?php foreach ($hashtags as $hashtag) { ?>
+    <button class="accordion"><?= $hashtag['question'] ?></button>
+    <div class="panel">
+      <p><?= $hashtag['answer'] ?></p>
+      <?php if ($_SESSION['role'] != 2) { ?>
+        <div id="faqMenu">
+          <button>
+            <a href="../pages/editFaq.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>">Editar</a>
+          </button>
+          <button>
+            <a href="../actions/deleteFaq.action.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>">Apagar</a>
+          </button>
+        </div>
+      <?php } ?>
     </div>
+  <?php } ?>
+</div>
+
+
+    
 
 <?php
 }

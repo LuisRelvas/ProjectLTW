@@ -23,17 +23,13 @@
   $_SESSION['input']['password2 oldUser'] = htmlentities($_POST['password2']);
 
   $db = getDatabaseConnection();
+  
   $user = User::getUser($db, intval($_GET['id']));
   $pass = User::getPass($db, intval($_GET['id']));
 
   if (!(valid_name($_POST['name'])) && valid_email($_POST['email']) && valid_CSRF($_POST['csrf'])) {
       die(header('Location: ../edit/profile.edit.php?id='.$user->id));
   }
-  
- 
-
-  
-  
   if ($user) {
     if($_POST['role'] == 3) { 
      $_POST['role'] = $user->role;
@@ -43,26 +39,36 @@
     $user->username = $_POST['username'];
     $user->name = $_POST['name'];
     $user->email = $_POST['email'];
+
     
 
-    if ($_POST['password1'] != "" && (password_verify($_POST['password1'], $pass))){
+    if ($_POST['password1'] != "" ){
+
+      if(!password_verify($_POST['password1'], $pass)){
+        die(header('Location: ../edit/profile.edit.php?id='.$user->id));
+      }
 
       if (!valid_password($_POST['password2'])) {
-        die(header('Location: ../edit/profile.edit.php'));
-      } else {
+        die(header('Location: ../edit/profile.edit.php?id='.$user->id));}
+      else if($_POST['password2'] == "") {
+        $pass2 = $_POST['password1'];
+        User::savePass($db, $user->id, $pass2);
+      }
+      else if(valid_password($_POST['password2'])) {
         $pass2 = $_POST['password2'];
         User::savePass($db, $user->id, $pass2);
       }
+    }
 
-    } else if (!valid_name($_POST['name']) || !valid_email($_POST['email']) || !valid_CSRF($_POST['csrf']) || !valid_password($_POST['password2'])) {
+    if (!valid_name($_POST['name']) || !valid_email($_POST['email']) || !valid_CSRF($_POST['csrf'])) {
       die(header('Location: ../edit/profile.edit.php?id='.$user->id));
     } 
-
-    $user->save($db);
-
     if($_SESSION['id'] == $user->id){
-    $_SESSION['name'] = $user->getName();}
+    $_SESSION['name'] = $user->getName();
+      $_SESSION['role'] == $user->role;
   }
+    $user->save($db);
+}
 
   unset($_SESSION['input']);
 

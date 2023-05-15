@@ -10,18 +10,18 @@ require_once(dirname(__DIR__).'/templates/departments.tpl.php');
 $session = new Session();
 
 
-
-drawHeader($session);
 if(!$session->isLoggedIn() || $SESSION['id'] != $_GET['id']) {
     $session->addMessage('error','You are not allowed to access this page');
 }
+
+drawHeader($session);
+
 $db = getDatabaseConnection();
 $stmt = $db->prepare('SELECT * FROM changes WHERE ticket_id = ? and id = ?');
 $stmt->execute(array(intval($_GET['ticket_id']), $_SESSION['id']));
 $var = $stmt->fetchAll();
-foreach($var as $va) { 
-    var_dump($va['id']);
-    var_dump($va['ticket_id']);
-    var_dump($va['text']);
+foreach($var as $va) { ?>
+
+    <h2><?=$va['text']?></h2><?php
 
 }

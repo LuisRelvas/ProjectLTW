@@ -24,7 +24,7 @@
       $stmt = $db->prepare('SELECT id,role,username,name,email,password FROM user WHERE email = ?');
       $stmt->execute(array(strtolower($email)));
       $user = $stmt->fetch();
-      if($user['email'] || $user['password'] == null){
+      if($user['email'] == null || $user['password'] == null){
         header('Location: ../pages/login.php');
         return null;
 

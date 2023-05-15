@@ -8,7 +8,7 @@ require_once(dirname(__DIR__).'/classes/user.class.php');
 
 $session = new Session();
 
-if(!$session->isLoggedIn() || $SESSION['id'] != intval($_GET['id'])) {
+if(!$session->isLoggedIn()) {
     $session->addMessage('error','You are not allowed to access this page');
 }
 

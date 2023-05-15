@@ -19,6 +19,8 @@
   drawFaq();
 
   drawFAQSDefault();
+
+  drawFooter();
   
 ?>
 

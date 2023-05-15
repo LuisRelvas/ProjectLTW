@@ -26,38 +26,6 @@
                 <script src="../javascript/showallhashtags.js" defer></script>
                 <script src="../javascript/showalldepartments.js" defer></script>
                 <script src="../javascript/showallstatus.js" defer></script>
-
-                <script>
-                         function showDepartment(str) 
-                         {
-                            if (str == "") {
-                                document.getElementById("txtHint").innerHTML = "";
-                                return;
-                            }
-                            const xhttp = new XMLHttpRequest();
-                            xhttp.onload = function() {
-                            document.getElementById("txtHint").innerHTML = this.responseText;
-                            }         
-                            xhttp.open("GET", "../actions/getcostumer.action.php?q="+str);
-                            xhttp.send();
-                        }
-  </script>
-            <script>
-                function showHashtag(str) {
-                    if (str == "") {
-        document.getElementById("txtHint").innerHTML = "";
-        return;
-      }
-      const xhttp = new XMLHttpRequest();
-      xhttp.onload = function() {
-        document.getElementById("txtHint").innerHTML = this.responseText;
-      }
-      xhttp.open("GET", "../actions/getHashtag.action.php?q="+str);
-      xhttp.send();
-
-                }
-
-
             </script>    
             </head>
             <body>
@@ -73,6 +41,7 @@
             
                 </header>
             </body>
+            <main>
             <?php 
         }
 
@@ -206,4 +175,21 @@ function drawMessages(Session $session) { ?>
  
         <?php } ?> 
     </section> 
-<?php } ?>
+<?php } 
+
+
+function drawFooter() { ?>
+    </main>
+        <footer>
+            <nav>
+                <h3><a href="../pages/index.php">Termos e Serviços</a></h3>
+                <h3><a href="../pages/index.php">Fale connosco</a></h3>
+                <h3><a href="../pages/index.php">Sobre nós</a></h3>
+            </nav>
+            <h3>&#169; Trouble Ticket FEUP</h3>
+        </footer>
+    </body>
+</html> <?php 
+}
+
+?>

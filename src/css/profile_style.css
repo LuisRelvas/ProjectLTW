@@ -4,8 +4,9 @@
   --backgroundColor: #e6e6e6;
   --whiteColor: #fff;
   --submitHoverColor: #d24016;
-  --seeProfileShadow: 0 2px 4px rgba(87, 1, 1, 0.507);
+  --seeProfileShadow: 0 2px 4px #8c2d19;
   --border: 1px solid #ccc;
+  --boxShadowForm: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* General styles */
@@ -158,3 +159,102 @@ form {
   background-color: var(--submitHoverColor);
 }
 
+/*Style for the edit profile page*/
+#editProfile {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: var(--backgroundColor);
+  border: var(--border);
+  border-radius: 5px;
+  box-shadow: var(--seeProfileShadow);
+  text-align: left;
+
+}
+
+#editProfile h1 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#editProfile h2{
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 0%;
+  margin-left: 5px;
+}
+
+#editProfile form{
+  margin: 0 auto;
+  width: 60%;
+  padding: 20px;
+  box-shadow: var(--boxShadowForm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+#editProfile label {
+  display: block;
+  margin-bottom: 10px;
+  margin-left: -165px;
+}
+
+
+#editProfile select {
+  width: 100%;
+  padding: 10px;
+  border: var(--border);
+  border-radius: 5px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+#editProfile select option {
+  text-align: left;
+}
+
+#editProfile se[name="role"] {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  
+}
+
+#editProfile input[type="text"],
+#editProfile input[type="email"],
+#editProfile input[type="password"] {
+  width: 163%;
+  padding: 10px;
+  border: var(--border);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#editProfile input[type="submit"] {
+  background-color:var(--principalColor);
+  color: var(--whiteColor);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+#editProfile input[type="submit"]:hover {
+  background-color: var(--submitHoverColor);
+  cursor: pointer;
+}
+
+#editProfile input[name="csrf"] {
+  display: none;
+}

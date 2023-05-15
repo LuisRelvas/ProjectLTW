@@ -57,10 +57,11 @@ function drawUser(int $id) {
     <section id="more"><?php
     
     } function drawEditUserForm() { ?>
-        <section id="editProfile">
+        <div id="editProfile">
             <h1>Editar perfil</h1>
             <form action="../actions/editProfile.action.php?id=<?=$_GET['id']?>" method="post">
             <?php 
+            ?><h2> Role: </h2><?php
             if($_SESSION['id'] == $_GET['id'] || $_SESSION['role'] == 0){
             $db = getDatabaseConnection();
             $stmt = $db->prepare('SELECT distinct(role) FROM user');
@@ -84,7 +85,7 @@ function drawUser(int $id) {
                 <label>Antiga password: <input type="password" name="password1"></label>
                 <label>Nova password: <input type="password" name="password2"></label>
                 <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
-                <input id="button" type="submit" value="Concluir edição" >
+                <input id="button" type="submit" value="Concluir Edição" >
             </form>
 
         </section> <?php }  

@@ -91,5 +91,13 @@
         }
         return $tickets;
     }
+
+    static function getDepartmentAgent(PDO $db,int $id) : ?array {
+
+      $stmt = $db->prepare('SELECT department_id from agent where id = ?');
+      $stmt->execute(array($id));
+      $department_id = $stmt->fetchAll();
+      return $department_id;
+    }
     
   }

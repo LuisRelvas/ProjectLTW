@@ -1,0 +1,11 @@
+body > header {
+    grid-column: start / end;
+    background-color: #8C2D19;
+    margin: 0;
+    padding: 50px;
+    text-align: center;
+    display: grid; 
+    grid-template-columns: 1fr auto;
+    grid-row-start: start;
+    grid-row-end: p1;
+  }

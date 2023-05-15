@@ -10,8 +10,8 @@
     $db = getDatabaseConnection();
     $ticket_id = intval($_GET['ticket_id']);
     Ticket::removeTicket($db, $ticket_id);
-    $stmt1 = $db->prepare('INSERT INTO changes(ticket_id,id,text) VALUES (?,?,?)');
-    $stmt1->execute(array($ticket_id,$_SESSION['id'],'Removeu o ticket '.$ticket_id.''));
+    $stmt1 = $db->prepare('INSERT INTO changes(ticket_id,id,text,closed_id) VALUES (?,?,?,?)');
+    $stmt1->execute(array($ticket_id,$_SESSION['id'],'Removeu o ticket '.$ticket_id.'',1));
     header('Location: ../pages/ticketsee.php');
 
 

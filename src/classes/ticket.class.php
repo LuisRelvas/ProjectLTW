@@ -200,6 +200,7 @@
     function save(PDO $db,int $ticket_id) {
       $stmt = $db->prepare('UPDATE ticket SET department_id = ?,status_id = ? ,tittle = ?,description = ? WHERE ticket_id = ?');
       $stmt->execute(array($this->department_id,$this->status_id,$this->tittle, $this->description,$this->ticket_id,));
+      
       $stmt1 = $db->prepare('INSERT INTO changes(ticket_id,id,text) VALUES (?,?,?)');
       $stmt1->execute(array($ticket_id,$_SESSION['id'],'The ticket description or tittle has been changed by '.$_SESSION['id']));
   }

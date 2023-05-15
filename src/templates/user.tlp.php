@@ -2,6 +2,7 @@
 declare(strict_types = 1); 
 require_once(dirname(__DIR__).'/database/connection.db.php');
 require_once(dirname(__DIR__).'/classes/user.class.php');
+require_once(dirname(__DIR__).'/classes/department.class.php');
 
 
 
@@ -10,6 +11,8 @@ function drawUser(int $id) {
     $db = getDatabaseConnection();
     $user = User::getUser($db, $id);
     $admin = User::getUser($db, $_SESSION['id']);
+    $count = User::countTickets($db,$user->id);
+    $department = Department::getDepartmentAgent($db, $user->id);
     ?><div class="user-data">
         <label for="name">Nome:</label>
         <span><?=htmlentities($user->name)?></span>
@@ -37,13 +40,21 @@ function drawUser(int $id) {
         }
     ?>
     <span><?=htmlentities($role)?></span>
-    </div><?php
-    if($admin->role == 0) { 
-        drawProfilesearch();
-    }
-    else if($admin->role == 1) { 
-        drawProfilesearch();
-    }
+    
+    <?php
+    if($admin->role == 0 || $admin->role == 1) { ?>
+        <div class="user-data">
+        <label for="counter">Closed Tickets:</label>
+        <span><?=$count?></span>
+        </div><?php
+        ?><div class="user-data">
+            <label for="department">Departamento:</label>
+            <span><?php foreach($department as $departments){?></span> <?php
+                        $department_name = Department::getDepartmentName($db, $departments['department_id']);
+                        ?><span><?=htmlentities($department_name)?></span><?php } ?>
+        </div><?php
+        drawProfilesearch();}
+    
     ?> 
     <?php if(($admin->id == $_GET['id']) || ($admin->role == 0)){ ?>
     

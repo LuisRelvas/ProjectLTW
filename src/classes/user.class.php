@@ -42,6 +42,14 @@
     }
   }
 
+  static function countTickets(PDO $db,int $id) : int {
+    $stmt = $db->prepare('SELECT COUNT(*) FROM changes WHERE id = ? and closed_id = 1');
+    $stmt->execute(array($id));
+    $count = $stmt->fetch();
+    return $count['COUNT(*)'];
+
+  }
+
     public function getName() : string {
       $names = explode(" ", $this->name);
       return count($names) > 1 ? $names[0] . " " . $names[count($names)-1] : $names[0];

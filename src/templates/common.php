@@ -10,16 +10,8 @@
                     encoding = "utf-8"
                     author = "Relvas, Domingos, Angy"
                 >
+                <link rel="stylesheet" href="../css/header.css">
                 
-                <link rel="stylesheet" href="../css/header_style.css">
-                <link rel="stylesheet" href="../css/login_style.css">
-                <link rel="stylesheet" href="../css/ticket_style.css">
-                <link rel="stylesheet" href="../css/banner.css">
-                <link rel="stylesheet" href="../css/faqAccordion.css">
-                <link rel="stylesheet" href="../css/tickets_index.css">
-                <link rel="stylesheet" href="../css/register_style.css">
-                <link rel="stylesheet" href="../css/profile_style.css">
-
                 <script src="../javascript/searchticket.js" defer></script>
                 <script src="../javascript/searchprofile.js" defer></script>
                 <script src="../javascript/searchtags.js" defer></script>
@@ -31,7 +23,7 @@
             <body>
                 <header>
                         <a href="../pages/index.php">
-                            <img src="https://dec.fe.up.pt/wp-content/uploads/2021/03/logo-feup-white.png" alt="Logo of site">
+                            
                         </a>
                         <?php
                             if ($session->isLoggedIn()) 
@@ -118,8 +110,6 @@
 
         function drawBanner() { ?>
             
-
-
             <section id="banner">
                 <!-- <header><h1>Trouble Ticket</h1> -->
                 
@@ -129,15 +119,15 @@
                 <div id="myticketsmenu">
 
                     <button>
-                      <a href="../pages/ticket.php">MyTickets</a>
+                      <a href="../pages/ticketsee.php">MyTickets</a>
                     </button>
 
                     <button>
-                      <a href="../pages/ticket.php">Add Ticket</a>
+                      <a href="../pages/ticketadd.php">Add Ticket</a>
                     </button>
 
                     <button>
-                      <a href="../pages/ticket.php">Remove Ticket</a>
+                      <a href="../pages/ticketmanage.php">Manage Ticket</a>
                     </button>
             
                     

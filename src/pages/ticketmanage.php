@@ -13,7 +13,7 @@ $session = new Session();
 
 
 drawHeader($session);
-if($_SESSION['role'] != 0 ) { 
+if($_SESSION['role'] != 0) { 
     drawAcessDenied();
 }
 else { 

@@ -38,6 +38,7 @@ CREATE TABLE changes(
 	ticket_id INTEGER NOT NULL,
 	id INTEGER NOT NULL,
 	text TEXT NOT NULL,
+	closed_id INTEGER DEFAULT 0,
 	FOREIGN KEY(ticket_id) REFERENCES ticket(ticket_id),
 	FOREIGN KEY(id) REFERENCES user(id)
 );

@@ -104,14 +104,34 @@
     
     }
     function save($db) {
+      $session = new Session();
       if($this->role == 0) {
         $stmt1 = $db->prepare('SELECT * FROM department');
         $stmt1->execute();
         $department = $stmt1->fetchAll();
         foreach($department as $departments){ 
+          $stmt3 = $db->prepare('SELECT * FROM agent where id = ? and department_id = ?');
+          $stmt3->execute(array($this->id,$departments['department_id']));
+          $agent = $stmt3->fetch();
+          if(!$agent) { 
           $stmt2 = $db->prepare('INSERT INTO agent (id,department_id) VALUES (?,?)');
-          $stmt2->execute(array($this->id,$departments['department_id']));
+          $stmt2->execute(array($this->id,$departments['department_id']));}
+          else if($agent) {
+            $session->addMessage('error', "Admin já estava adicionado a todos os departamento mas concluimos as alterações de perfil.");
+            header('Location: ../pages/ticketmanage.php');
+            exit();
+            
+          }
         }
+      }
+      if($this->role == 1) {
+        $stmt1 = $db->prepare('DELETE FROM agent WHERE id = ? ');
+        $stmt1->execute(array($this->id));
+      }
+
+      if($this->role == 2) { 
+        $stmt1 = $db->prepare('DELETE FROM agent where id = ?');
+        $stmt1->execute(array($this->id));
       }
       $stmt = $db->prepare('UPDATE user SET role = ? ,username = ?, name = ?, email = ? WHERE id = ?');
       $stmt->execute(array($this->role, $this->username, $this->name, $this->email,$this->id));

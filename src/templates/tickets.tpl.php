@@ -117,6 +117,13 @@ function drawChangesTicket(int $ticket_id) { ?>
 }
 
 function drawinfoTicket(int $ticket_id) { 
+
+    // use only this css 
+    ?>
+        <link rel="stylesheet" href="../css/drawInfoTicket.css">
+    <?php
+
+
     $db = getDatabaseConnection();
     $stmt = $db->prepare('select ticketHashtag.hashtag_id from ticket,ticketHashtag where ticket.ticket_id = ? and ticket.ticket_id = ticketHashtag.ticket_id');
     $stmt->execute(array($ticket_id));
@@ -139,13 +146,34 @@ function drawinfoTicket(int $ticket_id) {
     } else if(($ticket->status_id)==3){
         $status = "Closed";
     }
+    
 
-    ?><h2 class="left-align" data-label="ID"><?=htmlentities(strval($ticket->ticket_id))?></h2><?php
-    ?><h2 class="left-align" data-label="Departamento Atribuído"><?=htmlentities($department_name)?></h2><?php
-    ?><h2 class="left-align" data-label="Data de Emissão"><?=htmlentities($ticket->initial_date)?></h2><?php
-    ?><h2 class="left-align" data-label="Descrição do Ticket"><?=htmlentities($ticket->description)?></h2><?php
-    ?><h2 class="left-align" data-label="Título do Ticket"><?=htmlentities($ticket->tittle)?></h2><?php
-    ?><h2 class="left-align" data-label="Estado do Ticket"><?=htmlentities($status)?></h2><?php
+    ?>
+
+    
+
+    <div class="ticket-card">
+        <h1>Trouble Ticket Information</h1>
+        <div class="ticket-details">
+          <p><span class="label">Ticket:</span> <?= htmlentities($ticket->tittle) ?></p>
+          <p><span class="label">Ticket ID:</span> <?= htmlentities(strval($ticket->ticket_id)) ?></p>
+          <p><span class="label">Date:</span> <?= htmlentities($ticket->initial_date) ?></p>
+          <p><span class="label">Category:</span> <?= htmlentities($department_name) ?></p>
+          <p><span class="label">State:</span> <?= htmlentities($status) ?></p>
+          <p><span class="label">Description:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu rutrum leo. Sed at nunc ac mi dignissim sollicitudin non eget enim.</p>
+        </div>
+         <div id="action-div">
+            <form class="edit-form" action="../edit/ticket.edit.php?ticket_id=<?=$ticket->ticket_id?>" method="post">
+                <input id="edit-ticket-button" type="submit" value="Editar Ticket">
+            </form>
+    
+            <form class="delete-form" action="../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>" method="post">
+                <input id="delete-ticket-button" type="submit" value="Apagar Ticket">
+            </form>
+        </div>
+      </div>
+        <?php
+        
     $user = User::getUser($db,$_SESSION['id']);
     $agent_name = User::getUser($db,$ticket->agent_id);
     foreach($hashtag_id as $hashtags_id){
@@ -171,20 +199,21 @@ function drawinfoTicket(int $ticket_id) {
     }
     if($user->role == 0 || $user->role == 1)  { 
         drawTagsSearch();
-        ?><h1 class="delete-ticket">
+        /*?><h1 class="delete-ticket">
         <form action = "../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>" method="post">
         <input id="delete-ticket-button" type="submit" value="Apagar Ticket">
           </form>
-    </h1><?php
+          
+    </h1><?php*/
         drawAnswerFaq(); 
     }
     
-
+/*
     ?><h1 class="edit-ticket">
         <form action="../edit/ticket.edit.php?ticket_id=<?=$ticket->ticket_id?>" method="post">
         <input id="edit-ticket-button" type="submit" value="Editar Ticket">
         </form>
-</h1><?php 
+</h1><?php */
 ?>
 
 

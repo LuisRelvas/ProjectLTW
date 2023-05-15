@@ -11,6 +11,8 @@
                     author = "Relvas, Domingos, Angy"
                 >
                 <link rel="stylesheet" href="../css/header.css">
+                <link rel="stylesheet" href="../css/index.css">
+                <link rel="stylesheet" href="../css/drawInfoTicket.css">
                 
                 <script src="../javascript/searchticket.js" defer></script>
                 <script src="../javascript/searchprofile.js" defer></script>
@@ -23,7 +25,7 @@
             <body>
                 <header>
                         <a href="../pages/index.php">
-                            
+                            <img src="https://dec.fe.up.pt/wp-content/uploads/2021/03/logo-feup-white.png" alt="Logo of FEUP">
                         </a>
                         <?php
                             if ($session->isLoggedIn()) 

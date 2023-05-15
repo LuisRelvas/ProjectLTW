@@ -1,11 +1,89 @@
 body > header {
-    grid-column: start / end;
-    background-color: #8C2D19;
-    margin: 0;
-    padding: 50px;
-    text-align: center;
-    display: grid; 
-    grid-template-columns: 1fr auto;
-    grid-row-start: start;
-    grid-row-end: p1;
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2%;
+  background-color: #8C2D19;
+  border-bottom: 10px solid black;
+  color: #fff;
+
+}
+
+header > a > img {
+  width: 30%;
+  height: auto;
+  margin-right: 5%;
+}
+
+header > h1 {
+  font-size: 3vw;
+  margin: 0;
+}
+
+#login {
+  /* display grid in row with space even */
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1vw;
+  color: #fff;
+  /*remove link style */
+  text-decoration: none;
+  /* change color of link */
+  color: #fff;
+  /* change color of link when hover */
+  transition: color 0.3s ease;
+  margin-right: 2%;
+  
+}
+
+#login > button {
+  background-color: white;
+  white-space: nowrap;
+  display: inline-block;
+  border-radius: 2vw;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.5vw;
+  font-weight: 500;
+  height: 4vw;
+  line-height: 2vw;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 1vw 1.6vw;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+
+#login > button > a {
+  /*remove link style */
+  text-decoration: none;
+  /* change color of link */
+  color: black;
+  /* change color of link when hover */
+  transition: color 0.3s ease;
+}
+
+#login > button:hover,
+#login > button:focus {
+  background-color:#E6B0AA;
+}
+
+#login > button:hover > a {
+  color: #000;
+}
+
+
+  

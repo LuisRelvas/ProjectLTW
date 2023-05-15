@@ -1,0 +1,92 @@
+  #ticket-info{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .ticket-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+  }
+
+  .ticket-card h1 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: 600;
+    color: #8C2D19;
+  }
+  
+
+  
+  .ticket-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+  
+  .ticket-details p {
+    margin-bottom: 10px;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  #action-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  
+
+  .edit-form, .delete-form {
+    /* text color is white */
+
+    background-color: #8C2D19;
+    font-size: 24px;
+    padding: 10px 150px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 2%;
+  }
+
+
+  .edit-form:hover, .delete-form:hover {
+    color: white;
+    background-color: #E6B0AA;
+    font-size: 24px;
+    padding: 10px 150px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 2%;
+  }
+
+  
+
+  #delete-ticket-button, #edit-ticket-button {
+    /* remove button aspect */
+    background: none;
+    color: #f5f5f5;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+
+  }

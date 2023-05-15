@@ -1,5 +1,7 @@
 <?php
+    
   declare(strict_types = 1);
+  require_once(dirname(__DIR__).'/utils/validator.php');
 
   class User {
 
@@ -18,9 +20,15 @@
       $this->email = $email;
     }
     static function getUserWithPassword(PDO $db, string $email, string $password) : ?User {
+      if(valid_email($email)){
       $stmt = $db->prepare('SELECT id,role,username,name,email,password FROM user WHERE email = ?');
       $stmt->execute(array(strtolower($email)));
       $user = $stmt->fetch();
+      if($user['email'] || $user['password'] == null){
+        header('Location: ../pages/login.php');
+        return null;
+
+      }
       if(password_verify($password,$user['password']) && $user['email'] == $email){
         return new User(
           intval($user['id']),
@@ -32,6 +40,7 @@
       }
       else return null;
     }
+  }
 
     public function getName() : string {
       $names = explode(" ", $this->name);

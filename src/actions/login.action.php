@@ -7,6 +7,8 @@
   require_once(dirname(__DIR__).'/classes/user.class.php');
 
   $db = getDatabaseConnection();
+  
+
   $user = User::getUserWithPassword($db, $_POST['email'], $_POST['password']);
   if ($user) {
     $session->setId($user->id);

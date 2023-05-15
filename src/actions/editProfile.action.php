@@ -21,14 +21,18 @@
   $_SESSION['input']['email oldUser'] = htmlentities($_POST['email']);
   $_SESSION['input']['password1 oldUser'] = htmlentities($_POST['password1']);
   $_SESSION['input']['password2 oldUser'] = htmlentities($_POST['password2']);
-  if (!(valid_name($_POST['name'])) && valid_email($_POST['email']) && valid_CSRF($_POST['csrf'])) {
-      die(header('Location: ../edit/profile.edit.php'));
-  }
-  
-  $db = getDatabaseConnection();
 
+  $db = getDatabaseConnection();
   $user = User::getUser($db, intval($_GET['id']));
   $pass = User::getPass($db, intval($_GET['id']));
+
+  if (!(valid_name($_POST['name'])) && valid_email($_POST['email']) && valid_CSRF($_POST['csrf'])) {
+      die(header('Location: ../edit/profile.edit.php?id='.$user->id));
+  }
+  
+ 
+
+  
   
   if ($user) {
     if($_POST['role'] == 3) { 
@@ -39,6 +43,7 @@
     $user->username = $_POST['username'];
     $user->name = $_POST['name'];
     $user->email = $_POST['email'];
+    
 
     if ($_POST['password1'] != "" && (password_verify($_POST['password1'], $pass))){
 
@@ -49,9 +54,8 @@
         User::savePass($db, $user->id, $pass2);
       }
 
-    } else if ($_POST['password1'] != "" && $pass != $_POST['password1']) {
-      $session->addMessage('warning', "Para mudar a palavra passe necessita primeiro de colocar correctamente a antiga");
-      die(header('Location: ../edit/profile.edit.php'));
+    } else if (!valid_name($_POST['name']) || !valid_email($_POST['email']) || !valid_CSRF($_POST['csrf']) || !valid_password($_POST['password2'])) {
+      die(header('Location: ../edit/profile.edit.php?id='.$user->id));
     } 
 
     $user->save($db);

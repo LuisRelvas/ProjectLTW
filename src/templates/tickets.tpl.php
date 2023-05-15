@@ -71,13 +71,15 @@ function drawDepartmentTickets(int $id) {
     if($tickets) {
         ?> <h2>Seleciona um metodo de ordenação dos tickets do teu departamento</h2> <?php
     foreach($tickets as $ticket){
-        ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3> <?php
-        ?> <h2><?= $ticket->description?></h2> <?php
+        $department_name = Department::getDepartmentName($db,$ticket->department_id);
+        $user_name = User::getUser($db,$ticket->id);
+        ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id?></a><?=" " .$department_name . " " . $ticket->description . " " . $user->name?></h3> <?php
+        
     }
     ?></div><?php
 }
-    else {
-        ?> <h2>Não estás associado a nenhum departamento por favor contacta um admistrador</h2> <?php
+    else if($tickets == null && ($_SESSION['role'] == 1 || $_SESSION['role'] == 0)) {
+        ?> <h2>Aguarda por algum ticket !</h2> <?php
     }
 
 }

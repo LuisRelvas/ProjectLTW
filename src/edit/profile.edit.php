@@ -15,6 +15,7 @@
   $db = getDatabaseConnection();
 
   $user = User::getUser($db, intval($_GET['id']));
+
   
   $_SESSION['input']['role oldUser'] = $_SESSION['input']['role oldUser'] ?? $user->role;
   $_SESSION['input']['nome oldUser'] = $_SESSION['input']['nome oldUser'] ?? $user->name;

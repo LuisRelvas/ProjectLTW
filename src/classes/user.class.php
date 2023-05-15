@@ -104,6 +104,15 @@
     
     }
     function save($db) {
+      if($this->role == 0) {
+        $stmt1 = $db->prepare('SELECT * FROM department');
+        $stmt1->execute();
+        $department = $stmt1->fetchAll();
+        foreach($department as $departments){ 
+          $stmt2 = $db->prepare('INSERT INTO agent (id,department_id) VALUES (?,?)');
+          $stmt2->execute(array($this->id,$departments['department_id']));
+        }
+      }
       $stmt = $db->prepare('UPDATE user SET role = ? ,username = ?, name = ?, email = ? WHERE id = ?');
       $stmt->execute(array($this->role, $this->username, $this->name, $this->email,$this->id));
       

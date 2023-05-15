@@ -135,10 +135,15 @@ INSERT INTO department(name) VALUES ('GR');
 INSERT INTO department(name) VALUES ('IT');
 INSERT INTO department(name) VALUES ('HR');
 
-
-INSERT INTO agent(id) VALUES (1);
-INSERT INTO agent(id) VALUES (2);
-INSERT INTO agent(id) VALUES (3);
+INSERT INTO agent(id,department_id) VALUES (1,1);
+INSERT INTO agent(id,department_id) VALUES (1,2);
+INSERT INTO agent(id,department_id) VALUES (1,3);
+INSERT INTO agent(id,department_id) VALUES (2,1);
+INSERT INTO agent(id,department_id) VALUES (2,2);
+INSERT INTO agent(id,department_id) VALUES (2,3);
+INSERT INTO agent(id,department_id) VALUES (3,1);
+INSERT INTO agent(id,department_id) VALUES (3,2);
+INSERT INTO agent(id,department_id) VALUES (3,3);
 INSERT INTO agent(id) VALUES (4);
 INSERT INTO agent(id) VALUES (5);
 INSERT INTO agent(id) VALUES (6);

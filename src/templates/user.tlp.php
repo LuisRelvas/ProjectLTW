@@ -90,7 +90,7 @@ function drawUser(int $id) {
         </select>
 
             <?php } ?>
-                <label>Nome: <input type="text" name="name" required="required" value="<?=htmlentities($user->name)?>"></label>
+                <label>Nome: <input type="text" name="name" required="required" value="<?=($user->name)?>"></label>
                 <label>Username: <input type="text" name="username" required="required" value="<?=htmlentities($_SESSION['input']['username oldUser'])?>"></label>
                 <label>Email: <input type="email" name="email" required="required" value="<?=htmlentities($_SESSION['input']['email oldUser'])?>"></label>
                 <label>Antiga password: <input type="password" name="password1"></label>

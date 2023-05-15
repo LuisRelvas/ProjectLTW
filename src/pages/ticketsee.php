@@ -15,7 +15,7 @@ if(!$session->isLoggedIn() || $SESSION['id'] != $_GET['id']) {
 }
 drawmyTickets($_SESSION['id']);
 drawDepartmentTickets($_SESSION['id']);
-
+drawFooter();
 
 
 

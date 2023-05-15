@@ -9,6 +9,7 @@
     $db = getDatabaseConnection();
     drawHeader($session);
     drawEditFaqForm();
+    drawFooter();
 
 
 

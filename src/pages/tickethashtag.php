@@ -15,6 +15,7 @@ if(!$session->isLoggedIn() || $SESSION['id'] != $_GET['id']) {
 }
 
 drawTicketsperHashtag($_GET['hashtag_name']);
+drawFooter();
 
 
 

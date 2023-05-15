@@ -7,4 +7,5 @@
   drawHeader($session);
   if (count($session->getMessages())) drawMessages($session);
   drawLogin();
+  drawFooter();
 ?>

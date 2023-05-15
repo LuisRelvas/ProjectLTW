@@ -11,6 +11,7 @@ $session = new Session();
 $db = getDatabaseConnection();
 drawHeader($session);
 drawTicket($_SESSION['id']);
+drawFooter();
 
 
 ?>

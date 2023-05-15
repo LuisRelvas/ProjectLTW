@@ -18,8 +18,10 @@ if(count($session->getMessages())) drawMessages($session);
 if(intval($_GET['id']) == $_SESSION['id'] || $_SESSION['role'] == 0 || $_SESSION['role'] == 1){
     drawUser(intval($_GET['id']));}
 
-else
-    drawAcessDenied();
+else{
+    drawAcessDenied();}
+
+    drawFooter();
 
 
 

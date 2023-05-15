@@ -23,5 +23,5 @@ $var = $stmt->fetchAll();
 foreach($var as $va) { ?>
 
     <h2><?=$va['text']?></h2><?php
-
 }
+drawFooter();

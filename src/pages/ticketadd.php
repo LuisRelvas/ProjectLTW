@@ -10,6 +10,7 @@ $session = new Session();
 
 drawHeader($session);
 drawaddTicket();
+drawFooter();
 
 
 ?>

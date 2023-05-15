@@ -25,4 +25,5 @@ drawaddDepartment();
 drawaddHashtags();
 drawaddFaq();
 addAgentDepartment();}
+drawFooter();
 

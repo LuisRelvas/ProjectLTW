@@ -16,4 +16,5 @@ require_once(dirname(__DIR__).'/classes/user.class.php');
   drawHeader($session);
   if (count($session->getMessages())) drawMessages($session);
   drawRegisterUser();
+  drawFooter();
 ?>

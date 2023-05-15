@@ -26,6 +26,7 @@ drawinfoTicket(intval($_GET['ticket_id']));}
 if($_SESSION['role'] == 0 || $_SESSION['role'] == 1){
     drawChangesTicket(intval($_GET['ticket_id']));
 }
+drawFooter();
 
 
 ?>

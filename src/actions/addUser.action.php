@@ -21,7 +21,6 @@
         echo "User added successfully";
 
     } else {
-        echo "Passwords do not match";
         header('Location: ../pages/register.php');
     }
 

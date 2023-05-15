@@ -1,0 +1,36 @@
+root {
+    --backgroundColor: #e6e6e6;
+    --buttonColor: #8c2d19;
+    --buttonHoverColor: #d24016;
+    --whiteColor: white;
+    --borderColor: #ccc;
+  }
+
+  #accessDenied {
+    text-align: center;
+    padding: 50px;
+    background-color: var(--backgroundColor);
+    border: 1px solid var(--borderColor);
+    border-radius: 10px;
+}
+
+#deniedImage {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+#accessDenied h2 {
+    font-size: 45px;
+    margin-bottom: 10px;
+    color: #8c2d19;
+}
+
+#accessDenied h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+#accessDenied p {
+    font-size: 16px;
+}

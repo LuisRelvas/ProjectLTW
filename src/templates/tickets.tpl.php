@@ -73,7 +73,7 @@ function drawDepartmentTickets(int $id) {
     foreach($tickets as $ticket){
         $department_name = Department::getDepartmentName($db,$ticket->department_id);
         $user_name = User::getUser($db,$ticket->id);
-        ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id?></a><?=" " .$department_name . " " . $ticket->description . " " . $user->name?></h3> <?php
+        ?> <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id?></a><?=" " .$department_name . " " . $ticket->description . " " . $user_name->name?></h3> <?php
         
     }
     ?></div><?php

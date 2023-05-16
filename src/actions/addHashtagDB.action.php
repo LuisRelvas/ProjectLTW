@@ -7,7 +7,6 @@
   require_once(dirname(__DIR__).'/classes/hashtag.class.php');
   require_once(dirname(__DIR__).'/templates/tickets.tpl.php');
   $session = new Session(); 
-  
     $_SESSION['input']['hashtag newUser'] = htmlentities($_POST['hashtag']);
     $db = getDatabaseConnection();
     $stmt1 = $db->prepare('SELECT * FROM hashtag WHERE tag = ?');

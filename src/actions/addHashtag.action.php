@@ -6,8 +6,8 @@
   require_once(dirname(__DIR__).'/classes/department.class.php');
   require_once(dirname(__DIR__).'/classes/hashtag.class.php');
   $session = new Session(); 
-  
   $_SESSION['input']['hashtag newUser'] = $_GET['tag'];
+  var_dump($session);
   $hashtag_id = Hashtag::getHashtagID(strval($_GET['tag']));
   $db = getDatabaseConnection();
   $stmt1 = $db->prepare('SELECT * FROM ticketHashtag WHERE ticket_id = ? AND hashtag_id = ?');

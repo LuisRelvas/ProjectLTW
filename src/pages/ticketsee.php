@@ -11,7 +11,7 @@ $session = new Session();
 
 drawHeader($session);
 if (count($session->getMessages())) drawMessages($session);
-if(!$session->isLoggedIn() || $SESSION['id'] != $_GET['id']) {
+if(!$session->isLoggedIn()) {
     $session->addMessage('error','You are not allowed to access this page');
 }
 drawmyTickets($_SESSION['id']);

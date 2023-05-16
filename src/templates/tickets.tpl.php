@@ -185,6 +185,7 @@ function drawinfoTicket(int $ticket_id) {
     $user = User::getUser($db,$_SESSION['id']);
     $agent_name = User::getUser($db,$ticket->agent_id);
     if(($ticket->agent_id == -1 ) && ($user->role == 0 || $user->role == 1)) { 
+        
         drawProfilesearch();
 
     } else {

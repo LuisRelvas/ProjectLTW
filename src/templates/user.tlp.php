@@ -171,6 +171,7 @@ function drawUser(int $id) {
           </select>
           <input id="searchprofile" type="text" placeholder="pesquisa">
           <section id="searchprofiles">
+            
           </section>
       </section> <?php 
     }

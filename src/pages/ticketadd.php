@@ -9,6 +9,7 @@ require_once(dirname(__DIR__).'/classes/user.class.php');
 $session = new Session();
 
 drawHeader($session);
+if (count($session->getMessages())) drawMessages($session);
 drawaddTicket();
 drawFooter();
 

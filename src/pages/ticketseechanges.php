@@ -15,6 +15,7 @@ if(!$session->isLoggedIn() || $SESSION['id'] != $_GET['id']) {
 }
 
 drawHeader($session);
+if (count($session->getMessages())) drawMessages($session);
 
 $db = getDatabaseConnection();
 $stmt = $db->prepare('SELECT * FROM changes WHERE ticket_id = ? and id = ?');

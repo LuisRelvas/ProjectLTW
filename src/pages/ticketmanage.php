@@ -17,7 +17,7 @@ if($_SESSION['role'] != 0) {
     drawAcessDenied();
 }
 else { 
-drawMessages($session);
+if (count($session->getMessages())) drawMessages($session);
 drawllHashtags();
 drawallDepartments();
 drawallStatus();

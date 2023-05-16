@@ -39,14 +39,35 @@ function drawUser(int $id) {
     ?>
     <span><?=htmlentities($role)?></span>
     </div><?php
-    if($admin->role == 0) { 
+    if($admin->role == 0) {
+        $departments = Department::getDepartmentAgent($db, $user->id);
         drawProfilesearch();
+        $counter = User::countTickets($db, $user->id);
     }
     else if($admin->role == 1) { 
+        $departments = Department::getDepartmentAgent($db, $user->id);
         drawProfilesearch();
+        $counter = User::countTickets($db, $user->id);
     }
     ?> 
-    <?php if(($admin->id == $_GET['id']) || ($admin->role == 0)){ ?>
+
+    <div class="user-data">
+        <label for="department">Departamento:</label>
+        <span><?php foreach($departments as $department) {  ?></span>
+        <span><?php 
+        $department_name = Department::getDepartmentName($db, $department['department_id']);
+        echo($department_name)
+        ?></span>
+        <?php } ?>
+
+
+        <div class="user-data">
+        <label for="counter">Tickets Fechados:</label>
+        <span><?=($counter)?></span>
+    </div>
+
+    <?php
+    if(($admin->id == $_GET['id']) || ($admin->role == 0)){ ?>
     
     <form action="../edit/profile.edit.php?id=<?=$id?>" method="post">
     <input id="edit-profile-button" type="submit" value="Editar Perfil">

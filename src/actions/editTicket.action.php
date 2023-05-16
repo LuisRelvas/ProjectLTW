@@ -29,10 +29,14 @@
   $_POST['status'] = $status;
   $department = Department::getDepartmentId($_POST['department']);
 }
-  if($department == "null" || $status == "null"){
+  if($department == "null"){
     $session->addMessage('error', "Departamento não existe");
     header('Location: ../edit/ticket.edit.php');
     die();
+  }
+  if($status == "null"){
+    $session->addMessage('error', "Estado não existe");
+    header('Location: ../edit/ticket.edit.php');
   }
   else if ($ticket && $department != "null" && $status != "null") {
     $ticket->department_id = $department;
@@ -45,5 +49,5 @@
   unset($_SESSION['input']);
 
   $session->addMessage('success', "Alterações gravadas com sucesso");
-  header('Location: ../pages/ticket.php?id='. $ticket->ticket_id);
+  header('Location: ../pages/ticketseeonly.php?ticket_id='. $ticket->ticket_id);
 ?>

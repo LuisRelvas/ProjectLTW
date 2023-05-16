@@ -8,6 +8,7 @@
 
     $db = getDatabaseConnection();
     drawHeader($session);
+    if (count($session->getMessages())) drawMessages($session);
     drawEditFaqForm();
     drawFooter();
 

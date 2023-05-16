@@ -213,18 +213,19 @@
 
 function drawFooter() { ?>
     </main>
+    <footer>
         <div class="footer"> <!-- Add the class attribute here -->
+            <nav>
             
-            <h3> &#169; Trouble Ticket FEUP</h3>
             <div class = "footer-links">
                 <h3><a href="../pages/index.php">Termos e Serviços</a></h3>
                 <h3><a href="../pages/index.php">Fale connosco</a></h3>
                 <h3><a href="../pages/index.php">Sobre nós</a></h3>
             </div>
-           
-
-            
-        </div>
+            </nav>
+            <h3> &#169; Trouble Ticket FEUP</h3>
+           </div>
+    </footer>
     </body>
 </html> <?php 
 }

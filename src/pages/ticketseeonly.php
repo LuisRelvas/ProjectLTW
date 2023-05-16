@@ -12,6 +12,8 @@ $session = new Session();
 
 
 drawHeader($session);
+
+if (count($session->getMessages())) drawMessages($session);
 if(!$session->isLoggedIn() || $SESSION['id'] != $_GET['id']) {
     $session->addMessage('error','You are not allowed to access this page');
 }
@@ -26,6 +28,7 @@ drawinfoTicket(intval($_GET['ticket_id']));}
 if($_SESSION['role'] == 0 || $_SESSION['role'] == 1){
     drawChangesTicket(intval($_GET['ticket_id']));
 }
+
 drawFooter();
 
 

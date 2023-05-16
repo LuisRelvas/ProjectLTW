@@ -90,9 +90,14 @@ function drawTicketsperHashtag(string $name){
     $tickets = Ticket::gethashtagTickets($db,$name);
     ?>
     <div id="ticket-list">
+        <!-- diplsay string name -->
+        <h1> Tickets with #<?= $name ?></h1>
     <?php foreach($tickets as $ticket){ ?>
-        <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3>
-        <h2><?= $ticket->description?></h2>
+        <div class = "ticketPerHashtag">
+            <h3 class="loginItem"><a href="../pages/ticketseeonly.php?ticket_id=<?=$ticket->ticket_id?>" ><?= $ticket->ticket_id ?></a></h3>
+            <h2><?= $ticket->description?></h2>
+        </div>
+        
     <?php } ?>
     </div>
     <?php

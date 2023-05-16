@@ -92,8 +92,18 @@
   }
 
   static function removeHashtag(PDO $db, int $hashtag_id) {
+    $session = new Session();
+    $stmt1 = $db->prepare('SELECT * FROM ticketHashtag WHERE hashtag_id = ?'); 
+    $stmt1->execute(array($hashtag_id)); 
+    $maybe = $stmt1->fetch(); 
+    if(!$maybe) { 
+      $session->addMessage('error','hashtag não esta atribuida ao ticket');
+    }
+    else if($maybe) { 
     $stmt = $db->prepare('DELETE FROM ticketHashtag WHERE hashtag_id = ?');
     $stmt->execute(array($hashtag_id));
+      $session->addMessage('success','Hashtag removida com sucesso'); 
+  }
   }
 }
 

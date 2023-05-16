@@ -7,30 +7,30 @@ require_once(dirname(__DIR__).'/classes/department.class.php');
 
 
 function drawUser(int $id) { 
-    
     $db = getDatabaseConnection();
     $user = User::getUser($db, $id);
     $admin = User::getUser($db, $_SESSION['id']);
-    $count = User::countTickets($db,$user->id);
+    $count = User::countTickets($db, $user->id);
     $department = Department::getDepartmentAgent($db, $user->id);
-    ?><div class="user-data">
+    ?>
+    <div class="user-data">
         <label for="name">Nome:</label>
         <span><?=htmlentities($user->name)?></span>
-    </div><?php
-
-    ?><div class="user-data">
+    </div>
+    
+    <div class="user-data">
         <label for="username">Username:</label>
         <span><?=htmlentities($user->username)?></span>
-    </div><?php
-
-    ?><div class="user-data">
+    </div>
+    
+    <div class="user-data">
         <label for="email">E-mail:</label>
         <span><?=htmlentities($user->email)?></span>
-    </div><?php
-
-    ?><div class="user-data">
-    <label for="role">Role:</label>
-    <?php 
+    </div>
+    
+    <div class="user-data">
+        <label for="role">Role:</label>
+        <?php 
         if ($user->role == 0) {
             $role = 'Admin';
         } else if ($user->role == 1) {
@@ -38,41 +38,46 @@ function drawUser(int $id) {
         } else {
             $role = 'Usuario';
         }
-    ?>
-    <span><?=htmlentities($role)?></span>
+        ?>
+        <span><?=htmlentities($role)?></span>
+    </div>
     
-    <?php
-    if($admin->role == 0 || $admin->role == 1) { ?>
+    <?php if ($admin->role == 0 || $admin->role == 1) { ?>
         <div class="user-data">
-        <label for="counter">Closed Tickets:</label>
-        <span><?=$count?></span>
-        </div><?php
-        ?><div class="user-data">
+            <label for="counter">Closed Tickets:</label>
+            <span><?=$count?></span>
+        </div>
+        
+        <div class="user-data">
             <label for="department">Departamento:</label>
-            <span><?php foreach($department as $departments){?></span> <?php
-                        $department_name = Department::getDepartmentName($db, $departments['department_id']);
-                        ?><span><?=htmlentities($department_name)?></span><?php } ?>
-        </div><?php
-        drawProfilesearch();}
+            <?php foreach ($department as $departments) {
+                $department_name = Department::getDepartmentName($db, $departments['department_id']);
+            ?>
+                <span><?=htmlentities($department_name)?></span>
+            <?php } ?>
+        </div>
+        
+        <?php drawProfilesearch(); ?>
+    <?php } ?>
     
-    ?> 
-    <?php if(($admin->id == $_GET['id']) || ($admin->role == 0)){ ?>
+    <?php if (($admin->id == $_GET['id']) || ($admin->role == 0)) { ?>
+        <div class="edit-profile-container">
+            <form action="../edit/profile.edit.php?id=<?=$id?>" method="post">
+                <input id="edit-profile-button" type="submit" value="Editar Perfil">
+            </form>
+        </div>
+    <?php } ?>
     
-    <form action="../edit/profile.edit.php?id=<?=$id?>" method="post">
-    <input id="edit-profile-button" type="submit" value="Editar Perfil">
-    </form>
-</h1><?php
-    }
+    <section id="more">
     
-    ?>
-    <section id="more"><?php
-    
-    } function drawEditUserForm() { ?>
+    </section>
+<?php
+}
+    function drawEditUserForm() { ?>
         <div id="editProfile">
             <h1>Editar perfil</h1>
             <form action="../actions/editProfile.action.php?id=<?=$_GET['id']?>" method="post">
-            <?php 
-            ?><h2> Role: </h2><?php
+            <label> Role: </label><?php
             if($_SESSION['id'] == $_GET['id'] || $_SESSION['role'] == 0){
             $db = getDatabaseConnection();
             $stmt = $db->prepare('SELECT distinct(role) FROM user');

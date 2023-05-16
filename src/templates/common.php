@@ -19,6 +19,14 @@
                 <link rel="stylesheet" href="../css/profile.css">
                 <link rel="stylesheet" href="../css/faqAnswer.css">
                 <link rel="stylesheet" href="../css/search.css">
+                <link rel="stylesheet" href="../css/drawEditFaqForm.css">
+                <link rel="stylesheet" href="../css/login.css">
+                <link rel="stylesheet" href="../css/drawAcessDenied.css">
+                <link rel="stylesheet" href="../css/drawUser.css">
+                <link rel="stylesheet" href="../css/drawProfilesearch.css">
+                <link rel="stylesheet" href="../css/drawEditUserForm.css">
+                <link rel="stylesheet" href="../css/register.css">
+                <link rel="stylesheet" href="../css/drawAddTicket.css">
                 
                 <script src="../javascript/searchticket.js" defer></script>
                 <script src="../javascript/searchprofile.js" defer></script>
@@ -172,7 +180,7 @@
         function drawAcessDenied() { ?>
             <section id="accessDenied">
                 <img id= "deniedImage" src="https://cdn-icons-png.flaticon.com/512/175/175613.png" alt="Access Denied">
-                <h2>Access Denied</h2>
+                <h2>Access Denied!</h2>
                 <h3>Sorry, you do not have permission to access this page.</h3>
                 <p>You're being redirected...</p>
             </section> 

@@ -1,0 +1,58 @@
+:root {
+  --backgroundColor: #e6e6e6;
+  --buttonColor: #8c2d19;
+  --buttonHoverColor: #d24016;
+  --whiteColor: white;
+  --borderColor: #ccc;
+}
+
+body {
+  background-color: var(--backgroundColor);
+}
+
+.user-data {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 1vw;
+  margin-left: 3vw;
+  margin-top: 2vw;
+}
+
+.user-data label {
+  font-weight: bold;
+  text-decoration: underline;
+  color: var(--buttonColor);
+}
+
+.user-data span {
+  margin-left: 1vw;
+}
+
+.user-data span[for="role"] {
+  display: block;
+  margin-bottom: 1vw;
+}
+
+#edit-profile-button {
+  padding: 1vw 2vw;
+  background-color: var(--buttonColor);
+  color: var(--whiteColor);
+  border: none;
+  cursor: pointer;
+  margin-top: 0px;
+  width: 20vw;
+  border-radius: 10px;
+  font-size: 2vw;
+  margin-left: 0px;
+  margin-bottom: 5vw;
+  margin-top: 15vw;
+  font-weight: bold;
+}
+
+#edit-profile-button:hover {
+  background-color: var(--buttonHoverColor);
+}
+
+#more {
+  margin-top: 2vw;
+}

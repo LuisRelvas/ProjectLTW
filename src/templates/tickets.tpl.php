@@ -464,13 +464,14 @@ function drawEditFaqForm() { ?>
     $db = getDatabaseConnection();
     $faq_id = Ticket::getFaqId($db,$_GET['question'],$_GET['answer']);
     ?>
+    <div class="edit-faq">
     <form action="../actions/editFaq.action.php?faq_id=<?=$faq_id?>" method="post">
     <label>Question: <input type="text" name="question" required="required" value="<?=$_GET['question']?>"></label>
     <label>Answer: <input type="text" name="answer" required="required" value="<?=$_GET['answer']?>"></label>
     <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
     <input id="button" type="submit" value="Concluir edição" >
     </form>
-
+    </div>
 
 
 

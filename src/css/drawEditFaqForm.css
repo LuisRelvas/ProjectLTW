@@ -1,0 +1,54 @@
+:root {
+    --backgroundColor: #e6e6e6;
+    --buttonColor: #8c2d19;
+    --buttonHoverColor: #d24016;
+    --whiteColor: white;
+    --borderColor: #ccc;
+  }
+  
+  .edit-faq {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--backgroundColor);
+    border: 1px solid var(--borderColor);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+  }
+  
+  .edit-faq form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+  }
+  
+  .edit-faq label {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .edit-faq input[type="text"] {
+    padding: 10px;
+    border: 1px solid var(--borderColor);
+    width: 400px;
+    font-size: 16px;
+  }
+  
+  .edit-faq input[type="submit"] {
+    padding: 10px 20px;
+    background-color: var(--buttonColor);
+    color: var(--whiteColor);
+    border: none;
+    cursor: pointer;
+    margin-left: 125px;
+    margin-top: 30px;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+  
+  .edit-faq input[type="submit"]:hover {
+    background-color: var(--buttonHoverColor);
+  }

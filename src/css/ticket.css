@@ -1,0 +1,112 @@
+:root {
+    --principalColor: #8C2D19;
+    --boxShadow: 0px 0px 5px 0px var(--principalColor);
+    --backgroundColor: #e6e6e6;
+    --whiteColor: #FFF;
+    --blackColor: #000;
+    --submitHoverColor: #D24016;
+    --borderolor: 1px solid #ccc;
+  }
+  
+  #ticket {
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: center;
+    background-color: var(--borderColor);
+    padding: 40px;
+    box-shadow: var(--boxShadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 5px;
+  }
+  
+  #ticket h2 {
+    font-size: 40px;
+    color: var(--blackColor);
+    margin-bottom: 40px;
+  }
+  
+  #ticket label {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--blackColor);
+  }
+  
+  #ticket input[type=submit] {
+    background-color: var(--principalColor);
+    color: var(--whiteColor);
+    font-size: 24px;
+    padding: 10px 170px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-bottom: 5%;
+  }
+  
+  #ticket input[type=submit]:hover {
+    background-color: var(--submitHoverColor);
+  }
+  
+  #ticket .ticketitem ticket-add {
+    margin-top: 20px;
+    box-shadow: var(--boxShadow);
+  }
+  
+  #ticket .ticketitem label {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--blackColor);
+    font-weight: normal;
+  }
+  
+  #ticket .ticketitem input[type=submit] {
+    background-color: var(--principalColor);
+    color: var(--whiteColor);
+    font-size: 24px;
+    padding: 10px 170px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-bottom: 5%;
+  }
+  
+  #ticket .ticketitem input[type=submit]:hover {
+    background-color: var(--submitHoverColor);
+  }
+  
+  #ticket .ticketitem a {
+    color: var(--linkColor);
+    text-decoration: none;
+  }
+  
+  #ticket .ticketitem a:hover {
+    color: var(--linkHoverColor);
+  }
+  
+  @media (max-width: 600px) {
+    #ticket {
+      padding: 20px;
+    }
+  
+    #ticket h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+  
+    #ticket input[type=submit] {
+      padding: 8px 120px;
+      font-size: 20px;
+    }
+  
+    #ticket .ticketitem input[type=submit] {
+      padding: 8px 120px;
+      font-size: 20px;
+    }
+  }
+  

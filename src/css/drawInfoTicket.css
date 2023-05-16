@@ -45,7 +45,7 @@
   
   #action-div {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 20px;
@@ -55,25 +55,59 @@
     padding: 10px;
     box-sizing: border-box;
   }
-
   
-
   .edit-form,
-.delete-form, .changes-form {
-  display: flex;
-  flex-direction: row;
+  .delete-form {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    background-color: #8C2D19;
+    font-size: 24px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px; /* Increase the margin value */
+    width: 50%; /* Add this line to ensure all buttons have the same width */
+  }
 
-  color: white;
-  justify-content: center;
-  align-items: center;
-  background-color: #8C2D19;
-  font-size: 24px;
-  padding: 10px 150px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: 10px; /* Increase the margin value */
-}
+  .changes-form {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    background-color: #8C2D19;
+    font-size: 24px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px; /* Increase the margin value */
+  }
+  
+  
+  /* Media queries for responsiveness */
+  @media only screen and (min-width: 600px) {
+    /* Adjust padding for larger screens */
+    .edit-form,
+    .delete-form,
+    .changes-form {
+      padding: 10px 150px;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    /* Adjust font size and padding for smaller screens */
+    .edit-form,
+    .delete-form,
+    .changes-form {
+      font-size: 16px;
+      padding: 5px;
+    }
+  }
 
 
 .changes-form a{

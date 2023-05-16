@@ -18,7 +18,7 @@ drawHeader($session);
 if (count($session->getMessages())) drawMessages($session);
 
 $db = getDatabaseConnection();
-$stmt = $db->prepare('SELECT * FROM changes WHERE ticket_id = ? and id = ?');
+$stmt = $db->prepare('SELECT * FROM changes WHERE ticket_id = ? and id = ? and closed_id = 0');
 $stmt->execute(array(intval($_GET['ticket_id']), $_SESSION['id']));
 $var = $stmt->fetchAll();
 foreach($var as $va) { ?>

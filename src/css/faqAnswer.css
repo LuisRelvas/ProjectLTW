@@ -20,12 +20,16 @@ h1 {
 #faq-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 90%;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 20px;
+
+
 }
 
 .form-group {
@@ -44,6 +48,11 @@ textarea {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
+
+  /* stop user resizing textarea */
+  resize: none;
+  
+
 }
 
 button[type="submit"] {

@@ -4,61 +4,99 @@ form, select, label {
     padding: 0;
     border: none;
     font-family: Arial, sans-serif;
-  }
-  
-  /* Container styles */
-  #form {
-    width: 200%;
-    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Container styles */
+#form, #searching, #add-department, #add-hashtags {
+    width: 80%;
+    margin: 2% auto;
     padding: 20px;
     background-color: #f5f5f5;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Label styles */
-  label {
-    display: block;
-    margin-bottom: 5px;
+}
+
+/* Label styles */
+label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
     font-weight: bold;
     color: #333;
-  }
-  
-  /* Select box styles */
-  select {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+
+
+/* Select box styles */
+select {
     width: 100%;
     padding: 10px;
     font-size: 16px;
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Option group styles */
-  optgroup {
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Option group styles */
+optgroup {
     font-weight: bold;
-  }
-  
-  /* Option styles */
-  option {
+}
+
+/* Option styles */
+option {
     padding: 5px;
-  }
-  
-  /* Section styles */
-  #allhashtag {
+}
+
+/* Section styles */
+#allhashtag {
     margin-top: 10px;
     padding: 10px;
     background-color: #eee;
     border-radius: 5px;
-  }
-  
-  /* Add hover effect */
-  select:hover,
-  select:focus {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Add a subtle transition */
-  select {
+}
+
+/* Input styles */
+#add-department input[type="text"],
+#add-hashtags input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease-in-out;
-  }
+}
+
+/* Submit button styles */
+#add-department #button,
+#add-hashtags #button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #8C2D19;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Add hover effect to submit button */
+#add-department #button:hover,
+#add-hashtags #button:hover {
+    background-color: #E6B0AA;
+}
+
+/* Add focus styles to inputs */
+#add-department input[type="text"]:focus,
+#add-hashtags input[type="text"]:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

@@ -83,8 +83,9 @@ function drawUser(int $id) {
         <div id="editProfile">
             <h1>Editar perfil</h1>
             <form action="../actions/editProfile.action.php?id=<?=$_GET['id']?>" method="post">
-            <label> Role: </label><?php
+            <?php
             if($_SESSION['id'] == $_GET['id'] || $_SESSION['role'] == 0){
+                ?><label> Role: </label><?php
             $db = getDatabaseConnection();
             $stmt = $db->prepare('SELECT distinct(role) FROM user');
             $stmt->execute();
@@ -102,8 +103,8 @@ function drawUser(int $id) {
 
             <?php } ?>
                 <label>Nome: <input type="text" name="name" required="required" value="<?=($user->name)?>"></label>
-                <label>Username: <input type="text" name="username" required="required" value="<?=htmlentities($_SESSION['input']['username oldUser'])?>"></label>
-                <label>Email: <input type="email" name="email" required="required" value="<?=htmlentities($_SESSION['input']['email oldUser'])?>"></label>
+                <label>Username: <input type="text" name="username" required="required" value="<?=htmlentities($user->username)?>"></label>
+                <label>Email: <input type="email" name="email" required="required" value="<?=htmlentities($user->email)?>"></label>
                 <label>Antiga password: <input type="password" name="password1"></label>
                 <label>Nova password: <input type="password" name="password2"></label>
                 <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">

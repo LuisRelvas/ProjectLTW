@@ -14,14 +14,14 @@
     $_POST['role'] = 3;
   }
 
-
+  
   $_SESSION['input']['role oldUser'] = intval(($_POST['role']));
   $_SESSION['input']['username oldUser'] = htmlentities($_POST['username']);
   $_SESSION['input']['name oldUser'] = htmlentities($_POST['name']);
   $_SESSION['input']['email oldUser'] = htmlentities($_POST['email']);
   $_SESSION['input']['password1 oldUser'] = htmlentities($_POST['password1']);
   $_SESSION['input']['password2 oldUser'] = htmlentities($_POST['password2']);
-
+  $_SESSION['input']['csrf oldUser'] = htmlentities($_POST['csrf']);
   $db = getDatabaseConnection();
   
   $user = User::getUser($db, intval($_GET['id']));

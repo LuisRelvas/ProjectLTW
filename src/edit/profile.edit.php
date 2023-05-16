@@ -17,10 +17,10 @@
   $user = User::getUser($db, intval($_GET['id']));
 
   
-  $_SESSION['input']['role oldUser'] = $_SESSION['input']['role oldUser'] ?? $user->role;
-  $_SESSION['input']['nome oldUser'] = $_SESSION['input']['nome oldUser'] ?? $user->name;
-  $_SESSION['input']['username oldUser'] = $_SESSION['input']['username oldUser'] ?? $user->username;
-  $_SESSION['input']['email oldUser'] = $_SESSION['input']['email oldUser'] ?? $user->email;
+  $_SESSION['input']['role oldUser'] = $user->role;
+  $_SESSION['input']['nome oldUser'] = $user->name;
+  $_SESSION['input']['username oldUser'] = $user->username;
+  $_SESSION['input']['email oldUser'] = $user->email;
   $_SESSION['input']['password1 oldUser'] = $_SESSION['input']['password1 oldUser'] ?? "";
   $_SESSION['input']['password2 oldUser'] = $_SESSION['input']['password2 oldUser'] ?? "";
   

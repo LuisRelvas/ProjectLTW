@@ -117,12 +117,6 @@
             if($departments['department_id'] != 1){
           $stmt2 = $db->prepare('INSERT INTO agent (id,department_id) VALUES (?,?)');
           $stmt2->execute(array($this->id,$departments['department_id']));}}
-          else if($agent) {
-            $session->addMessage('warning', "Admin já estava adicionado a todos os departamento mas concluimos as alterações de perfil.");
-            header('Location: ../pages/ticketmanage.php');
-            exit();
-            
-          }
         }
       }
       if($this->role == 1) {

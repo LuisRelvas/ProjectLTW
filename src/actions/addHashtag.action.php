@@ -20,6 +20,7 @@
   $stmt1->execute(array($_SESSION['ticket_id'],$hashtag_id));
   $check = $stmt1->fetch();
 
+
   if(!$check){
   $stmt = $db->prepare('INSERT into ticketHashtag(ticket_id,hashtag_id) values (?,?)');
   $stmt->execute(array($_SESSION['ticket_id'],$hashtag_id));
@@ -28,10 +29,8 @@
 }
   else if($check) { 
     $session->addMessage('error', "Hashtag ja estava adicionada ao ticket!");
-  
-
   }
-  $name = Hashtag::getHashtag($_GET['$hashtag_id']);
+  $name = Hashtag::getHashtag($hashtag_id);
   $stmt2 = $db->prepare('INSERT INTO changes(ticket_id,id,text) VALUES (?,?,?)');
   $stmt2->execute(array($_SESSION['ticket_id'],$_SESSION['id'],'Adicionou a hashtag '.$name.' ao ticket'));
   unset($_SESSION['input']);

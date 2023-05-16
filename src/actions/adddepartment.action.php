@@ -5,7 +5,7 @@
   require_once(dirname(__DIR__).'/classes/session.class.php');
   require_once(dirname(__DIR__).'/classes/department.class.php');
   $session = new Session();
-  if($_SESSION['role'] == 2) { 
+  if($_SESSION['role'] == 2 || $_SESSION['role'] == 1) { 
     $session->addMessage('error', 'Não tem permissões para aceder a esta página');
     header('Location: ../pages/index.php');
     die();

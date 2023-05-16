@@ -226,9 +226,14 @@ function drawinfoTicket(int $ticket_id) {
     <div id="faq-list">
         <?php
             foreach($text as $reply){
+                $user_2 = User::getUser($db,$reply['id']);
+                $role = User::getRole($db,$user_2->role);
+                
                 ?>
+                
                     <div class = "answer-element">
-                        <?=($reply['text'])?>
+                        <?php echo($user_2)->name ."(". $role .")" . ":" ?>
+                        <?php echo($reply['text'])?>
                     </div>
                 <?php
             }

@@ -42,6 +42,19 @@
     }
   }
 
+  static function getRole(PDO $db,int $role) : string {
+      if($role == 0){
+        return "Admin";
+      }
+      else if($role == 1){
+        return "Agent";
+      }
+      else if($role == 2){
+        return "User";
+      }
+      else return "Unknown";
+  }
+
   static function countTickets(PDO $db,int $id) : int {
     $stmt = $db->prepare('SELECT COUNT(*) FROM changes WHERE id = ? and closed_id = 1');
     $stmt->execute(array($id));

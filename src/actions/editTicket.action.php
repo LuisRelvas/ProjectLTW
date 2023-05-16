@@ -49,5 +49,5 @@
   unset($_SESSION['input']);
 
   $session->addMessage('success', "Alterações gravadas com sucesso");
-  header('Location: ../pages/ticketseeonly.php?ticket_id='. $ticket->ticket_id);
+  header('Location: ../pages/ticketsee.php');
 ?>

@@ -566,7 +566,7 @@ function drawEditTicketForm() { ?>
 
 function drawTicketSearch() { ?>
     <section id = "searching">
-      <select id = "critério" > 
+      <select id = "criterio" > 
         <option value = "nameT">Ticket Id</option>
         <option value = "nameU">User Id</option>
         <option value = "nameS">Username </option>

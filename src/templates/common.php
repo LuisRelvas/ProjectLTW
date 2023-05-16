@@ -31,7 +31,7 @@
                 <link rel="stylesheet" href="../css/ticket.css">
                 
                 <script src="../javascript/searchticket.js" defer></script>
-                <script src="../javascript/search.js" defer></script>
+                <script src="../javascript/searchprofile.js" defer></script>
                 <script src="../javascript/searchtags.js" defer></script>
                 <script src="../javascript/showallhashtags.js" defer></script>
                 <script src="../javascript/showalldepartments.js" defer></script>

@@ -3,7 +3,7 @@ const searchTickets = document.querySelector("#searchticket")
 if (searchTickets) {
     searchTickets.addEventListener('input', async function() {
 
-        const typeSearch = document.querySelector("#critério")
+        const typeSearch = document.querySelector("#critrio")
         const querie = '../api/tickets.api.php?search=' + this.value + '&type=' + typeSearch.value
         const response = await fetch(querie)
         const tickets = await response.json()

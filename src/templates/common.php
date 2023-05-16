@@ -33,6 +33,7 @@
                 <link rel="stylesheet" href="../css/myTickets.css">
                 <link rel="stylesheet" href="../css/editTicket.css">
                 <link rel="stylesheet" href="../css/ticket.css">
+                <link rel="stylesheet" href="../css/ticketsPerHashtag.css">
                 
                 <script src="../javascript/searchticket.js" defer></script>
                 <script src="../javascript/searchprofile.js" defer></script>

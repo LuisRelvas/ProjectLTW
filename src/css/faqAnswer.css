@@ -18,18 +18,20 @@ h1 {
 }
 
 #faq-form {
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: justify;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 20px;
-  margin-bottom: 20px;
-
-
+  /* align-items: center without resize */
+  align-items: stretch;
 }
 
 .form-group {
@@ -44,15 +46,10 @@ h1 {
 
 input[type="text"],
 textarea {
-  width: 90%;
-  padding: 10px;
+  width: 100%;
   border: 1px solid #ddd;
   border-radius: 5px;
-
-  /* stop user resizing textarea */
   resize: none;
-  
-
 }
 
 button[type="submit"] {
@@ -66,13 +63,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  padding: 10px 20px;
   background-color: #E6B0AA;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 2%;
 }
 
 #faq-list {
@@ -105,7 +96,6 @@ button[type="submit"]:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: justify;
 }
-
 
 @media screen and (max-width: 600px) {
   .form-container,

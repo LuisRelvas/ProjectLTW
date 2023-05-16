@@ -43,43 +43,66 @@
     font-weight: bold;
   }
   
-  #action-div{
+  #action-div {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
+    margin: 20px;
     width: 100%;
-    justify-content: space-evenly;
+    margin: 0 auto;
+    /* Add padding to create spacing */
+    padding: 10px;
+    box-sizing: border-box;
   }
 
   
 
-  .edit-form, .delete-form {
-    /* text color is white */
+  .edit-form,
+.delete-form, .changes-form {
+  display: flex;
+  flex-direction: row;
 
-    background-color: #8C2D19;
-    font-size: 24px;
-    padding: 10px 150px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 2%;
-  }
+  color: white;
+  justify-content: center;
+  align-items: center;
+  background-color: #8C2D19;
+  font-size: 24px;
+  padding: 10px 150px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px; /* Increase the margin value */
+}
 
 
-  .edit-form:hover, .delete-form:hover {
+.changes-form a{
+    /* remove link  */
+    text-decoration: none;
     color: white;
-    background-color: #E6B0AA;
-    font-size: 24px;
-    padding: 10px 150px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 2%;
-  }
+}
+
+
+
+.edit-form:hover,
+.delete-form:hover, .changes-form:hover {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #E6B0AA;
+  font-size: 24px;
+  padding: 10px 150px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px; /* Increase the margin value */
+}
+
 
   
 
-  #delete-ticket-button, #edit-ticket-button {
+  #delete-ticket-button, #edit-ticket-button, #see-changes-button {
     /* remove button aspect */
     background: none;
     color: #f5f5f5;
@@ -90,3 +113,5 @@
     outline: inherit;
 
   }
+
+ 

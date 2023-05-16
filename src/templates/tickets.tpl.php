@@ -206,6 +206,7 @@ function drawinfoTicket(int $ticket_id) {
 
             <button type="submit">Submit</button>
         </form>
+        <?php if($_SESSION['role'] != 2) { ?>
         <form action ="../actions/addAnswersFaq.action.php?ticket_id=<?=$_GET['ticket_id']?>"method = "post" id = "faq-form">
               <select name="answer">
                 <optgroup label="List:">
@@ -218,7 +219,7 @@ function drawinfoTicket(int $ticket_id) {
         </form>
 
    
-
+    
     <div id="faq-list">
         <?php
             foreach($text as $reply){
@@ -232,6 +233,8 @@ function drawinfoTicket(int $ticket_id) {
         ?>
     </div>
     </div>
+
+    <?php } ?>
 
     
   

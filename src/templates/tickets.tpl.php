@@ -167,7 +167,7 @@ function drawinfoTicket(int $ticket_id) {
             <p><span class="label">Date:</span> <?= htmlentities($ticket->initial_date) ?></p>
             <p><span class="label">Category:</span> <?= htmlentities($department_name) ?></p>
             <p><span class="label">State:</span> <?= htmlentities($status) ?></p>
-            <p><span class="label">Description:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu rutrum leo. Sed at nunc ac mi dignissim sollicitudin non eget enim.</p>
+            <p><span class="label">Description:</span> <?= htmlentities($ticket->description) ?></p>
         </div>
         <div id="action-div">
             <form class="edit-form" action="../edit/ticket.edit.php?ticket_id=<?=$ticket->ticket_id?>" method="post">

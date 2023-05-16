@@ -185,6 +185,7 @@ function drawinfoTicket(int $ticket_id) {
     $user = User::getUser($db,$_SESSION['id']);
     $agent_name = User::getUser($db,$ticket->agent_id);
     if(($ticket->agent_id == -1 ) && ($user->role == 0 || $user->role == 1)) { 
+        
         drawProfilesearch();
 
     } else {
@@ -300,7 +301,7 @@ function drawaddFaq() {  ?>
 
 function drawTagsSearch() { ?>
     <section id = "searching2">
-      <select id = "critério2" > 
+      <select id = "criterio2" > 
         <option value = "nameH1">Hashtag</option>
       </select>
       <input id="searchtag" type="text" placeholder="pesquisa">
@@ -565,7 +566,7 @@ function drawEditTicketForm() { ?>
 
 function drawTicketSearch() { ?>
     <section id = "searching">
-      <select id = "critério" > 
+      <select id = "criterio" > 
         <option value = "nameT">Ticket Id</option>
         <option value = "nameU">User Id</option>
         <option value = "nameS">Username </option>

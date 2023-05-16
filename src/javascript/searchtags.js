@@ -3,7 +3,7 @@ const searchTags = document.querySelector("#searchtag")
 if (searchTags) {
     searchTags.addEventListener('input', async function() {
 
-        const typeSearch = document.querySelector("#critério2")
+        const typeSearch = document.querySelector("#criterio2")
         const querie = '../api/hashtags.api.php?search=' + this.value + '&type=' + typeSearch.value
         const response = await fetch(querie)
         const tags = await response.json()

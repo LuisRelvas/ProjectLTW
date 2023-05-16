@@ -6,7 +6,7 @@ if (searchProfiles) {
         var ticketId = currentUrl.searchParams.get("ticket_id");
         console.log(ticketId);
         
-        const typeSearch = document.querySelector("#critério1")
+        const typeSearch = document.querySelector("#criterio1")
         const querie = '../api/profiles.api.php?search=' + this.value + '&type=' + typeSearch.value
         const response = await fetch(querie)
         const profiles = await response.json()
@@ -27,7 +27,7 @@ if (searchProfiles) {
             const link = document.createElement('a')
             const tittle = document.createElement('h3')
             link.href = '/actions/assignticket.action.php?ticket_id=' + ticketId + '&id=' + profile.id
-            link.textContent = profile.id + ' --> ' + profile.username
+            link.textContent = '@' + profile.username;
             article.appendChild(link)
             section.appendChild(article)}}
         else { 
@@ -36,7 +36,7 @@ if (searchProfiles) {
             const link = document.createElement('a')
             const tittle = document.createElement('h3')
             link.href = 'profile.php?id=' + profile.id
-            link.textContent = profile.id + ' --> ' + profile.username
+            link.textContent = '@' + profile.username
             article.appendChild(link)
             section.appendChild(article)}
 

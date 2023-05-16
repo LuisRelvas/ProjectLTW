@@ -16,7 +16,7 @@
   
   drawBanner();}
 
-  drawFaq();
+  drawFaq($session);
 
   drawFAQSDefault();
 

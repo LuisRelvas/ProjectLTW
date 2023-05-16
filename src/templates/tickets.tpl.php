@@ -465,7 +465,7 @@ function drawTicket(int $id) { ?>
 
 
 
-function drawFaq(){ ?>
+function drawFaq(Session $session){ ?>
     <?php 
     $db = getDatabaseConnection();
     $stmt = $db->prepare('SELECT question,answer FROM faq limit 3');
@@ -479,7 +479,7 @@ function drawFaq(){ ?>
     <button class="accordion"><?= $hashtag['question'] ?></button>
     <div class="panel">
       <p><?= $hashtag['answer'] ?></p>
-      <?php if ($_SESSION['role'] != 2) { ?>
+      <?php if ($_SESSION['role'] != 2 && $session->isLoggedIn()) { ?>
         <div id="faqMenu">
           <button>
             <a href="../pages/editFaq.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>">Editar</a>

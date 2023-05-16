@@ -18,7 +18,7 @@
                 <link rel="stylesheet" href="../css/messages.css">
                 <link rel="stylesheet" href="../css/profile.css">
                 <link rel="stylesheet" href="../css/faqAnswer.css">
-                <link rel="stylesheet" href="../css/search.css">
+                
                 <link rel="stylesheet" href="../css/editFaq.css">
                 <link rel="stylesheet" href="../css/login.css">
                 <link rel="stylesheet" href="../css/drawAcessDenied.css">

@@ -29,8 +29,6 @@ label {
     margin-bottom: 2%;
 }
 
-
-
 /* Select box styles */
 select {
     width: 100%;
@@ -99,4 +97,11 @@ option {
 #add-department input[type="text"]:focus,
 #add-hashtags input[type="text"]:focus {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    #form, #searching, #add-department, #add-hashtags {
+        width: 90%;
+    }
 }

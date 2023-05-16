@@ -12,14 +12,22 @@
     $session->addMessage('error', "Não tem permissão para editar este perfil");
     die(header('Location: ../pages/denied.php'));
   } 
+  
   $db = getDatabaseConnection();
-  $ticket = Ticket::getinfoTicket($db, $_SESSION['ticket_id']);
-
+  $ticket = Ticket::getinfoTicket($db, intval($_GET['ticket_id']));
+  if(($_SESSION['id'] != $ticket->id ) && $_SESSION['role'] == 2){
+    drawHeader($session); 
+    drawAcessDenied();
+    drawFooter();
+  }
+  else {
   $_SESSION['input']['department_id oldUser'] = intval($_SESSION['input']['department_id oldUser']) ?? $ticket->department_id;
   $_SESSION['input']['status_id oldUser'] = intval($_SESSION['input']['status_if oldUser']) ?? $ticket->status_id;
   $_SESSION['input']['tittle oldUser'] = $_SESSION['input']['tittle oldUser'] ?? $ticket->tittle;
   $_SESSION['input']['description oldUser'] = $_SESSION['input']['description oldUser'] ?? $ticket->description;
   drawHeader($session);
   if (count($session->getMessages())) drawMessages($session);
-  drawEditTicketForm(); 
+  drawEditTicketForm();
+  drawFooter();
+}
 ?>

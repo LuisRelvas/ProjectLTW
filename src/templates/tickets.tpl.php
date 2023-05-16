@@ -229,7 +229,6 @@ function drawinfoTicket(int $ticket_id) {
                     </div>
                 <?php
             }
-             
         ?>
     </div>
     </div>

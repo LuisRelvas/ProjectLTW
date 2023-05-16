@@ -40,9 +40,9 @@
         $stmt = $db->prepare('INSERT INTO user(username, name, email, password) VALUES (?, ?, ?, ?)');
         $stmt->execute(array($_POST['username'], $_POST['name'], $_POST['email'],password_hash($_POST['password1'], PASSWORD_DEFAULT)));
         unset($_SESSION['input']);
+        $session->addMessage('success', 'User registado com sucesso');
         header('Location: ../pages/login.php');
-        echo "User added successfully";
-
+        
     } else {
         $session->addMessage('error', 'Invalid input');
         header('Location: ../pages/register.php');

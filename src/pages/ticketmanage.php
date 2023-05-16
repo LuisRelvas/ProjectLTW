@@ -25,6 +25,8 @@ drawTicketSearch();
 drawaddDepartment();
 drawaddHashtags();
 drawaddFaq();
-addAgentDepartment();}
+addAgentDepartment();
+removeAgentDepartment();
+}
 drawFooter();
 

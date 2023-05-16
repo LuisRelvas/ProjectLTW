@@ -17,7 +17,6 @@ if (searchTags) {
             error.className = "error"
             section.appendChild(error)
         }
-
         for (const tag of tags) {
             const article = document.createElement('article')
             const link = document.createElement('a')

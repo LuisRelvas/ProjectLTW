@@ -30,8 +30,8 @@
     if(!$agent){
     $stmt2 = $db->prepare('INSERT INTO agent(id,department_id) VALUES (?,?)');
     $stmt2->execute(array($user['id'],$department_id));}
-
     }
+    
   }
   unset($_SESSION['input']);
   $session->addMessage('success', "Departamento adicionado com sucesso!");

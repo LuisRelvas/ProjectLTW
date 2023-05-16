@@ -24,7 +24,4 @@ document.getElementById('hashtag-select').addEventListener('change', async funct
             article.appendChild(link)
             section.appendChild(article)
 
-        
-        
-
     }})

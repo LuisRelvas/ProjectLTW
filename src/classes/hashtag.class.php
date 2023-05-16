@@ -89,7 +89,6 @@
         );
       }
       return $result;
-
   }
 
   static function removeHashtag(PDO $db, int $hashtag_id) {

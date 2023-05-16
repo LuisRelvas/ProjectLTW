@@ -243,16 +243,16 @@ function drawinfoTicket(int $ticket_id) {
         ?><?php $hashtag = Hashtag::getHashtag($hashtags_id)?><?php
         if($hashtag == "null"){
             continue;
-        }/*
+        }
         if($user->role != 2) { 
         ?><h2>
-            /*<a href="../actions/removeHashtag.action.php?hashtag_id=<?=$hashtags_id?>">
+            <a href="../actions/removeHashtag.action.php?hashtag_id=<?=$hashtags_id?>">
         <h2><?=$hashtag?></h2></a><?php
         
     }
     else {
         ?><h2><?=$hashtag?></h2><?php
-    }*/
+    }
 
     }
     
@@ -291,14 +291,17 @@ function drawaddFaq() {  ?>
           <label>Question: <input type="text" name="question" required="required" value="<?=$_SESSION['input']['question newUser']?>"></label>
           <label>Answer: <input type="text" name="answer" required="required" value="<?=$_SESSION['input']['answer newUser']?>"></label>
           <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
-          <input id="button" type="submit" value="Validar Hashtag">
+          <input id="button" type="submit" value="Validar FAQ">
       </form>
 <?php
 }
 
 function drawTagsSearch() { ?>
-    <section id = "search">
-      <input id="searchtag" type="text" placeholder="Procure uma Hashtag">
+    <section id = "searching2">
+      <select id = "critério2" > 
+        <option value = "nameH1">Hashtag</option>
+      </select>
+      <input id="searchtag" type="text" placeholder="pesquisa">
       <section id="searchtags">
       </section>
   </section> <?php 
@@ -397,6 +400,40 @@ $departments = $stmt1->fetchAll(PDO::FETCH_COLUMN);
     <input id="button" type="submit" value="Adicionar Departamento">
     </form>
 <?php }
+
+
+function removeAgentDepartment() { ?>
+    <?php 
+    $db = getDatabaseConnection();
+    $stmt = $db->prepare('SELECT DISTINCT user.username FROM agent,user where user.id = agent.id');
+    $stmt->execute();
+    $agents_names = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    $db1 = getDatabaseConnection();
+    $stmt1 = $db1->prepare('SELECT DISTINCT department.name FROM department');
+    $stmt1->execute();
+    $departments = $stmt1->fetchAll(PDO::FETCH_COLUMN);
+    ?>
+    <div id = "add-agent-department">
+        <form action ="../actions/removeAgentDepartment.action.php" method="POST">
+          <label>Agent:</label>
+          <select name="agent">
+            <optgroup label="List:">
+                <?php foreach ($agents_names as $agent_name) { ?>
+                    <option value="<?= $agent_name ?>"><?= $agent_name ?></option>
+                <?php }  ?>
+            </optgroup>
+        </select>
+        <label>Department:</label>
+          <select name="department">
+            <optgroup label="List:">
+                <?php foreach ($departments as $department) { ?>
+                    <option value="<?= $department ?>"><?= $department ?></option>
+                <?php }  ?>
+            </optgroup>
+        </select>
+        <input id="button" type="submit" value="Remover Agente Departamento">
+        </form>
+    <?php }
 
 function drawTicket(int $id) { ?>
     <section id ="ticket">

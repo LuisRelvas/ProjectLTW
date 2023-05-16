@@ -20,14 +20,19 @@
     $email = $stmt2->fetch();
     if($username) {
         $session->addMessage('error', 'Username already exists');
+        header('Location: ../pages/register.php');
+        die();
      }
     if($email) { 
         $session->addMessage('error', 'Email already exists');
+        header('Location: ../pages/register.php');
+        die();
     }
 
     if($email && $username) {
         $session->addMessage('error', 'Email and Username already exists');
         header('Location: ../pages/register.php');
+        die();
     }
     
     else if ($_POST['password1'] == $_POST['password2'] && valid_password($_POST['password1']) && valid_name($_POST['name']) && valid_email($_POST['email']) && valid_name($_POST['username'])) {

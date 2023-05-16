@@ -95,7 +95,6 @@ function drawUser(int $id) {
             <form action="../actions/editProfile.action.php?id=<?=$_GET['id']?>" method="post">
             <?php
             if($_SESSION['id'] == $_GET['id'] || $_SESSION['role'] == 0){
-                ?><label> Role: </label><?php
             $db = getDatabaseConnection();
             $stmt = $db->prepare('SELECT distinct(role) FROM user');
             $stmt->execute();
@@ -111,7 +110,11 @@ function drawUser(int $id) {
             </optgroup>
         </select>
 
-            <?php } ?>
+            <?php } 
+            if($_SESSION['role'] != 2) {
+            ?>
+            
+                <label> Role: </label> <?php } ?>
                 <label>Nome: <input type="text" name="name" required="required" value="<?=($user->name)?>"></label>
                 <label>Username: <input type="text" name="username" required="required" value="<?=htmlentities($user->username)?>"></label>
                 <label>Email: <input type="email" name="email" required="required" value="<?=htmlentities($user->email)?>"></label>

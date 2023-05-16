@@ -32,6 +32,16 @@
     $session->addMessage('warning','Email já existe');
     die(header('Location: ../edit/profile.edit.php?id='.$_SESSION['id']));
   }
+
+  $stmt1 = $db->prepare('SELECT * FROM user WHERE username = ? and username != ?');
+  $stmt1->execute(array($_POST['username'], $user->username));
+  $test1 = $stmt1->fetch();
+  if($test1) { 
+    $session->addMessage('warning','Username já existe');
+    die(header('Location: ../edit/profile.edit.php?id='.$_SESSION['id']));
+  }
+
+
   
   
   

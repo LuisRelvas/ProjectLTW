@@ -118,7 +118,7 @@
           $stmt2 = $db->prepare('INSERT INTO agent (id,department_id) VALUES (?,?)');
           $stmt2->execute(array($this->id,$departments['department_id']));}}
           else if($agent) {
-            $session->addMessage('error', "Admin já estava adicionado a todos os departamento mas concluimos as alterações de perfil.");
+            $session->addMessage('warning', "Admin já estava adicionado a todos os departamento mas concluimos as alterações de perfil.");
             header('Location: ../pages/ticketmanage.php');
             exit();
             

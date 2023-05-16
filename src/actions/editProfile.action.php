@@ -45,6 +45,7 @@
     if ($_POST['password1'] != "" ){
 
       if(!password_verify($_POST['password1'], $pass)){
+        $session->addMessage('warning','Introduz corretamente a tua palavra passe');
         die(header('Location: ../edit/profile.edit.php?id='.$user->id));
       }
 
@@ -58,6 +59,10 @@
         $pass2 = $_POST['password2'];
         User::savePass($db, $user->id, $pass2);
       }
+    }
+    else if($_POST['password1'] == "" && $_POST['password2'] != ""){
+      $session ->addMessage('warning','Por favor introduz a tua palavra passe atual para alterar para uma nova');
+      die(header('Location:../edit/profile.edit.php?id='.$user->id));
     }
 
     if (!valid_name($_POST['name']) || !valid_email($_POST['email']) || !valid_CSRF($_POST['csrf'])) {

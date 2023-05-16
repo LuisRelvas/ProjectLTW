@@ -26,6 +26,8 @@
                 <link rel="stylesheet" href="../css/editUser.css">
                 <link rel="stylesheet" href="../css/register.css">
                 <link rel="stylesheet" href="../css/addTicket.css">
+                <link rel="stylesheet" href="../css/myTickets.css">
+                <link rel="stylesheet" href="../css/editTicket.css">
                 
                 <script src="../javascript/searchticket.js" defer></script>
                 <script src="../javascript/searchprofile.js" defer></script>

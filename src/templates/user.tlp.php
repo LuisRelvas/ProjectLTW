@@ -7,10 +7,12 @@ require_once(dirname(__DIR__).'/classes/department.class.php');
 
 
 function drawUser(int $id) { 
+    $session = new Session();
     
     $db = getDatabaseConnection();
     $user = User::getUser($db, $id);
     $admin = User::getUser($db, $_SESSION['id']);
+    if($user) { 
     ?><div class="user-data">
         <label for="name">Nome:</label>
         <span><?=htmlentities($user->name)?></span>
@@ -49,7 +51,8 @@ function drawUser(int $id) {
         drawProfilesearch();
         $counter = User::countTickets($db, $user->id);
     }
-    ?> 
+    
+    if($user->role != 2){ ?>
 
     <div class="user-data">
         <label for="department">Departamento:</label>
@@ -65,6 +68,8 @@ function drawUser(int $id) {
         <label for="counter">Tickets Fechados:</label>
         <span><?=($counter)?></span>
     </div>
+    </div><?php
+    } ?>
 
     <?php
     if(($admin->id == $_GET['id']) || ($admin->role == 0)){ ?>
@@ -73,12 +78,17 @@ function drawUser(int $id) {
     <input id="edit-profile-button" type="submit" value="Editar Perfil">
     </form>
 </h1><?php
+    }}
+    else { 
+        $session->addMessage('error', 'Utilizador não encontrado');
+        die(header('Location: ../pages/profilephp'));
     }
-    
     ?>
     <section id="more"><?php
     
     }
+
+
     function drawEditUserForm() { ?>
         <div id="editProfile">
             <h1>Editar perfil</h1>

@@ -17,7 +17,11 @@
                 <link rel="stylesheet" href="../css/footer.css">
                 <link rel="stylesheet" href="../css/messages.css">
                 <link rel="stylesheet" href="../css/profile.css">
-                <link rel="stylesheet" href="../css/faqAnswer.css">
+                <link rel="stylesheet" href="../css/faqAnswer.css">   
+                <link rel="stylesheet" href="../css/ticketManaging.css">
+
+
+                
                 
                 <link rel="stylesheet" href="../css/editFaq.css">
                 <link rel="stylesheet" href="../css/login.css">

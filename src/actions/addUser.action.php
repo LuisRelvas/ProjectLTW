@@ -4,7 +4,7 @@
     require_once(dirname(__DIR__).'/classes/session.class.php');
     require_once(dirname(__DIR__).'/utils/validator.php');
     $session = new Session();
-
+    
     $_SESSION['input']['username newUser'] = htmlentities($_POST['username']);
     $_SESSION['input']['name newUser'] = htmlentities($_POST['name']);
     $_SESSION['input']['email newUser'] = htmlentities($_POST['email']);

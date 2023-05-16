@@ -6,6 +6,11 @@
   require_once(dirname(__DIR__).'/classes/department.class.php');
   require_once(dirname(__DIR__).'/utils/validator.php');
   $session = new Session();
+  if($_SESSION['role'] == 2) { 
+    $session->addMessage('error', 'Não tem permissões para aceder a esta página');
+    header('Location: ../pages/index.php');
+    die();
+  }
 
   $db = getDatabaseConnection();
   $stmt = $db->prepare('UPDATE faq SET question = ? , answer = ? WHERE faq_id = ?');

@@ -6,13 +6,20 @@
   require_once(dirname(__DIR__).'/classes/department.class.php');
   require_once(dirname(__DIR__).'/classes/hashtag.class.php');
   $session = new Session(); 
+  if($_SESSION['role'] == 2) { 
+    $session->addMessage('error', 'Não tem permissões para aceder a esta página');
+    header('Location: ../pages/index.php');
+    die();
+  }
+  
   $_SESSION['input']['hashtag newUser'] = $_GET['tag'];
-  var_dump($session);
+  
   $hashtag_id = Hashtag::getHashtagID(strval($_GET['tag']));
   $db = getDatabaseConnection();
   $stmt1 = $db->prepare('SELECT * FROM ticketHashtag WHERE ticket_id = ? AND hashtag_id = ?');
   $stmt1->execute(array($_SESSION['ticket_id'],$hashtag_id));
   $check = $stmt1->fetch();
+
   if(!$check){
   $stmt = $db->prepare('INSERT into ticketHashtag(ticket_id,hashtag_id) values (?,?)');
   $stmt->execute(array($_SESSION['ticket_id'],$hashtag_id));

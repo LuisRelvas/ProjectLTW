@@ -7,7 +7,11 @@
   require_once(dirname(__DIR__).'/classes/ticket.class.php');
   require_once(dirname(__DIR__).'/classes/user.class.php');
   require_once(dirname(__DIR__).'/templates/tickets.tpl.php');
-
+  if($_SESSION['role'] == 2) { 
+    $session->addMessage('error', 'Não tem permissões para aceder a esta página');
+    header('Location: ../pages/index.php');
+    die();
+  }
     $db = getDatabaseConnection();
     $ticket_id = intval($_GET['ticket_id']);
     $id = intval($_GET['id']);

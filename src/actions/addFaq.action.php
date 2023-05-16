@@ -7,6 +7,11 @@
   require_once(dirname(__DIR__).'/classes/hashtag.class.php');
   require_once(dirname(__DIR__).'/templates/tickets.tpl.php');
   $session = new Session(); 
+  if($_SESSION['role'] == 2) { 
+    $session->addMessage('error', 'Não tem permissões para aceder a esta página');
+    header('Location: ../pages/index.php');
+    die();
+  }
 
   $db = getDatabaseConnection();
   $stmt = $db->prepare('INSERT INTO faq (question, answer) VALUES (?,?)');

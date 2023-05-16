@@ -13,6 +13,8 @@
   if($_POST['role'] == null) { 
     $_POST['role'] = 3;
   }
+  $db = getDatabaseConnection();
+  $user = User::getUser($db, intval($_GET['id']));
 
   
   $_SESSION['input']['role oldUser'] = intval(($_POST['role']));
@@ -22,9 +24,17 @@
   $_SESSION['input']['password1 oldUser'] = htmlentities($_POST['password1']);
   $_SESSION['input']['password2 oldUser'] = htmlentities($_POST['password2']);
   $_SESSION['input']['csrf oldUser'] = htmlentities($_POST['csrf']);
-  $db = getDatabaseConnection();
   
-  $user = User::getUser($db, intval($_GET['id']));
+  $stmt = $db->prepare('SELECT * FROM user WHERE email = ? and email != ?');
+  $stmt->execute(array($_POST['email'], $user->email));
+  $test = $stmt->fetch();
+  if($test) { 
+    $session->addMessage('warning','Email já existe');
+    die(header('Location: ../edit/profile.edit.php?id='.$_SESSION['id']));
+  }
+  
+  
+  
   $pass = User::getPass($db, intval($_GET['id']));
 
   if (!(valid_name($_POST['name'])) && valid_email($_POST['email']) && valid_CSRF($_POST['csrf'])) {

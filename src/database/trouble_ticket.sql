@@ -164,6 +164,6 @@ INSERT INTO hashtag(tag) VALUES ('completed');
 
 -- Add more hashtag entries as needed
 
-INSERT INTO faq(question, answer) VALUES ('What is the ticket submission process?', 'You can submit a ticket through the ticket submission form on the website.');
+INSERT INTO faq(question, answer) VALUES ('What is the ticket submission process?', ' a ticket through the ticket submission form on the website.');
 INSERT INTO faq(question, answer) VALUES ('How do I reset my password?', 'You can reset your password by clicking on the Forgot Password link on the login page.');
 -- Add more faq entries as needed

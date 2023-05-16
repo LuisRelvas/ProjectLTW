@@ -17,6 +17,8 @@
                 <link rel="stylesheet" href="../css/footer.css">
                 <link rel="stylesheet" href="../css/messages.css">
                 <link rel="stylesheet" href="../css/profile.css">
+                <link rel="stylesheet" href="../css/faqAnswer.css">
+                <link rel="stylesheet" href="../css/search.css">
                 
                 <script src="../javascript/searchticket.js" defer></script>
                 <script src="../javascript/searchprofile.js" defer></script>

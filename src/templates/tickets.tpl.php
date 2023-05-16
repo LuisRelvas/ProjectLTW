@@ -111,8 +111,10 @@ function drawgetTicketid() { ?>
 
 
 function drawChangesTicket(int $ticket_id) { ?>
-    <section id="ticketpage">
-    <a href= "../pages/ticketseechanges.php?ticket_id=<?=$ticket_id?>" method = "post">See changes</a>
+    <form class="changes-form" method="post">
+        <a href= "../pages/ticketseechanges.php?ticket_id=<?=$ticket_id?>" method = "post">See changes</a>
+    </form>
+    
 <?php
 }
 
@@ -132,65 +134,56 @@ function drawinfoTicket(int $ticket_id) {
     $text = Reply::getReplies($ticket_id);
     ?>
     <div id="ticket-info">
-        <h1>Informação do Ticket</h1>
-    <?php foreach($text as $reply){
-        ?><h2><?=($reply['text'])?></h2><?php
-        ?><h2><?= '_' ?></h2><?php
-    }
-    $department_name = Department::getDepartmentName($db,$ticket->department_id);
-    $_SESSION['ticket_id'] = $ticket->ticket_id;
-    if(($ticket->status_id)==1){
-        $status = "Open";
-    } else if(($ticket->status_id)==2){
-        $status= "Assigned";
-    } else if(($ticket->status_id)==3){
-        $status = "Closed";
-    }
-    
+        
 
+        <?php 
+        $db = getDatabaseConnection(); 
+        $stmt = $db->prepare('SELECT answer FROM faq');
+        $stmt->execute();
+        $answers = $stmt->fetchAll(PDO::FETCH_COLUMN);
+        ?>
+
+     <?php   
+        $department_name = Department::getDepartmentName($db,$ticket->department_id);
+        $_SESSION['ticket_id'] = $ticket->ticket_id;
+        if(($ticket->status_id)==1){
+            $status = "Open";
+        } else if(($ticket->status_id)==2){
+            $status= "Assigned";
+        } else if(($ticket->status_id)==3){
+            $status = "Closed";
+        }
     ?>
+
+    
 
     
 
     <div class="ticket-card">
         <h1>Trouble Ticket Information</h1>
         <div class="ticket-details">
-          <p><span class="label">Ticket:</span> <?= htmlentities($ticket->tittle) ?></p>
-          <p><span class="label">Ticket ID:</span> <?= htmlentities(strval($ticket->ticket_id)) ?></p>
-          <p><span class="label">Date:</span> <?= htmlentities($ticket->initial_date) ?></p>
-          <p><span class="label">Category:</span> <?= htmlentities($department_name) ?></p>
-          <p><span class="label">State:</span> <?= htmlentities($status) ?></p>
-          <p><span class="label">Description:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu rutrum leo. Sed at nunc ac mi dignissim sollicitudin non eget enim.</p>
+            <p><span class="label">Ticket:</span> <?= htmlentities($ticket->tittle) ?></p>
+            <p><span class="label">Ticket ID:</span> <?= htmlentities(strval($ticket->ticket_id)) ?></p>
+            <p><span class="label">Date:</span> <?= htmlentities($ticket->initial_date) ?></p>
+            <p><span class="label">Category:</span> <?= htmlentities($department_name) ?></p>
+            <p><span class="label">State:</span> <?= htmlentities($status) ?></p>
+            <p><span class="label">Description:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu rutrum leo. Sed at nunc ac mi dignissim sollicitudin non eget enim.</p>
         </div>
-         <div id="action-div">
+        <div id="action-div">
             <form class="edit-form" action="../edit/ticket.edit.php?ticket_id=<?=$ticket->ticket_id?>" method="post">
                 <input id="edit-ticket-button" type="submit" value="Editar Ticket">
             </form>
-    
+
             <form class="delete-form" action="../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>" method="post">
                 <input id="delete-ticket-button" type="submit" value="Apagar Ticket">
             </form>
         </div>
-      </div>
-        <?php
         
+    </div>
+
+    <?php
     $user = User::getUser($db,$_SESSION['id']);
     $agent_name = User::getUser($db,$ticket->agent_id);
-    foreach($hashtag_id as $hashtags_id){
-        ?><?php $hashtag = Hashtag::getHashtag($hashtags_id)?><?php
-        if($hashtag == "null"){
-            continue;
-        }
-        if($user->role != 2) { 
-        ?><h2><a href="../actions/removeHashtag.action.php?hashtag_id=<?=$hashtags_id?>"><h2><?=$hashtag?></h2></a><?php
-    }
-    else {
-        ?><h2><?=$hashtag?></h2><?php
-    }
-
-    }
-    
-    
     if(($ticket->agent_id == -1 ) && ($user->role == 0 || $user->role == 1)) { 
         drawProfilesearch();
 
@@ -199,14 +192,72 @@ function drawinfoTicket(int $ticket_id) {
     }
     if($user->role == 0 || $user->role == 1)  { 
         drawTagsSearch();
-        /*?><h1 class="delete-ticket">
-        <form action = "../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>" method="post">
-        <input id="delete-ticket-button" type="submit" value="Apagar Ticket">
-          </form>
-          
-    </h1><?php*/
-        drawAnswerFaq(); 
     }
+    ?>
+
+    <div class="form-container">
+        <form action="../actions/submitAnswer.action.php?ticket_id=<?=$ticket->ticket_id?>" method="POST" id="faq-form">
+            <h2>Submit your answer</h2>
+        
+            <div class="form-group">
+                <textarea id="answer" name="answer" required></textarea>
+                <input type="hidden" name="ticket_id" value="<?= $ticket_id ?>">
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+        <form action ="../actions/addAnswersFaq.action.php?ticket_id=<?=$_GET['ticket_id']?>"method = "post" id = "faq-form">
+              <select name="answer">
+                <optgroup label="List:">
+                    <?php foreach ($answers as $answer) { ?>
+                        <option value="<?= $answer ?>"><?= $answer ?></option>
+                    <?php }  ?>
+                </optgroup>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+
+   
+
+    <div id="faq-list">
+        <?php
+            foreach($text as $reply){
+                ?>
+                    <div class = "answer-element">
+                        <?=($reply['text'])?>
+                    </div>
+                <?php
+            }
+             
+        ?>
+    </div>
+    </div>
+
+    
+  
+
+        <?php
+        
+   
+    foreach($hashtag_id as $hashtags_id){
+        ?><?php $hashtag = Hashtag::getHashtag($hashtags_id)?><?php
+        if($hashtag == "null"){
+            continue;
+        }/*
+        if($user->role != 2) { 
+        ?><h2>
+            /*<a href="../actions/removeHashtag.action.php?hashtag_id=<?=$hashtags_id?>">
+        <h2><?=$hashtag?></h2></a><?php
+        
+    }
+    else {
+        ?><h2><?=$hashtag?></h2><?php
+    }*/
+
+    }
+    
+    
+    
     
 /*
     ?><h1 class="edit-ticket">
@@ -215,18 +266,6 @@ function drawinfoTicket(int $ticket_id) {
         </form>
 </h1><?php */
 ?>
-
-
-<?php if($user->role == 0 ||$user->id == $ticket->id  || $agent_name -> id == $_SESSION['id']){     ?>
-    <h1 class="answer">
-    <form action="../actions/submitAnswer.action.php?ticket_id=<?=$ticket->ticket_id?>" method="POST">
-    <label for="answer">Answer:</label>
-    <textarea name="answer" id="answer" rows="5" cols="50"></textarea>
-    <input type="hidden" name="ticket_id" value="<?= $ticket_id ?>">
-    <input type="submit" value="Submit Answer">
-</form>
-</h1>
-    <?php } ?>
 </div>
     <?php
 }
@@ -258,38 +297,12 @@ function drawaddFaq() {  ?>
 }
 
 function drawTagsSearch() { ?>
-    <section id = "searching2">
-      <select id = "critério2" > 
-        <option value = "nameH1">Hashtag</option>
-      </select>
-      <input id="searchtag" type="text" placeholder="pesquisa">
+    <section id = "search">
+      <input id="searchtag" type="text" placeholder="Procure uma Hashtag">
       <section id="searchtags">
       </section>
   </section> <?php 
 }
-
-function drawAnswerFaq() { 
-    $db = getDatabaseConnection(); 
-    $stmt = $db->prepare('SELECT answer FROM faq');
-    $stmt->execute();
-    $answers = $stmt->fetchAll(PDO::FETCH_COLUMN);
-    ?>
-    <form action ="../actions/addAnswersFaq.action.php?ticket_id=<?=$_GET['ticket_id']?>"method = "post" id = "form">
-          <label>Answer:</label>
-          <select name="answer">
-            <optgroup label="List:">
-                <?php foreach ($answers as $answer) { ?>
-                    <option value="<?= $answer ?>"><?= $answer ?></option>
-                <?php }  ?>
-            </optgroup>
-        </select>
-        <input id="button" type="submit" value="Validar Hashtag">
-    </form>
-
-
-
-
- <?php   }
 
 function drawaddHashtag(){ ?>
         <div id = "form">

@@ -24,8 +24,9 @@
   
 
   }
+  $name = Hashtag::getHashtag($_GET['$hashtag_id']);
   $stmt2 = $db->prepare('INSERT INTO changes(ticket_id,id,text) VALUES (?,?,?)');
-  $stmt2->execute(array($_SESSION['ticket_id'],$_SESSION['id'],'Adicionou a hashtag '.$_GET['tag'].' ao ticket'));
+  $stmt2->execute(array($_SESSION['ticket_id'],$_SESSION['id'],'Adicionou a hashtag '.$name.' ao ticket'));
   unset($_SESSION['input']);
   header('Location: ../pages/ticketseeonly.php?ticket_id='.$_SESSION['ticket_id'].'');
   

@@ -137,6 +137,7 @@
       $stmt = $db->prepare('SELECT ticket_id,id,department_id,status_id,tittle,description,initial_date,hashtag_id,agent_id FROM ticket where ticket_id = ?');
       $stmt->execute(array($ticket_id));
       $ticket = $stmt->fetch();
+      if($ticket){
       return new Ticket(
         $ticket['ticket_id'],
         $ticket['id'],
@@ -148,7 +149,9 @@
         $ticket['hashtag_id'],
         $ticket['agent_id']
         
-    );
+    );}
+    else
+    return null;
     }
 
     static function search(PDO $db, string $search, string $type) : array {

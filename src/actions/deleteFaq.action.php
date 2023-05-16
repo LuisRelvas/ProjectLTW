@@ -10,4 +10,5 @@
     $db = getDatabaseConnection();
     $stmt = $db->prepare('DELETE from faq where question = ? and answer = ?');
     $stmt -> execute([$_GET['question'], $_GET['answer']]);
+    $session->addMessage('success', 'FAQ apagada com sucesso');
     header('Location: ../pages/index.php');

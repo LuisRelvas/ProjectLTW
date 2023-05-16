@@ -10,5 +10,6 @@
   $db = getDatabaseConnection();
   $stmt = $db->prepare('UPDATE faq SET question = ? , answer = ? WHERE faq_id = ?');
     $stmt -> execute([$_POST['question'], $_POST['answer'], $_GET['faq_id']]);
+    $session->addMessage('success', 'FAQ editada com sucesso');
     header('Location: ../pages/index.php');
   

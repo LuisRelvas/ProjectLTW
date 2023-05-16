@@ -1,109 +1,123 @@
-  :root {
-    --backgroundColor: #e6e6e6;
-    --borderColor: #ccc;
-    --seeProfileShadow: 0 0 5px rgba(94, 2, 2, 0.582);
-    --boxShadowForm: 0 0 5px rgba(0, 0, 0, 0.2);
-    --principalColor: #8c2d19;
-    --whiteColor: white;
-    --submitHoverColor: #d24016;
-  }
-  body{
-    background-color: var(--backgroundColor);
+:root {
+  --backgroundColor: #e6e6e6;
+  --borderColor: #ccc;
+  --seeProfileShadow: 0 0 5px rgba(94, 2, 2, 0.582);
+  --boxShadowForm: 0 0 5px rgba(0, 0, 0, 0.2);
+  --principalColor: #8c2d19;
+  --whiteColor: white;
+  --submitHoverColor: #d24016;
+}
+
+body {
+  background-color: var(--backgroundColor);
+}
+
+#editProfile {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 5%;
+  background-color: var(--borderColor);
+  border: var(--border);
+  border-radius: 5px;
+  box-shadow: var(--seeProfileShadow);
+  text-align: left;
+}
+
+#editProfile h1 {
+  font-size: 3vw;
+  font-weight: bold;
+  margin-bottom: 2vw;
+  text-align: center;
+  margin-top: 2vw;
+}
+
+#editProfile h2 {
+  width: 100%;
+  padding: 2%;
+  border-radius: 5px;
+  font-size: 1.5vw;
+  font-weight: normal;
+  margin-bottom: 0;
+  margin-left: 1%;
+}
+
+#editProfile form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+}
+
+#editProfile label {
+  display: block;
+  margin-bottom: 1vw;
+  margin-left: -6.5%;
+}
+
+#editProfile select {
+  width: 100%;
+  padding: 2%;
+  border: var(--border);
+  border-radius: 5px;
+  font-size: 1.2vw;
+  margin-bottom: 2%;
+  text-align: left;
+}
+
+#editProfile select option {
+  text-align: left;
+}
+
+#editProfile select[name="role"] {
+  display: block;
+  margin-bottom: 2%;
+  font-size: 1.2vw;
+  font-weight: bold;
+  margin-left: -2.5vw;
+  width: 50%;
+}
+
+#editProfile input[type="text"],
+#editProfile input[type="email"],
+#editProfile input[type="password"] {
+  width: 100%;
+  padding: 2%;
+  border: var(--border);
+  border-radius: 5px;
+  font-size: 1vw;
+}
+
+#editProfile input[type="submit"] {
+  background-color: var(--principalColor);
+  color: var(--whiteColor);
+  border: none;
+  padding: 2% 4%;
+  border-radius: 10px;
+  font-size: 1.5vw;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 10%;
+}
+
+#editProfile input[type="submit"]:hover {
+  background-color: var(--submitHoverColor);
+  cursor: pointer;
+}
+
+#editProfile input[name="csrf"] {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  #editProfile h1 {
+    font-size: 4vw;
   }
 
-  #editProfile {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 5%;
-    background-color: var(--borderColor);
-    border: var(--border);
-    border-radius: 5px;
-    box-shadow: var(--seeProfileShadow);
-    text-align: left;
-  }
-  
-  #editProfile h1 {
-    font-size: 3vw;
-    font-weight: bold;
-    margin-bottom: 2vw;
-    text-align: center;
-    margin-top: 2vw;
-  }
-  
   #editProfile h2 {
-    width: 100%;
-    padding: 2%;
-    border-radius: 5px;
-    font-size: 1.5vw;
-    font-weight: normal;
-    margin-bottom: 0;
-    margin-left: 1%;
+    font-size: 3vw;
   }
-  
-  #editProfile form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: left;
-  }
-  
-  #editProfile label {
-    display: block;
-    margin-bottom: 1vw;
-    margin-left: -6.5%;
-  }
-  
-  #editProfile select {
-    width: 100%;
-    padding: 2%;
-    border: var(--border);
-    border-radius: 5px;
-    font-size: 1.2vw;
-    margin-bottom: 2%;
-    text-align: left;
-  }
-  
-  #editProfile select option {
-    text-align: left;
-  }
-  
-  #editProfile select[name="role"] {
-    display: block;
-    margin-bottom: 2%;
-    font-size: 1.2vw;
-    font-weight: bold;
-    margin-left: -2.5vw;
-    width: 50%;
-  }
-  
-  #editProfile input[type="text"],
-  #editProfile input[type="email"],
-  #editProfile input[type="password"] {
-    width: 100%;
-    padding: 2%;
-    border: var(--border);
-    border-radius: 5px;
-    font-size: 1vw;
-  }
-  
+
   #editProfile input[type="submit"] {
-    background-color: var(--principalColor);
-    color: var(--whiteColor);
-    border: none;
-    padding: 2% 4%;
-    border-radius: 10px;
-    font-size: 1.5vw;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    margin-top: 10%;
+    font-size: 4vw;
   }
-  
-  #editProfile input[type="submit"]:hover {
-    background-color: var(--submitHoverColor);
-    cursor: pointer;
-  }
-  
-  #editProfile input[name="csrf"] {
-    display: none;
-  }
-  
+}

@@ -99,7 +99,6 @@
     color: var(--successColor);
   }
   
-  /* Resp Desing*/
   @media screen and (max-width: 600px) {
     #registerUser {
       max-width: 90%;
@@ -115,4 +114,5 @@
       font-size: 4vw;
     }
   }
+  
   

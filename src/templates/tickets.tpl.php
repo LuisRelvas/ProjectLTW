@@ -516,10 +516,10 @@ function drawEditTicketForm() { ?>
             </optgroup>
         </select>
         <?php } ?>
-            <label>Tittle: <input type="text" name="tittle" required="required" value="<?=htmlentities($ticket->tittle)?>"></label>
+            <label>Title: <input type="text" name="tittle" required="required" value="<?=htmlentities($ticket->tittle)?>"></label>
             <label>Description: <input type="text" name="description" required="required" value="<?=htmlentities($ticket->description)?>"></label>
             <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>" >
-            <input id="button" type="submit" value="Concluir edição" >
+            <input id="button" type="submit" value="Concluir Edição" >
         </form>
 
     </section> <?php }

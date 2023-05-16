@@ -301,7 +301,7 @@ function drawaddFaq() {  ?>
 
 function drawTagsSearch() { ?>
     <section id = "searching2">
-      <select id = "critério2" > 
+      <select id = "criterio2" > 
         <option value = "nameH1">Hashtag</option>
       </select>
       <input id="searchtag" type="text" placeholder="pesquisa">

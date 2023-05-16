@@ -22,7 +22,7 @@
                 <link rel="stylesheet" href="../css/editFaq.css">
                 <link rel="stylesheet" href="../css/login.css">
                 <link rel="stylesheet" href="../css/drawAcessDenied.css">
-                <link rel="stylesheet" href="../css/drawProfilesearch.css">
+                <link rel="stylesheet" href="../css/search.css">
                 <link rel="stylesheet" href="../css/editUser.css">
                 <link rel="stylesheet" href="../css/register.css">
                 <link rel="stylesheet" href="../css/addTicket.css">
@@ -31,7 +31,7 @@
                 <link rel="stylesheet" href="../css/ticket.css">
                 
                 <script src="../javascript/searchticket.js" defer></script>
-                <script src="../javascript/searchprofile.js" defer></script>
+                <script src="../javascript/search.js" defer></script>
                 <script src="../javascript/searchtags.js" defer></script>
                 <script src="../javascript/showallhashtags.js" defer></script>
                 <script src="../javascript/showalldepartments.js" defer></script>

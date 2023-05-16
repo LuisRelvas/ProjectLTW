@@ -6,7 +6,7 @@ if (searchProfiles) {
         var ticketId = currentUrl.searchParams.get("ticket_id");
         console.log(ticketId);
         
-        const typeSearch = document.querySelector("#critério1")
+        const typeSearch = document.querySelector("#criterio1")
         const querie = '../api/profiles.api.php?search=' + this.value + '&type=' + typeSearch.value
         const response = await fetch(querie)
         const profiles = await response.json()

@@ -13,21 +13,26 @@ $session = new Session();
 
 
 drawHeader($session);
-if(!$session->isLoggedIn() || $_SESSION['role'] == 1 || $_SESSION['role'] == 2) { 
+if(!$session->isLoggedIn() || $_SESSION['role'] == 2) { 
     drawAcessDenied();
     $session->addMessage('error','You are not allowed to access this page');
 }
 else { 
 if (count($session->getMessages())) drawMessages($session);
+if($_SESSION['role'] == 1) { 
+    drawaddFaq();
+
+}
+else { 
 drawllHashtags();
 drawallDepartments();
 drawallStatus();
 drawTicketSearch();
 drawaddDepartment();
-drawaddHashtags();
+drawaddHashtags(); 
 drawaddFaq();
 addAgentDepartment();
 removeAgentDepartment();
 }
-drawFooter();
+drawFooter();}
 

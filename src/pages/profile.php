@@ -8,11 +8,13 @@ require_once(dirname(__DIR__).'/classes/user.class.php');
 
 $session = new Session();
 
-if(!$session->isLoggedIn()) {
-    $session->addMessage('error','You are not allowed to access this page');
-}
+
 
 drawHeader($session);
+if(!$session->isLoggedIn()) {
+    drawAcessDenied();
+    $session->addMessage('error','You are not allowed to access this page');
+}
 if(count($session->getMessages())) drawMessages($session);
 
 if(intval($_GET['id']) == $_SESSION['id'] || $_SESSION['role'] == 0 || $_SESSION['role'] == 1){

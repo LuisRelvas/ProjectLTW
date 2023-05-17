@@ -5,7 +5,11 @@
   require_once(dirname(__DIR__).'/classes/session.class.php');
   require_once(dirname(__DIR__).'/classes/reply.class.php');
   $session = new Session();
-
+    if(!$session->isLoggedIn()) {
+      $session->addMessage('error', 'Não tem permissões para aceder a esta página');
+      header('Location: ../pages/index.php');
+      die();
+    }
     $db = getDatabaseConnection();
     $ticket_id = intval($_GET['ticket_id']);
     $text = $_POST['answer'];

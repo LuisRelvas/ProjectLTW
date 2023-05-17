@@ -288,7 +288,7 @@ function drawinfoTicket(int $ticket_id) {
 function drawaddHashtags() {  ?>
     <div id = "add-hashtags">
     <form action="../actions/addHashtagDB.action.php" method ="post">
-          <label>Hashtag: <input type="text" name="hashtag" required="required" value="<?=$_SESSION['input']['hashtag newUser']?>"></label>
+          <label>Hashtag: <input type="text" name="hashtag" required="required" ></label>
           <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
           <input id="button" type="submit" value="Validar Hashtag">
       </form>
@@ -302,8 +302,8 @@ function drawaddHashtags() {  ?>
 function drawaddFaq() {  ?>
     <div id = "add-faq">
     <form action="../actions/addFaq.action.php" method ="post">
-          <label>Question: <input type="text" name="question" required="required" value="<?=$_SESSION['input']['question newUser']?>"></label>
-          <label>Answer: <input type="text" name="answer" required="required" value="<?=$_SESSION['input']['answer newUser']?>"></label>
+          <label>Question: <input type="text" name="question" required="required" ></label>
+          <label>Answer: <input type="text" name="answer" required="required"></label>
           <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
           <input id="button" type="submit" value="Validar FAQ">
       </form>
@@ -324,7 +324,7 @@ function drawTagsSearch() { ?>
 function drawaddHashtag(){ ?>
         <div id = "form">
         <form action="../actions/addHashtag.action.php" method ="post">
-              <label>Name: <input type="text" name="tag" required="required" value="<?=$_SESSION['input']['hashtag newUser']?>"></label>
+              <label>Name: <input type="text" name="tag" required="required" ></label>
               <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
               <input id="button" type="submit" value="Adicionar Hashtag">
           </form>
@@ -344,7 +344,7 @@ function drawaddTicket(){ ?>
     <div id = "ticket-add">
     <h1>Adicionar Ticket</h1>
     <form action="../actions/addticket.action.php" method ="post">
-          <label>Title: <input type="text" name="tittle" required="required" value="<?=$_SESSION['input']['tittle newUser']?>"></label>
+          <label>Title: <input type="text" name="tittle" required="required"></label>
           <select name="department">
             <optgroup label="Choose only one">
                 <?php foreach ($departments as $department) { ?>
@@ -352,7 +352,7 @@ function drawaddTicket(){ ?>
                 <?php }  ?>
             </optgroup>
         </select>
-          <label>Description: <input type="text" name="description" required="required" value="<?=($_SESSION['input']['description newUser'])?>"></label>
+          <label>Description: <input type="text" name="description" required="required" ></label>
           <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
           <input id="button" type="submit" value="Validar Ticket">
       </form>

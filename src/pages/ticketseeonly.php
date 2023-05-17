@@ -16,6 +16,7 @@ drawHeader($session);
 if (count($session->getMessages())) drawMessages($session);
 if(!$session->isLoggedIn()) {
     $session->addMessage('error','You are not allowed to access this page');
+    drawAcessDenied();
 }
 $db = getDatabaseConnection(); //Conexao base de dados
 $ticket = Ticket::getinfoTicket($db, intval($_GET['ticket_id'])); //Vou buscar a informaçao do ticket

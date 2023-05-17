@@ -8,6 +8,10 @@
 
     $db = getDatabaseConnection();
     drawHeader($session);
+    if(!$session->isLoggedIn()) { 
+        drawAcessDenied();
+        $session->addMessage('error','You are not allowed to access this page');
+    }
     if (count($session->getMessages())) drawMessages($session);
     drawEditFaqForm();
     drawFooter();

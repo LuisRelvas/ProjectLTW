@@ -7,6 +7,11 @@
   require_once(dirname(__DIR__).'/templates/tickets.tpl.php');
   $session = new Session();
   $db = getDatabaseConnection(); 
+  if(!$session->isLoggedIn()) { 
+    $session->addMessage('error', 'Não tem permissões para aceder a esta página');
+    header('Location: ../pages/index.php');
+    die();
+  }
 
   $stmt = $db ->prepare( 'SELECT ticket.ticket_id,user.username from hashtag,ticket,user where ticket.id = user.id and hashtag.hashtag_id = ticket.hashtag_id and hashtag.tag = ?');
   $stmt->execute(array($_GET['q']));

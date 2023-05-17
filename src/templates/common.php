@@ -92,12 +92,12 @@
         function drawLoginUser(int $id, string $name) { ?>
 
             <div id="login">
-                <button>
-                    <a href="../actions/logout.action.php">Logout</a>
+                <button clickable onclick="location.href='../actions/logout.action.php'">
+                    Logout
                 </button>
 
-                <button>
-                    <a href="../pages/profile.php?id=<?=$id?>"><?=$name?></a>
+                <button clickable onclick="location.href='../pages/profile.php?id=<?=$id?>'">
+                    <?=$name?>
                 </button>
             
             </div>
@@ -177,7 +177,7 @@
                     </button>
 
 
-                    <button clickable onclick="location.href='../pages/addticket.php'">
+                    <button clickable onclick="location.href='../pages/ticketadd.php'">
                       Add Ticket
                     </button>
 

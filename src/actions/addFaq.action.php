@@ -7,6 +7,11 @@
   require_once(dirname(__DIR__).'/classes/hashtag.class.php');
   require_once(dirname(__DIR__).'/templates/tickets.tpl.php');
   $session = new Session(); 
+  if($_SESSION['csrf'] != $_POST['csrf']) {
+    drawAcessDenied();
+    header('Location: ../pages/index.php');
+    die();
+  }
   if($_SESSION['role'] == 2 || $_SESSION['role'] == 1 || !$session->isLoggedIn()) { 
     $session->addMessage('error', 'Não tem permissões para aceder a esta página');
     header('Location: ../pages/index.php');
@@ -16,4 +21,5 @@
   $db = getDatabaseConnection();
   $stmt = $db->prepare('INSERT INTO faq (question, answer) VALUES (?,?)');
   $stmt -> execute([$_POST['question'], $_POST['answer']]);
+  $session->addMessage('success', 'FAQ adicionada com sucesso!');
   header('Location: ../pages/index.php');

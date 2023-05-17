@@ -5,6 +5,11 @@
   require_once(dirname(__DIR__).'/classes/session.class.php');
   require_once(dirname(__DIR__).'/classes/department.class.php');
   $session = new Session();
+  if($_SESSION['csrf'] != $_POST['csrf']) {
+    drawAcessDenied();
+    header('Location: ../pages/index.php');
+    die();
+  }
   if(!$session->isLoggedIn()) { 
     $session->addMessage('error', 'Não tem permissões para aceder a esta página');
     header('Location: ../pages/index.php');

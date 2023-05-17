@@ -111,7 +111,7 @@
                 </button>
 
                 <button>
-                    <a href="teste">FAQ</a>
+                    <a href="../pages/index.php">FAQ</a>
                 </button>
             
             </div>
@@ -161,7 +161,7 @@
             <section id="banner">
                 <!-- <header><h1>Trouble Ticket</h1> -->
                 
-                </div>
+                
                 <div id="index-card">
 
                 <div id="myticketsmenu">
@@ -177,6 +177,7 @@
                     <button>
                       <a href="../pages/ticketmanage.php">Manage Ticket</a>
                     </button>
+        </div>
             
                     
 

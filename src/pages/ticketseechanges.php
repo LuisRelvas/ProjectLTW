@@ -18,8 +18,8 @@ drawHeader($session);
 if (count($session->getMessages())) drawMessages($session);
 
 $db = getDatabaseConnection();
-$stmt = $db->prepare('SELECT * FROM changes WHERE ticket_id = ? and id = ? and closed_id = 0');
-$stmt->execute(array(intval($_GET['ticket_id']), $_SESSION['id']));
+$stmt = $db->prepare('SELECT * FROM changes WHERE ticket_id = ? and closed_id = 0');
+$stmt->execute(array(intval($_GET['ticket_id'])));
 $var = $stmt->fetchAll();
 $ticket = Ticket::getinfoTicket($db, intval($_GET['ticket_id']));
 if($ticket == "NULL") { 

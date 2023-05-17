@@ -5,6 +5,7 @@
   require_once(dirname(__DIR__).'/classes/session.class.php');
   require_once(dirname(__DIR__).'/classes/department.class.php');
   require_once(dirname(__DIR__).'/classes/hashtag.class.php');
+  require_once(dirname(__DIR__).'/classes/user.class.php');
   $session = new Session(); 
   if($_SESSION['role'] == 2 || !$session->isLoggedIn()) { 
     $session->addMessage('error', 'Não tem permissões para aceder a esta página');
@@ -31,8 +32,9 @@
     $session->addMessage('error', "Hashtag ja estava adicionada ao ticket!");
   }
   $name = Hashtag::getHashtag($hashtag_id);
+  $user = User::getUser($db,$_SESSION['id']);
   $stmt2 = $db->prepare('INSERT INTO changes(ticket_id,id,text) VALUES (?,?,?)');
-  $stmt2->execute(array($_SESSION['ticket_id'],$_SESSION['id'],'Adicionou a hashtag '.$name.' ao ticket'));
+  $stmt2->execute(array($_SESSION['ticket_id'],$_SESSION['id'],$user->name .' adicionou a hashtag '.$name.' ao ticket'));
   unset($_SESSION['input']);
   header('Location: ../pages/ticketseeonly.php?ticket_id='.$_SESSION['ticket_id'].'');
   

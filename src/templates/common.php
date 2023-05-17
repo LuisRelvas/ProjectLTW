@@ -170,17 +170,21 @@
 
                 <div id="myticketsmenu">
 
-                    <button>
-                      <a href="../pages/ticketsee.php">MyTickets</a>
+
+
+                    <button clickable onclick="location.href='../pages/ticketsee.php'">
+                      MyTickets
                     </button>
 
-                    <button>
-                      <a href="../pages/ticketadd.php">Add Ticket</a>
+
+                    <button clickable onclick="location.href='../pages/addticket.php'">
+                      Add Ticket
                     </button>
 
-                    <button>
-                      <a href="../pages/ticketmanage.php">Manage Ticket</a>
+                    <button clickable onclick="location.href='../pages/ticketmanage.php'">
+                      Manage Ticket
                     </button>
+
         </div>
             
                     

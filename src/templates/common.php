@@ -113,15 +113,9 @@
                 <button onclick="location.href='../pages/register.php'">
                     Register
                 </button>
-
-<<<<<<< HEAD
                 <button onclick="location.href='../pages/index.php'">
                     FAQ
-=======
-                <button>
-                    <a href="../pages/index.php">FAQ</a>
->>>>>>> refs/remotes/origin/main
-                </button>
+
 
             
             </div>

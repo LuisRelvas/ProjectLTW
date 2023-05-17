@@ -34,5 +34,6 @@ drawaddFaq();
 addAgentDepartment();
 removeAgentDepartment();
 }
-drawFooter();}
+}
+drawFooter();
 

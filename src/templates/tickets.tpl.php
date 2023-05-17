@@ -408,6 +408,7 @@ $departments = $stmt1->fetchAll(PDO::FETCH_COLUMN);
             <?php }  ?>
         </optgroup>
     </select>
+    <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
     <input id="button" type="submit" value="Adicionar Departamento">
     </form>
 <?php }

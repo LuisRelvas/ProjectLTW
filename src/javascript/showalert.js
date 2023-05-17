@@ -1,5 +1,10 @@
 
-window.addEventListener('DOMContentLoaded', function() {
+
+
+window
+const popupContainer = document.getElementById('popup-container');
+if(popupContainer){
+popupContainer.addEventListener('DOMContentLoaded', function() {
 const popupContainer = document.getElementById('popup-container');
 const popupAlerts = popupContainer.getElementsByClassName('popup-alert');
 
@@ -12,4 +17,4 @@ const popupAlerts = popupContainer.getElementsByClassName('popup-alert');
             setTimeout(function() {
                 while (popupContainer.firstChild) {
                 popupContainer.firstChild.remove();}}, 5000);
-                    });
+                    });}

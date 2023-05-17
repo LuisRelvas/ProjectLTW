@@ -3,6 +3,7 @@
     require_once(dirname(__DIR__).'/database/connection.db.php');
     require_once(dirname(__DIR__).'/classes/session.class.php');
     require_once(dirname(__DIR__).'/utils/validator.php');
+    require_once(dirname(__DIR__).'/templates/common.php');
     $session = new Session();
     if($_SESSION['csrf'] != $_POST['csrf']) {
         drawAcessDenied();

@@ -6,6 +6,7 @@
   require_once(dirname(__DIR__).'/classes/department.class.php');
   require_once(dirname(__DIR__).'/classes/hashtag.class.php');
   require_once(dirname(__DIR__).'/classes/reply.class.php');
+  require_once(dirname(__DIR__).'/templates/common.php');
   $session = new Session(); 
   if($_SESSION['csrf'] != $_POST['csrf']) {
     drawAcessDenied();

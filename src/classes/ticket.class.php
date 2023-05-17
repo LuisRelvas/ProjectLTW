@@ -205,14 +205,17 @@
       $stmt->execute(array($this->department_id,$this->status_id,$this->tittle, $this->description,$this->ticket_id,));
       
       $stmt1 = $db->prepare('INSERT INTO changes(ticket_id,id,text) VALUES (?,?,?)');
-      $stmt1->execute(array($ticket_id,$_SESSION['id'],'The ticket description or tittle has been changed by '.$_SESSION['id']));
+      $user = User::getUser($db,$_SESSION['id']);
+      $stmt1->execute(array($ticket_id,$_SESSION['id'],'A descrição ou o título do ticket foram alterados por'.$user->name));
   }
 
   static function assignTicket(PDO $db,int $ticket_id,int $agent_id){
     $stmt = $db->prepare('UPDATE ticket SET status_id = 2,agent_id = ? WHERE ticket_id = ?');
     $stmt->execute(array($agent_id,$ticket_id));
     $stmt1 = $db->prepare('INSERT INTO changes (ticket_id,id,text) VALUES (?,?,?)');
-    $stmt1->execute(array($ticket_id,$_SESSION['id'],'Ticket assigned to agent '.$agent_id . ' by '.$_SESSION['id'] . 'and the status changes from Open to Assigned'));
+    $agent_name = User::getUser($db,$agent_id);
+    $admin_name = User::getUser($db,$_SESSION['id']);
+    $stmt1->execute(array($ticket_id,$_SESSION['id'],'O ticket foi atribuido ao agente '.$agent_name->name . ' pelo '.$admin_name->name . ' e o status alterou de Open para Assigned'));
   }
 
   static function removeTicket($db, $ticket_id){

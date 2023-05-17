@@ -114,8 +114,13 @@
                     Register
                 </button>
 
+<<<<<<< HEAD
                 <button onclick="location.href='../pages/index.php'">
                     FAQ
+=======
+                <button>
+                    <a href="../pages/index.php">FAQ</a>
+>>>>>>> refs/remotes/origin/main
                 </button>
 
             
@@ -166,7 +171,7 @@
             <section id="banner">
                 <!-- <header><h1>Trouble Ticket</h1> -->
                 
-                </div>
+                
                 <div id="index-card">
 
                 <div id="myticketsmenu">
@@ -182,6 +187,7 @@
                     <button>
                       <a href="../pages/ticketmanage.php">Manage Ticket</a>
                     </button>
+        </div>
             
                     
 

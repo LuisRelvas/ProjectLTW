@@ -7,10 +7,7 @@
   require_once(dirname(__DIR__).'/classes/session.class.php');
   $session = new Session();
   
-  if (!$session->isLoggedIn()) {
-    $session->addMessage('error', "Não tem permissão para editar este perfil");
-    die(header('Location: ../pages/denied.php'));
-  } 
+  
 
   $db = getDatabaseConnection();
 
@@ -26,8 +23,14 @@
   
 
   drawHeader($session);
+  if (!$session->isLoggedIn()) {
+    $session->addMessage('error', "Não tem permissão para editar este perfil");
+    drawAcessDenied();
+  } 
+  else {
   if (count($session->getMessages())) drawMessages($session);
-  drawEditUserForm(); 
+  drawEditUserForm(); }
   unset($_SESSION['input']);
+  drawFooter();
 
 ?>

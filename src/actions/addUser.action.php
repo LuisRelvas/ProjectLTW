@@ -5,12 +5,7 @@
     require_once(dirname(__DIR__).'/utils/validator.php');
     $session = new Session();
     
-    if(!$session->isLoggedIn()) {
-        $session->addMessage('error', 'Não tem permissões para aceder a esta página');
-        header('Location: ../pages/index.php');
-        die();
-    }
-    
+
     $_SESSION['input']['username newUser'] = htmlentities($_POST['username']);
     $_SESSION['input']['name newUser'] = htmlentities($_POST['name']);
     $_SESSION['input']['email newUser'] = htmlentities($_POST['email']);

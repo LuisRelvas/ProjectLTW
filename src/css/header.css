@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 body {
   background-color: #f2f2f2;
   margin: 0;
   padding: 0;
 }
+=======
+
+>>>>>>> 976d64c2c83db89eee396ff442b8a0158416e52d
 
 header {
   display: flex;
@@ -14,9 +18,11 @@ header {
   border-bottom: 5px solid black;
   color: #fff;
   margin-bottom: 0;
+
+  
 }
 
-header > a > img {
+.logo > a > img {
   width: 25%;
   height: auto;
   margin-right: 2%;
@@ -45,7 +51,7 @@ header > h1 {
   border-radius: 2vw;
   border-style: none;
   box-sizing: border-box;
-  color: #ffffff;
+  color: black;
   cursor: pointer;
   display: inline-block;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;

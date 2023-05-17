@@ -189,6 +189,33 @@ function drawinfoTicket(int $ticket_id) {
     <?php
     $user = User::getUser($db,$_SESSION['id']);
     $agent_name = User::getUser($db,$ticket->agent_id);
+
+    /* draw currentHashtags */
+    ?>
+        <div class = "ticketHashtags">
+            <?php
+            foreach($hashtag_id as $hashtags_id){
+                ?><?php $hashtag = Hashtag::getHashtag($hashtags_id)?><?php
+                if($hashtag == "null"){
+                    continue;
+                }
+                if($user->role != 2) { 
+                ?><h2>
+                    <a href="../actions/removeHashtag.action.php?hashtag_id=<?=$hashtags_id?>">
+                <h2><?=$hashtag?></h2></a><?php
+                
+            }
+            else {
+                ?><h2><?=$hashtag?></h2><?php
+            }
+        
+            }
+            ?>
+        </div>
+    <?php
+    
+
+
     if(($ticket->agent_id == -1 ) && ($user->role == 0 || $user->role == 1)) { 
         
         drawProfilesearch();
@@ -250,36 +277,6 @@ function drawinfoTicket(int $ticket_id) {
     
   
 
-        <?php
-        
-   
-    foreach($hashtag_id as $hashtags_id){
-        ?><?php $hashtag = Hashtag::getHashtag($hashtags_id)?><?php
-        if($hashtag == "null"){
-            continue;
-        }
-        if($user->role != 2) { 
-        ?><h2>
-            <a href="../actions/removeHashtag.action.php?hashtag_id=<?=$hashtags_id?>">
-        <h2><?=$hashtag?></h2></a><?php
-        
-    }
-    else {
-        ?><h2><?=$hashtag?></h2><?php
-    }
-
-    }
-    
-    
-    
-    
-/*
-    ?><h1 class="edit-ticket">
-        <form action="../edit/ticket.edit.php?ticket_id=<?=$ticket->ticket_id?>" method="post">
-        <input id="edit-ticket-button" type="submit" value="Editar Ticket">
-        </form>
-</h1><?php */
-?>
 </div>
     <?php
 }
@@ -574,6 +571,7 @@ function drawEditTicketForm() { ?>
         </form>
 
     </section> <?php }
+
 
 function drawTicketSearch() { ?>
     <section id = "searching">

@@ -68,7 +68,7 @@ body {
     border-radius: 8px;
     border-style: none;
     box-sizing: border-box;
-    color: #fff;
+    color: black;
     cursor: pointer;
     display: inline-block;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -93,7 +93,8 @@ body {
 
   #myticketsmenu > button:hover,
 #myticketsmenu > button:focus {
-  background-color: black;
+  background-color: #e6b0aa;
+  
   
 }
 

@@ -19,6 +19,7 @@
                 <link rel="stylesheet" href="../css/profile.css">
                 <link rel="stylesheet" href="../css/faqAnswer.css">   
                 <link rel="stylesheet" href="../css/ticketManaging.css">
+                <link rel="stylesheet" href="../css/ticketHashtags.css">
 
 
                 
@@ -45,9 +46,12 @@
             </head>
             <body>
                 <header>
-                        <a href="../pages/index.php">
-                            <img src="https://dec.fe.up.pt/wp-content/uploads/2021/03/logo-feup-white.png" alt="Logo of FEUP">
-                        </a>
+                        <div class = "logo">
+                            <a href="../pages/index.php">
+                                <img src="https://dec.fe.up.pt/wp-content/uploads/2021/03/logo-feup-white.png" alt="Logo of FEUP">
+                            </a>
+                        </div>
+                        
                         <?php
                             if ($session->isLoggedIn()) 
                             drawLoginUser($session->getId(), $session->getName());
@@ -77,17 +81,17 @@
 
         function drawDefaultUser() { ?>
             <div id="login">
-                <button>
-                    <a href="../pages/login.php">Login</a>
+                <button onclick="location.href='../pages/login.php'">
+                    Login
                 </button>
 
-                <button>
-                    <a href="../pages/register.php">Registar</a>
+                <button onclick="location.href='../pages/register.php'">
+                    Register
                 </button>
+                <button onclick="location.href='../pages/index.php'">
+                    FAQ
 
-                <button>
-                    <a href="../pages/index.php">FAQ</a>
-                </button>
+
             
             </div>
         <?php 
@@ -141,17 +145,21 @@
 
                 <div id="myticketsmenu">
 
-                    <button>
-                      <a href="../pages/ticketsee.php">MyTickets</a>
+
+
+                    <button clickable onclick="location.href='../pages/ticketsee.php'">
+                      MyTickets
                     </button>
 
-                    <button>
-                      <a href="../pages/ticketadd.php">Add Ticket</a>
+
+                    <button clickable onclick="location.href='../pages/addticket.php'">
+                      Add Ticket
                     </button>
 
-                    <button>
-                      <a href="../pages/ticketmanage.php">Manage Ticket</a>
+                    <button clickable onclick="location.href='../pages/ticketmanage.php'">
+                      Manage Ticket
                     </button>
+
         </div>
             
                     

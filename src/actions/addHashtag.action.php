@@ -7,8 +7,9 @@
   require_once(dirname(__DIR__).'/classes/hashtag.class.php');
   require_once(dirname(__DIR__).'/classes/user.class.php');
   require_once(dirname(__DIR__).'/templates/common.php');
-  $session = new Session(); 
-  if($_SESSION['csrf'] != $_POST['csrf']) {
+
+  $session = new Session();   
+  if($_SESSION['csrf'] != $_GET['csrf']) {
     drawAcessDenied();
     header('Location: ../pages/index.php');
     die();
@@ -35,7 +36,7 @@
   $name = Hashtag::getHashtag($hashtag_id);
   $user = User::getUser($db,$_SESSION['id']);
   $stmt2 = $db->prepare('INSERT INTO changes(ticket_id,id,text) VALUES (?,?,?)');
-  $stmt2->execute(array($_SESSION['ticket_id'],$_SESSION['id'],$user->name .' adicionou a hashtag '.$name.' ao ticket'));
+  $stmt2->execute(array($_SESSION['ticket_id'],$_SESSION['id'], $user->name .' adicionou a hashtag '.$name.' ao ticket'));
   
 }
   else if($check) { 

@@ -1,10 +1,6 @@
-
-
-
-window
-const popupContainer = document.getElementById('popup-container');
-if(popupContainer){
-popupContainer.addEventListener('DOMContentLoaded', function() {
+const popupAlerts = document.getElementsByClassName('popup-alert');
+if(popupAlerts.length > 0) {
+window.addEventListener('DOMContentLoaded', function() {
 const popupContainer = document.getElementById('popup-container');
 const popupAlerts = popupContainer.getElementsByClassName('popup-alert');
 

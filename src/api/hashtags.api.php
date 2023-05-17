@@ -9,7 +9,7 @@
 
   $db = getDatabaseConnection();
 
-  $tags = Hashtag::search($db, $_GET['search'], $_GET['type']);
+  $tags = Hashtag::search($db, $_GET['search'], $_GET['type'],$_GET['csrf']);
   
   echo json_encode($tags);
 ?>

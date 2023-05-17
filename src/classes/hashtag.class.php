@@ -69,10 +69,10 @@
     }
 
     
-    static function search(PDO $db, string $search, string $type) : array {
+    static function search(PDO $db, string $search, string $type, string $csrf) : array {
       $querie = '';
       $result = array();
-  
+      
       switch ($type) {
         case "nameH1":
             $querie = 'SELECT * FROM hashtag WHERE tag LIKE ?';

@@ -311,6 +311,7 @@ function drawTagsSearch() { ?>
       <select id = "criterio2" > 
         <option value = "nameH1">Hashtag</option>
       </select>
+      <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
       <input id="searchtag" type="text" placeholder="pesquisa">
       <section id="searchtags">
       </section>

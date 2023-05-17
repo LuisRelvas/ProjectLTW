@@ -16,7 +16,9 @@
     $hashtag_id = intval($_GET['hashtag_id']);
     Hashtag::removeHashtag($db, $hashtag_id);
     $stmt2 = $db->prepare('INSERT INTO changes(ticket_id,id,text) VALUES (?,?,?)');
-    $stmt2->execute(array($_SESSION['ticket_id'],$_SESSION['id'],'Removeu a hashtag '.$hashtag_id.' ao ticket'));
+    $user = User::getUser($db,$_SESSION['id']);
+    $hashtag_name = Hashtag::getHashtag($hashtag_id);
+    $stmt2->execute(array($_SESSION['ticket_id'],$user->name,'Removeu a hashtag '.$hashtag_name.' ao ticket'));
     header('Location: ../pages/ticketseeonly.php?ticket_id='.$_SESSION['ticket_id'].'');
 
 

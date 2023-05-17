@@ -58,9 +58,9 @@
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
-    width: 50%;
-    font-size: 20px;
-    margin-left: 25%;
+    width: 100%;
+    font-size: 20px;    
+
   }
   
   #editTicket input[type="submit"]:hover {

@@ -98,7 +98,7 @@ body {
 }
 
 #myticketsmenu > button:hover > a {
-  color: #8C2D19;
+  color: white;
 }
   
   @media only screen and (max-width: 768px) {

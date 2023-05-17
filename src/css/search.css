@@ -1,5 +1,5 @@
 :root {
-  --backgroundColor: #e6e6e6;
+  --backgroundColor: #f5f5f5;
   --buttonColor: #8c2d19;
   --buttonHoverColor: #d24016;
   --whiteColor: white;
@@ -57,8 +57,8 @@
 #searchprofiles, #searchtags {
   width: 100%;
   padding: 10px;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  border: none;
   
   border-radius: 5px;
 

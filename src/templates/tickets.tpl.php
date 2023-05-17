@@ -297,7 +297,6 @@ function drawaddHashtags() {  ?>
 
 
 function drawaddFaq() {  ?>
-    <div id = "add-faq">
     <form action="../actions/addFaq.action.php" method ="post">
           <label>Question: <input type="text" name="question" required="required" ></label>
           <label>Answer: <input type="text" name="answer" required="required"></label>

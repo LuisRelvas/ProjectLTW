@@ -54,7 +54,6 @@ body {
     text-decoration: none;
     color: #fff;
     transition: color 0.3s ease;
-    
   }
   #myticketsmenu > button > a {
     text-decoration: none;
@@ -99,7 +98,7 @@ body {
 }
 
 #myticketsmenu > button:hover > a {
-  color: white;
+  color: #8C2D19;
 }
   
   @media only screen and (max-width: 768px) {

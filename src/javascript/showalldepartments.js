@@ -1,5 +1,9 @@
 
-document.getElementById('department-select').addEventListener('change', async function () {
+
+
+const department_select = document.getElementById('department-select')
+if(department_select){
+department_select.addEventListener('change', async function () {
     var selectedDepartment = this.value;
     console.log(selectedDepartment);
     const querie = '../api/showdepartments.api.php?value=' + selectedDepartment;
@@ -26,4 +30,4 @@ document.getElementById('department-select').addEventListener('change', async fu
         
         
 
-    }})
+    }})}

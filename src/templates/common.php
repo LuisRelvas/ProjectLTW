@@ -41,32 +41,7 @@
                 <script src="../javascript/showallhashtags.js" defer></script>
                 <script src="../javascript/showalldepartments.js" defer></script>
                 <script src="../javascript/showallstatus.js" defer></script>
-
-                <script>
-                    window.addEventListener('DOMContentLoaded', function() {
-                    const popupContainer = document.getElementById('popup-container');
-                    const popupAlerts = popupContainer.getElementsByClassName('popup-alert');
-
-                    // Display the pop-up alerts after a short delay
-                    setTimeout(function() {
-                        for (let i = 0; i < popupAlerts.length; i++) {
-                            popupAlerts[i].style.display = 'block';
-                        }
-                    }, 500);
-
-                        // Remove the pop-up alerts after a certain duration
-                        setTimeout(function() {
-                            while (popupContainer.firstChild) {
-                                popupContainer.firstChild.remove();
-                            }
-                        }, 5000);
-                    });
-                    </script>
-
-                </script>
-
-                
-            </script>    
+                <script src="../javascript/showalert.js" defer></script>
             </head>
             <body>
                 <header>

@@ -1,5 +1,9 @@
 
-document.getElementById('hashtag-select').addEventListener('change', async function () {
+
+
+const hashtag_select = document.getElementById('hashtag-select')
+if(hashtag_select){
+hashtag_select.addEventListener('change', async function () {
     var selectedHashtag = this.value;
     console.log(selectedHashtag);
     const querie = '../api/showhashtags.api.php?value=' + selectedHashtag;
@@ -24,4 +28,5 @@ document.getElementById('hashtag-select').addEventListener('change', async funct
             article.appendChild(link)
             section.appendChild(article)
 
-    }})
+    }})}
+

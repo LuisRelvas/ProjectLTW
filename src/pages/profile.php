@@ -14,6 +14,7 @@ drawHeader($session);
 if(!$session->isLoggedIn()) {
     drawAcessDenied();
     $session->addMessage('error','You are not allowed to access this page');
+    die();
 }
 if(count($session->getMessages())) drawMessages($session);
 

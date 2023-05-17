@@ -1,5 +1,10 @@
 
-document.getElementById('status-select').addEventListener('change', async function () {
+
+
+const status_select = document.getElementById('status-select')
+
+if(status_select) { 
+status_select.addEventListener('change', async function () {
     var selectedStatus = this.value;
     console.log(selectedStatus);
     const querie = '../api/showstatus.api.php?value=' + selectedStatus;
@@ -26,4 +31,4 @@ document.getElementById('status-select').addEventListener('change', async functi
         
         
 
-    }})
+    }})}

@@ -62,12 +62,10 @@ function drawUser(int $id) {
         echo($department_name)
         ?></span>
         <?php } ?>
-
-
-        <div class="user-data">
+    </div>
+    <div class="user-data">
         <label for="counter">Tickets Fechados:</label>
         <span><?=($counter)?></span>
-    </div>
     </div><?php
     } ?>
 

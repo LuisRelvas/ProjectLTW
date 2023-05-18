@@ -99,20 +99,4 @@
     color: var(--successColor);
   }
   
-  @media screen and (max-width: 600px) {
-    #registerUser {
-      max-width: 90%;
-      margin-top: 10%;
-      margin-bottom: 10%;
-    }
-  
-    #registerUser h1 {
-      font-size: 5vw;
-    }
-  
-    #registerUser input[type="submit"] {
-      font-size: 4vw;
-    }
-  }
-  
   

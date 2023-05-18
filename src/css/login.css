@@ -65,24 +65,3 @@
   background-color: var(--buttonHoverColor);
 }
 
-@media (max-width: 600px) {
-  #loginpage {
-    width: 100%;
-    padding: 40px;
-  }
-
-  #loginpage h1 {
-    font-size: 30px;
-    margin-bottom: 20px;
-  }
-
-  #loginpage input[type="email"],
-  #loginpage input[type="password"] {
-    width: 100%;
-  }
-
-  #loginpage #button {
-    width: 100%;
-    margin-left: 0;
-  }
-}

@@ -10,6 +10,9 @@
                     encoding = "utf-8"
                     author = "Relvas, Domingos, Angy"
                 >
+
+                <link rel="stylesheet" href="../css/responsive.css">
+
                 <link rel="stylesheet" href="../css/header.css">
                 <link rel="stylesheet" href="../css/index.css">
                 <link rel="stylesheet" href="../css/drawInfoTicket.css">

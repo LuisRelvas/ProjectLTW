@@ -102,14 +102,4 @@ body {
   color: #8C2D19;
 }
   
-  @media only screen and (max-width: 768px) {
-    #myticketsmenu {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
   
-  @media only screen and (max-width: 480px) {
-    #myticketsmenu {
-      grid-template-columns: 1fr;
-    }
-  }

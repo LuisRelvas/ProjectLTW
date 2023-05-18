@@ -99,18 +99,4 @@
   width: 100%;
 }
 */
-@media (max-width: 600px) {
-  #searching1, #searching2 {
-    margin-left: 10px;
-    margin-top: 10px;
-  }
-  
-  #searchprofiles, #searchtags {
-    font-size: 14px;
-  }
-  
-  #searchprofiles ul, #searchtags ul {
-    max-height: 150px;
-  }
 
-}

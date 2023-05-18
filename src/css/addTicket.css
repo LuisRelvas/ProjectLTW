@@ -88,16 +88,3 @@
   font-weight: bold;
 }
 
-@media screen and (max-width: 600px) {
-  #ticket-add {
-    max-width: 90%;
-  }
-
-  #ticket-add h1 {
-    font-size: 4vw;
-  }
-
-  #ticket-add input[type="submit"] {
-    font-size: 3.5vw;
-  }
-}

@@ -105,16 +105,3 @@
   display: none;
 }
 
-@media screen and (max-width: 600px) {
-  #editProfile h1 {
-    font-size: 4vw;
-  }
-
-  #editProfile h2 {
-    font-size: 3vw;
-  }
-
-  #editProfile input[type="submit"] {
-    font-size: 4vw;
-  }
-}

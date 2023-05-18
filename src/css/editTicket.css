@@ -67,24 +67,4 @@
     background-color: var(--submitHoverColor);
   }
   
-  @media (max-width: 768px) {
-    #editTicket h1 {
-      font-size: 30px;
-    }
   
-    #editTicket input[type="submit"] {
-      width: 70%;
-      margin-left: 15%;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    #editTicket h1 {
-      font-size: 24px;
-    }
-  
-    #editTicket input[type="submit"] {
-      width: 80%;
-      margin-left: 10%;
-    }
-  }

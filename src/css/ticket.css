@@ -89,24 +89,4 @@
     color: var(--linkHoverColor);
   }
   
-  @media (max-width: 600px) {
-    #ticket {
-      padding: 20px;
-    }
-  
-    #ticket h2 {
-      font-size: 32px;
-      margin-bottom: 30px;
-    }
-  
-    #ticket input[type=submit] {
-      padding: 8px 120px;
-      font-size: 20px;
-    }
-  
-    #ticket .ticketitem input[type=submit] {
-      padding: 8px 120px;
-      font-size: 20px;
-    }
-  }
   

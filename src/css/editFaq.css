@@ -53,17 +53,3 @@
   background-color: var(--buttonHoverColor);
 }
 
-@media screen and (max-width: 600px) {
-  .edit-faq {
-    width: 90%;
-  }
-
-  .edit-faq input[type="text"] {
-    width: 100%;
-  }
-
-  .edit-faq input[type="submit"] {
-    margin-left: 0;
-    width: 100%;
-  }
-}

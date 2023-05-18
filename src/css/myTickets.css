@@ -91,24 +91,4 @@
     margin-left: 10%;
   }
   
-  @media screen and (max-width: 600px) {
-    .ticketContainer {
-      padding: 5px;
-    }
-  
-    .department-tickets {
-      padding: 10px;
-    }
-  
-    .department-tickets select,
-    .department-tickets input[type="submit"] {
-      padding: 5px;
-      font-size: 14px;
-    }
-  
-    h2,
-    h3 {
-      font-size: 18px;
-    }
-  }
   

@@ -97,16 +97,3 @@ button[type="submit"]:hover {
   text-align: justify;
 }
 
-@media screen and (max-width: 600px) {
-  .form-container,
-  #faq-form,
-  #faq-list,
-  .answer-element {
-    width: 100%;
-  }
-
-  input[type="text"],
-  textarea {
-    width: 100%;
-  }
-}

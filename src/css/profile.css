@@ -57,13 +57,3 @@
   margin-top: 20px;
 }
 
-@media screen and (max-width: 600px) {
-  .user-data {
-    margin-left: 0;
-  }
-
-  #edit-profile-button {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}

@@ -1,0 +1,350 @@
+/* Add ticket */
+@media screen and (max-width: 600px) {
+    #ticket-add {
+        max-width: 90%;
+    }
+
+    #ticket-add h1 {
+        font-size: 4vw;
+    }
+
+    #ticket-add input[type="submit"] {
+        font-size: 3.5vw;
+    }
+}
+
+/* Access denied */
+
+@media screen and (max-width: 600px) {
+    #accessDenied h2 {
+        font-size: 6vw;
+    }
+
+    #accessDenied h3 {
+        font-size: 3vw;
+    }
+
+    #accessDenied p {
+        font-size: 2vw;
+    }
+}
+
+/* manage  */
+@media only screen and (min-width: 600px) {
+    /* Adjust padding for larger screens */
+    .edit-form,
+    .delete-form,
+    .changes-form {
+        padding: 10px 150px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    /* Adjust font size and padding for smaller screens */
+    .edit-form,
+    .delete-form,
+    .changes-form {
+        font-size: 16px;
+        padding: 5px;
+    }
+}
+/* edit faq */
+@media screen and (max-width: 600px) {
+    .edit-faq {
+        width: 90%;
+    }
+
+    .edit-faq input[type="text"] {
+        width: 100%;
+    }
+
+    .edit-faq input[type="submit"] {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* edit ticket */
+@media (max-width: 768px) {
+    #editTicket h1 {
+        font-size: 30px;
+    }
+
+    #editTicket input[type="submit"] {
+        width: 70%;
+        margin-left: 15%;
+    }
+}
+
+@media (max-width: 480px) {
+    #editTicket h1 {
+        font-size: 24px;
+    }
+
+    #editTicket input[type="submit"] {
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+
+/* edit profile */
+@media screen and (max-width: 600px) {
+    #editProfile h1 {
+        font-size: 4vw;
+    }
+
+    #editProfile h2 {
+        font-size: 3vw;
+    }
+
+    #editProfile input[type="submit"] {
+        font-size: 4vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .form-container,
+    #faq-form,
+    #faq-list,
+    .answer-element {
+        width: 100%;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+    }
+}
+
+/* footer */
+@media screen and (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        height: auto;
+    }
+
+    .footer a {
+        font-size: 2vw;
+        margin: 5px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+    }
+}
+
+/* header */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header > a > img {
+        width: 30%;
+        margin-right: 0;
+        margin-bottom: 2%;
+    }
+
+    header > h1 {
+        font-size: 3vw;
+        margin-bottom: 2%;
+    }
+
+    #login {
+        grid-template-columns: 1fr;
+        margin-right: 0;
+        margin-top: 2%;
+    }
+
+    #login > button {
+        font-size: 3vw;
+        height: 10vw;
+        line-height: 6vw;
+        padding: 3vw 4.8vw;
+        border-radius: 5vw;
+        margin: 2% 0;
+    }
+}
+
+/* index */
+@media only screen and (max-width: 768px) {
+    #myticketsmenu {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #myticketsmenu {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* login */
+@media (max-width: 600px) {
+    #loginpage {
+        width: 100%;
+        padding: 40px;
+    }
+
+    #loginpage h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    #loginpage input[type="email"],
+    #loginpage input[type="password"] {
+        width: 100%;
+    }
+
+    #loginpage #button {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+/* my tickets */
+@media screen and (max-width: 600px) {
+    .ticketContainer {
+        padding: 5px;
+    }
+
+    .department-tickets {
+        padding: 10px;
+    }
+
+    .department-tickets select,
+    .department-tickets input[type="submit"] {
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    h2,
+    h3 {
+        font-size: 18px;
+    }
+}
+
+/* profile */
+
+@media screen and (max-width: 600px) {
+    .user-data {
+        margin-left: 0;
+    }
+
+    #edit-profile-button {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* register */
+@media screen and (max-width: 600px) {
+    #registerUser {
+        max-width: 90%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+
+    #registerUser h1 {
+        font-size: 5vw;
+    }
+
+    #registerUser input[type="submit"] {
+        font-size: 4vw;
+    }
+}
+
+/* search */
+
+@media (max-width: 600px) {
+    #searching1,
+    #searching2 {
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+
+    #searchprofiles,
+    #searchtags {
+        font-size: 14px;
+    }
+
+    #searchprofiles ul,
+    #searchtags ul {
+        max-height: 150px;
+    }
+}
+
+/* ticket */
+
+@media (max-width: 600px) {
+    #ticket {
+        padding: 20px;
+    }
+
+    #ticket h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+
+    #ticket input[type="submit"] {
+        padding: 8px 120px;
+        font-size: 20px;
+    }
+
+    #ticket .ticketitem input[type="submit"] {
+        padding: 8px 120px;
+        font-size: 20px;
+    }
+}
+
+/* ticket hashtag */
+
+@media only screen and (max-width: 600px) {
+    .ticketHashtags {
+        flex-wrap: wrap;
+    }
+
+    .ticketHashtags h2 {
+        margin: 5px 0;
+    }
+}
+
+/* ticket managing */
+@media (max-width: 768px) {
+    #form,
+    #searching,
+    #add-department,
+    #add-hashtags {
+        width: 90%;
+    }
+}
+
+/* ticket per hashtag */
+
+@media (max-width: 768px) {
+    .ticketPerHashtag,
+    #ticket-list {
+        width: 90%;
+        margin: 5% auto;
+        padding: 10px;
+    }
+
+    .ticketPerHashtag h1 {
+        margin-bottom: 10px;
+    }
+
+    .loginItem {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    h2 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+}

@@ -33,23 +33,4 @@
     justify-content: space-between;
   }
   
-  @media screen and (max-width: 768px) {
-    .footer {
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 10px;
-      height: auto;
-    }
-  
-    .footer a {
-      font-size: 2vw;
-      margin: 5px;
-    }
-  
-    .footer-links {
-      flex-direction: column;
-    }
-  }
   

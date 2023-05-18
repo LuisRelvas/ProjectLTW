@@ -90,7 +90,7 @@
     } 
     if($_SESSION['id'] == $user->id){
     $_SESSION['name'] = $user->getName();
-      $_SESSION['role'] == $user->role;
+      $_SESSION['role'] = $user->role;
   }
     $user->save($db);
 }

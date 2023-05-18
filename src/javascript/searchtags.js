@@ -23,7 +23,7 @@ if (searchTags) {
             const link = document.createElement('a')
             const tittle = document.createElement('h3')
             link.href = '../actions/addHashtag.action.php?tag=' + tag.tag + '&csrf=' + csrf
-            link.textContent = tag.tag
+            link.textContent = tag.tag  
             article.appendChild(link)
             section.appendChild(article)
         

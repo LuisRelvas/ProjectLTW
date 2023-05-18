@@ -16,6 +16,11 @@
     header('Location: ../pages/index.php');
     die();
   }
+  if(!valid_name($_POST['tittle'])||!valid_name($_POST['description'])) {
+    $session->addMessage('error', 'Um dos parametros contém caracteres inválidos');
+    header('Location: ../pages/ticketadd.php');
+    die(); 
+  }
   $_SESSION['input']['description newUser'] = htmlentities($_POST['description']);
   $_SESSION['input']['tittle newUser'] = htmlentities($_POST['tittle']);
   $_SESSION['input']['initial_date newUser'] = date("Y-m-d");

@@ -15,6 +15,12 @@
   $_SESSION['input']['department_name oldUser'] = ($_POST['department']);
   $_SESSION['input']['tittle oldUser'] = htmlentities($_POST['tittle']);
   $_SESSION['input']['description oldUser'] = htmlentities($_POST['description']);
+
+  if(!valid_name($_POST['tittle'])||!valid_name($_POST['description'])) {
+    $session->addMessage('error', 'Um dos parametros contém caracteres inválidos');
+    header('Location: ../pages/profile.php');
+    die(); 
+  }
   $db = getDatabaseConnection();
   $ticket = Ticket::getinfoTicket($db, $_SESSION['ticket_id']);
   if($_POST['department'] == null || $_POST['status'] == null){

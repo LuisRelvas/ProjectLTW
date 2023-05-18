@@ -123,13 +123,13 @@
         $stmt1->execute();
         $department = $stmt1->fetchAll();
         foreach($department as $departments){ 
-          $stmt3 = $db->prepare('SELECT * FROM agent where id = ? and department_id = ? and department_id != 1');
+          $stmt3 = $db->prepare('SELECT * FROM agent where id = ? and department_id = ?');
           $stmt3->execute(array($this->id,$departments['department_id']));
           $agent = $stmt3->fetch();
           if(!$agent) { 
-            if($departments['department_id'] != 1){
+            
           $stmt2 = $db->prepare('INSERT INTO agent (id,department_id) VALUES (?,?)');
-          $stmt2->execute(array($this->id,$departments['department_id']));}}
+          $stmt2->execute(array($this->id,$departments['department_id']));}
         }
       }
       if($this->role == 1) {

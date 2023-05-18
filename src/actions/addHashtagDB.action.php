@@ -17,6 +17,12 @@
     header('Location: ../pages/index.php');
     die();
   }
+
+  if(!valid_name($_POST['hashtag'])) {
+    $session->addMessage('error', 'Hashtag contém caracteres inválidos');
+    header('Location: ../pages/ticketmanage.php');
+    die(); 
+  }
     $_SESSION['input']['hashtag newUser'] = htmlentities($_POST['hashtag']);
     $db = getDatabaseConnection();
     $stmt1 = $db->prepare('SELECT * FROM hashtag WHERE tag = ?');

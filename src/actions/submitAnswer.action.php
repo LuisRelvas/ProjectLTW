@@ -10,6 +10,11 @@
       header('Location: ../pages/index.php');
       die();
     }
+    if(!valid_name(($_POST['answer']))) {
+      $session->addMessage('error', 'Introduz uma resposta válida');
+      header('Location: ../pages/ticketseeonly.php?ticket_id='.$_GET['ticket_id']);
+      die(); 
+    }
     $db = getDatabaseConnection();
     $ticket_id = intval($_GET['ticket_id']);
     $text = $_POST['answer'];

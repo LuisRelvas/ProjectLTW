@@ -12,6 +12,11 @@
                 >
 
                 <link rel="stylesheet" href="../css/responsive.css">
+                <link rel="stylesheet" href="../css/layout.css">
+                <link rel="stylesheet" href="../css/style.css">
+                <link rel="stylesheet" href="../css/hover.css">
+                <link rel="stylesheet" href="../css/common.css">
+                <link rel="stylesheet" href="../css/keyframe.css">
 
                 <link rel="stylesheet" href="../css/header.css">
                 <link rel="stylesheet" href="../css/index.css">

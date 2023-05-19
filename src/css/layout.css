@@ -1,0 +1,816 @@
+/* ticket layout */
+
+#ticket-add {
+  padding: 15px;
+  margin: 0 auto;
+  width: 80%;
+  border-radius: 5px;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+
+#ticket-add h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#ticket-add form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-top: 30px;
+}
+
+#ticket-add label {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-bottom: 10px;
+  text-align: left;
+  margin-left: 5%;
+}
+
+#ticket-add input[type="text"],
+#ticket-add select {
+  display: block;
+  width: 95%;
+  padding: 15px;
+  margin-bottom: 10px;
+  margin-top: 2%;
+}
+
+#ticket-add input[type="submit"] {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  #ticket-add select {
+    margin-left: 5%;
+    width: 90%;
+    margin-bottom: 5%;
+  }
+
+  /* access denied layout */
+
+  #accessDenied {
+    text-align: center;
+    padding: 5%;
+  }
+
+  #deniedImage {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  #accessDenied h2 {
+    margin-bottom: 2vw;
+  }
+
+  #accessDenied h3 {
+    margin-bottom: 2vw;
+  }
+
+  /* draw info ticket layout */
+  
+  #ticket-info{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ticket-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: justify;
+  }
+
+  .ticket-card h1 {
+    margin: 0;
+  }
+
+  .ticket-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+
+  .ticket-details p {
+    margin-bottom: 10px;
+  }
+
+  #action-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    width: 100%;
+    margin: 0 auto;
+    /* Add padding to create spacing */
+    padding: 10px;
+  }
+  
+  .edit-form,
+  .delete-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 10px; /* Increase the margin value */
+    width: 50%; /* Add this line to ensure all buttons have the same width */
+  }
+
+  .changes-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 10px; /* Increase the margin value */
+  }
+
+  #delete-ticket-button, #edit-ticket-button, #see-changes-button {
+
+    padding: 0;
+
+  }
+
+  /* edit faq layout */
+
+  .edit-faq {
+    margin: 20px auto;
+    padding: 20px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .edit-faq form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .edit-faq label {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .edit-faq input[type="text"] {
+    padding: 10px;
+    width: 400px;
+
+  }
+
+  .edit-faq input[type="submit"] {
+    padding: 10px 20px;
+    margin-left: 125px;
+    margin-top: 30px;
+
+  }
+
+  /* edit ticket layout */
+
+  #editTicket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px auto;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  #editTicket h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+  }
+
+  #editTicket label {
+    margin-bottom: 10px;
+  }
+  
+  #editTicket input[type="text"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    
+  }
+  
+
+  #editTicket select {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  #editTicket input[type="submit"] {
+    background-color: var(--principalColor);
+    color: var(--whiteColor);
+    border: none;
+    
+    border-radius: 5px;
+    cursor: pointer;
+
+  }
+
+  /* edit user layout */
+
+  #editProfile {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 5%;
+    text-align: left;
+  }
+
+  #editProfile h1 {
+    margin-bottom: 2vw;
+    text-align: center;
+    margin-top: 2vw;
+  }
+
+  #editProfile h2 {
+    width: 100%;
+    padding: 2%;
+
+    margin-bottom: 0;
+    margin-left: 1%;
+  }
+
+  #editProfile form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+  }
+
+  #editProfile label {
+    display: block;
+    margin-bottom: 1vw;
+    margin-left: -6.5%;
+  }
+
+  #editProfile select {
+    width: 100%;
+    padding: 2%;
+    
+    margin-bottom: 2%;
+    text-align: left;
+  }
+
+  #editProfile select option {
+    text-align: left;
+  }
+
+  #editProfile select[name="role"] {
+    display: block;
+    margin-bottom: 2%;
+    
+    margin-left: -2.5vw;
+    width: 50%;
+  }
+
+  #editProfile input[type="text"],
+#editProfile input[type="email"],
+#editProfile input[type="password"] {
+  width: 100%;
+  padding: 2%;
+
+}
+
+#editProfile input[type="submit"] {
+
+    padding: 2% 4%;
+
+    margin-top: 10%;
+  }
+  
+
+  #editProfile input[name="csrf"] {
+    display: none;
+  }
+  
+  /* faq answer layout */
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: justify;
+  }
+
+  #faq-form {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* align-items: center without resize */
+    align-items: stretch;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"],
+textarea {
+  width: 100%;
+  resize: none;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+  
+    margin-top: 2%;
+  }
+
+  #faq-list {
+    width: 90%;
+    
+    padding: 20px;
+  }
+
+
+#faq-list h3 {
+    margin-top: 0;
+  }
+  
+  #faq-list p {
+    margin-bottom: 10px;
+  }
+  
+  .answer-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+   
+    text-align: justify;
+  }
+  
+
+  /* index layout */
+
+  #banner {
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+
+   
+
+  #index-card {
+    padding: 20px;
+    text-align: center;
+    margin: 2%;
+  }
+
+
+  #index-card img {
+    width: 40%;
+    height: 40%;
+    margin-bottom: 20px;
+  }
+
+  #index-card h1 {
+    margin-bottom: 10px;
+  }
+
+  #index-card p {
+    margin-bottom: 0;
+  }
+
+  #index-card h1 {
+    margin-bottom: 10px;
+  }
+
+  #myticketsmenu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+   
+  }
+
+  #myticketsmenu > button {
+    white-space: nowrap;
+    display: inline-block;
+    display: inline-block;
+    height: 40px;
+    margin: 0;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    vertical-align: baseline;
+   
+  }
+
+  /* login layout */
+
+  #loginpage {
+    margin: 20px auto;
+    padding: 80px;
+
+    width: 300px;
+    text-align: center;
+
+  }
+
+  #loginpage h1 {
+    margin-bottom: 40px;
+    margin-top: -20px;
+  }
+
+  #loginpage form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: -50px;
+  }
+
+  #loginpage label {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  #loginpage input[type="email"],
+#loginpage input[type="password"] {
+  padding: 10px;
+  width: 370px;
+  margin-bottom: 10px;
+}
+
+#loginpage #button {
+    padding: 10px;
+  
+    margin-left: 50px;
+    width: 300px;
+    margin-top: 30px;
+    margin-bottom: -50px;
+  }
+  
+/* ticket layout */
+
+  
+#ticket {
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: center;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+  }
+  
+
+    
+  #ticket h2 {
+
+    margin-bottom: 40px;
+  }
+  
+
+  #ticket label {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  #ticket input[type=submit] {
+    padding: 10px 170px;
+    margin-bottom: 5%;
+  }
+  
+  #ticket .ticketitem ticket-add {
+    box-shadow: var(--boxShadow);
+  }
+
+  #ticket .ticketitem label {
+    display: block;
+    margin-bottom: 20px;
+   
+  }
+
+  #ticket .ticketitem input[type=submit] {
+    
+   
+    padding: 10px 170px;
+   
+    margin-bottom: 5%;
+  }
+  
+  /* my tickets layout */
+
+  #myTickets {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5%;
+  }
+
+  .ticketContainer {
+    width: 80%;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-bottom: 40px;
+  }
+
+  .department-tickets {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .department-tickets select,
+  .department-tickets input[type="submit"] {
+    padding: 10px;
+   
+  }
+
+  .department-tickets select {
+    margin-right: 10px;
+    width: 50%;
+    margin-bottom: 5%;
+  }
+    
+  .department-tickets input[type="submit"] {
+    width: 30%;
+  }
+
+    
+  h2 {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-left: 10%;
+  }
+
+  h3 {
+    margin-bottom: 10px;
+    margin-left: 10%;
+  }
+
+  /* profile layout */
+
+  .user-data {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 10px;
+    margin-left: 30px;
+  }
+
+  .user-data label {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .user-data span {
+    margin-left: 10px;
+  }
+
+
+.user-data span[for="role"] {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  #more {
+    margin-top: 20px;
+  }
+
+  #edit-profile-button {
+    padding: 10px 20px;
+
+    margin-top: 0px;
+    width: 300px;
+    margin-left: 40%;
+    margin-bottom: 50px;
+    margin-top: 50px;
+
+  }
+
+  /* register layout */
+
+  #registerUser {
+    padding: 10px;
+    margin: 0px auto;
+    max-width: 50%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    margin-bottom: 10%;
+  }
+
+  #registerUser h1 {
+    text-align: center;
+  }
+  
+  #registerUser form {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+
+  #registerUser label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+    margin-left: 5%;
+  }
+
+  #registerUser input[type="text"],
+  #registerUser input[type="email"],
+  #registerUser input[type="password"] {
+    display: block;
+    width: 95%;
+    padding: 5px;
+
+  }
+
+  #registerUser input[type="submit"] {
+    display: block;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    padding: 10px;
+
+    width: 70%;
+    margin-left: 15%;
+  }
+
+  /* search layout */
+
+  #searching1, #searching2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+   
+    text-align: justify;
+  }
+
+  #criterio1, #criterio2 {
+    width: 100%;
+    text-align: center;
+    
+    margin-bottom: 10px;
+    font-size: 100%;
+    padding: 5px;
+
+    
+  }
+
+  #searchprofile, #searchtag {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    padding: 5px;
+    
+  }
+
+  #searchprofiles, #searchtags {
+    width: 100%;
+    padding: 10px;
+  
+
+  }
+
+  #searchprofile:focus + #searchprofiles, #searchtag:focus + #searchtags {
+    display: inline-block;
+  }
+  
+  #searchprofiles a, #searchtags a {
+    
+    padding: 5px;
+    display: block;
+    margin-bottom: 2.5%;
+  }
+  
+  
+/* tickets hashtags layout */
+
+.ticketHashtags{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+   
+    text-align: justify;
+}
+
+
+.ticketHashtags h2 {
+
+    padding: 5px;
+    margin: 5px;
+
+
+
+
+}
+
+/* ticket managing layout */
+
+#form, #searching, #add-department, #add-hashtags {
+    width: 80%;
+    margin: 2% auto;
+    padding: 20px;
+    
+}
+
+#allhashtag {
+    margin-top: 10px;
+    padding: 10px;
+
+}
+
+#add-department input[type="text"],
+#add-hashtags input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    
+}
+
+#add-department #button,
+#add-hashtags #button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    
+}
+
+/* tickets per hashtag layout */
+
+.ticketPerHashtag,
+#ticket-list {
+  width: 80%;
+  margin: 2% auto;
+  padding: 20px;
+  
+}
+
+
+.ticketPerHashtag h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  #ticket-list {
+    margin-top: 20px;
+  }
+
+  .loginItem {
+
+    margin-bottom: 10px;
+  }
+
+  

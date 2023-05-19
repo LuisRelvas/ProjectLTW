@@ -1,0 +1,887 @@
+:root {
+    --principalColor: #8C2D19;
+    --backgroundColor: #e6e6e6;
+    --whiteColor: #FFF;
+    --focusBorderColor: rgba(140, 45, 25, 0.5);
+    --submitHoverColor: #D24016;
+    --borderColor: #ccc;
+    --blackColor: black;
+    --boxShadow: 0px 0px 5px 0px var(--principalColor);
+
+  }
+  
+  
+  #ticket-add {
+    background-color: var(--backgroundColor);
+  
+    box-shadow: 0 0 5px 0 var(--principalColor);
+  }
+
+  
+  #ticket-add label {
+    color: var(--blackColor);
+    font-size: 1.5vw;
+  }
+  
+  #ticket-add input[type="text"],
+  #ticket-add select {
+    border: 1px solid var(--borderColor);
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  
+  #ticket-add input[type="submit"] {
+    background-color: var(--principalColor);
+    color: var(--whiteColor);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 1.8vw;
+  }
+  
+  #ticket-add input[type="submit"]:hover {
+    background-color: var(--submitHoverColor);
+  }
+  
+  #ticket-add select {
+    height: auto;
+    font-size: 1.4vw;
+  }
+  
+  #ticket-add select optgroup {
+    font-weight: bold;
+  }
+  
+
+  /* access denied */
+
+  :root {
+    --backgroundColor: #e6e6e6;
+    --principalColor: #8c2d19;
+    --buttonHoverColor: #d24016;
+    --whiteColor: white;
+    --borderColor: #ccc;
+    --boxShadow: 0px 0px 5px 0px var(--principalColor);
+  }
+
+  #accessDenied {
+    background-color: var(--backgroundColor);
+    border: 1px solid var(--borderColor);
+    border-radius: 10px;
+  }
+
+
+ 
+  
+  #accessDenied p {
+    font-size: 1.2vw;
+  }
+  
+  /* draw info ticket */
+
+  .ticket-card {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .ticket-card h1 {
+    font-weight: 600;
+    color: #8C2D19;
+  }
+
+  .label {
+    font-weight: bold;
+  }
+
+  #action-div {
+    /* Add padding to create spacing */
+    box-sizing: border-box;
+  }
+  
+  .edit-form,
+  .delete-form {
+    
+    color: white;
+    background-color: #8C2D19;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .changes-form {
+   
+    color: white;
+    
+    background-color: #8C2D19;
+    font-size: 24px;
+    
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .changes-form a{
+    /* remove link  */
+    text-decoration: none;
+    color: white;
+}
+
+.edit-form:hover,
+.delete-form:hover, .changes-form:hover {
+  background-color: #E6B0AA;
+}
+
+#delete-ticket-button, #edit-ticket-button, #see-changes-button {
+    /* remove button aspect */
+    background: none;
+    color: #f5f5f5;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+
+  }
+
+
+
+  /* edit faq */
+
+  :root {
+    --backgroundColor: #e6e6e6;
+    --buttonColor: #8c2d19;
+    --buttonHoverColor: #d24016;
+    --whiteColor: white;
+    --borderColor: #ccc;
+  }
+
+  .edit-faq {
+    background-color: var(--backgroundColor);
+    border: 1px solid var(--borderColor);
+    border-radius: 10px;
+  }
+
+  
+  .edit-faq input[type="text"] {
+    border: 1px solid var(--borderColor);
+    font-size: 16px;
+  }
+  
+  .edit-faq input[type="submit"] {
+    background-color: var(--buttonColor);
+    color: var(--whiteColor);
+    border: none;
+    cursor: pointer;
+    
+    border-radius: 10px;
+    font-size: 16px;
+  }
+
+
+.edit-faq input[type="submit"]:hover {
+    background-color: var(--buttonHoverColor);
+  }
+  
+  /* edit ticket */
+
+  :root {
+    --backgroundColor: #e6e6e6;
+    --principalColor: #8c2d19;
+    --buttonHoverColor: #d24016;
+    --whiteColor: white;
+    --borderColor: #ccc;
+    --boxShadow: 0px 0px 5px 0px var(--principalColor);
+  }
+  
+
+  #editTicket {
+    
+    background-color: var(--backgroundColor);
+    
+    border-radius: 10px;
+    box-shadow: var(--boxShadow); 
+
+  }
+
+
+
+  #editTicket input[type="text"] {
+
+    border-radius: 5px;
+    border: var(--border);
+    font-size: 14px;
+  }
+  
+  #editTicket select {
+    border-radius: 5px;
+    border: var(--border);
+  }
+
+  #editTicket input[type="submit"] {
+    background-color: var(--principalColor);
+    color: var(--whiteColor);
+    border: none;
+    
+    border-radius: 5px;
+    cursor: pointer;
+    
+    font-size: 20px;    
+
+  }
+
+  #editTicket input[type="submit"]:hover {
+    background-color: var(--submitHoverColor);
+  }
+  
+  /* edit user */
+
+  :root {
+    --backgroundColor: #e6e6e6;
+    --borderColor: #ccc;
+    --seeProfileShadow: 0 0 5px rgba(94, 2, 2, 0.582);
+    --boxShadowForm: 0 0 5px rgba(0, 0, 0, 0.2);
+    --principalColor: #8c2d19;
+    --whiteColor: white;
+    --submitHoverColor: #d24016;
+  }
+
+  #editProfile {
+   
+    background-color: var(--borderColor);
+    border: var(--border);
+    border-radius: 5px;
+    box-shadow: var(--seeProfileShadow);
+
+  }
+
+
+  #editProfile select {
+    
+    border: var(--border);
+    border-radius: 5px;
+    font-size: 1.2vw;
+    
+  }
+
+  #editProfile select[name="role"] {
+    
+    font-size: 1.2vw;
+    font-weight: bold;
+    
+  }
+
+
+  #editProfile input[type="text"],
+#editProfile input[type="email"],
+#editProfile input[type="password"] {
+  
+  border: var(--border);
+  border-radius: 5px;
+  font-size: 1vw;
+}
+
+#editProfile input[type="submit"] {
+    background-color: var(--principalColor);
+    color: var(--whiteColor);
+    border: none;
+    
+    border-radius: 10px;
+    font-size: 1.5vw;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+
+#editProfile input[type="submit"]:hover {
+  background-color: var(--submitHoverColor);
+  cursor: pointer;
+}
+
+/* faq answer */
+
+.form-container {
+
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  }
+
+
+  #faq-form {
+   
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  }
+
+  .form-group label {
+    font-weight: bold;
+    
+  }
+
+  input[type="text"],
+textarea {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #8C2D19;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #E6B0AA;
+  }
+
+  #faq-list {
+  
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .answer-element {
+
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  }
+  
+
+/* index */
+
+ 
+
+#index-card {
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+   
+  }
+
+
+  #index-card p {
+    font-size: 18px;
+  }
+
+
+
+
+  #myticketsmenu {
+   
+    color: #fff;
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+  }
+
+  #myticketsmenu > button > a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+  }
+
+  #myticketsmenu > button {
+    background-color: white;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: black;
+    cursor: pointer;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    outline: none;
+    text-decoration: none;
+    transition: color 100ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    border-color: #8C2D19;
+  }
+
+  #myticketsmenu > button:hover,
+  #myticketsmenu > button:focus {
+    background-color: #e6b0aa;
+    
+    
+  }
+
+  #myticketsmenu > button:hover > a {
+    color: #8C2D19;
+  }
+
+  /* login */
+
+  :root {
+    --backgroundColor: #e6e6e6;
+    --buttonColor: #8c2d19;
+    --buttonHoverColor: #d24016;
+    --whiteColor: white;
+    --borderColor: #ccc;
+    --buttonShadowColor: #8c2d19;
+  }
+  
+
+  #loginpage {
+    background-color: var(--backgroundColor);
+    border: 1px solid var(--borderColor);
+    border-radius: 10px;
+    box-shadow: 0 0 5px var(--buttonShadowColor);
+  }
+  
+
+
+
+  #loginpage input[type="email"],
+#loginpage input[type="password"] {
+ 
+  border: 1px solid var(--borderColor);
+  font-size: 16px;
+}
+
+#loginpage #button {
+    
+    background-color: var(--buttonColor);
+    color: var(--whiteColor);
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 25px;
+    
+  }
+  
+  #loginpage #button:hover {
+    background-color: var(--buttonHoverColor);
+  }
+
+  /* ticket  */
+
+  :root {
+    --principalColor: #8C2D19;
+    --boxShadow: 0px 0px 5px 0px var(--principalColor);
+    --backgroundColor: #e6e6e6;
+    --whiteColor: #FFF;
+    --blackColor: #000;
+    --submitHoverColor: #D24016;
+    --borderolor: 1px solid #ccc;
+  }
+  
+    
+  #ticket {
+  
+    background-color: var(--borderColor);
+    box-shadow: var(--boxShadow);
+
+    border-radius: 5px;
+  }
+
+    
+
+  #ticket label {
+    font-size: 24px;
+
+    color: var(--blackColor);
+  }
+
+  #ticket input[type=submit] {
+    background-color: var(--principalColor);
+    color: var(--whiteColor);
+    font-size: 24px;
+    
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  
+  #ticket input[type=submit]:hover {
+    background-color: var(--submitHoverColor);
+  }
+
+  #ticket .ticketitem ticket-add {
+    box-shadow: var(--boxShadow);
+  }
+
+  #ticket .ticketitem label {
+    font-size: 24px;
+    color: var(--blackColor);
+    font-weight: normal;
+  }
+
+  #ticket .ticketitem input[type=submit] {
+    background-color: var(--principalColor);
+    color: var(--whiteColor);
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  #ticket .ticketitem input[type=submit]:hover {
+    background-color: var(--submitHoverColor);
+  }
+  
+  #ticket .ticketitem a {
+    color: var(--linkColor);
+    text-decoration: none;
+  }
+  
+  #ticket .ticketitem a:hover {
+    color: var(--linkHoverColor);
+  }
+  
+  /* mytickets */
+
+
+:root {
+    --principalColor: #8C2D19;
+    --backgroundColor: #e6e6e6;
+    --whiteColor: #FFF;
+    --focusBorderColor: rgba(140, 45, 25, 0.5);
+    --submitHoverColor: #D24016;
+    --borderColor: #ccc;
+    --blackColor: black;
+    --linkColor: #0366d6;
+    --seeTicketShadow: 0 2px 4px rgba(87, 1, 1, 0.507);
+}
+
+.ticketContainer {
+    background-color: var(--backgroundColor);
+    border-radius: 10px;
+    box-shadow: var(--seeTicketShadow);
+  }
+
+  .loginItem {
+    color: var(--blackColor);
+  }
+
+    
+  .loginItem a {
+    color: var(--principalColor);
+    text-decoration: none;
+    font-size: 3vw;
+  }
+
+  .loginItem a:hover {
+    text-decoration: underline;
+  }
+
+  .department-tickets select,
+  .department-tickets input[type="submit"] {
+    padding: 10px;
+  }
+
+  .department-tickets select {
+    background-color: var(--borderColor);
+
+  }
+
+    
+  .department-tickets input[type="submit"] {
+
+    width: 30%;
+  }
+  
+
+  .department-tickets input[type="submit"]:hover {
+    background-color: var(--buttonHoverColor);
+  }
+
+
+
+
+  /* profile */
+
+  :root {
+    --backgroundColor: #e6e6e6;
+    --buttonColor: #8c2d19;
+    --buttonHoverColor: #d24016;
+    --whiteColor: white;
+    --borderColor: #ccc;
+  }
+  
+  .user-data label {
+    font-weight: bold;
+    text-decoration: underline;
+    color: var(--buttonColor);
+
+  }
+
+  #edit-profile-button:hover {
+    background-color: var(--buttonHoverColor);
+  }
+
+  #edit-profile-button {
+    background-color: var(--buttonColor);
+    color: var(--whiteColor);
+    border: none;
+    cursor: pointer;
+    
+    border-radius: 10px;
+    font-size: 25px;
+    
+    font-weight: bold;
+  }
+
+  /* register */
+
+  :root {
+    --principalColor: #8C2D19;
+    --backgroundColor: #e6e6e6;
+    --whiteColor: #FFF;
+    --focusBorderColor: rgba(140, 45, 25, 0.5);
+    --submitHoverColor: #D24016;
+    --borderColor: #ccc;
+    --errorColor: red;
+    --successColor: green;
+    --blackColor: black;
+  }
+  
+
+  #registerUser {
+    background-color: var(--backgroundColor);
+    
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 var(--principalColor);
+    
+  }
+
+
+  #registerUser label {
+
+    color: var(--blackColor);
+
+  }
+
+  #registerUser input[type="text"],
+  #registerUser input[type="email"],
+  #registerUser input[type="password"] {
+    
+    border: 1px solid var(--borderColor);
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+
+    
+  #registerUser input[type="submit"]:hover {
+    background-color: var(--submitHoverColor);
+  }
+
+  #registerUser input[type="submit"] {
+   
+    background-color: var(--principalColor);
+    color: var(--whiteColor);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 2vw;
+    
+  }
+
+  #registerUser a {
+    color: var(--linkColor);
+  }
+  
+  #registerUser a:hover {
+    color: var(--linkHoverColor);
+  }
+  
+  #registerUser .error-message {
+    color: var(--errorColor);
+  }
+
+  #registerUser .success-message {
+    color: var(--successColor);
+  }
+  
+
+  #registerUser input[type="text"]:focus,
+  #registerUser input[type="email"]:focus,
+  #registerUser input[type="password"]:focus {
+    border: var(--border);
+    outline: none;
+    box-shadow: 0 0 5px 0 var(--focusBorderColor);
+  }
+
+  /* search */
+
+  :root {
+    --backgroundColor: #f5f5f5;
+    --buttonColor: #8c2d19;
+    --buttonHoverColor: #d24016;
+    --whiteColor: white;
+    --borderColor: #ccc;
+  }
+
+  #searching1, #searching2 {
+
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  #criterio1, #criterio2 {
+   
+    font-size: 100%;
+    border: 1px solid transparent;
+    background-color: transparent;
+    border-radius: 5px;
+  
+    /* remove select styling */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  
+    /* non clickable */
+    pointer-events: none;
+  
+    
+  }
+  
+
+  #searchprofile, #searchtag {
+   
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  #searchprofiles, #searchtags {
+   
+    background-color: #f5f5f5;
+    border: none;
+    
+    border-radius: 5px;
+  
+  }
+
+  #searchprofiles a, #searchtags a {
+    text-decoration: none;
+    color: brown;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+  }
+
+  /* ticket hashtags */
+
+  .ticketHashtags{
+
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.ticketHashtags a {
+    text-decoration: none;
+
+}  
+
+
+
+
+/* ticket managing */
+
+
+#form, #searching, #add-department, #add-hashtags {
+   
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#allhashtag {
+   
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+#add-department input[type="text"],
+#add-hashtags input[type="text"] {
+   
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Add hover effect to submit button */
+#add-department #button:hover,
+#add-hashtags #button:hover {
+    background-color: #E6B0AA;
+}
+
+/* Add focus styles to inputs */
+#add-department input[type="text"]:focus,
+#add-hashtags input[type="text"]:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#add-department #button,
+#add-hashtags #button {
+    
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #8C2D19;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* tickets per hashtag */
+
+.ticketPerHashtag,
+#ticket-list {
+
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ticketPerHashtag {
+    background-color: #bcbaba;
+  }
+
+  .loginItem {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .loginItem a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .loginItem a:hover {
+    color: #ff0000; /* Change to the desired hover color */
+  }
+
+
+  
+
+
+  

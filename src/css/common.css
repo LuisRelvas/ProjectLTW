@@ -1,0 +1,187 @@
+body {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+  }
+
+  .footer {
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #8C2D19;
+    border-top: 10px solid black;
+    align-items: center;
+    
+    padding: 2%;
+    color: #fff;
+    height: 30px;
+  }
+  
+  
+  
+    
+    .footer a {
+      font-size: 1vw;
+      text-decoration: none;
+      color: #fff;
+      transition: black 0.3s ease;
+      margin: 10px;
+      /* text is just one line, not two */
+      white-space: nowrap;
+  
+    }
+    
+    .footer-links {
+      width: auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    
+  
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1%;
+        background-color: #8C2D19;
+        border-bottom: 5px solid black;
+        color: #fff;
+        margin-bottom: 0;
+      
+        
+      }
+      
+      .logo > a > img {
+        width: 25%;
+        height: auto;
+        margin-right: 2%;
+      }
+      
+      header > h1 {
+        font-size: 2.5vw;
+        margin: 0;
+      }
+      
+      #login {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1vw;
+        color: #fff;
+        text-decoration: none;
+        color: #fff;
+        transition: color 0.3s ease;
+        margin-right: 2%;
+      }
+      
+      #login > button {
+        background-color: white;
+        white-space: nowrap;
+        display: inline-block;
+        border-radius: 2vw;
+        border-style: none;
+        box-sizing: border-box;
+        color: black;
+        cursor: pointer;
+        display: inline-block;
+        font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 70%;
+        font-weight: 500;
+        height: 4vw;
+        line-height: 2vw;
+        list-style: none;
+        margin: 0;
+        outline: none;
+        padding: 1vw 1.6vw;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        transition: color 100ms;
+        vertical-align: baseline;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+      }
+      
+      #login > button > a {
+        text-decoration: none;
+        color: black;
+        transition: color 0.3s ease;
+      }
+      
+      #login > button:hover,
+      #login > button:focus {
+        background-color: #e6b0aa;
+      }
+      
+      #login > button:hover > a {
+        color: #000;
+      }
+      
+      
+/* Reset default form styles */
+form, select, label {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Label styles */
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+/* Select box styles */
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+
+/* Option group styles */
+optgroup {
+  font-weight: bold;
+}
+
+/* Option styles */
+option {
+  padding: 5px;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #8C2D19;
+}
+
+h2:hover {
+  color: #E6B0AA;
+}
+
+h3 {
+  font-size: 2vw;
+  color: black;
+}
+
+h1 {
+  font-size: 40px;
+  color: black;
+  
+}

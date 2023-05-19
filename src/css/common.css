@@ -185,3 +185,43 @@ h1 {
   color: black;
   
 }
+
+:root {
+  --principalColor: #8C2D19;
+  --backgroundColor: #e6e6e6;
+  --whiteColor: #FFF;
+
+  --focusBorderColor: rgba(140, 45, 25, 0.5);
+  --submitHoverColor: #E6B0AA;
+  --buttonHoverColor: #E6B0AA;
+
+  --borderColor: #ccc;
+  --blackColor: black;
+  --whiteColor: white;
+  --errorColor: red;
+  --successColor: green;
+
+  --linkColor: #0366d6;
+  --seeTicketShadow: 0 2px 4px rgba(87, 1, 1, 0.507);
+
+  --buttonColor: #8c2d19;
+
+  --seeProfileShadow: 0 0 5px rgba(94, 2, 2, 0.582);
+
+  --boxShadowForm: 0 0 5px rgba(0, 0, 0, 0.2);
+
+
+  --buttonShadowColor: #8c2d19;
+
+
+  --boxShadow: 0px 0px 5px 0px var(--principalColor);
+
+
+}
+
+a {
+  text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+    
+}

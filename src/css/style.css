@@ -1,15 +1,4 @@
-:root {
-    --principalColor: #8C2D19;
-    --backgroundColor: #e6e6e6;
-    --whiteColor: #FFF;
-    --focusBorderColor: rgba(140, 45, 25, 0.5);
-    --submitHoverColor: #D24016;
-    --borderColor: #ccc;
-    --blackColor: black;
-    --boxShadow: 0px 0px 5px 0px var(--principalColor);
 
-  }
-  
   
   #ticket-add {
     background-color: var(--backgroundColor);
@@ -56,14 +45,6 @@
 
   /* access denied */
 
-  :root {
-    --backgroundColor: #e6e6e6;
-    --principalColor: #8c2d19;
-    --buttonHoverColor: #d24016;
-    --whiteColor: white;
-    --borderColor: #ccc;
-    --boxShadow: 0px 0px 5px 0px var(--principalColor);
-  }
 
   #accessDenied {
     background-color: var(--backgroundColor);
@@ -126,7 +107,6 @@
 
   .changes-form a{
     /* remove link  */
-    text-decoration: none;
     color: white;
 }
 
@@ -150,13 +130,6 @@
 
   /* edit faq */
 
-  :root {
-    --backgroundColor: #e6e6e6;
-    --buttonColor: #8c2d19;
-    --buttonHoverColor: #d24016;
-    --whiteColor: white;
-    --borderColor: #ccc;
-  }
 
   .edit-faq {
     background-color: var(--backgroundColor);
@@ -187,14 +160,6 @@
   
   /* edit ticket */
 
-  :root {
-    --backgroundColor: #e6e6e6;
-    --principalColor: #8c2d19;
-    --buttonHoverColor: #d24016;
-    --whiteColor: white;
-    --borderColor: #ccc;
-    --boxShadow: 0px 0px 5px 0px var(--principalColor);
-  }
   
 
   #editTicket {
@@ -238,15 +203,6 @@
   
   /* edit user */
 
-  :root {
-    --backgroundColor: #e6e6e6;
-    --borderColor: #ccc;
-    --seeProfileShadow: 0 0 5px rgba(94, 2, 2, 0.582);
-    --boxShadowForm: 0 0 5px rgba(0, 0, 0, 0.2);
-    --principalColor: #8c2d19;
-    --whiteColor: white;
-    --submitHoverColor: #d24016;
-  }
 
   #editProfile {
    
@@ -388,12 +344,7 @@ button[type="submit"] {
     transition: color 0.3s ease;
   }
 
-  #myticketsmenu > button > a {
-    text-decoration: none;
-    color: black;
-    transition: color 0.3s ease;
-  }
-
+  
   #myticketsmenu > button {
     background-color: white;
     border-radius: 8px;
@@ -428,14 +379,6 @@ button[type="submit"] {
 
   /* login */
 
-  :root {
-    --backgroundColor: #e6e6e6;
-    --buttonColor: #8c2d19;
-    --buttonHoverColor: #d24016;
-    --whiteColor: white;
-    --borderColor: #ccc;
-    --buttonShadowColor: #8c2d19;
-  }
   
 
   #loginpage {
@@ -472,15 +415,7 @@ button[type="submit"] {
 
   /* ticket  */
 
-  :root {
-    --principalColor: #8C2D19;
-    --boxShadow: 0px 0px 5px 0px var(--principalColor);
-    --backgroundColor: #e6e6e6;
-    --whiteColor: #FFF;
-    --blackColor: #000;
-    --submitHoverColor: #D24016;
-    --borderolor: 1px solid #ccc;
-  }
+
   
     
   #ticket {
@@ -537,10 +472,7 @@ button[type="submit"] {
     background-color: var(--submitHoverColor);
   }
   
-  #ticket .ticketitem a {
-    color: var(--linkColor);
-    text-decoration: none;
-  }
+
   
   #ticket .ticketitem a:hover {
     color: var(--linkHoverColor);
@@ -549,17 +481,6 @@ button[type="submit"] {
   /* mytickets */
 
 
-:root {
-    --principalColor: #8C2D19;
-    --backgroundColor: #e6e6e6;
-    --whiteColor: #FFF;
-    --focusBorderColor: rgba(140, 45, 25, 0.5);
-    --submitHoverColor: #D24016;
-    --borderColor: #ccc;
-    --blackColor: black;
-    --linkColor: #0366d6;
-    --seeTicketShadow: 0 2px 4px rgba(87, 1, 1, 0.507);
-}
 
 .ticketContainer {
     background-color: var(--backgroundColor);
@@ -572,11 +493,7 @@ button[type="submit"] {
   }
 
     
-  .loginItem a {
-    color: var(--principalColor);
-    text-decoration: none;
-    font-size: 3vw;
-  }
+
 
   .loginItem a:hover {
     text-decoration: underline;
@@ -608,13 +525,6 @@ button[type="submit"] {
 
   /* profile */
 
-  :root {
-    --backgroundColor: #e6e6e6;
-    --buttonColor: #8c2d19;
-    --buttonHoverColor: #d24016;
-    --whiteColor: white;
-    --borderColor: #ccc;
-  }
   
   .user-data label {
     font-weight: bold;
@@ -641,17 +551,6 @@ button[type="submit"] {
 
   /* register */
 
-  :root {
-    --principalColor: #8C2D19;
-    --backgroundColor: #e6e6e6;
-    --whiteColor: #FFF;
-    --focusBorderColor: rgba(140, 45, 25, 0.5);
-    --submitHoverColor: #D24016;
-    --borderColor: #ccc;
-    --errorColor: red;
-    --successColor: green;
-    --blackColor: black;
-  }
   
 
   #registerUser {
@@ -722,14 +621,6 @@ button[type="submit"] {
 
   /* search */
 
-  :root {
-    --backgroundColor: #f5f5f5;
-    --buttonColor: #8c2d19;
-    --buttonHoverColor: #d24016;
-    --whiteColor: white;
-    --borderColor: #ccc;
-  }
-
   #searching1, #searching2 {
 
     background-color: #f5f5f5;
@@ -774,8 +665,7 @@ button[type="submit"] {
   }
 
   #searchprofiles a, #searchtags a {
-    text-decoration: none;
-    color: brown;
+    color: #8c2d19;
     border: 1px solid #ccc;
     border-radius: 5px;
 
@@ -792,11 +682,6 @@ button[type="submit"] {
 
 }
 
-
-.ticketHashtags a {
-    text-decoration: none;
-
-}  
 
 
 
@@ -872,7 +757,6 @@ button[type="submit"] {
   }
 
   .loginItem a {
-    text-decoration: none;
     color: #333;
   }
 

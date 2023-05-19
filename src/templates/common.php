@@ -16,34 +16,13 @@
                 <link rel="stylesheet" href="../css/style.css">
                 <link rel="stylesheet" href="../css/hover.css">
                 <link rel="stylesheet" href="../css/common.css">
-                <link rel="stylesheet" href="../css/keyframe.css">
-
-                <link rel="stylesheet" href="../css/header.css">
-                <link rel="stylesheet" href="../css/index.css">
-                <link rel="stylesheet" href="../css/drawInfoTicket.css">
                 <link rel="stylesheet" href="../css/accordion.css">
-                <link rel="stylesheet" href="../css/footer.css">
-                <link rel="stylesheet" href="../css/messages.css">
-                <link rel="stylesheet" href="../css/profile.css">
-                <link rel="stylesheet" href="../css/faqAnswer.css">   
-                <link rel="stylesheet" href="../css/ticketManaging.css">
-                <link rel="stylesheet" href="../css/ticketHashtags.css">
+
 
 
                 
                 
-                <link rel="stylesheet" href="../css/editFaq.css">
-                <link rel="stylesheet" href="../css/login.css">
-                <link rel="stylesheet" href="../css/drawAcessDenied.css">
-                <link rel="stylesheet" href="../css/search.css">
-                <link rel="stylesheet" href="../css/editUser.css">
-                <link rel="stylesheet" href="../css/register.css">
-                <link rel="stylesheet" href="../css/addTicket.css">
-                <link rel="stylesheet" href="../css/myTickets.css">
-                <link rel="stylesheet" href="../css/editTicket.css">
-                <link rel="stylesheet" href="../css/ticket.css">
-                <link rel="stylesheet" href="../css/ticketsPerHashtag.css">
-                
+
                 <script src="../javascript/searchticket.js" defer></script>
                 <script src="../javascript/searchprofile.js" defer></script>
                 <script src="../javascript/searchtags.js" defer></script>

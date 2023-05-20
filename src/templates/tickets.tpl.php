@@ -84,6 +84,7 @@ function drawDepartmentTickets(int $id) {
 
 }
 
+
 function drawTicketsperHashtag(string $name){ 
 
     $db = getDatabaseConnection();

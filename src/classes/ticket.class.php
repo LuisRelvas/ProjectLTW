@@ -108,6 +108,18 @@
       return $result;
     }
 
+    static function showChanges(PDO $db, int $ticket_id) : ?array{ 
+      $stmt = $db->prepare('SELECT * FROM changes WHERE ticket_id = ? and closed_id = 0');
+      $stmt->execute(array(intval($_GET['ticket_id'])));
+      $var = $stmt->fetchAll();
+      if($var) { 
+        return $var;
+      }
+      else { 
+        return null;
+      }
+    }
+
     static function getmyTickets(PDO $db, int $id) : ?array{ 
       $stmt = $db->prepare('SELECT ticket_id,id,department_id,status_id,tittle,description,initial_date,hashtag_id,agent_id FROM ticket where id = ?');
       $stmt->execute(array($id));
@@ -122,7 +134,6 @@
           $ticket['initial_date'],
           $ticket['hashtag_id'],
           $ticket['agent_id']
-          
         );
       }
       if($tickets == null) { 

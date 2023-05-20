@@ -116,6 +116,19 @@
       $stmt->execute(array($hashed_password, $id));
     
     }
+
+    static function checkAgent(PDO $db, int $id, int $department_id) : bool {
+      $stmt1 = $db->prepare('SELECT * FROM agent where id = ? and department_id = ?');
+      $stmt1->execute(array($id, $department_id));
+      $var1 = $stmt1->fetchAll(); 
+      if($var1) {
+        return true; 
+      }
+      else {
+        return false;
+      }
+    }
+
     function save($db) {
       $session = new Session();
       if($this->role == 0) {

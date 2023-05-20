@@ -124,35 +124,17 @@
 
         function drawBanner() { ?>
             
-            <section id="banner">
-                <!-- <header><h1>Trouble Ticket</h1> -->
-                
-                
-                <div id="index-card">
+    <nav id="menu">
+      <!-- just for the hamburguer menu in responsive layout -->
+      <input type="checkbox" id="hamburger"> 
+      <label class="hamburger" for="hamburger"></label>
 
-                <div id="myticketsmenu">
-
-
-
-                    <button clickable onclick="location.href='../pages/ticketsee.php'">
-                      MyTickets
-                    </button>
-
-
-                    <button clickable onclick="location.href='../pages/ticketadd.php'">
-                      Add Ticket
-                    </button>
-
-                    <button clickable onclick="location.href='../pages/ticketmanage.php'">
-                      Manage Ticket
-                    </button>
-
-        </div>
-            
-                    
-
-                </div>
-            </section> <?php 
+      <ul>
+        <li><a href="../pages/ticketsee.php">My Tickets</a></li>
+        <li><a href="../pages/ticketadd.php">Add Ticket</a></li>
+        <li><a href="../pages/ticketmanage.php">Manage Ticket</a></li>
+      </ul>
+    </nav><?php 
         }
 
         function drawAcessDenied() { ?>
@@ -190,14 +172,11 @@
 function drawFooter() { ?>
     </main>
     <footer>
-        <div class="footer"> <!-- Add the class attribute here -->
+        <div class="footer"> 
             <nav>
-            
-            <div class = "footer-links">
                 <h3><a href="../pages/index.php">Termos e Serviços</a></h3>
                 <h3><a href="../pages/index.php">Fale connosco</a></h3>
                 <h3><a href="../pages/index.php">Sobre nós</a></h3>
-            </div>
             </nav>
             <h3> &#169; Trouble Ticket FEUP</h3>
            </div>

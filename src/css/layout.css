@@ -27,7 +27,7 @@
   align-items: left;
   margin-bottom: 10px;
   text-align: left;
-  margin-left: 5%;
+  margin-right: 5%;
 }
 
 #ticket-add input[type="text"],
@@ -49,7 +49,7 @@
   }
 
   #ticket-add select {
-    margin-left: 5%;
+    margin-right: 5%;
     width: 90%;
     margin-bottom: 5%;
   }
@@ -388,61 +388,25 @@ button[type="submit"] {
   
 
   /* index layout */
-
-  #banner {
-    display: flex;
-    justify-content: flex-end;
-    align-items: stretch;
-    flex-direction: column-reverse;
-  }
-
-   
-
-  #index-card {
-    padding: 20px;
-    text-align: center;
-    margin: 2%;
-  }
-
-
-  #index-card img {
-    width: 40%;
-    height: 40%;
-    margin-bottom: 20px;
-  }
-
-  #index-card h1 {
-    margin-bottom: 10px;
-  }
-
-  #index-card p {
-    margin-bottom: 0;
-  }
-
-  #index-card h1 {
-    margin-bottom: 10px;
-  }
-
-  #myticketsmenu {
+  #menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-   
+    justify-items: center;
+    
   }
 
-  #myticketsmenu > button {
-    white-space: nowrap;
-    display: inline-block;
-    display: inline-block;
-    height: 40px;
-    margin: 0;
-    padding: 10px 16px;
-    position: relative;
-    text-align: center;
-    vertical-align: baseline;
-   
+  
+  #menu a {
+    text-decoration: none;
+    color: #000;
   }
 
+  #hamburger, .hamburger {
+    display: none;
+  }
   /* login layout */
 
   #loginpage {

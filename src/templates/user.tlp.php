@@ -99,7 +99,12 @@ function drawUser(int $id) {
             $roles = $stmt->fetchAll(PDO::FETCH_COLUMN);
             $admin = User::getUser($db, $_SESSION['id']);
             $user = User::getUser($db, intval($_GET['id'])); 
-            if($admin->role == 0) { ?>
+            
+            if($_SESSION['role'] != 2) {
+            ?>
+            
+                <label> Role: </label> <?php } ?> <?php
+                if($admin->role == 0) { ?>
         <select name="role">
             <optgroup label="Choose only one">
                 <?php foreach ($roles as $role) { ?>
@@ -108,11 +113,7 @@ function drawUser(int $id) {
             </optgroup>
         </select>
 
-            <?php } 
-            if($_SESSION['role'] != 2) {
-            ?>
-            
-                <label> Role: </label> <?php } ?>
+            <?php } ?>
                 <label>Nome: <input type="text" name="name" required="required" value="<?=($user->name)?>"></label>
                 <label>Username: <input type="text" name="username" required="required" value="<?=htmlentities($user->username)?>"></label>
                 <label>Email: <input type="email" name="email" required="required" value="<?=htmlentities($user->email)?>"></label>

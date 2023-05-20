@@ -7,7 +7,8 @@
 
   $db = getDatabaseConnection();
 
-  $profiles = User::search($db, $_GET['search'], $_GET['type']);
+  $profiles = User::search($db, $_GET['search'], $_GET['type'], $_GET['csrf']);
+  
   
   echo json_encode($profiles);
 ?>

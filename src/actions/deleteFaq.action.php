@@ -5,8 +5,13 @@
   require_once(dirname(__DIR__).'/classes/session.class.php');
   require_once(dirname(__DIR__).'/classes/department.class.php');
   require_once(dirname(__DIR__).'/utils/validator.php');
-  require_once(dirname(__DIR__).'/pages/templates/common.php');
+  require_once(dirname(__DIR__).'/templates/common.php');
   $session = new Session();
+  if($_GET['csrf'] != $_SESSION['csrf']){
+    $session->addMessage('error', 'Ocorreu um erro ao processar a sua requisição');
+    header('Location: ../pages/index.php');
+    die();
+  }
   if($_SESSION['role'] == 2 || !$session->isLoggedIn()) { 
     $session->addMessage('error', 'Não tem permissões para aceder a esta página');
     header('Location: ../pages/index.php');

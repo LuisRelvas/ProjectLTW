@@ -160,7 +160,7 @@
       $stmt->execute(array($this->role, $this->username, $this->name, $this->email,$this->id));
       
   }
-  static function search(PDO $db, string $search, string $type) : array {
+  static function search(PDO $db, string $search, string $type,string $csrf) : array {
 
     $querie = '';
     $result = array();

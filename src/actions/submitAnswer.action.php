@@ -5,6 +5,11 @@
   require_once(dirname(__DIR__).'/classes/session.class.php');
   require_once(dirname(__DIR__).'/classes/reply.class.php');
   $session = new Session();
+  if($_POST['csrf'] != $_SESSION['csrf']){
+    $session->addMessage('error', 'Ocorreu um erro ao processar a sua requisição');
+    header('Location: ../pages/ticketseeonly.php?ticket_id='.$_GET['ticket_id']);
+    die();
+  }
     if(!$session->isLoggedIn()) {
       $session->addMessage('error', 'Não tem permissões para aceder a esta página');
       header('Location: ../pages/index.php');

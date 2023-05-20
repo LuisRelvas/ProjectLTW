@@ -11,6 +11,15 @@
         return true;
     }
 
+    function valid_answer(String $attemp) : bool {
+        if (!preg_match("/^[A-Za-z0-9\s\?\.,!]+$/", $attemp)){
+            $session = new Session();
+            $session->addMessage('warning', "Formato de resposta inválido");
+            return false;
+        }
+        return true;
+    }
+
     function valid_email(String $attemp) : bool {
         if (filter_var($attemp, FILTER_VALIDATE_EMAIL) == NULL) {
             $session = new Session();

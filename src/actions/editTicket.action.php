@@ -6,6 +6,11 @@
   require_once(dirname(__DIR__).'/classes/department.class.php');
   require_once(dirname(__DIR__).'/utils/validator.php');
   $session = new Session();
+  
+  if($_POST['csrf'] != $_SESSION['csrf']){
+    $session->addMessage('error', "Ocorreu um problema a processar a sua requisição");
+    die(header('Location: ../pages/index.php'));
+  } 
 
   if (!$session->isLoggedIn()) {
     $session->addMessage('error', "Ação não disponível");
@@ -18,8 +23,8 @@
 
   if(!valid_name($_POST['tittle'])||!valid_name($_POST['description'])) {
     $session->addMessage('error', 'Um dos parametros contém caracteres inválidos');
-    header('Location: ../pages/profile.php');
-    die(); 
+    header('Location: ../pages/ticketsee.php');
+    die();
   }
   $db = getDatabaseConnection();
   $ticket = Ticket::getinfoTicket($db, $_SESSION['ticket_id']);
@@ -44,7 +49,7 @@
     $session->addMessage('error', "Estado não existe");
     header('Location: ../edit/ticket.edit.php');
   }
-  else if ($ticket && $department != "null" && $status != "null") {
+  else if ($ticket && $department != "null" && $status != "null" && valid_name($_POST['tittle']) && valid_name($_POST['description'])) {
     $ticket->department_id = $department;
     $ticket->tittle = $_POST['tittle'];
     $ticket->description = $_POST['description'];

@@ -60,6 +60,7 @@ function drawDepartmentTickets(int $id) {
         <option value="1">Ticket Id Crescente</option>
         <option value="2">Ticket Id Decrescente</option>
     </select>
+    <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
     <input id="button" type="submit" value="Entrar">   
     </form>
     </div>
@@ -178,10 +179,12 @@ function drawinfoTicket(int $ticket_id) {
         <div id="action-div">
             <form class="edit-form" action="../edit/ticket.edit.php?ticket_id=<?=$ticket->ticket_id?>" method="post">
                 <input id="edit-ticket-button" type="submit" value="Editar Ticket">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
             </form>
 
             <form class="delete-form" action="../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>" method="post">
                 <input id="delete-ticket-button" type="submit" value="Apagar Ticket">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
             </form>
         </div>
         
@@ -200,7 +203,7 @@ function drawinfoTicket(int $ticket_id) {
                 if($hashtag == "null"){
                     continue;
                 }
-                if($user->role != 2) { 
+                if($user->role != 2) {
                 ?><h2>
                     <a href="../actions/removeHashtag.action.php?hashtag_id=<?=$hashtags_id?>">
                 <h2><?=$hashtag?></h2></a><?php
@@ -232,10 +235,10 @@ function drawinfoTicket(int $ticket_id) {
     <div class="form-container">
         <form action="../actions/submitAnswer.action.php?ticket_id=<?=$ticket->ticket_id?>" method="POST" id="faq-form">
             <h2>Submit your answer</h2>
-        
             <div class="form-group">
                 <textarea id="answer" name="answer" required></textarea>
                 <input type="hidden" name="ticket_id" value="<?= $ticket_id ?>">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
             </div>
 
             <button type="submit">Submit</button>
@@ -294,6 +297,16 @@ function drawaddHashtags() {  ?>
 
 
 
+}
+
+function drawaddStatus() { ?>
+    <div id ="add-status">
+    <form action="../actions/addStatus.action.php" method ="post">
+          <label>Status: <input type="text" name="status" required="required" ></label>
+          <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+          <input id="button" type="submit" value="Validar Status">
+      </form>
+<?php
 }
 
 
@@ -428,6 +441,7 @@ function removeAgentDepartment() { ?>
     ?>
     <div id = "add-agent-department">
         <form action ="../actions/removeAgentDepartment.action.php" method="POST">
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
           <label>Agent:</label>
           <select name="agent">
             <optgroup label="List:">
@@ -486,17 +500,19 @@ function drawFaq(Session $session){ ?>
 <div id="faq">
   <h1>FAQ</h1>
   <?php foreach ($hashtags as $hashtag) { ?>
-    <div class="accordion-wrapper">
-      <button class="accordion"><?= $hashtag['question'] ?></button>
-      <div class="panel">
-        <p><?= $hashtag['answer'] ?></p>
-        <?php if ($_SESSION['role'] != 2 && $session->isLoggedIn()) { ?>
-          <div class="faqMenu">
-            <a href="../pages/editFaq.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>" class="faqMenuItem">Editar</a>
-            <a href="../actions/deleteFaq.action.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>" class="faqMenuItem">Apagar</a>
-          </div>
-        <?php } ?>
-      </div>
+    <button class="accordion"><?= $hashtag['question'] ?></button>
+    <div class="panel">
+      <p><?= $hashtag['answer'] ?></p>
+      <?php if ($_SESSION['role'] != 2 && $session->isLoggedIn()) { ?>
+        <div id="faqMenu">
+          <button>
+            <a href="../pages/editFaq.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>">Editar</a>
+          </button>
+          <button>
+            <a href="../actions/deleteFaq.action.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>&csrf=<?= $_SESSION['csrf']?>">Apagar</a>
+          </button>
+        </div>
+      <?php } ?>
     </div>
   <?php } ?>
 </div>
@@ -580,6 +596,7 @@ function drawTicketSearch() { ?>
         <option value = "nameD">Department</option>
         <option value = "nameSt">Status</option>
       </select>
+      <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
       <input id="searchticket" type="text" placeholder="pesquisa">
       <section id="searchtickets">
       </section>
@@ -682,10 +699,6 @@ function drawallStatus(){ ?>
 
 <?php
 }
-
-
-
-
 
 
 function drawAssignTicket() { ?>

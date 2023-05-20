@@ -22,7 +22,7 @@
 
                 
                 
-
+                <script src="../javascript/showfaq.js" defer></script>
                 <script src="../javascript/searchticket.js" defer></script>
                 <script src="../javascript/searchprofile.js" defer></script>
                 <script src="../javascript/searchtags.js" defer></script>
@@ -95,37 +95,9 @@
             </section> <?php 
         }
 
-        function drawFAQSDefault() { 
-            //$faqs = getFAQS();  // using database
-            ?>
-           
-    
-
-            <script>
-            var acc = document.getElementsByClassName("accordion");
-            var i;
-
-            for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                panel.style.display = "none";
-                } else {
-                panel.style.display = "block";
-                }
-            });
-            }
-            </script>
-
-            <?php 
-
-        }
-
         function drawBanner() { ?>
             
     <nav id="menu">
-      <!-- just for the hamburguer menu in responsive layout -->
       <input type="checkbox" id="hamburger"> 
       <label class="hamburger" for="hamburger"></label>
 
@@ -144,12 +116,7 @@
                 <h3>Sorry, you do not have permission to access this page.</h3>
                 <p>You're being redirected...</p>
             </section> 
-            <script>
-            setTimeout(function(){
-                // go to index.php
-                    window.location.href = "../pages/index.php";
-                }, 3000); // 5000ms = 5 seconds
-            </script>
+            <script src="../javascript/showAcessDenied.js" defer></script>
         <?php }  
 
         function drawMessages(Session $session) {

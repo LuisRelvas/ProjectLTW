@@ -13,6 +13,12 @@ $session = new Session();
 
 $integer = intval($_POST['order']); 
 
+if($_POST['csrf'] != $_SESSION['csrf']){
+    $session->addMessage('error', 'Ocorreu um erro ao processar a sua requisição');
+    header('Location: ../pages/ticketsee.php');
+    die();
+}
+
 $db = getDatabaseConnection();
 $tickets = Department::getTicketsDepartment($db,$_SESSION['id'],$integer);
 $_SESSION['order'] = $integer;

@@ -30,6 +30,7 @@ drawallStatus();
 drawTicketSearch();
 drawaddDepartment();
 drawaddHashtags(); 
+drawaddStatus();
 drawaddFaq();
 addAgentDepartment();
 removeAgentDepartment();

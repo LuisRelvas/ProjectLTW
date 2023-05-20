@@ -7,7 +7,8 @@
 
   $db = getDatabaseConnection();
 
-  $tickets = Ticket::search($db, $_GET['search'], $_GET['type']);
+  $tickets = Ticket::search($db, $_GET['search'], $_GET['type'],$_GET['csrf']);
+  
   
   echo json_encode($tickets);
 ?>

@@ -170,6 +170,7 @@ function drawUser(int $id) {
           <select id = "criterio1" > 
             <option value = "nameT1">Username</option>
           </select>
+          <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
           <input id="searchprofile" type="text" placeholder="pesquisa">
           <section id="searchprofiles">
 

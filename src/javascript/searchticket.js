@@ -2,9 +2,9 @@ const searchTickets = document.querySelector("#searchticket")
 
 if (searchTickets) {
     searchTickets.addEventListener('input', async function() {
-
+        const csrf = event.currentTarget.previousElementSibling.value
         const typeSearch = document.querySelector("#criterio")
-        const querie = '../api/tickets.api.php?search=' + this.value + '&type=' + typeSearch.value
+        const querie = '../api/tickets.api.php?search=' + this.value + '&type=' + typeSearch.value + '&csrf=' + csrf
         const response = await fetch(querie)
         const tickets = await response.json()
         const section = document.querySelector('#searchtickets')
@@ -22,7 +22,7 @@ if (searchTickets) {
             const article = document.createElement('article')
             const link = document.createElement('a')
             const tittle = document.createElement('h3')
-            link.href = 'ticketseeonly.php?ticket_id=' + ticket.ticket_id
+            link.href = 'ticketseeonly.php?ticket_id=' + ticket.ticket_id +  '&csrf=' + csrf
             link.textContent = ticket.ticket_id + ' --> ' + ticket.tittle
             article.appendChild(link)
             section.appendChild(article)

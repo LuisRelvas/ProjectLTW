@@ -5,7 +5,10 @@
   require_once(dirname(__DIR__).'/classes/session.class.php');
   require_once(dirname(__DIR__).'/utils/validator.php');
   $session = new Session();
-
+  if($_POST['csrf'] != $_SESSION['csrf']) {
+    $session->addMessage('error', "Ocorreu um problema a processar a sua requisição");
+    die(header('Location: ../pages/denied.php'));
+  }
   if (!$session->isLoggedIn()) {
     $session->addMessage('error', "Ação não disponível");
     die(header('Location: ../pages/denied.php'));

@@ -200,7 +200,7 @@ function drawinfoTicket(int $ticket_id) {
                 if($hashtag == "null"){
                     continue;
                 }
-                if($user->role != 2) { 
+                if($user->role != 2) {
                 ?><h2>
                     <a href="../actions/removeHashtag.action.php?hashtag_id=<?=$hashtags_id?>">
                 <h2><?=$hashtag?></h2></a><?php
@@ -594,6 +594,7 @@ function drawTicketSearch() { ?>
         <option value = "nameD">Department</option>
         <option value = "nameSt">Status</option>
       </select>
+      <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
       <input id="searchticket" type="text" placeholder="pesquisa">
       <section id="searchtickets">
       </section>

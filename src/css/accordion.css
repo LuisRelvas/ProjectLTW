@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.accordion-wrapper {
+  position: relative;
+}
+
 .accordion {
   background-color: #eee;
   color: #444;
@@ -15,73 +19,61 @@
   transition: 0.4s;
 }
 
-  
-  .active, .accordion:hover {
-    background-color: #ccc; 
-  }
-  
-  .panel {
-    padding: 0 18px;
-    display: none;
-    background-color: white;
-    overflow: hidden;
-  }
-
-  #faqMenu {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    color: #fff;
-    text-decoration: none;
-   
-    color: #fff;
-    transition: color 0.3s ease;
-  }
-
-  #faqMenu > button > a {
-    text-decoration: none;
-    color: white;
-    transition: color 0.3s ease;
-  }
-  
-  #faqMenu > button {
-    background-color: #8C2D19;
-    white-space: nowrap;
-    display: inline-block;
-    border-radius: 8px;
-    border-style: none;
-    box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    height: 40px;
-    width: 50%;
-    line-height: 20px;
-    list-style: none;
-    margin: 10px;
-    outline: none;
-    padding: 10px 16px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    transition: color 100ms;
-    vertical-align: baseline;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    border-color: #8C2D19;
-  }
-
-  #faqMenu > button:hover,
-#faqMenu > button:focus {
-  background-color: black;
-  
+.active,
+.accordion:hover {
+  background-color: #ccc;
 }
 
-#faqMenu > button:hover > a {
-  color: white;
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
 }
-  
+
+.faqMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.faqMenu a {
+  background-color: #8C2D19;
+  white-space: nowrap;
+  display: inline-block;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px; 
+  font-weight: 500;
+  height: 50px; 
+  width: 80%;
+  line-height: 50px; 
+  list-style: none;
+  margin: 10px;
+  outline: none;
+  padding: 0 16px; 
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: middle; 
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  border-color: #8C2D19;
+}
+
+.faqMenu a:hover {
+  background-color: #a;
+}
+
+.faqMenuItem {
+  color: #fff;
+  text-decoration: none;
+}

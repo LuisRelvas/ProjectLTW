@@ -342,7 +342,7 @@ function drawaddTicket(){ ?>
     <div id = "ticket-add">
     <h1>Adicionar Ticket</h1>
     <form action="../actions/addticket.action.php" method ="post">
-          <label>Title: <input type="text" name="tittle" required="required"></label>
+          <label>Title: <input type="text" name="tittle" required="required"></label> 
           <select name="department">
             <optgroup label="Choose only one">
                 <?php foreach ($departments as $department) { ?>
@@ -350,7 +350,7 @@ function drawaddTicket(){ ?>
                 <?php }  ?>
             </optgroup>
         </select>
-          <label>Description: <input type="text" name="description" required="required" ></label>
+            <label>Description:<input type="text" name="description" required="required"></label>
           <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
           <input id="button" type="submit" value="Validar Ticket">
       </form>
@@ -486,25 +486,20 @@ function drawFaq(Session $session){ ?>
 <div id="faq">
   <h1>FAQ</h1>
   <?php foreach ($hashtags as $hashtag) { ?>
-    <button class="accordion"><?= $hashtag['question'] ?></button>
-    <div class="panel">
-      <p><?= $hashtag['answer'] ?></p>
-      <?php if ($_SESSION['role'] != 2 && $session->isLoggedIn()) { ?>
-        <div id="faqMenu">
-          <button>
-            <a href="../pages/editFaq.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>">Editar</a>
-          </button>
-          <button>
-            <a href="../actions/deleteFaq.action.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>">Apagar</a>
-          </button>
-        </div>
-      <?php } ?>
+    <div class="accordion-wrapper">
+      <button class="accordion"><?= $hashtag['question'] ?></button>
+      <div class="panel">
+        <p><?= $hashtag['answer'] ?></p>
+        <?php if ($_SESSION['role'] != 2 && $session->isLoggedIn()) { ?>
+          <div class="faqMenu">
+            <a href="../pages/editFaq.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>" class="faqMenuItem">Editar</a>
+            <a href="../actions/deleteFaq.action.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>" class="faqMenuItem">Apagar</a>
+          </div>
+        <?php } ?>
+      </div>
     </div>
   <?php } ?>
 </div>
-
-
-    
 
 <?php
 }
@@ -515,11 +510,12 @@ function drawEditFaqForm() { ?>
     $faq_id = Ticket::getFaqId($db,$_GET['question'],$_GET['answer']);
     ?>
     <div class="edit-faq">
+    <h1>Editar FAQ</h1>
     <form action="../actions/editFaq.action.php?faq_id=<?=$faq_id?>" method="post">
     <label>Question: <input type="text" name="question" required="required" value="<?=$_GET['question']?>"></label>
     <label>Answer: <input type="text" name="answer" required="required" value="<?=$_GET['answer']?>"></label>
     <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
-    <input id="button" type="submit" value="Concluir edição" >
+    <input id="button" type="submit" value="Concluir Edição" >
     </form>
     </div>
 

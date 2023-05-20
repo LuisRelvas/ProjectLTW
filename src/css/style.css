@@ -2,7 +2,6 @@
   
   #ticket-add {
     background-color: var(--backgroundColor);
-  
     box-shadow: 0 0 5px 0 var(--principalColor);
   }
 
@@ -31,7 +30,9 @@
   }
   
   #ticket-add input[type="submit"]:hover {
-    background-color: var(--submitHoverColor);
+    background-color: var(--buttonHoverColor);
+    color: black;
+    border: 1px solid #8C2D19;
   }
   
   #ticket-add select {
@@ -85,35 +86,36 @@
   
   .edit-form,
   .delete-form {
-    
-    color: white;
     background-color: #8C2D19;
     font-size: 24px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
   }
+  
 
   .changes-form {
-   
-    color: white;
-    
     background-color: #8C2D19;
     font-size: 24px;
-    
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    
   }
 
   .changes-form a{
     /* remove link  */
     color: white;
 }
+  .changes-form a:hover{
+    color: black;
+  }
 
 .edit-form:hover,
 .delete-form:hover, .changes-form:hover {
-  background-color: #E6B0AA;
+  background-color: var(--buttonHoverColor);
+  color: black;
+  border: 1px solid #8C2D19;
 }
 
 #delete-ticket-button, #edit-ticket-button, #see-changes-button {
@@ -136,9 +138,9 @@
     background-color: var(--backgroundColor);
     border: 1px solid var(--borderColor);
     border-radius: 10px;
+
   }
 
-  
   .edit-faq input[type="text"] {
     border: 1px solid var(--borderColor);
     font-size: 16px;
@@ -156,7 +158,9 @@
 
 
 .edit-faq input[type="submit"]:hover {
-    background-color: var(--buttonHoverColor);
+  background-color: var(--buttonHoverColor);
+  color: black;
+  border: 1px solid #8C2D19;
   }
   
   /* edit ticket */
@@ -199,7 +203,9 @@
   }
 
   #editTicket input[type="submit"]:hover {
-    background-color: var(--submitHoverColor);
+    background-color: var(--buttonHoverColor);
+    color: black;
+    border: 1px solid #8C2D19;
   }
   
   /* edit user */
@@ -253,7 +259,9 @@
   
 
 #editProfile input[type="submit"]:hover {
-  background-color: var(--submitHoverColor);
+  background-color: var(--buttonHoverColor);
+    color: black;
+    border: 1px solid #8C2D19;
   cursor: pointer;
 }
 
@@ -298,7 +306,9 @@ button[type="submit"] {
   }
 
   button[type="submit"]:hover {
-    background-color: #E6B0AA;
+    background-color: var(--buttonHoverColor);
+    color: black;
+    border: 1px solid #8C2D19;
   }
 
   #faq-list {
@@ -322,8 +332,8 @@ button[type="submit"] {
 #menu {
   color: #fff;
   text-decoration: none;
-  color: #fff;
   transition: color 0.3s ease;
+
 }
 
 
@@ -343,7 +353,7 @@ button[type="submit"] {
   color: inherit;
 }
 
-#menu >ul > li  {
+#menu > ul > li {
   background-color: white;
   border-radius: 8px;
   border-style: none;
@@ -354,12 +364,12 @@ button[type="submit"] {
   font-weight: 500;
   line-height: 50px;
   transition: color 100ms;
-  border-color: #8C2D19;
+  border: 1px solid #8C2D19;
 }
 
 #menu > ul > li:hover {
-  background-color: #8C2D19;
-  color: #fff;
+  background-color: #E6B0AA;
+  color: black;
 }
 
   /* login */
@@ -396,6 +406,8 @@ button[type="submit"] {
   
   #loginpage #button:hover {
     background-color: var(--buttonHoverColor);
+    color: black;
+    border: 1px solid #8C2D19;
   }
 
   /* ticket  */
@@ -431,7 +443,9 @@ button[type="submit"] {
   
   
   #ticket input[type=submit]:hover {
-    background-color: var(--submitHoverColor);
+    background-color: var(--buttonHoverColor);
+    color: black;
+    border: 1px solid #8C2D19;
   }
 
   #ticket .ticketitem ticket-add {
@@ -454,7 +468,9 @@ button[type="submit"] {
   }
 
   #ticket .ticketitem input[type=submit]:hover {
-    background-color: var(--submitHoverColor);
+    background-color: var(--buttonHoverColor);
+    color: black;
+    border: 1px solid #8C2D19;
   }
   
 
@@ -503,6 +519,8 @@ button[type="submit"] {
 
   .department-tickets input[type="submit"]:hover {
     background-color: var(--buttonHoverColor);
+    color: black;
+    border: 1px solid #8C2D19;
   }
 
 
@@ -520,6 +538,8 @@ button[type="submit"] {
 
   #edit-profile-button:hover {
     background-color: var(--buttonHoverColor);
+    color: black;
+    border: 1px solid #8C2D19;
   }
 
   #edit-profile-button {
@@ -564,7 +584,9 @@ button[type="submit"] {
 
     
   #registerUser input[type="submit"]:hover {
-    background-color: var(--submitHoverColor);
+    background-color: var(--buttonHoverColor);
+    color: black;
+    border: 1px solid #8C2D19;
   }
 
   #registerUser input[type="submit"] {
@@ -700,7 +722,9 @@ button[type="submit"] {
 /* Add hover effect to submit button */
 #add-department #button:hover,
 #add-hashtags #button:hover {
-    background-color: #E6B0AA;
+  background-color: var(--buttonHoverColor);
+  color: black;
+  border: 1px solid #8C2D19;
 }
 
 /* Add focus styles to inputs */

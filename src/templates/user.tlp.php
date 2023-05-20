@@ -99,7 +99,12 @@ function drawUser(int $id) {
             $roles = $stmt->fetchAll(PDO::FETCH_COLUMN);
             $admin = User::getUser($db, $_SESSION['id']);
             $user = User::getUser($db, intval($_GET['id'])); 
-            if($admin->role == 0) { ?>
+            
+            if($_SESSION['role'] != 2) {
+            ?>
+            
+                <label> Role: </label> <?php } ?> <?php
+                if($admin->role == 0) { ?>
         <select name="role">
             <optgroup label="Choose only one">
                 <?php foreach ($roles as $role) { ?>
@@ -108,11 +113,7 @@ function drawUser(int $id) {
             </optgroup>
         </select>
 
-            <?php } 
-            if($_SESSION['role'] != 2) {
-            ?>
-            
-                <label> Role: </label> <?php } ?>
+            <?php } ?>
                 <label>Nome: <input type="text" name="name" required="required" value="<?=($user->name)?>"></label>
                 <label>Username: <input type="text" name="username" required="required" value="<?=htmlentities($user->username)?>"></label>
                 <label>Email: <input type="email" name="email" required="required" value="<?=htmlentities($user->email)?>"></label>
@@ -121,12 +122,13 @@ function drawUser(int $id) {
                 <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
                 <input id="button" type="submit" value="Concluir Edição" >
             </form>
+                </div>
 
         </section> <?php }  
     else{ 
         drawAcessDenied();
     }   
-} 
+}
     function drawRegisterUser() { ?>
         <section id="registerUser">
             <h1>Register</h1>
@@ -137,7 +139,7 @@ function drawUser(int $id) {
                 <label>Password: <input type="password" name="password1" required="required" value="<?=htmlentities($_SESSION['input']['password1 newUser'])?>"></label>
                 <label>Confirme password: <input type="password" name="password2" required="required" value="<?=htmlentities($_SESSION['input']['password2 newUser'])?>"></label>
                 <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
-                <input id="button" type="submit" value="Concluir registo">
+                <input id="button" type="submit" value="Concluir Registo">
             </form>
         </section> <?php 
       }

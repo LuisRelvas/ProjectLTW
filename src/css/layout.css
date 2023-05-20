@@ -5,7 +5,7 @@
   margin: 0 auto;
   width: 80%;
   border-radius: 5px;
-  margin-top: 5%;
+  margin-top: 10%;
   margin-bottom: 10%;
 }
 
@@ -21,13 +21,14 @@
   margin-top: 30px;
 }
 
-#ticket-add label {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
+#ticket-add form label {
+  display: block;
   margin-bottom: 10px;
-  text-align: left;
-  margin-right: 5%;
+  margin-left: 6%;
+}
+
+#ticket-add form label input[type="text"] {
+  margin-left: 0px;
 }
 
 #ticket-add input[type="text"],
@@ -37,11 +38,13 @@
   padding: 15px;
   margin-bottom: 10px;
   margin-top: 2%;
+  
 }
 
 #ticket-add input[type="submit"] {
     display: block;
-    margin-top: 10px;
+    margin-top: 50px;
+    margin-bottom: 20px;
     padding: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -50,8 +53,8 @@
 
   #ticket-add select {
     margin-right: 5%;
-    width: 90%;
-    margin-bottom: 5%;
+    width: 89%;
+    margin-bottom: 0%;
   }
 
   /* access denied layout */
@@ -66,10 +69,12 @@
     max-width: 200px;
     height: auto;
     margin-bottom: 20px;
+    align-items: center;
   }
 
   #accessDenied h2 {
     margin-bottom: 2vw;
+    text-align: center;
   }
 
   #accessDenied h3 {
@@ -131,6 +136,7 @@
     margin: 10px; /* Increase the margin value */
     width: 50%; /* Add this line to ensure all buttons have the same width */
   }
+  
 
   .changes-form {
     display: flex;
@@ -139,8 +145,12 @@
     align-items: center;
     padding: 10px;
     margin: 10px; /* Increase the margin value */
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+    margin-top: 2%;
   }
-
+  
   #delete-ticket-button, #edit-ticket-button, #see-changes-button {
 
     padding: 0;
@@ -150,11 +160,16 @@
   /* edit faq layout */
 
   .edit-faq {
-    margin: 20px auto;
-    padding: 20px;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+  }
+
+  .edit-faq h1{
+    margin-bottom: 10%;
   }
 
   .edit-faq form {
@@ -172,15 +187,14 @@
   
   .edit-faq input[type="text"] {
     padding: 10px;
-    width: 400px;
+    width: 500px;
 
   }
 
   .edit-faq input[type="submit"] {
-    padding: 10px 20px;
-    margin-left: 125px;
-    margin-top: 30px;
-
+    padding: 2% 20%;
+    margin-top: 10%;
+    margin-left: 20%;
   }
 
   /* edit ticket layout */
@@ -191,7 +205,7 @@
     align-items: center;
     margin: 0px auto;
     width: 100%;
-    max-width: 800px;
+    max-width: 500px;
     padding: 20px;
     
     margin-top: 5%;
@@ -223,57 +237,47 @@
   }
 
   #editTicket input[type="submit"] {
-    background-color: var(--principalColor);
-    color: var(--whiteColor);
-    border: none;
     
-    border-radius: 5px;
     cursor: pointer;
+    padding: 5%;
+    width: 100%;
+    margin-left: auto;
 
   }
 
   /* edit user layout */
 
   #editProfile {
-    max-width: 600px;
+    max-width: 550px;
     margin: 0 auto;
     padding: 5%;
-    text-align: left;
+    margin-top: 5%;
+    margin-bottom: 5%;
   }
 
   #editProfile h1 {
-    margin-bottom: 2vw;
-    text-align: center;
-    margin-top: 2vw;
+    margin-bottom: 10%;
+    /*text-align: center;*/
   }
 
-  #editProfile h2 {
+  /*#editProfile h2 {
     width: 100%;
     padding: 2%;
-
-    margin-bottom: 0;
+    margin-bottom: 50%;
     margin-left: 1%;
-  }
+  }*/
 
   #editProfile form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: left;
+    
   }
 
   #editProfile label {
     display: block;
     margin-bottom: 1vw;
-    margin-left: -6.5%;
-  }
-
-  #editProfile select {
-    width: 100%;
-    padding: 2%;
-    
-    margin-bottom: 2%;
-    text-align: left;
+    margin-left: 0%;
   }
 
   #editProfile select option {
@@ -283,8 +287,8 @@
   #editProfile select[name="role"] {
     display: block;
     margin-bottom: 2%;
-    
-    margin-left: -2.5vw;
+    padding: 2%;
+    margin-bottom: 2%;
     width: 50%;
   }
 
@@ -297,9 +301,7 @@
 }
 
 #editProfile input[type="submit"] {
-
     padding: 2% 4%;
-
     margin-top: 10%;
   }
   
@@ -390,15 +392,22 @@ button[type="submit"] {
   /* index layout */
   #menu ul {
     list-style-type: none;
-    margin: 0;
+    margin: 5%;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
+    margin-top: 2%;
     
   }
-
   
+  #menu ul li:not(:last-child) {
+    margin-right: 10px;
+  }
+  #menu ul li:not(:first-child) {
+    margin-left: 10px; 
+  }
+
   #menu a {
     text-decoration: none;
     color: #000;
@@ -407,20 +416,21 @@ button[type="submit"] {
   #hamburger, .hamburger {
     display: none;
   }
+  
   /* login layout */
 
   #loginpage {
     margin: 20px auto;
     padding: 80px;
-
     width: 300px;
-    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
 
   }
 
   #loginpage h1 {
     margin-bottom: 40px;
-    margin-top: -20px;
+    margin-top: auto;
   }
 
   #loginpage form {
@@ -441,7 +451,7 @@ button[type="submit"] {
 #loginpage input[type="password"] {
   padding: 10px;
   width: 370px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 #loginpage #button {
@@ -450,7 +460,7 @@ button[type="submit"] {
     margin-left: 50px;
     width: 300px;
     margin-top: 30px;
-    margin-bottom: -50px;
+    margin-bottom: auto;
   }
   
 /* ticket layout */
@@ -598,24 +608,21 @@ button[type="submit"] {
   /* register layout */
 
   #registerUser {
-    padding: 10px;
-    margin: 0px auto;
-    max-width: 50%;
-    max-height: 100%;
-    display: flex;
-    flex-direction: column;
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 5%;
     margin-top: 5%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
   }
 
   #registerUser h1 {
     text-align: center;
+    margin-top: -5%;
   }
   
   #registerUser form {
     display: flex;
     flex-direction: column;
-    align-items: left;
   }
 
   #registerUser label {
@@ -630,18 +637,16 @@ button[type="submit"] {
   #registerUser input[type="password"] {
     display: block;
     width: 95%;
-    padding: 5px;
+    padding: 8px;
 
   }
 
   #registerUser input[type="submit"] {
     display: block;
     margin-top: 10%;
-    margin-bottom: 5%;
     padding: 10px;
-
-    width: 70%;
-    margin-left: 15%;
+    width: 50%;
+    margin-left: 25%;
   }
 
   /* search layout */

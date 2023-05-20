@@ -173,14 +173,6 @@
 }
 
 
-<<<<<<< HEAD
-@media only screen and (max-width: 768px) {
-    #myticketsmenu {
-        grid-template-columns: 1fr;
-    }
-}
-=======
->>>>>>> refs/remotes/origin/main
 
 /* login */
 @media (max-width: 768px) {

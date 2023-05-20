@@ -509,8 +509,7 @@ function drawFaq(Session $session){ ?>
             <a href="../pages/editFaq.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>">Editar</a>
           </button>
           <button>
-            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
-            <a href="../actions/deleteFaq.action.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>">Apagar</a>
+            <a href="../actions/deleteFaq.action.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>&csrf=<?= $_SESSION['csrf']?>">Apagar</a>
           </button>
         </div>
       <?php } ?>

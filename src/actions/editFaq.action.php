@@ -6,12 +6,17 @@
   require_once(dirname(__DIR__).'/classes/department.class.php');
   require_once(dirname(__DIR__).'/utils/validator.php');
   $session = new Session();
+  if($_POST['csrf'] != $_SESSION['csrf']){
+    $session->addMessage('error', 'Ocorreu um erro ao processar a sua requisição');
+    header('Location: ../pages/ticketmanage.php');
+    die();
+  }
   if($_SESSION['role'] == 2 || !$session->isLoggedIn()) { 
     $session->addMessage('error', 'Não tem permissões para aceder a esta página');
     header('Location: ../pages/index.php');
     die();
   }
-  if(!valid_name($_POST['question'])||!valid_name($_POST['answer'])) {
+  if(!valid_answer($_POST['question'])||!valid_answer($_POST['answer'])) {
     $session->addMessage('error', 'Um dos parametros contém caracteres inválidos');
     header('Location: ../pages/ticketmanage.php');
     die(); 

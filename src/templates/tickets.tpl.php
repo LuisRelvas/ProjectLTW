@@ -296,6 +296,16 @@ function drawaddHashtags() {  ?>
 
 }
 
+function drawaddStatus() { ?>
+    <div id ="add-status">
+    <form action="../actions/addStatus.action.php" method ="post">
+          <label>Status: <input type="text" name="status" required="required" ></label>
+          <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+          <input id="button" type="submit" value="Validar Status">
+      </form>
+<?php
+}
+
 
 function drawaddFaq() {  ?>
     <form action="../actions/addFaq.action.php" method ="post">

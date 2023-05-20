@@ -19,7 +19,7 @@
   if(!valid_name($_POST['tittle'])||!valid_name($_POST['description'])) {
     $session->addMessage('error', 'Um dos parametros contém caracteres inválidos');
     header('Location: ../pages/ticketsee.php');
-    die(); 
+    die();
   }
   $db = getDatabaseConnection();
   $ticket = Ticket::getinfoTicket($db, $_SESSION['ticket_id']);

@@ -119,23 +119,24 @@
 /* footer */
 @media screen and (max-width: 768px) {
     .footer {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 10px;
-        height: auto;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+      height: auto;
     }
 
+  
     .footer a {
-        font-size: 2vw;
-        margin: 5px;
+      font-size: 2vw; /* Adjust the font-size value as needed */
+      margin: 5px;
     }
-
+  
     .footer-links {
-        flex-direction: column;
+      flex-direction: column;
     }
-}
+  }
 
 /* header */
 @media screen and (max-width: 768px) {
@@ -171,18 +172,15 @@
     }
 }
 
-/* index */
-@media only screen and (max-width: 768px) {
-    #myticketsmenu {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
+<<<<<<< HEAD
 @media only screen and (max-width: 768px) {
     #myticketsmenu {
         grid-template-columns: 1fr;
     }
 }
+=======
+>>>>>>> refs/remotes/origin/main
 
 /* login */
 @media (max-width: 768px) {
@@ -377,6 +375,60 @@
     h2 {
       font-size: 14px;
       margin-bottom: 10px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    #menu .hamburger {
+      margin-top: 0;
+      display: block;
+      background-color: #8f8f8f;
+      color: white;
+      padding: 1em;
+    }
+  
+    #menu .hamburger:before {
+      content: '\2630';
+    }
+  
+    #menu ul {
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+      color: white;
+    }
+  
+    #hamburger:checked + .hamburger + ul li {
+      max-height: 50px; /* Adjust the max-height value as needed */
+      opacity: 1;
+    }
+  
+    #hamburger:checked + .hamburger:before {
+      content: '\2715';
+    }
+  
+    #menu li {
+      max-height: 0;
+      padding: 0 1em;
+      background-color: #edeff0;
+      text-align: left;
+      opacity: 0;
+      transition: all .3s ease-in-out;
+    }
+  
+    #menu li:nth-child(1) {
+      border-top: none;
+      border-left: 5px solid #e1493e;
+    }
+  
+    #menu li:nth-child(2) {
+      border-top: none;
+      border-left: 5px solid #8aba56;
+    }
+  
+    #menu li:nth-child(3) {
+      border-top: none;
+      border-left: 5px solid #5b4282;
     }
   }
   

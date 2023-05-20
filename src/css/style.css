@@ -14,6 +14,7 @@
   
   #ticket-add input[type="text"],
   #ticket-add select {
+    margin-left: auto;
     border: 1px solid var(--borderColor);
     border-radius: 3px;
     box-sizing: border-box;
@@ -318,64 +319,48 @@ button[type="submit"] {
   
 
 /* index */
-
- 
-
-#index-card {
-    background-color: #f1f1f1;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-   
-  }
+#menu {
+  color: #fff;
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
 
 
-  #index-card p {
-    font-size: 18px;
-  }
+#menu > ul >li:nth-child(1),
+#menu > ul > li:nth-child(2),
+#menu > ul > li:nth-child(3)
+{
+  width: 100%;
+  text-align: center;
+}
 
+#menu > ul > li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
 
+#menu >ul > li  {
+  background-color: white;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: black;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 50px;
+  transition: color 100ms;
+  border-color: #8C2D19;
+}
 
-
-  #myticketsmenu {
-   
-    color: #fff;
-    text-decoration: none;
-    color: #fff;
-    transition: color 0.3s ease;
-  }
-
-  
-  #myticketsmenu > button {
-    background-color: white;
-    border-radius: 8px;
-    border-style: none;
-    box-sizing: border-box;
-    color: black;
-    cursor: pointer;
-    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
-    list-style: none;
-    outline: none;
-    text-decoration: none;
-    transition: color 100ms;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    border-color: #8C2D19;
-  }
-
-  #myticketsmenu > button:hover,
-  #myticketsmenu > button:focus {
-    background-color: #e6b0aa;
-    
-    
-  }
-
-  #myticketsmenu > button:hover > a {
-    color: #8C2D19;
-  }
+#menu > ul > li:hover {
+  background-color: #8C2D19;
+  color: #fff;
+}
 
   /* login */
 

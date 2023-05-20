@@ -703,10 +703,6 @@ function drawallStatus(){ ?>
 }
 
 
-
-
-
-
 function drawAssignTicket() { ?>
     <section id="assignTicket">
         <h1>Assign Ticket</h1>

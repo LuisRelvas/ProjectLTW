@@ -18,8 +18,6 @@
 
   drawFaq($session);
 
-  drawFAQSDefault();
-
   drawFooter();
   
 ?>

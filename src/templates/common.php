@@ -22,7 +22,7 @@
 
                 
                 
-
+                <script src="../javascript/showfaq.js" defer></script>
                 <script src="../javascript/searchticket.js" defer></script>
                 <script src="../javascript/searchprofile.js" defer></script>
                 <script src="../javascript/searchtags.js" defer></script>
@@ -93,29 +93,6 @@
                     <input id="button" type="submit" value="Entrar">
                 </form>
             </section> <?php 
-        }
-
-        function drawFAQSDefault() { 
-            ?>
-            <script>
-            var acc = document.getElementsByClassName("accordion");
-            var i;
-
-            for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                panel.style.display = "none";
-                } else {
-                panel.style.display = "block";
-                }
-            });
-            }
-            </script>
-
-            <?php 
-
         }
 
         function drawBanner() { ?>

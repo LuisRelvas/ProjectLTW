@@ -117,12 +117,7 @@
                 <h3>Sorry, you do not have permission to access this page.</h3>
                 <p>You're being redirected...</p>
             </section> 
-            <script>
-            setTimeout(function(){
-                // go to index.php
-                    window.location.href = "../pages/index.php";
-                }, 3000); // 5000ms = 5 seconds
-            </script>
+            <script src="../javascript/showAcessDenied.js" defer></script>
         <?php }  
 
         function drawMessages(Session $session) {

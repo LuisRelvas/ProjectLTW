@@ -209,15 +209,52 @@
       }
       return $result;
     }
+
+    static function getStatusName(PDO $db, int $status_id) : string {
+      $stmt = $db->prepare('SELECT name FROM status WHERE status_id = ?');
+      $stmt->execute(array($status_id));
+      $status = $stmt->fetch();
+      return $status['name'];
+
+    }
     
 
     function save(PDO $db,int $ticket_id) {
-      $stmt = $db->prepare('UPDATE ticket SET department_id = ?,status_id = ? ,tittle = ?,description = ? WHERE ticket_id = ?');
-      $stmt->execute(array($this->department_id,$this->status_id,$this->tittle, $this->description,$this->ticket_id,));
-      
-      $stmt1 = $db->prepare('INSERT INTO changes(ticket_id,id,text) VALUES (?,?,?)');
+
+
       $user = User::getUser($db,$_SESSION['id']);
-      $stmt1->execute(array($ticket_id,$_SESSION['id'],'A descrição ou o título do ticket foram alterados por'.$user->name));
+      $ticket = Ticket::getinfoTicket($db,$ticket_id);
+
+      $stmt1 = $db->prepare('UPDATE ticket SET department_id = ?,status_id = ? ,tittle = ?,description = ? WHERE ticket_id = ?');
+      $stmt1->execute(array($this->department_id,$this->status_id,$this->tittle, $this->description,$this->ticket_id,));
+
+
+      
+      if($this->tittle != $ticket->tittle){
+      $stmt2 = $db->prepare('INSERT INTO changes(ticket_id,id,text) VALUES (?,?,?)');
+      $stmt2->execute(array($ticket_id,$_SESSION['id'],'O título do ticket foram alterados por '.$user->name . ' de ' . $ticket->tittle . ' para ' . $this->tittle));
+      }
+      if($this->description != $ticket->description){
+        $stmt3 = $db->prepare('INSERT INTO changes(ticket_id,id,text) VALUES (?,?,?)');
+        $stmt3->execute(array($ticket_id,$_SESSION['id'],'A descrição do ticket foram alterados por '.$user->name . ' de ' . $ticket->description . ' para ' . $this->description));
+      }
+      if($this->department_id != $ticket->department_id){
+        $department_name_new = Department::getDepartmentName($db,$this->department_id);
+        $department_name_old = Department::getDepartmentName($db,$ticket->department_id);
+        $stmt4 = $db->prepare('INSERT INTO changes(ticket_id,id,text) VALUES (?,?,?)');
+        $stmt4->execute(array($ticket_id,$_SESSION['id'],'O departamento do ticket foi alterado por '.$user->name . ' de ' . $department_name_old . ' para ' . $department_name_new ));
+      }
+      if($this->status_id != $ticket->status_id){
+        $status_name_new = Ticket::getStatusName($db,$this->status_id);
+        $status_name_old = Ticket::getStatusName($db,$ticket->status_id);
+        $stmt5 = $db->prepare('INSERT INTO changes(ticket_id,id,text) VALUES (?,?,?)');
+        $stmt5->execute(array($ticket_id,$_SESSION['id'],'O status do ticket foi alterado por '.$user->name.' de ' . $status_name_old . ' para ' . $status_name_new ));
+      }
+      else if($this->department_id == $ticket->department_id && $this->status_id == $ticket->status_id && $this->tittle == $ticket->tittle && $this->description == $ticket->description){ 
+        $stmt5 = $db->prepare('INSERT INTO changes(ticket_id,id,text) VALUES (?,?,?)');
+        $stmt5->execute(array($ticket_id,$_SESSION['id'],'Não foram feitas alterações no ticket por '.$user->name));
+      }
+
   }
 
   static function assignTicket(PDO $db,int $ticket_id,int $agent_id){

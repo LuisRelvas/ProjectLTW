@@ -96,11 +96,7 @@
         }
 
         function drawFAQSDefault() { 
-            //$faqs = getFAQS();  // using database
             ?>
-           
-    
-
             <script>
             var acc = document.getElementsByClassName("accordion");
             var i;

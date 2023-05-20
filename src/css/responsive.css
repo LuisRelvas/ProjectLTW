@@ -1,5 +1,5 @@
 /* Add ticket */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     #ticket-add {
         max-width: 90%;
     }
@@ -15,7 +15,7 @@
 
 /* Access denied */
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     #accessDenied h2 {
         font-size: 6vw;
     }
@@ -30,7 +30,7 @@
 }
 
 /* manage  */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
     /* Adjust padding for larger screens */
     .edit-form,
     .delete-form,
@@ -39,7 +39,7 @@
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     /* Adjust font size and padding for smaller screens */
     .edit-form,
     .delete-form,
@@ -49,7 +49,7 @@
     }
 }
 /* edit faq */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     .edit-faq {
         width: 90%;
     }
@@ -88,7 +88,7 @@
 }
 
 /* edit profile */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     #editProfile h1 {
         font-size: 4vw;
     }
@@ -102,7 +102,7 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     .form-container,
     #faq-form,
     #faq-list,
@@ -178,14 +178,14 @@
     }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 768px) {
     #myticketsmenu {
         grid-template-columns: 1fr;
     }
 }
 
 /* login */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     #loginpage {
         width: 100%;
         padding: 40px;
@@ -208,7 +208,7 @@
 }
 
 /* my tickets */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     .ticketContainer {
         padding: 5px;
     }
@@ -231,7 +231,7 @@
 
 /* profile */
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     .user-data {
         margin-left: 0;
     }
@@ -243,7 +243,7 @@
 }
 
 /* register */
-@media screen and (max-width: 600px) {
+@media screen and (max-width:  768px) {
     #registerUser {
         max-width: 90%;
         margin-top: 10%;
@@ -261,7 +261,7 @@
 
 /* search */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     #searching1,
     #searching2 {
         margin-left: 10px;
@@ -281,7 +281,7 @@
 
 /* ticket */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     #ticket {
         padding: 20px;
     }
@@ -304,7 +304,7 @@
 
 /* ticket hashtag */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     .ticketHashtags {
         flex-wrap: wrap;
     }

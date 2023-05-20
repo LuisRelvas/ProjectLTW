@@ -6,6 +6,11 @@
   require_once(dirname(__DIR__).'/classes/session.class.php');
   require_once(dirname(__DIR__).'/classes/department.class.php');
   $session = new Session();
+  if($_POST['csrf'] != $_SESSION['csrf']){
+    $session->addMessage('error', 'Ocorreu um erro ao processar a sua requisição');
+    header('Location: ../pages/index.php');
+    die();
+  }
   if($_SESSION['role'] == 2 || $_SESSION['role'] == 1 || !$session->isLoggedIn()) { 
     $session->addMessage('error', 'Não tem permissões para aceder a esta página');
     header('Location: ../pages/index.php');
@@ -28,7 +33,7 @@ $agent_id = $stmt1->fetch();
 if($agent_id) {
     $stmt = $db->prepare('DELETE FROM agent WHERE id = ? and department_id = ?');
     $stmt->execute(array($user->id, $department_id));
-    $session->addMessage('success','Utilizador removido com sucesso');
+    $session->addMessage('success','Agente removido do departmento com sucesso');
     header('Location: ../pages/ticketmanage.php');
 }
 else if(!$agent_id){

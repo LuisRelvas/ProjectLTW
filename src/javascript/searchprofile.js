@@ -28,7 +28,7 @@ if (searchProfiles) {
             const article = document.createElement('article')
             const link = document.createElement('a')
             const tittle = document.createElement('h3')
-            link.href = '/actions/assignticket.action.php?ticket_id=' + ticketId + '&id=' + profile.id
+            link.href = '/actions/assignticket.action.php?ticket_id=' + ticketId + '&id=' + profile.id + '&csrf=' + csrf
             link.textContent = '@' + profile.username;
             article.appendChild(link)
             section.appendChild(article)}}

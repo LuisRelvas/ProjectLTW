@@ -60,6 +60,7 @@ function drawDepartmentTickets(int $id) {
         <option value="1">Ticket Id Crescente</option>
         <option value="2">Ticket Id Decrescente</option>
     </select>
+    <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
     <input id="button" type="submit" value="Entrar">   
     </form>
     </div>
@@ -178,10 +179,12 @@ function drawinfoTicket(int $ticket_id) {
         <div id="action-div">
             <form class="edit-form" action="../edit/ticket.edit.php?ticket_id=<?=$ticket->ticket_id?>" method="post">
                 <input id="edit-ticket-button" type="submit" value="Editar Ticket">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
             </form>
 
             <form class="delete-form" action="../actions/removeticket.action.php?ticket_id=<?=$ticket->ticket_id?>" method="post">
                 <input id="delete-ticket-button" type="submit" value="Apagar Ticket">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
             </form>
         </div>
         
@@ -232,10 +235,10 @@ function drawinfoTicket(int $ticket_id) {
     <div class="form-container">
         <form action="../actions/submitAnswer.action.php?ticket_id=<?=$ticket->ticket_id?>" method="POST" id="faq-form">
             <h2>Submit your answer</h2>
-        
             <div class="form-group">
                 <textarea id="answer" name="answer" required></textarea>
                 <input type="hidden" name="ticket_id" value="<?= $ticket_id ?>">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
             </div>
 
             <button type="submit">Submit</button>
@@ -438,6 +441,7 @@ function removeAgentDepartment() { ?>
     ?>
     <div id = "add-agent-department">
         <form action ="../actions/removeAgentDepartment.action.php" method="POST">
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
           <label>Agent:</label>
           <select name="agent">
             <optgroup label="List:">
@@ -505,6 +509,7 @@ function drawFaq(Session $session){ ?>
             <a href="../pages/editFaq.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>">Editar</a>
           </button>
           <button>
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
             <a href="../actions/deleteFaq.action.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>">Apagar</a>
           </button>
         </div>

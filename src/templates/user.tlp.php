@@ -122,6 +122,7 @@ function drawUser(int $id) {
                 <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
                 <input id="button" type="submit" value="Concluir Edição" >
             </form>
+                </div>
 
         </section> <?php }  
     else{ 

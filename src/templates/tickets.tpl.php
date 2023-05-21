@@ -127,11 +127,6 @@ function drawChangesTicket(int $ticket_id) { ?>
 
 function drawinfoTicket(int $ticket_id) { 
 
-    // use only this css 
-    ?>
-        <link rel="stylesheet" href="../css/drawInfoTicket.css">
-    <?php
-
 
     $db = getDatabaseConnection();
     $stmt = $db->prepare('select ticketHashtag.hashtag_id from ticket,ticketHashtag where ticket.ticket_id = ? and ticket.ticket_id = ticketHashtag.ticket_id');

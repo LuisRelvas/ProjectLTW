@@ -155,6 +155,8 @@
   
   #delete-ticket-button, #edit-ticket-button, #see-changes-button {
     padding: 0;
+    width: 100%;
+    height: 100%;
 
   }
 

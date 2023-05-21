@@ -6,6 +6,12 @@
   require_once(dirname(__DIR__).'/database/connection.db.php');
   require_once(dirname(__DIR__).'/classes/hashtag.class.php');
   require_once(dirname(__DIR__).'/templates/tickets.tpl.php');
+  if($_SESSION['csrf'] != $_GET['csrf']){
+    $session->addMessage('error', 'Ocorreu um erro ao processar a sua requisição');
+    header('Location: ../pages/ticketsee.php');
+    die();
+  }
+
   if($_SESSION['role'] == 2 || !$session->isLoggedIn()) { 
     $session->addMessage('error', 'Não tem permissões para aceder a esta página');
     header('Location: ../pages/index.php');

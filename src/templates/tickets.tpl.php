@@ -200,7 +200,7 @@ function drawinfoTicket(int $ticket_id) {
                 }
                 if($user->role != 2) {
                 ?><h2>
-                    <a href="../actions/removeHashtag.action.php?hashtag_id=<?=$hashtags_id?>">
+                    <a href="../actions/removeHashtag.action.php?hashtag_id=<?=$hashtags_id?>&csrf=<?=$_SESSION['csrf']?>">
                 <h2><?=$hashtag?></h2></a><?php
                 
             }
@@ -219,7 +219,14 @@ function drawinfoTicket(int $ticket_id) {
         
         drawProfilesearch();
 
-    } else {
+    } 
+    if(($ticket->agent_id != -1) && ($user->role == 0)) { 
+        ?>
+                    <a href="../actions/removeAgentAssigned.action.php?agent_id=<?=$ticket->agent_id?>&ticket_id=<?=$ticket->ticket_id?>&csrf=<?=$_SESSION['csrf']?>">
+                    <h2><?=$agent_name->name?></h2></a><?php
+         }
+
+    else{
         ?><h2><?=htmlentities(strval($agent_name->name))?></h2><?php
     }
     if($user->role == 0 || $user->role == 1)  { 

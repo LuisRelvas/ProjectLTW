@@ -23,6 +23,7 @@
     $user = User::getUser($db,$id);
     if($user && ($user->role == 0 || $user->role == 1)){
         Ticket::assignTicket($db, $ticket_id,$id);
+        $session->addMessage('success', "Ticket atribuido com sucesso" );
         header('Location: ../pages/ticketseeonly.php?ticket_id='.$ticket_id.'');
     }
     else {

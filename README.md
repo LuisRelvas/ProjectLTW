@@ -10,6 +10,10 @@ Este projeto foi desenvolvido para a cadeira de LTW no 2022-2023 por:
 
 - **Luis Vieira Relvas** (*up202108661*@edu.fe.up.pt)
 
+
+## Acesso ao site: 
+
+
 ## Funcionalidades Implementadas: 
 
 ### User

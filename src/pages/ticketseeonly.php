@@ -15,7 +15,7 @@ drawHeader($session);
 
 if (count($session->getMessages())) drawMessages($session);
 if(!$session->isLoggedIn()) {
-    $session->addMessage('error','You are not allowed to access this page');
+    $session->addMessage('error','Voce nao tem permissao para aceder a esta pagina');
     drawAcessDenied();
 }
 $db = getDatabaseConnection(); 

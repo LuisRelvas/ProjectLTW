@@ -13,7 +13,7 @@ drawHeader($session);
 if (count($session->getMessages())) drawMessages($session);
 if(!$session->isLoggedIn()) {
     drawAcessDenied();
-    $session->addMessage('error','You are not allowed to access this page');
+    $session->addMessage('error','Voce nao tem permissao para aceder a esta pagina');
 }
 drawmyTickets($_SESSION['id']);
 drawDepartmentTickets($_SESSION['id']);

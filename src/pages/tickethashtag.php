@@ -12,7 +12,7 @@ $session = new Session();
 drawHeader($session);
 if (count($session->getMessages())) drawMessages($session);
 if(!$session->isLoggedIn() || $SESSION['id'] != $_GET['id']) {
-    $session->addMessage('error','You are not allowed to access this page');
+    $session->addMessage('error','Voce nao tem permissao para aceder a esta pagina');
 }
 
 

@@ -20,14 +20,6 @@
   $user = User::getUser($db, intval($_GET['id']));
 
   
-  $_SESSION['input']['role oldUser'] = intval(($_POST['role']));
-  $_SESSION['input']['username oldUser'] = htmlentities($_POST['username']);
-  $_SESSION['input']['name oldUser'] = htmlentities($_POST['name']);
-  $_SESSION['input']['email oldUser'] = htmlentities($_POST['email']);
-  $_SESSION['input']['password1 oldUser'] = htmlentities($_POST['password1']);
-  $_SESSION['input']['password2 oldUser'] = htmlentities($_POST['password2']);
-  $_SESSION['input']['csrf oldUser'] = htmlentities($_POST['csrf']);
-  
   $stmt = $db->prepare('SELECT * FROM user WHERE email = ? and email != ?');
   $stmt->execute(array($_POST['email'], $user->email));
   $test = $stmt->fetch();
@@ -98,7 +90,6 @@
     $user->save($db);
 }
 
-  unset($_SESSION['input']);
 
   $session->addMessage('success', "Alterações gravadas com sucesso");
   header('Location: ../pages/profile.php?id='. $user->id);

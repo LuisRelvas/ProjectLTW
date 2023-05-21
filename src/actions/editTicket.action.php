@@ -16,10 +16,6 @@
     $session->addMessage('error', "Ação não disponível");
     die(header('Location: ../pages/index.php'));
   }
-  $_SESSION['input']['status_name oldUser'] = ($_POST['status']);
-  $_SESSION['input']['department_name oldUser'] = ($_POST['department']);
-  $_SESSION['input']['tittle oldUser'] = htmlentities($_POST['tittle']);
-  $_SESSION['input']['description oldUser'] = htmlentities($_POST['description']);
 
   if(!valid_name($_POST['tittle'])||!valid_name($_POST['description'])) {
     $session->addMessage('error', 'Um dos parametros contém caracteres inválidos');

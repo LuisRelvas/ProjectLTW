@@ -694,7 +694,7 @@ function drawAssignTicket() { ?>
     <section id="assignTicket">
         <h1>Assign Ticket</h1>
         <form action="../actions/assignticket.action.php" method="post">
-            <label>Agent id: <input type="number" name="agent_id" required="required" value="<?=htmlentities(strval($_SESSION['input']['agent_id oldUser']))?>"></label>
+            <label>Agent id: <input type="number" name="agent_id" required="required" ?>"></label>
             <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
             <input id="button" type="submit" value="Concluir" >
         </form>

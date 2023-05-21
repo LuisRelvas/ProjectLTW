@@ -23,21 +23,18 @@
     header('Location: ../pages/ticketmanage.php');
     die(); 
   }
-    $_SESSION['input']['hashtag newUser'] = htmlentities($_POST['hashtag']);
     $db = getDatabaseConnection();
     $stmt1 = $db->prepare('SELECT * FROM hashtag WHERE tag = ?');
     $stmt1->execute(array($_POST['hashtag']));
     $var = $stmt1->fetchAll();
     if($var) { 
       $session->addMessage('error', "Hashtag já existe, adiciona uma nova!");
-      unset($_SESSION['input']);
       header('Location: ../pages/ticketmanage.php');
       die();
     }
     else {
     $stmt = $db->prepare('INSERT INTO hashtag(tag) VALUES (?)');
     $stmt->execute(array($_POST['hashtag']));
-    unset($_SESSION['input']);
     $session->addMessage('success', "Hashtag adicionada com sucesso!");
     header('Location: ../pages/ticketmanage.php');}
 

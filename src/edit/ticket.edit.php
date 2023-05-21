@@ -21,10 +21,6 @@
     drawFooter();
   }
   else {
-  $_SESSION['input']['department_id oldUser'] = intval($_SESSION['input']['department_id oldUser']) ?? $ticket->department_id;
-  $_SESSION['input']['status_id oldUser'] = intval($_SESSION['input']['status_if oldUser']) ?? $ticket->status_id;
-  $_SESSION['input']['tittle oldUser'] = $_SESSION['input']['tittle oldUser'] ?? $ticket->tittle;
-  $_SESSION['input']['description oldUser'] = $_SESSION['input']['description oldUser'] ?? $ticket->description;
   drawHeader($session);
   if (count($session->getMessages())) drawMessages($session);
   drawEditTicketForm();

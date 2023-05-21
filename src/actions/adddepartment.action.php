@@ -16,7 +16,6 @@
     header('Location: ../pages/index.php');
     die();
   } 
-  $_SESSION['input']['department_name newUser'] = htmlentities($_POST['department_name']);
   $db = getDatabaseConnection();
   $stmt4 = $db->prepare('SELECT * FROM department WHERE name = ?');
   $stmt4->execute(array($_POST['department_name']));
@@ -44,7 +43,6 @@
     }
     
   }
-  unset($_SESSION['input']);
   $session->addMessage('success', "Departamento adicionado com sucesso!");
   header('Location: ../pages/ticketmanage.php');
     

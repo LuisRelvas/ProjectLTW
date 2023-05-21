@@ -228,8 +228,6 @@
       $stmt1 = $db->prepare('UPDATE ticket SET department_id = ?,status_id = ? ,tittle = ?,description = ? WHERE ticket_id = ?');
       $stmt1->execute(array($this->department_id,$this->status_id,$this->tittle, $this->description,$this->ticket_id,));
 
-
-      
       if($this->tittle != $ticket->tittle){
       $stmt2 = $db->prepare('INSERT INTO changes(ticket_id,id,text) VALUES (?,?,?)');
       $stmt2->execute(array($ticket_id,$_SESSION['id'],'O título do ticket foram alterados por '.$user->name . ' de ' . $ticket->tittle . ' para ' . $this->tittle));

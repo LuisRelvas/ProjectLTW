@@ -20,7 +20,6 @@
     die();
   }
   
-  $_SESSION['input']['hashtag newUser'] = $_GET['tag'];
   
   $hashtag_id = Hashtag::getHashtagID(strval($_GET['tag']));
   $db = getDatabaseConnection();

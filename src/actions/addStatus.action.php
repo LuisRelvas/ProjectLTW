@@ -23,21 +23,18 @@
     header('Location: ../pages/ticketmanage.php');
     die(); 
   }
-  $_SESSION['input']['status newUser'] = htmlentities($_POST['status']);
   $db = getDatabaseConnection();
   $stmt1 = $db->prepare('SELECT * FROM status WHERE name = ?');
   $stmt1->execute(array($_POST['status']));
   $var = $stmt1->fetchAll();
   if($var) { 
     $session->addMessage('error', "Status já existe, adicione um novo!");
-    unset($_SESSION['input']);
     header('Location: ../pages/ticketmanage.php');
     die();
   }
   else {
   $stmt = $db->prepare('INSERT INTO status(name) VALUES (?)');
   $stmt->execute(array($_POST['status']));
-  unset($_SESSION['input']);
   $session->addMessage('success', "Status adicionada com sucesso!");
   header('Location: ../pages/ticketmanage.php');}
 

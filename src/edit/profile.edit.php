@@ -14,13 +14,6 @@
   $user = User::getUser($db, intval($_GET['id']));
 
   
-  $_SESSION['input']['role oldUser'] = $user->role;
-  $_SESSION['input']['nome oldUser'] = $user->name;
-  $_SESSION['input']['username oldUser'] = $user->username;
-  $_SESSION['input']['email oldUser'] = $user->email;
-  $_SESSION['input']['password1 oldUser'] = $_SESSION['input']['password1 oldUser'] ?? "";
-  $_SESSION['input']['password2 oldUser'] = $_SESSION['input']['password2 oldUser'] ?? "";
-  
 
   drawHeader($session);
   if (!$session->isLoggedIn()) {
@@ -30,7 +23,6 @@
   else {
   if (count($session->getMessages())) drawMessages($session);
   drawEditUserForm(); }
-  unset($_SESSION['input']);
   drawFooter();
 
 ?>

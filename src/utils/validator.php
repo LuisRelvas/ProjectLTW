@@ -12,7 +12,8 @@
     }
 
     function valid_answer(String $attemp) : bool {
-        if (!preg_match("/^[A-Za-z0-9\s\?\.,!]+$/", $attemp)){
+        if (!preg_match("/^[\p{L}A-Za-z0-9\s\?\.,!]+$/u", $attemp))
+        {
             $session = new Session();
             $session->addMessage('warning', "Formato de resposta inválido");
             return false;

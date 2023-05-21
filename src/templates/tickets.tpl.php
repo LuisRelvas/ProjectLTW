@@ -119,11 +119,10 @@ function drawgetTicketid() { ?>
 
 function drawChangesTicket(int $ticket_id) { ?>
     <form class="changes-form" method="post">
-        <a href= "../pages/ticketseechanges.php?ticket_id=<?=$ticket_id?>" method = "post">See changes</a>
+        <a href="../pages/ticketseechanges.php?ticket_id=<?= $ticket_id ?>">See changes</a>
     </form>
-    
-<?php
-}
+<?php }
+
 
 function drawinfoTicket(int $ticket_id) { 
 

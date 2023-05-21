@@ -488,7 +488,6 @@ function drawTicket(int $id) { ?>
  <?php }
 
 
-
 function drawFaq(Session $session){ ?>
     <?php 
     $db = getDatabaseConnection();
@@ -505,18 +504,13 @@ function drawFaq(Session $session){ ?>
       <p><?= $hashtag['answer'] ?></p>
       <?php if ($_SESSION['role'] != 2 && $session->isLoggedIn()) { ?>
         <div id="faqMenu">
-          <button>
             <a href="../pages/editFaq.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>">Editar</a>
-          </button>
-          <button>
             <a href="../actions/deleteFaq.action.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>&csrf=<?= $_SESSION['csrf']?>">Apagar</a>
-          </button>
         </div>
       <?php } ?>
     </div>
   <?php } ?>
 </div>
-
 <?php
 }
 

@@ -1,3 +1,23 @@
+:root {
+  --principalColor: #8C2D19;
+  --backgroundColor: #e6e6e6;
+  --whiteColor: #FFF;
+  --focusBorderColor: rgba(140, 45, 25, 0.5);
+  --submitHoverColor: #E6B0AA;
+  --buttonHoverColor: #E6B0AA;
+  --borderColor: #ccc;
+  --blackColor: black;
+  --errorColor: red;
+  --successColor: green;
+  --linkColor: #0366d6;
+  --seeTicketShadow: 0 2px 4px rgba(87, 1, 1, 0.507);
+  --buttonColor: #8c2d19;
+  --seeProfileShadow: 0 0 5px rgba(94, 2, 2, 0.582);
+  --boxShadowForm: 0 0 5px rgba(0, 0, 0, 0.2);
+  --buttonShadowColor: #8c2d19;
+  --boxShadow: 0px 0px 5px 0px var(--principalColor);
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -5,7 +25,8 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: #f7f7f7;
+  background-color: var(--backgroundColor);
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .content {
@@ -16,22 +37,21 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #8C2D19;
-  border-top: 10px solid black;
+  background-color: var(--principalColor);
+  border-top: 10px solid var(--blackColor);
   align-items: center;
   padding: 2%;
-  color: #fff;
+  color: var(--whiteColor);
   height: 30px;
 }
 
 .footer a {
   font-size: 1vw;
   text-decoration: none;
-  color: #fff;
+  color: var(--whiteColor);
   transition: color 0.3s ease;
   margin: 10px;
   white-space: nowrap;
-  
 }
 
 .footer > nav {
@@ -40,6 +60,7 @@ body {
   justify-content: space-between;
   width: auto;
 }
+
 .footer nav h3 {
   margin-top: 0px; /* Ajusta la cantidad de espacio deseado */
 }
@@ -51,89 +72,88 @@ body {
 footer {
   margin-top: auto; 
 }
-    
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1%;
+  background-color: var(--principalColor);
+  border-bottom: 5px solid var(--blackColor);
+  color: var(--whiteColor);
+  margin-bottom: 0;
+}
+
+.logo > a > img {
+  width: 25%;
+  height: auto;
+  margin-right: 2%;
+}
+
+header > h1 {
+  font-size: 2.5vw;
+  margin: 0;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#login {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1vw;
+  color: var(--whiteColor);
+  text-decoration: none;
+  color: var(--whiteColor);
+  transition: color 0.3s ease;
+  margin-right: 2%;
   
-    header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1%;
-        background-color: #8C2D19;
-        border-bottom: 5px solid black;
-        color: #fff;
-        margin-bottom: 0;
-      
-        
-      }
-      
-      .logo > a > img {
-        width: 25%;
-        height: auto;
-        margin-right: 2%;
-      }
-      
-      header > h1 {
-        font-size: 2.5vw;
-        margin: 0;
-      }
-      
-      #login {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 1vw;
-        color: #fff;
-        text-decoration: none;
-        color: #fff;
-        transition: color 0.3s ease;
-        margin-right: 2%;
-      }
-      
-      #login > button {
-        background-color: white;
-        white-space: nowrap;
-        display: inline-block;
-        border-radius: 2vw;
-        border-style: none;
-        box-sizing: border-box;
-        color: black;
-        cursor: pointer;
-        display: inline-block;
-        font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-size: 70%;
-        font-weight: 500;
-        height: 4vw;
-        line-height: 2vw;
-        list-style: none;
-        margin: 0;
-        outline: none;
-        padding: 1vw 1.6vw;
-        position: relative;
-        text-align: center;
-        text-decoration: none;
-        transition: color 100ms;
-        vertical-align: baseline;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-      }
-      
-      #login > button > a {
-        text-decoration: none;
-        color: black;
-        transition: color 0.3s ease;
-      }
-      
-      #login > button:hover,
-      #login > button:focus {
-        background-color: #e6b0aa;
-      }
-      
-      #login > button:hover > a {
-        color: #000;
-      }
-      
-      
+}
+
+#login > button {
+  background-color: var(--whiteColor);
+  white-space: nowrap;
+  display: inline-block;
+  border-radius: 2vw;
+  border-style: none;
+  box-sizing: border-box;
+  color: var(--blackColor);
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 70%;
+  font-weight: 500;
+  height: 4vw;
+  line-height: 2vw;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 1vw 1.6vw;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#login > button > a {
+  text-decoration: none;
+  color: var(--blackColor);
+  transition: color 0.3s ease;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#login > button:hover,
+#login > button:focus {
+  background-color: var(--submitHoverColor);
+}
+
+#login > button:hover > a {
+  color: #000;
+}
+
 /* Reset default form styles */
 form, select, label {
   margin: 0;
@@ -153,6 +173,7 @@ label {
   color: #333;
   margin-top: 2%;
   margin-bottom: 2%;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /* Select box styles */
@@ -160,12 +181,12 @@ select {
   width: 100%;
   padding: 10px;
   font-size: 16px;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: var(--whiteColor);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease-in-out;
 }
-
 
 /* Option group styles */
 optgroup {
@@ -180,60 +201,29 @@ option {
 h2 {
   font-size: 30px;
   font-weight: 600;
-  color: #8C2D19;
+  color: var(--principalColor);
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h2:hover {
-  color: #E6B0AA;
+  color: var(--submitHoverColor);
 }
 
 h3 {
   font-size: 2vw;
-  color: black;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--blackColor);
 }
 
 h1 {
   font-size: 40px;
-  color: black;
-  
-}
-
-:root {
-  --principalColor: #8C2D19;
-  --backgroundColor: #e6e6e6;
-  --whiteColor: #FFF;
-
-  --focusBorderColor: rgba(140, 45, 25, 0.5);
-  --submitHoverColor: #E6B0AA;
-  --buttonHoverColor: #E6B0AA;
-
-  --borderColor: #ccc;
-  --blackColor: black;
-  --whiteColor: white;
-  --errorColor: red;
-  --successColor: green;
-
-  --linkColor: #0366d6;
-  --seeTicketShadow: 0 2px 4px rgba(87, 1, 1, 0.507);
-
-  --buttonColor: #8c2d19;
-
-  --seeProfileShadow: 0 0 5px rgba(94, 2, 2, 0.582);
-
-  --boxShadowForm: 0 0 5px rgba(0, 0, 0, 0.2);
-
-
-  --buttonShadowColor: #8c2d19;
-
-
-  --boxShadow: 0px 0px 5px 0px var(--principalColor);
-
-
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--blackColor);
 }
 
 a {
   text-decoration: none;
-    color: black;
+    color: var(--blackColor);
     transition: color 0.3s ease;
     
 }

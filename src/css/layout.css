@@ -135,6 +135,7 @@
     padding: 10px;
     margin: 10px; /* Increase the margin value */
     width: 50%; /* Add this line to ensure all buttons have the same width */
+    
   }
   
 
@@ -149,10 +150,10 @@
     margin-left: 10%;
     margin-bottom: 5%;
     margin-top: 2%;
+    
   }
   
   #delete-ticket-button, #edit-ticket-button, #see-changes-button {
-
     padding: 0;
 
   }
@@ -416,7 +417,6 @@ button[type="submit"] {
   #hamburger, .hamburger {
     display: none;
   }
-  
   /* login layout */
 
   #loginpage {

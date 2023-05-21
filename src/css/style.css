@@ -1,4 +1,20 @@
-
+:root{
+  --principalColor: #8C2D19;
+  --backgroundColor: #f5f5f5;
+  --blackletter: #000;
+  --borderColor: #ccc;
+  --whiteColor: #fff;
+  --buttonHoverColor: #e6b0aa;
+  --errorColor: red;
+  --grayColor: #333;
+  --boxSadowAux: rgba(0, 0, 0, 0.1);
+  --borderColorAux: #ddd;
+  --linkHoverColor: blue;
+  --linkColor: darkblue;
+  --backGroundAux: #eee;
+  --backGround2: #bcbaba;
+  --grayColor1: gray;
+}
   
   #ticket-add {
     background-color: var(--backgroundColor);
@@ -7,8 +23,9 @@
 
   
   #ticket-add label {
-    color: var(--blackColor);
+    color: var(--blackletter);
     font-size: 1.5vw;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   
   #ticket-add input[type="text"],
@@ -18,7 +35,7 @@
     border-radius: 3px;
     box-sizing: border-box;
   }
-  
+
   #ticket-add input[type="submit"] {
     background-color: var(--principalColor);
     color: var(--whiteColor);
@@ -27,21 +44,24 @@
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
     font-size: 1.8vw;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   
   #ticket-add input[type="submit"]:hover {
     background-color: var(--buttonHoverColor);
-    color: black;
-    border: 1px solid #8C2D19;
+    color: var(--blackletter);
+    border: 1px solid var(--principalColor);
   }
   
   #ticket-add select {
     height: auto;
     font-size: 1.4vw;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   
   #ticket-add select optgroup {
     font-weight: bold;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   
 
@@ -53,30 +73,30 @@
     border: 1px solid var(--borderColor);
     border-radius: 10px;
   }
-
-
- 
   
   #accessDenied p {
     font-size: 1.2vw;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   
   /* draw info ticket */
 
   .ticket-card {
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
+    background-color: var(--backgroundColor);
+    border: 1px solid var(--borderColor);
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--boxSadowAux);
   }
 
   .ticket-card h1 {
     font-weight: 600;
-    color: #8C2D19;
+    color: var(--principalColor);
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   .label {
     font-weight: bold;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   #action-div {
@@ -86,42 +106,44 @@
   
   .edit-form,
   .delete-form {
-    background-color: #8C2D19;
+    background-color: var(--principalColor);
     font-size: 24px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   
 
   .changes-form {
-    background-color: #8C2D19;
+    background-color: var(--principalColor);
     font-size: 24px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     
   }
 
   .changes-form a{
     /* remove link  */
-    color: white;
+    color: var(--whiteColor);
 }
   .changes-form a:hover{
-    color: black;
+    color: var(--blackletter);
   }
 
 .edit-form:hover,
 .delete-form:hover, .changes-form:hover {
   background-color: var(--buttonHoverColor);
-  color: black;
-  border: 1px solid #8C2D19;
+  color: var(--blackletter);
+  border: 1px solid var(--principalColor);
 }
 
 #delete-ticket-button, #edit-ticket-button, #see-changes-button {
     /* remove button aspect */
     background: none;
-    color: #f5f5f5;
+    color: var(--backgroundColor);
     border: none;
     font: inherit;
     cursor: pointer;
@@ -144,96 +166,84 @@
   .edit-faq input[type="text"] {
     border: 1px solid var(--borderColor);
     font-size: 16px;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   
   .edit-faq input[type="submit"] {
-    background-color: var(--buttonColor);
+    background-color: var(--principalColor);
     color: var(--whiteColor);
     border: none;
     cursor: pointer;
-    
     border-radius: 10px;
     font-size: 16px;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
 
 .edit-faq input[type="submit"]:hover {
   background-color: var(--buttonHoverColor);
-  color: black;
-  border: 1px solid #8C2D19;
+  color: var(--blackletter);
+  border: 1px solid var(--principalColor);
   }
   
   /* edit ticket */
-
-  
-
   #editTicket {
-    
     background-color: var(--backgroundColor);
-    
     border-radius: 10px;
-    box-shadow: var(--boxShadow); 
+    box-shadow: var(--principalColor); 
 
   }
 
-
-
   #editTicket input[type="text"] {
-
     border-radius: 5px;
-    border: var(--border);
+    border: var(--borderColor);
     font-size: 14px;
   }
   
   #editTicket select {
     border-radius: 5px;
-    border: var(--border);
+    border: var(--borderColor);
   }
 
   #editTicket input[type="submit"] {
     background-color: var(--principalColor);
     color: var(--whiteColor);
     border: none;
-    
     border-radius: 5px;
     cursor: pointer;
-    
     font-size: 20px;    
-
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   #editTicket input[type="submit"]:hover {
     background-color: var(--buttonHoverColor);
-    color: black;
-    border: 1px solid #8C2D19;
+    color: var(--blackletter);
+    border: 1px solid var(--principalColor);
   }
   
   /* edit user */
 
 
   #editProfile {
-   
     background-color: var(--borderColor);
-    border: var(--border);
+    border: var(--borderColor);
     border-radius: 5px;
-    box-shadow: var(--seeProfileShadow);
+    box-shadow: var(--principalColor);
 
   }
 
 
-  #editProfile select {
-    
-    border: var(--border);
+  #editProfile select { 
+    border: var(--borderColor);
     border-radius: 5px;
     font-size: 1.2vw;
-    
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   #editProfile select[name="role"] {
-    
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1.2vw;
     font-weight: bold;
-    
   }
 
 
@@ -241,16 +251,17 @@
 #editProfile input[type="email"],
 #editProfile input[type="password"] {
   
-  border: var(--border);
+  border: var(--borderColor);
   border-radius: 5px;
   font-size: 1vw;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #editProfile input[type="submit"] {
     background-color: var(--principalColor);
     color: var(--whiteColor);
     border: none;
-    
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     border-radius: 10px;
     font-size: 1.5vw;
     cursor: pointer;
@@ -260,46 +271,42 @@
 
 #editProfile input[type="submit"]:hover {
   background-color: var(--buttonHoverColor);
-    color: black;
-    border: 1px solid #8C2D19;
+  color: var(--blackletter);
+  border: 1px solid var(--principalColor);
   cursor: pointer;
 }
 
 /* faq answer */
 
 .form-container {
-
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
+    background-color: var(--backgroundColor);
+    border: 1px solid var(--borderColor);
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
+    box-shadow: 0 2px 4px var(--boxSadowAux);
   }
 
 
   #faq-form {
-   
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
+    background-color: var(--backgroundColor);
+    border: 1px solid var(--borderColor);
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
+    box-shadow: 0 2px 4px var(--boxSadowAux);
   }
 
   .form-group label {
     font-weight: bold;
-    
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   input[type="text"],
 textarea {
-  border: 1px solid #ddd;
+  border: 1px solid var(--borderColorAux);
   border-radius: 5px;
 }
 
 button[type="submit"] {
-    background-color: #8C2D19;
-    color: #fff;
+    background-color: var(--principalColor);
+    color: var(--whiteColor);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -307,33 +314,30 @@ button[type="submit"] {
 
   button[type="submit"]:hover {
     background-color: var(--buttonHoverColor);
-    color: black;
-    border: 1px solid #8C2D19;
+    color: var(--blackletter);
+    border: 1px solid var(--principalColor);
   }
 
   #faq-list {
-  
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: var(--whiteColor);
+    border: 1px solid var(--borderColorAux);
     border-radius: 5px;
   }
 
   .answer-element {
-
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
+    background-color: var(--backgroundColor);
+    border: 1px solid var(--borderColor);
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
+    box-shadow: 0 2px 4px var(--boxSadowAux);
   }
   
 
 /* index */
 #menu {
-  color: #fff;
+  color: var(--whiteColor);
   text-decoration: none;
   transition: color 0.3s ease;
-
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 
@@ -343,6 +347,7 @@ button[type="submit"] {
 {
   width: 100%;
   text-align: center;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #menu > ul > li a {
@@ -351,25 +356,26 @@ button[type="submit"] {
   height: 100%;
   text-decoration: none;
   color: inherit;
+  
 }
 
 #menu > ul > li {
-  background-color: white;
+  background-color: var(--whiteColor);
   border-radius: 8px;
   border-style: none;
   box-sizing: border-box;
-  color: black;
+  color: var(--blackletter);
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 50px;
   transition: color 100ms;
-  border: 1px solid #8C2D19;
+  border: 1px solid var(--principalColor);
 }
 
 #menu > ul > li:hover {
-  background-color: #E6B0AA;
-  color: black;
+  background-color: var(--buttonHoverColor);
+  color: var(--blackletter);
 }
 
   /* login */
@@ -380,7 +386,7 @@ button[type="submit"] {
     background-color: var(--backgroundColor);
     border: 1px solid var(--borderColor);
     border-radius: 10px;
-    box-shadow: 0 0 5px var(--buttonShadowColor);
+    box-shadow: 0 0 5px var(--principalColor);
   }
   
 
@@ -391,11 +397,12 @@ button[type="submit"] {
  
   border: 1px solid var(--borderColor);
   font-size: 16px;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #loginpage #button {
     
-    background-color: var(--buttonColor);
+    background-color: var(--principalColor);
     color: var(--whiteColor);
     border: none;
     cursor: pointer;
@@ -406,20 +413,15 @@ button[type="submit"] {
   
   #loginpage #button:hover {
     background-color: var(--buttonHoverColor);
-    color: black;
-    border: 1px solid #8C2D19;
+    color: var(--blackletter);
+    border: 1px solid var(--principalColor);
   }
 
   /* ticket  */
 
-
-  
-    
   #ticket {
-  
     background-color: var(--borderColor);
-    box-shadow: var(--boxShadow);
-
+    box-shadow: var(--principalColor);
     border-radius: 5px;
   }
 
@@ -427,35 +429,36 @@ button[type="submit"] {
 
   #ticket label {
     font-size: 24px;
-
-    color: var(--blackColor);
+    color: var(--blackletter);
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   #ticket input[type=submit] {
     background-color: var(--principalColor);
     color: var(--whiteColor);
     font-size: 24px;
-    
     border: none;
     cursor: pointer;
     border-radius: 10px;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   
   
   #ticket input[type=submit]:hover {
     background-color: var(--buttonHoverColor);
-    color: black;
-    border: 1px solid #8C2D19;
+    color: var(--blackletter);
+    border: 1px solid var(--principalColor);
   }
 
   #ticket .ticketitem ticket-add {
-    box-shadow: var(--boxShadow);
+    box-shadow: var(--principalColor);
   }
 
   #ticket .ticketitem label {
     font-size: 24px;
-    color: var(--blackColor);
+    color: var(--blackletter);
     font-weight: normal;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   #ticket .ticketitem input[type=submit] {
@@ -465,15 +468,14 @@ button[type="submit"] {
     border: none;
     cursor: pointer;
     border-radius: 10px;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   #ticket .ticketitem input[type=submit]:hover {
     background-color: var(--buttonHoverColor);
-    color: black;
-    border: 1px solid #8C2D19;
+    color: var(--blackletter);
+    border: 1px solid var(--principalColor);
   }
-  
-
   
   #ticket .ticketitem a:hover {
     color: var(--linkHoverColor);
@@ -481,20 +483,15 @@ button[type="submit"] {
   
   /* mytickets */
 
-
-
 .ticketContainer {
-    background-color: var(--backgroundColor);
+    background-color: var(--grayColor1);
     border-radius: 10px;
-    box-shadow: var(--seeTicketShadow);
+    box-shadow: var(--principalColor);
   }
 
   .loginItem {
-    color: var(--blackColor);
+    color: var(--blackletter);
   }
-
-    
-
 
   .loginItem a:hover {
     text-decoration: underline;
@@ -510,47 +507,39 @@ button[type="submit"] {
 
   }
 
-    
   .department-tickets input[type="submit"] {
-
     width: 30%;
   }
   
 
   .department-tickets input[type="submit"]:hover {
     background-color: var(--buttonHoverColor);
-    color: black;
-    border: 1px solid #8C2D19;
+    color: var(--blackletter);
+    border: 1px solid var(--principalColor);
   }
 
-
-
-
   /* profile */
-
-  
   .user-data label {
     font-weight: bold;
     text-decoration: underline;
-    color: var(--buttonColor);
-
+    color: var(--principalColor);
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   #edit-profile-button:hover {
     background-color: var(--buttonHoverColor);
-    color: black;
-    border: 1px solid #8C2D19;
+    color: var(--blackletter);
+    border: 1px solid var(--principalColor);
   }
 
   #edit-profile-button {
-    background-color: var(--buttonColor);
+    background-color: var(--principalColor);
     color: var(--whiteColor);
     border: none;
     cursor: pointer;
-    
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     border-radius: 10px;
     font-size: 25px;
-    
     font-weight: bold;
   }
 
@@ -560,7 +549,6 @@ button[type="submit"] {
 
   #registerUser {
     background-color: var(--backgroundColor);
-    
     border-radius: 5px;
     box-shadow: 0 0 5px 0 var(--principalColor);
     
@@ -568,15 +556,12 @@ button[type="submit"] {
 
 
   #registerUser label {
-
-    color: var(--blackColor);
-
+    color: var(--blackletter);
   }
 
   #registerUser input[type="text"],
   #registerUser input[type="email"],
-  #registerUser input[type="password"] {
-    
+  #registerUser input[type="password"] { 
     border: 1px solid var(--borderColor);
     border-radius: 3px;
     box-sizing: border-box;
@@ -585,12 +570,11 @@ button[type="submit"] {
     
   #registerUser input[type="submit"]:hover {
     background-color: var(--buttonHoverColor);
-    color: black;
-    border: 1px solid #8C2D19;
+    color: var(--blackletter);
+    border: 1px solid var(--principalColor);
   }
 
   #registerUser input[type="submit"] {
-   
     background-color: var(--principalColor);
     color: var(--whiteColor);
     border: none;
@@ -598,7 +582,7 @@ button[type="submit"] {
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
     font-size: 2vw;
-    
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   #registerUser a {
@@ -623,17 +607,17 @@ button[type="submit"] {
   #registerUser input[type="password"]:focus {
     border: var(--border);
     outline: none;
-    box-shadow: 0 0 5px 0 var(--focusBorderColor);
+    box-shadow: 0 0 5px 0 var(--principalColor);
   }
 
   /* search */
 
   #searching1, #searching2 {
 
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
+    background-color: var(--backgroundColor);
+    border: 1px solid var(--borderColor);
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--boxSadowAux);
   }
   
   #criterio1, #criterio2 {
@@ -642,7 +626,7 @@ button[type="submit"] {
     border: 1px solid transparent;
     background-color: transparent;
     border-radius: 5px;
-  
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     /* remove select styling */
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -656,24 +640,23 @@ button[type="submit"] {
   
 
   #searchprofile, #searchtag {
-   
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--borderColor);
     border-radius: 5px;
   }
 
   #searchprofiles, #searchtags {
    
-    background-color: #f5f5f5;
+    background-color: var(--backgroundColor);
     border: none;
-    
     border-radius: 5px;
   
   }
 
   #searchprofiles a, #searchtags a {
-    color: #8c2d19;
-    border: 1px solid #ccc;
+    color: var(--principalColor);
+    border: 1px solid var(--borderColor);
     border-radius: 5px;
 
   }
@@ -682,40 +665,32 @@ button[type="submit"] {
 
   .ticketHashtags{
 
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
+    background-color: var(--backgroundColor);
+    border: 1px solid var(--borderColor);
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--boxSadowAux);
 
 }
-
-
-
-
-
 /* ticket managing */
-
-
 #form, #searching, #add-department, #add-hashtags {
    
-    background-color: #f5f5f5;
+    background-color: var(--backgroundColor);
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px var(--boxSadowAux);
 }
 
 #allhashtag {
-   
-    background-color: #eee;
+    background-color:var(--backGroundAux);
     border-radius: 5px;
 }
 
 #add-department input[type="text"],
 #add-hashtags input[type="text"] {
-   
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--whiteColor);
+    box-shadow: 0 2px 5px var(--boxSadowAux);
     transition: box-shadow 0.3s ease-in-out;
 }
 
@@ -723,23 +698,23 @@ button[type="submit"] {
 #add-department #button:hover,
 #add-hashtags #button:hover {
   background-color: var(--buttonHoverColor);
-  color: black;
-  border: 1px solid #8C2D19;
+  color: var(--blackletter);
+  border: 1px solid var(--principalColor);
 }
 
 /* Add focus styles to inputs */
 #add-department input[type="text"]:focus,
 #add-hashtags input[type="text"]:focus {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--boxSadowAux);
 }
 
 #add-department #button,
 #add-hashtags #button {
-    
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-weight: bold;
-    color: #fff;
-    background-color: #8C2D19;
+    color: var(--whiteColor);
+    background-color: var(--principalColor);
     border-radius: 5px;
     border: none;
     cursor: pointer;
@@ -751,26 +726,26 @@ button[type="submit"] {
 .ticketPerHashtag,
 #ticket-list {
 
-  background-color: #f5f5f5;
+  background-color: var(--backgroundColor);
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px var(--boxSadowAux);
 }
 
 .ticketPerHashtag {
-    background-color: #bcbaba;
+    background-color: var(--backGround2);
   }
 
   .loginItem {
     font-size: 18px;
-    color: #333;
+    color: var(--grayColor);
   }
 
   .loginItem a {
-    color: #333;
+    color: var(--grayColor);
   }
 
   .loginItem a:hover {
-    color: #ff0000; /* Change to the desired hover color */
+    color: var(--buttonHoverColor); /* Change to the desired hover color */
   }
 
 

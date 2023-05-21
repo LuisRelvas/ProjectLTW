@@ -146,8 +146,8 @@
     align-items: center;
     padding: 10px;
     margin: 10px; /* Increase the margin value */
-    width: 80%;
-    margin-left: 10%;
+    width: 50%;
+    margin-left: 25%;
     margin-bottom: 5%;
     margin-top: 2%;
     
@@ -359,8 +359,9 @@ textarea {
 
 button[type="submit"] {
     padding: 10px 20px;
-  
     margin-top: 2%;
+    width: 50%;
+    margin-left: 25%;
   }
 
   #faq-list {

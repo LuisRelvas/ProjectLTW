@@ -105,18 +105,6 @@ function drawTicketsperHashtag(string $name){
     <?php
 }
 
-function drawgetTicketid() { ?>
-    <section id="ticketpage">
-    <h1>Ticket</h1>
-    <form action = "../actions/seeticket.action.php" method = "post">
-        <label>Ticket id: <input type="number" name="ticket_id" placeholder="ticket_id"></label>
-        <input id="button" type="submit" value="Entrar">
-    </form>
-</section>
-<?php
-}
-
-
 function drawChangesTicket(int $ticket_id) { ?>
     <form class="changes-form" method="post">
         <a href="../pages/ticketseechanges.php?ticket_id=<?= $ticket_id ?>">See changes</a>
@@ -386,26 +374,6 @@ function drawaddTicket(){ ?>
 <?php
 }
 
-function drawllTickets_id(){ ?>
-    <?php 
-    $db = getDatabaseConnection();
-    $stmt = $db->prepare('SELECT ticket_id FROM ticket');
-    $stmt->execute();
-    $tickets_id = $stmt->fetchAll(PDO::FETCH_COLUMN);
-    ?>
-    <div id = "form">
-          <label>Ticket_id:</label>
-          <select name="ticket_id">
-            <optgroup label="List:">
-                <?php foreach ($tickets_id as $ticket_id) { ?>
-                    <option value="<?= $ticket_id ?>"><?= $ticket_id ?></option>
-                <?php }  ?>
-            </optgroup>
-        </select>
-</div>
-
-<?php
-}
 
 function addAgentDepartment() { ?>
 <?php 

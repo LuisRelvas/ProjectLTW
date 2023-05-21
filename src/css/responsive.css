@@ -18,6 +18,8 @@
         max-width: 90%;
     }
 
+    
+
 
     #ticket-add form label {
         display: block;
@@ -32,6 +34,9 @@
 
     #ticket-add input[type="submit"] {
         font-size: 10px;
+    }
+    #ticket-add select {
+        font-size:20px;
     }
 }
 

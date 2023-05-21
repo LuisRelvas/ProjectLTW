@@ -30,6 +30,7 @@
   
   #ticket-add input[type="text"],
   #ticket-add select {
+
     margin-left: auto;
     width: 95%;
     font-size: 20px;
@@ -57,7 +58,6 @@
   
   #ticket-add select {
     height: auto;
-    font-size: 1.4vw;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   
@@ -305,6 +305,7 @@ textarea {
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   border: 1px solid var(--borderColorAux);
   border-radius: 5px;
+
 }
 
 button[type="submit"] {

@@ -13,6 +13,21 @@ Este projeto foi desenvolvido para a cadeira de LTW no 2022-2023 por:
 
 ## Acesso ao site: 
 
+### Administrador: 
+  #### email : luisrelvas@hotmail.com, passe: 1234
+  #### email : angy.da.cruz@hotmail.com, passe: 1234
+  #### email : domingosjsmsantos@gmail.com, passe : 1234; 
+  
+### Agente : 
+  #### email : andreasousa@gmail.com, passe: 1234
+  #### email : lucianasilva@gmail.com, passe: 1234
+  #### email : josemiguel@gmail.com, passe : 1234; 
+  
+### User: 
+  #### email : josecunha@gmail.com, passe: 1234
+  #### email : mariajose@gmail.com, passe: 1234
+  #### email : luisgomes@gmail.com, passe: 1234; 
+
 
 ## Funcionalidades Implementadas: 
 

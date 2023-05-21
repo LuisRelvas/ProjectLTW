@@ -238,13 +238,11 @@
   #editProfile select { 
     border: var(--borderColor);
     border-radius: 5px;
-    font-size: 1.2vw;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   #editProfile select[name="role"] {
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1.2vw;
     font-weight: bold;
   }
 
@@ -255,7 +253,6 @@
   
   border: var(--borderColor);
   border-radius: 5px;
-  font-size: 1vw;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -265,7 +262,6 @@
     border: none;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     border-radius: 10px;
-    font-size: 1.5vw;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
   }

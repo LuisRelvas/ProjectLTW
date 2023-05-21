@@ -17,7 +17,7 @@
     die(header('Location: ../pages/index.php'));
   }
 
-  if(!valid_name($_POST['tittle'])||!valid_name($_POST['description'])) {
+  if(!valid_answer($_POST['tittle'])||!valid_answer($_POST['description'])) {
     $session->addMessage('error', 'Um dos parametros contém caracteres inválidos');
     header('Location: ../pages/ticketsee.php');
     die();
@@ -45,7 +45,7 @@
     $session->addMessage('error', "Estado não existe");
     header('Location: ../edit/ticket.edit.php');
   }
-  else if ($ticket && $department != "null" && $status != "null" && valid_name($_POST['tittle']) && valid_name($_POST['description'])) {
+  else if ($ticket && $department != "null" && $status != "null" && valid_answer($_POST['tittle']) && valid_answer($_POST['description'])) {
     $ticket->department_id = $department;
     $ticket->tittle = $_POST['tittle'];
     $ticket->description = $_POST['description'];

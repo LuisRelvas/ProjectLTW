@@ -254,6 +254,7 @@ function drawinfoTicket(int $ticket_id) {
         </form>
        <?php if($_SESSION['role'] != 2)  { ?>
         <form action ="../actions/addAnswersFaq.action.php?ticket_id=<?=$_GET['ticket_id']?>"method = "post" id = "faq-form">
+        <input type = "hidden" name = "csrf" value = "<?=$_SESSION['csrf']?>">
               <select name="answer">
                 <optgroup label="List:">
                     <?php foreach ($answers as $answer) { ?>

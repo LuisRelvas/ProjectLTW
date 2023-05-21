@@ -115,28 +115,25 @@
     border-radius: 5px;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
-  
 
-  .changes-form {
-    background-color: var(--principalColor);
-    font-size: 24px;
-    border: none;
-    cursor: pointer;
+  .changes-form a {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--buttonColor);
+    color: var(--buttonTextColor);
+    text-decoration: none;
     border-radius: 5px;
-    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    
+    color: var(--whiteColor);
   }
 
-  .changes-form a{
-    /* remove link  */
-    color: var(--whiteColor);
-}
-  .changes-form a:hover{
+  .changes-form a:hover {
+    background-color: var(--buttonHoverColor);
+    color: var(--buttonHoverTextColor);
     color: var(--blackletter);
   }
 
 .edit-form:hover,
-.delete-form:hover, .changes-form:hover {
+.delete-form:hover {
   background-color: var(--buttonHoverColor);
   color: var(--blackletter);
   border: 1px solid var(--principalColor);

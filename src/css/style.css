@@ -166,12 +166,15 @@
   }
 
   .edit-faq input[type="text"] {
+    width: 460px;
     border: 1px solid var(--borderColor);
     font-size: 16px;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   
   .edit-faq input[type="submit"] {
+    margin-left: 0%;
+    width: 100%;
     background-color: var(--principalColor);
     color: var(--whiteColor);
     border: none;

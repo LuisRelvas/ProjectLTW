@@ -12,7 +12,7 @@
     header('Location: ../pages/index.php');
     die();
   }
-  if($_SESSION['role'] == 2 || $_SESSION['role'] == 1 || !$session->isLoggedIn()) { 
+  if($_SESSION['role'] == 2 || !$session->isLoggedIn()) { 
     $session->addMessage('error', 'Não tem permissões para aceder a esta página');
     header('Location: ../pages/index.php');
     die();

@@ -20,6 +20,7 @@ if(!$session->isLoggedIn() || $_SESSION['role'] == 2) {
 else { 
 if (count($session->getMessages())) drawMessages($session);
 if($_SESSION['role'] == 1) { 
+    drawaddHashtags();
     drawaddFaq();
 
 }

@@ -18,7 +18,7 @@
     header('Location: ../pages/index.php');
     die();
   }
-  if(!valid_name($_POST['question'])||!valid_name($_POST['answer'])) {
+  if(!valid_answer($_POST['question'])||!valid_answer($_POST['answer'])) {
     $session->addMessage('error', 'Um dos parametros contém caracteres inválidos');
     header('Location: ../pages/ticketmanage.php');
     die(); 

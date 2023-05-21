@@ -49,7 +49,6 @@
         header('Location: ../pages/login.php');
         
     } else {
-        $session->addMessage('error', 'Invalid input');
         header('Location: ../pages/register.php');
     }
 

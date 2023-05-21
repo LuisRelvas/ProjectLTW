@@ -222,8 +222,15 @@ function drawinfoTicket(int $ticket_id) {
     } 
     if(($ticket->agent_id != -1) && ($user->role == 0)) { 
         ?>
-                    <a href="../actions/removeAgentAssigned.action.php?agent_id=<?=$ticket->agent_id?>&ticket_id=<?=$ticket->ticket_id?>&csrf=<?=$_SESSION['csrf']?>">
-                    <h2><?=$agent_name->name?></h2></a><?php
+                    <h2>
+                        <a href="../actions/removeAgentAssigned.action.php?agent_id=<?=$ticket->agent_id?>&ticket_id=<?=$ticket->ticket_id?>&csrf=<?=$_SESSION['csrf']?>">
+                        <?=$agent_name->name?>
+                        </a>
+                    </h2>
+
+                    <?php
+
+                    
          }
 
     else{

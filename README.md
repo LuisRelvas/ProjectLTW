@@ -9,6 +9,11 @@ Este projeto foi desenvolvido para a cadeira de LTW no 2022-2023 por:
 - **Domingos José Silva Moreira dos Santos** (*up201906680*@edu.fe.up.pt)
 
 - **Luis Vieira Relvas** (*up202108661*@edu.fe.up.pt)
+## Descarregar e iniciar site : 
+
+   #### git clone git@github.com:FEUP-LTW-2023/project-ltw01g07.git
+   #### cd project-ltw01g07/src
+   #### php -S localhost:9000
 
 
 ## Acesso ao site: 

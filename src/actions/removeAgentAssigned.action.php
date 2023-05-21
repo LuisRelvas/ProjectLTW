@@ -24,7 +24,7 @@
         $stmt1 = $db->prepare('UPDATE ticket SET agent_id = -1 WHERE ticket_id = ? and agent_id = ?');
         $stmt1->execute(array($_GET['ticket_id'],$_GET['agent_id']));
         $stmt2 = $db->prepare('INSERT INTO changes(ticket_id,id,text) VALUES (?,?,?)');
-        $stmt2->execute(array($_GET['ticket_id'],$_GET['agent_id'],'Agente '.$user->name.' removido do ticket pelo administrador' . $admin->name));
+        $stmt2->execute(array($_GET['ticket_id'],$_GET['agent_id'],'Agente '.$user->name.' removido do ticket pelo administrador ' . $admin->name));
 
         $session->addMessage('success','Agente removido com sucesso');
         header('Location: ../pages/ticketseeonly.php?ticket_id='.$_GET['ticket_id']);

@@ -166,4 +166,46 @@ INSERT INTO hashtag(tag) VALUES ('completed');
 
 INSERT INTO faq(question, answer) VALUES ('What is the ticket submission process?', ' a ticket through the ticket submission form on the website.');
 INSERT INTO faq(question, answer) VALUES ('How do I reset my password?', 'You can reset your password by clicking on the Forgot Password link on the login page.');
--- Add more faq entries as needed
+
+
+-- Popula a tabela "ticket"
+INSERT INTO ticket (ticket_id, id, department_id, status_id, tittle, description, initial_date, hashtag_id, agent_id) VALUES
+(1, 1, 1, 1, 'Problema com o produto A', 'Estou tendo dificuldades com o produto A', '2023-05-19', 1, -1),
+(2, 2, 1, 2, 'Consulta de faturamento para o produto B', 'Preciso de esclarecimentos sobre a fatura do produto B', '2023-05-20', 2, -1),
+(3, 3, 2, 1, 'Problema técnico com o produto C', 'Estou enfrentando dificuldades técnicas com o produto C', '2023-05-21', 3, -1),
+(4, 4, 2, 2, 'Dúvida sobre estratégia de marketing', 'Buscando orientações sobre estratégia de marketing', '2023-05-22', 4, -1),
+(5, 5, 3, 1, 'Problema de acesso ao portal do cliente', 'Não consigo acessar o portal do cliente', '2023-05-23', 5, -1),
+(7, 7, 1, 1, 'Questão com o produto D', 'Preciso de assistência com o produto D', '2023-05-25', 2, -1),
+(8, 8, 1, 2, 'Dúvida sobre faturamento para o produto E', 'Gostaria de esclarecimentos sobre a fatura do produto E', '2023-05-26', 3, -1),
+(9, 9, 2, 1, 'Problema técnico com o produto F', 'Estou enfrentando problemas técnicos com o produto F', '2023-05-27', 4, -1),
+(10, 10, 2, 2, 'Solicitação de suporte de marketing', 'Preciso de suporte em uma estratégia de marketing', '2023-05-28', 5, -1),
+(11, 11, 3, 1, 'Dificuldade de acesso ao sistema de atendimento', 'Não consigo acessar o sistema de atendimento', '2023-05-29', 1, -1),
+(12, 12, 3, 2, 'Consulta sobre o produto G', 'Gostaria de obter informações sobre o produto G', '2023-05-30', 2, -1),
+(13, 13, 1, 1, 'Problema com o produto H', 'Estou tendo dificuldades com o produto H', '2023-05-31', 3, -1),
+(14, 1, 1, 2, 'Dúvida sobre faturamento para o produto I', 'Preciso de esclarecimentos sobre a fatura do produto I', '2023-06-01', 4, -1),
+(15, 2, 2, 1, 'Questão técnica com o produto J', 'Estou enfrentando um problema técnico com o produto J', '2023-06-02', 5, -1),
+(16, 3, 2, 2, 'Solicitação de assistência de marketing', 'Preciso de assistência em uma estratégia de marketing', '2023-06-03', 1, -1),
+(17, 4, 3, 1, 'Problema de acesso à plataforma do cliente', 'Não consigo acessar a plataforma do cliente', '2023-06-04', 2, -1),
+(18, 5, 3, 2, 'Consulta sobre o produto K', 'Gostaria de obter informações sobre o produto K', '2023-06-05', 3, -1),
+(19, 6, 1, 1, 'Problema com o produto L', 'Estou tendo dificuldades com o produto L', '2023-06-06', 4, -1),
+(20, 7, 1, 2, 'Dúvida sobre faturamento para o produto M', 'Preciso de esclarecimentos sobre a fatura do produto M', '2023-06-07', 5, -1),
+(21, 8, 2, 1, 'Questão técnica com o produto N', 'Estou enfrentando um problema técnico com o produto N', '2023-06-08', 1, -1),
+(22, 9, 2, 2, 'Solicitação de suporte de marketing', 'Preciso de suporte em uma estratégia de marketing', '2023-06-09', 2, -1),
+(23, 10, 3, 1, 'Dificuldade de acesso ao sistema de atendimento', 'Não consigo acessar o sistema de atendimento', '2023-06-10', 3, -1),
+(24, 11, 3, 2, 'Consulta sobre o produto O', 'Gostaria de obter informações sobre o produto O', '2023-06-11', 4, -1),
+(25, 12, 1, 1, 'Problema com o produto P', 'Estou tendo dificuldades com o produto P', '2023-06-12', 5, -1),
+(26, 13, 1, 2, 'Dúvida sobre faturamento para o produto Q', 'Preciso de esclarecimentos sobre a fatura do produto Q', '2023-06-13', 1, -1),
+(27, 1, 2, 1, 'Questão técnica com o produto R', 'Estou enfrentando um problema técnico com o produto R', '2023-06-14', 2, -1),
+(28, 2, 2, 2, 'Solicitação de assistência de marketing', 'Preciso de assistência em uma estratégia de marketing', '2023-06-15', 3, -1),
+(29, 3, 3, 1, 'Problema de acesso à plataforma do cliente', 'Não consigo acessar a plataforma do cliente', '2023-06-16', 4, -1),
+(30, 4, 3, 2, 'Consulta sobre o produto S', 'Gostaria de obter informações sobre o produto S', '2023-06-17', 5, -1),
+(31, 5, 1, 1, 'Problema com o produto T', 'Estou tendo dificuldades com o produto T', '2023-06-18', 1, -1),
+(32, 6, 1, 2, 'Dúvida sobre faturamento para o produto U', 'Preciso de esclarecimentos sobre a fatura do produto U', '2023-06-19', 2, -1),
+(33, 7, 2, 1, 'Questão técnica com o produto V', 'Estou enfrentando um problema técnico com o produto V', '2023-06-20', 3, -1),
+(34, 8, 2, 2, 'Solicitação de suporte de marketing', 'Preciso de suporte em uma estratégia de marketing', '2023-06-21', 4, -1),
+(35, 9, 3, 1, 'Dificuldade de acesso ao sistema de atendimento', 'Não consigo acessar o sistema de atendimento', '2023-06-22', 5, -1),
+(36, 10, 3, 2, 'Consulta sobre o produto W', 'Gostaria de obter informações sobre o produto W', '2023-06-23', 1, -1),
+(37, 11, 1, 1, 'Problema com o produto X', 'Estou tendo dificuldades com o produto X', '2023-06-24', 2, -1),
+(38, 12, 1, 2, 'Dúvida sobre faturamento para o produto Y', 'Preciso de esclarecimentos sobre a fatura do produto Y', '2023-06-25', 3, -1),
+(39, 13, 2, 1, 'Questão técnica com o produto Z', 'Estou enfrentando um problema técnico com o produto Z', '2023-06-26', 4, -1),
+(40, 1, 2, 2, 'Solicitação de assistência de marketing', 'Preciso de assistência em uma estratégia de marketing', '2023-06-27', 5, -1);

@@ -134,6 +134,7 @@ function drawinfoTicket(int $ticket_id) {
     $hashtag_id = $stmt->fetchAll(PDO::FETCH_COLUMN);
     $ticket = Ticket::getinfoTicket($db,$ticket_id);
     $text = Reply::getReplies($ticket_id);
+    $user = User::getUser($db,$_SESSION['id']);
     ?>
     <div id="ticket-info">
         
@@ -160,10 +161,11 @@ function drawinfoTicket(int $ticket_id) {
     
 
     
-
+    
     <div class="ticket-card">
         <h1>Trouble Ticket Information</h1>
         <div class="ticket-details">
+            <p><span class="label">Name:</span> <?= htmlentities($user->name) ?></p>
             <p><span class="label">Ticket:</span> <?= htmlentities($ticket->tittle) ?></p>
             <p><span class="label">Ticket ID:</span> <?= htmlentities(strval($ticket->ticket_id)) ?></p>
             <p><span class="label">Date:</span> <?= htmlentities($ticket->initial_date) ?></p>
@@ -186,7 +188,7 @@ function drawinfoTicket(int $ticket_id) {
     </div>
 
     <?php
-    $user = User::getUser($db,$_SESSION['id']);
+    
     $agent_name = User::getUser($db,$ticket->agent_id);
 
     /* draw currentHashtags */
@@ -220,7 +222,7 @@ function drawinfoTicket(int $ticket_id) {
         drawProfilesearch();
 
     } 
-    if(($ticket->agent_id != -1) && ($user->role == 0)) { 
+    else if(($ticket->agent_id != -1) && ($user->role == 0)) { 
         ?>
                     <h2>
                         <a href="../actions/removeAgentAssigned.action.php?agent_id=<?=$ticket->agent_id?>&ticket_id=<?=$ticket->ticket_id?>&csrf=<?=$_SESSION['csrf']?>">
@@ -366,13 +368,16 @@ function drawaddTicket(){ ?>
     <h1>Adicionar Ticket</h1>
     <form action="../actions/addticket.action.php" method ="post">
           <label>Title: <input type="text" name="tittle" required="required"></label> 
+          <label>Department:
           <select name="department">
+            
             <optgroup label="Choose only one">
                 <?php foreach ($departments as $department) { ?>
                     <option value="<?= $department ?>"><?= $department ?></option>
                 <?php }  ?>
             </optgroup>
         </select>
+        </label>
             <label>Description:<input type="text" name="description" required="required"></label>
           <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
           <input id="button" type="submit" value="Validar Ticket">
@@ -512,7 +517,9 @@ function drawFaq(Session $session){ ?>
     <button class="accordion"><?= $hashtag['question'] ?></button>
     <div class="panel">
       <p><?= $hashtag['answer'] ?></p>
-      <?php if ($_SESSION['role'] != 2 && $session->isLoggedIn()) { ?>
+      <?php 
+      if(isset($_SESSION['role']))
+      if ($_SESSION['role'] != 2 && $session->isLoggedIn()) { ?>
         <div id="faqMenu">
             <a href="../pages/editFaq.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>">Editar</a>
             <a href="../actions/deleteFaq.action.php?question=<?= $hashtag['question'] ?>&answer=<?= $hashtag['answer'] ?>&csrf=<?= $_SESSION['csrf']?>">Apagar</a>
@@ -543,8 +550,6 @@ function drawEditFaqForm() { ?>
 
 <?php
 }
-
-
 
 
 function drawEditTicketForm() { ?>

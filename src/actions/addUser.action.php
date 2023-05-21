@@ -24,22 +24,32 @@
     $stmt2->execute(array($_POST['email']));
     $email = $stmt2->fetch();
     if($username) {
-        $session->addMessage('error', 'Username already exists');
+        $session->addMessage('error', 'Username já existe');
         header('Location: ../pages/register.php');
         die();
      }
     if($email) { 
-        $session->addMessage('error', 'Email already exists');
+        $session->addMessage('error', 'Email já existe');
         header('Location: ../pages/register.php');
         die();
     }
 
     if($email && $username) {
-        $session->addMessage('error', 'Email and Username already exists');
+        $session->addMessage('error', 'Email and Username já existem');
+        header('Location: ../pages/register.php');
+        die();
+    }
+
+    if(!valid_password($_POST['password1']) || !valid_password($_POST['password2'])) {
         header('Location: ../pages/register.php');
         die();
     }
     
+    if($_POST['password1'] != $_POST['password2']) {
+        $session->addMessage('error', 'Passwords não coincidem');
+        header('Location: ../pages/register.php');
+        die();
+    }
     else if ($_POST['password1'] == $_POST['password2'] && valid_password($_POST['password1']) && valid_name($_POST['name']) && valid_email($_POST['email']) && valid_name($_POST['username'])) {
 
         $stmt = $db->prepare('INSERT INTO user(username, name, email, password) VALUES (?, ?, ?, ?)');

@@ -31,6 +31,8 @@
   #ticket-add input[type="text"],
   #ticket-add select {
     margin-left: auto;
+    width: 95%;
+    font-size: 20px;
     border: 1px solid var(--borderColor);
     border-radius: 3px;
     box-sizing: border-box;
@@ -300,6 +302,7 @@
 
   input[type="text"],
 textarea {
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   border: 1px solid var(--borderColorAux);
   border-radius: 5px;
 }
@@ -581,7 +584,7 @@ button[type="submit"] {
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
-    font-size: 2vw;
+    font-size: 20px;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
